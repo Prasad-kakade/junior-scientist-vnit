@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/arduinoexp/register")
+@router.post("/api/arduinoexp/register")
 def register_student(
     # Team Info
     team_name: str = Form(...),

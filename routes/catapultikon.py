@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/catapultikon/register")
+@router.post("/api/catapultikon/register")
 def register_student(
 
     # Team Info

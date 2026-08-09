@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/JSO/register")
+@router.post("/api/JSO/register")
 def register_student(
     full_name: str = Form(...),
     phone: str = Form(...),

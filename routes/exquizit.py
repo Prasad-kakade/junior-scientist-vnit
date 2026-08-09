@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/exquizit/register")
+@router.post("/api/exquizit/register")
 def register_student(
     # Team Info
     team_name: str = Form(...),

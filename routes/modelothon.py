@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/modelothon/register")
+@router.post("/api/modelothon/register")
 def register_student(
     # Team Info
     team_name: str = Form(...),
