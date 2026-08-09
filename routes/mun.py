@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 
-@router.post("/mun/register")
+@router.post("/api/mun/register")
 def register_student(
 
     # Team Info
