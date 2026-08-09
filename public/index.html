@@ -1,16 +1,597 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Junior Scientist 2026 | Science Blast Hub</title><script src="https://cdn.tailwindcss.com"></script><script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>@import url('https://fonts.cdnfonts.com/css/clash-grotesk');:root{--bg-deep:#000000;--accent-white:#ffffff;--glass:rgba(255, 255, 255, 0.05);--glass-border:rgba(255, 255, 255, 0.1)}body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--bg-deep);color:var(--accent-white);overflow-x:hidden}h1,h2,h3,.heading-font{font-family:'Clash Grotesk',sans-serif}.star-field{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:radial-gradient(circle at center,#111 0%,#000 100%)}.glow-text{text-shadow:0 0 20px rgba(255,255,255,0.4)}.glass-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1)}.glass-card:hover{background:rgba(255, 255, 255, 0.08);border-color:rgba(255, 255, 255, 0.2);transform:translateY(-10px)}.neon-card-pink:hover{box-shadow:0 0 30px rgba(255, 20, 147, 0.3); border-color: #FF1493;}.neon-card-blue:hover{box-shadow:0 0 30px rgba(0, 212, 255, 0.3); border-color: #00D4FF;}.neon-card-purple:hover{box-shadow:0 0 30px rgba(157, 78, 221, 0.3); border-color: #9D4EDD;}.neon-card-cyan:hover{box-shadow:0 0 30px rgba(0, 245, 255, 0.3); border-color: #00F5FF;}.neon-card-green:hover{box-shadow:0 0 30px rgba(57, 255, 20, 0.3); border-color: #39FF14;}.neon-card-yellow:hover{box-shadow:0 0 30px rgba(255, 255, 0, 0.3); border-color: #FFFF00;}.neon-card-orange:hover{box-shadow:0 0 30px rgba(255, 140, 0, 0.3); border-color: #FF8C00;}@keyframes scan{0%{top:0}100%{top:100%}}.scan-line{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(255, 255, 255, 0.05);z-index:100;animation:scan 12s linear infinite;pointer-events:none}.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255, 255, 255, 0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255, 255, 255, 0.03) 1px,transparent 1px);background-size:40px 40px;z-index:-1;pointer-events:none}.section-fade-in{opacity:0;transform:translateY(20px);transition:all 0.8s ease-out}.section-fade-in.visible{opacity:1;transform:translateY(0)}.mobile-menu-overlay{position:fixed;top:0;right:-100%;width:100%;height:100vh;background:rgba(0,0,0,0.98);z-index:100;transition:right 0.4s cubic-bezier(0.4, 0, 0.2, 1);backdrop-filter:blur(20px)}.mobile-menu-overlay.active{right:0}.orbit-container{position:fixed;top:50%;left:50%;width:100vw;height:100vh;transform:translate(-50%,-50%);pointer-events:none;z-index:0;perspective:1000px}.science-element{position:absolute;top:50%;left:50%;width:64px;height:64px;margin-top:-32px;margin-left:-32px;display:flex;align-items:center;justify-content:center;color:white;filter:drop-shadow(0 0 15px rgba(255,255,255,0.8));opacity:0;animation:burstAndOrbit var(--total-duration) cubic-bezier(0.16, 1, 0.3, 1) infinite; animation-delay: var(--delay); animation-fill-mode: forwards;}.element-inner{animation:counter-rotate linear infinite}@keyframes burstAndOrbit {
-  0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; filter: brightness(2) blur(10px); }
-  15% { transform: translate(var(--burst-x), var(--burst-y)) scale(1.5) rotate(180deg); opacity: 1; filter: brightness(1.5) blur(0px); }
-  25% { transform: translate(var(--burst-x), var(--burst-y)) scale(1) rotate(360deg); opacity: 0.7; }
-  30% { transform: rotate(var(--rotation-start)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.6; }
-  100% { transform: rotate(var(--rotation-end)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.6; }
-}
-@keyframes counter-rotate { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }</style></head><body><div class="min-h-screen relative flex flex-col">
-        <!-- Top Left VNIT Seal -->
-        <div class="fixed top-4 left-4 z-[60]" style="position: absolute; inset: -11px auto auto 30px; width: 55px; height: 54px;">
-            <a href="#" id="vnit-seal-link" class="block group">
-                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786273127923-7ef76254/image.png" alt="VNIT Official Seal" class="h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] opacity-95 hover:opacity-100 hover:scale-110 transition-all duration-300">
-            </a>
-        </div><div class="star-field" id="starfield"></div><div class="grid-bg"></div><div class="scan-line"></div><div class="orbit-container" id="orbit-container"></div><nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-10 flex justify-between items-center transition-all duration-300 bg-black/80 backdrop-blur-lg border-b border-white/10"><div class="flex items-center gap-2 md:gap-3"><a href="#" id="nav-logo-home" class="flex items-center gap-2 md:gap-3"><div class="w-8 h-8 md:w-10 md:h-10 bg-white flex items-center justify-center rounded-lg"></div><span class="font-bold tracking-widest text-[10px] md:text-sm lg:text-lg max-w-[150px] md:max-w-none uppercase">Visvesvaraya National Institute of Technology</span></a></div><div class="hidden lg:flex items-center gap-8 xl:gap-12 text-sm font-medium tracking-[0.2em] uppercase"><a href="#events" id="nav-events-link" class="hover:text-gray-400 transition-colors">Explore Events</a><a href="#about" id="nav-about-link" class="hover:text-gray-400 transition-colors">About</a></div><button class="lg:hidden text-white p-2" id="mobile-menu-btn" aria-label="Menu"><iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon></button></nav><div id="mobile-menu" class="mobile-menu-overlay flex flex-col p-8"><div class="flex justify-between items-center mb-12"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-white flex items-center justify-center rounded-lg"><span class="text-black font-black text-lg italic">JS</span></div><span class="font-bold tracking-widest text-sm">2026</span></div><button id="close-menu-btn" aria-label="Close Menu"><iconify-icon icon="lucide:x" class="text-3xl text-white"></iconify-icon></button></div><div class="flex flex-col gap-6 text-xl font-bold uppercase tracking-widest mb-12"><a href="#home" id="mobile-nav-home" class="mobile-link">Home</a><a href="#events" id="mobile-nav-events" class="mobile-link">Events</a><a href="#about" id="mobile-nav-about" class="mobile-link">About</a><a href="#register" id="mobile-nav-register" class="mobile-link">Register Now</a></div></div><header id="home" class="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden pt-20 px-4"><div class="relative z-20 max-w-5xl mx-auto"><p class="text-[10px] md:text-sm tracking-[0.3em] md:tracking-[0.5em] text-pink-500 uppercase mb-4 font-bold animate-pulse">Visvesvaraya National Institute of Technology</p><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/88a17fa9-0575-4f8b-8eab-13a352a14901/1786255797882-8d884654/WhatsApp_Image_2026-08-09_at_10.52.04_AM.jpeg" alt="Junior Scientist Logo" class="mx-auto w-[90px] md:w-[120px] lg:w-[150px] object-contain mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] mix-blend-screen"><h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-6 glow-text tracking-tighter uppercase leading-none">Junior Scientist 2026</h1><p class="text-sm md:text-xl lg:text-2xl text-pink-400/80 mb-4 tracking-[0.3em] uppercase font-bold">The Ultimate Science Experience Awaits</p><p class="text-xs md:text-lg max-w-2xl mx-auto font-light leading-relaxed opacity-70 mb-10 px-4">7 Epic Events. Unlimited Possibilities. One Epic Journey. Join us on 11th October, 2026 for a day that redefines scientific excellence.</p><div class="flex flex-col sm:flex-row gap-4 justify-center items-center"><a href="#events" id="hero-events-btn" class="w-full sm:w-auto px-10 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-200 transition-all">Explore Events</a></div></div></header><section id="events" class="py-16 md:py-32 relative z-10"><div class="container mx-auto px-4 md:px-10 text-center mb-16 section-fade-in"><h2 class="text-3xl md:text-6xl font-black mb-4 italic tracking-tighter uppercase">7 Epic Events</h2><p class="text-gray-400 tracking-[0.3em] uppercase text-xs md:text-sm">Choose Your Challenge</p></div><div class="container mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"><a href="catapultikon.html" id="card-catapultikon" class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:target" class="text-4xl mb-6 text-[#FF1493]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Catapultikon</h3><p class="text-[10px] uppercase tracking-widest text-[#FF1493] font-bold mb-4">Physics &amp; Precision</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Red Light. Green Light... with Physics. Master the laws of motion in our signature projectile challenge.</p><div class="py-3 border-2 border-[#FF1493] text-[#FF1493] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FF1493] group-hover:text-black transition-all">Register</div></a><a href="mun.html" id="card-mun" class="glass-card neon-card-blue p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:globe" class="text-4xl mb-6 text-[#00D4FF]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">MUN Summit</h3><p class="text-[10px] uppercase tracking-widest text-[#00D4FF] font-bold mb-4">Diplomacy &amp; Debate</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Master the art of global diplomacy. Resolve international crises in the Model United Nations forum.</p><div class="py-3 border-2 border-[#00D4FF] text-[#00D4FF] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#00D4FF] group-hover:text-black transition-all">Register</div></a><a href="mathamaze.html" id="card-mathamaze" class="glass-card neon-card-purple p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:brain" class="text-4xl mb-6 text-[#9D4EDD]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Mathamaze</h3><p class="text-[10px] uppercase tracking-widest text-[#9D4EDD] font-bold mb-4">Mathematical Mastery</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Navigate the labyrinth of logic. Prove your mathematical supremacy in this elite solving challenge.</p><div class="py-3 border-2 border-[#9D4EDD] text-[#9D4EDD] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#9D4EDD] group-hover:text-black transition-all">Register</div></a><a href="modelothon.html" id="card-modelothon" class="glass-card neon-card-cyan p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:layers" class="text-4xl mb-6 text-[#00F5FF]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Modelothon</h3><p class="text-[10px] uppercase tracking-widest text-[#00F5FF] font-bold mb-4">Innovation &amp; Modeling</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Build. Innovate. Compete. Manifest your engineering dreams into physical architectural models.</p><div class="py-3 border-2 border-[#00F5FF] text-[#00F5FF] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#00F5FF] group-hover:text-black transition-all">Register</div></a><a href="exquizit.html" id="card-exquizit" class="glass-card neon-card-green p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:help-circle" class="text-4xl mb-6 text-[#39FF14]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Exquizit</h3><p class="text-[10px] uppercase tracking-widest text-[#39FF14] font-bold mb-4">Knowledge Quest</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">High-speed intelligence test. The premier general science quiz rewarding both speed and accuracy.</p><div class="py-3 border-2 border-[#39FF14] text-[#39FF14] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#39FF14] group-hover:text-black transition-all">Register</div></a><a href="jso.html" id="card-olympiad" class="glass-card neon-card-yellow p-8 rounded-3xl group flex flex-col h-full section-fade-in"><iconify-icon icon="lucide:award" class="text-4xl mb-6 text-[#FFFF00]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">JS Olympiad</h3><p class="text-[10px] uppercase tracking-widest text-[#FFFF00] font-bold mb-4">Academic Excellence</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">The ultimate test of scientific logic. Rigorous assessments in Physics, Chemistry, and Biology.</p><div class="py-3 border-2 border-[#FFFF00] text-[#FFFF00] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FFFF00] group-hover:text-black transition-all">Register</div></a><a href="arduinoexp.html" id="card-arduino" class="glass-card neon-card-orange p-8 rounded-3xl group flex flex-col h-full section-fade-in lg:col-span-2 xl:col-span-1"><iconify-icon icon="lucide:cpu" class="text-4xl mb-6 text-[#FF8C00]"></iconify-icon><h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Arduino Expo</h3><p class="text-[10px] uppercase tracking-widest text-[#FF8C00] font-bold mb-4">Electronics &amp; Robotics</p><p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Build circuits. Control robots. Manifest your digital dreams into physical reality through electronics.</p><div class="py-3 border-2 border-[#FF8C00] text-[#FF8C00] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FF8C00] group-hover:text-black transition-all">Register</div></a></div></section><section id="about" class="py-16 md:py-32 relative bg-black z-10"><div class="container mx-auto px-4 md:px-10"><div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center"><div class="section-fade-in"><h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">THE VISIONARY INSPIRATION</h2><p class="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">Junior Scientist 2026, hosted by VNIT Nagpur, draws inspiration from the legendary Dr. APJ Abdul Kalam. We strive to foster the same scientific curiosity and visionary thinking that he embodied, providing a platform for the next generation of innovators to shine.</p><div class="grid grid-cols-2 gap-8"><div class="glass-card p-6 rounded-2xl"><span class="text-3xl md:text-4xl font-black block mb-2 text-pink-500">5000+</span><span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Participants</span></div><div class="glass-card p-6 rounded-2xl"><span class="text-3xl md:text-4xl font-black block mb-2 text-blue-500">7</span><span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Epic Challenges</span></div></div></div><div class="relative section-fade-in group"><div class="absolute -inset-4 border border-white/20 rounded-2xl group-hover:scale-105 transition-all duration-500"></div><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/88a17fa9-0575-4f8b-8eab-13a352a14901/1786254017012-9025c2fe/Dr_APJ.jpeg" alt="Dr. APJ Abdul Kalam at VNIT Nagpur" class="rounded-xl relative z-10 w-full aspect-video object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"></div></div></div></section><section id="overall-reps" class="py-16 md:py-32 relative z-10"><div class="container mx-auto px-4 md:px-10 text-center mb-16 section-fade-in"><h2 class="text-3xl md:text-6xl font-black mb-4 italic tracking-tighter uppercase">Overall Representatives</h2><p class="text-gray-400 tracking-[0.3em] uppercase text-xs md:text-sm">Meet the Team</p></div><div class="container mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8"><div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in"><iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon><h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Baba Suryawanshi</h3><a href="tel:9699381424" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9699381424</a></div><div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in"><iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon><h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Abhigyan Shukla</h3><a href="tel:9451117474" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9451117474</a></div><div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in"><iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon><h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Janhavi Bhishma</h3><a href="tel:9175992129" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9175992129</a></div><div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in"><iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon><h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Dev Mehta</h3><a href="tel:9588417440" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9588417440</a></div><div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in"><iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon><h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Prishita Mishra</h3><a href="tel:8448927606" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">8448927606</a></div></div></section><footer class="pt-20 pb-10 border-t border-white/10 bg-black z-10"><div class="container mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"><div class="col-span-1 md:col-span-2 text-center md:text-left"><div class="flex items-center justify-center md:justify-start gap-3 mb-6"><div class="w-10 h-10 bg-white flex items-center justify-center rounded-lg"><span class="text-black font-black text-xl italic">JS</span></div><span class="text-xl md:text-2xl font-bold tracking-widest">VNIT NAGPUR</span></div><p class="text-gray-500 max-w-sm mx-auto md:mx-0 mb-8 font-medium">The central command hub for the Junior Scientist ecosystem. Experience the future of science through interactive competition.</p></div><div class="text-center md:text-left"><h5 class="text-sm uppercase tracking-widest font-bold mb-6 text-white">Event Portal</h5><ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest"><li><a href="catapultikon.html" id="footer-link-catapult" class="hover:text-pink-500 transition-colors">Catapultikon</a></li><li><a href="mun.html" id="footer-link-mun" class="hover:text-blue-500 transition-colors">MUN Summit</a></li><li><a href="mathamaze.html" id="footer-link-math" class="hover:text-purple-500 transition-colors">Mathamaze</a></li><li><a href="modelothon.html" id="footer-link-model" class="hover:text-cyan-500 transition-colors">Modelothon</a></li></ul></div><div class="text-center md:text-left"><h5 class="text-sm uppercase tracking-widest font-bold mb-6 text-white">Excellence</h5><ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest"><li><a href="exquizit.html" id="footer-link-exquizit" class="hover:text-green-500 transition-colors">Exquizit</a></li><li><a href="jso.html" id="footer-link-olympiad" class="hover:text-yellow-500 transition-colors">Olympiad</a></li><li><a href="arduinoexp.html" id="footer-link-arduino" class="hover:text-orange-500 transition-colors">Arduino Expo</a></li></ul></div></div><div class="container mx-auto px-4 md:px-10 pt-10 border-t border-white/5 text-center text-[10px] text-gray-700 uppercase tracking-widest">© 2026 JUNIOR SCIENTIST ECOSYSTEM. VISVESVARAYA NATIONAL INSTITUTE OF TECHNOLOGY. ALL SYSTEMS ACTIVE.</div></footer></div><script>const mobileMenu = document.getElementById('mobile-menu');const menuBtn = document.getElementById('mobile-menu-btn');const closeBtn = document.getElementById('close-menu-btn');const mobileLinks = document.querySelectorAll('.mobile-link');menuBtn.onclick = () => mobileMenu.classList.add('active');closeBtn.onclick = () => mobileMenu.classList.remove('active');mobileLinks.forEach(link => {link.onclick = () => mobileMenu.classList.remove('active');});const starContainer = document.getElementById('starfield');function createStars() {for (let i = 0; i < 150; i++) {const star = document.createElement('div');star.style.position = 'absolute';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.width = Math.random() * 2 + 'px';star.style.height = star.style.width;star.style.backgroundColor = 'white';star.style.borderRadius = '50%';star.style.opacity = Math.random() * 0.5;starContainer.appendChild(star);}}createStars();const observer = new IntersectionObserver((entries) => {entries.forEach(entry => {if (entry.isIntersecting) entry.target.classList.add('visible');});}, { threshold: 0.1 });document.querySelectorAll('.section-fade-in').forEach(el => observer.observe(el));const scienceIcons = ['lucide:microscope','lucide:atom','lucide:flask-conical','lucide:dna','lucide:biohazard','lucide:brain','lucide:cpu','lucide:test-tube-2','lucide:magnet','lucide:zap','lucide:lightbulb','lucide:telescope','lucide:component'];const orbitContainer = document.getElementById('orbit-container');function createOrbitElements() {const elementCount = window.innerWidth < 768 ? 8 : 14;for (let i = 0; i < elementCount; i++) {const element = document.createElement('div');element.className = 'science-element';const icon = document.createElement('iconify-icon');icon.setAttribute('icon', scienceIcons[i % scienceIcons.length]);icon.style.fontSize = (Math.random() * 20 + 32) + 'px';icon.className = 'element-inner';element.appendChild(icon);const angle = (i / elementCount) * Math.PI * 2; const burstDist = window.innerWidth < 768 ? 120 : 250; const burstX = Math.cos(angle) * burstDist + 'px'; const burstY = Math.sin(angle) * burstDist + 'px'; const radius = (window.innerWidth < 768 ? 35 : 45) + (Math.random() * 5) + 'vw'; const totalDuration = 35 + (Math.random() * 10) + 's'; const rotationStart = (i / elementCount * 360) + 'deg'; const rotationEnd = (parseFloat(rotationStart) + 360) + 'deg'; const rotationOffset = (Math.random() * 20 - 10) + 'deg'; element.style.setProperty('--burst-x', burstX); element.style.setProperty('--burst-y', burstY); element.style.setProperty('--orbit-radius', radius); element.style.setProperty('--rotation-start', rotationStart); element.style.setProperty('--rotation-end', rotationEnd); element.style.setProperty('--rotation-offset', rotationOffset); element.style.setProperty('--delay', (i * 0.15) + 's'); element.style.setProperty('--total-duration', totalDuration); const inner = element.querySelector('.element-inner'); inner.style.animationDuration = '15s';orbitContainer.appendChild(element);}}createOrbitElements();window.onscroll = () => {const nav = document.getElementById('navbar');if (window.scrollY > 20) {nav.style.backgroundColor = 'rgba(0,0,0,0.95)';nav.style.paddingTop = '12px';nav.style.paddingBottom = '12px';} else {nav.style.backgroundColor = 'rgba(0,0,0,0.8)';nav.style.paddingTop = '16px';nav.style.paddingBottom = '16px';}};</script></body></html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Junior Scientist 2026 | Science Blast Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+        :root {
+            --bg-deep: #000000;
+            --accent-white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        body.light-mode {
+            --bg-deep: #f9f3e6;
+            --accent-white: #1a1a1a;
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-mode .star-field {
+            opacity: 0.4;
+            background: radial-gradient(circle at center, #f0e6d2 0%, #f9f3e6 100%) !important;
+        }
+
+        body.light-mode .grid-bg {
+            opacity: 0.1;
+        }
+
+        body.light-mode .star-field div {
+            background-color: #d4a574 !important;
+            opacity: 0.6 !important;
+        }
+
+        body.light-mode .scan-line {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        body.light-mode section#about {
+            background-color: #f9f3e6 !important;
+        }
+
+        body.light-mode footer {
+            background-color: #f9f3e6 !important;
+            border-top-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .text-gray-400,
+        body.light-mode .text-gray-500 {
+            color: #4a4a4a;
+        }
+
+        body.light-mode a:not(.bg-white):not(.border-white):not([id^='card-']):not([id^='hero-']) {
+            color: #d4a574;
+        }
+
+        body.light-mode #navbar {
+            background-color: #f9f3e6;
+            border-bottom-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--accent-white);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        .heading-font {
+            font-family: 'Clash Grotesk', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .neon-card-pink:hover { box-shadow: 0 0 30px rgba(255, 20, 147, 0.3); border-color: #FF1493; }
+        .neon-card-blue:hover { box-shadow: 0 0 30px rgba(0, 212, 255, 0.3); border-color: #00D4FF; }
+        .neon-card-purple:hover { box-shadow: 0 0 30px rgba(157, 78, 221, 0.3); border-color: #9D4EDD; }
+        .neon-card-cyan:hover { box-shadow: 0 0 30px rgba(0, 245, 255, 0.3); border-color: #00F5FF; }
+        .neon-card-green:hover { box-shadow: 0 0 30px rgba(57, 255, 20, 0.3); border-color: #39FF14; }
+        .neon-card-yellow:hover { box-shadow: 0 0 30px rgba(255, 255, 0, 0.3); border-color: #FFFF00; }
+        .neon-card-orange:hover { box-shadow: 0 0 30px rgba(255, 140, 0, 0.3); border-color: #FF8C00; }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 100;
+            animation: scan 12s linear infinite;
+            pointer-events: none;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 100;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu-overlay.active {
+            right: 0;
+        }
+
+        .orbit-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            perspective: 1000px;
+        }
+
+        .science-element {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 64px;
+            height: 64px;
+            margin-top: -32px;
+            margin-left: -32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+            opacity: 0;
+            animation: burstAndOrbit var(--total-duration) cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            animation-delay: var(--delay);
+            animation-fill-mode: forwards;
+        }
+
+        .element-inner {
+            animation: counter-rotate linear infinite;
+        }
+
+        @keyframes burstAndOrbit {
+            0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; filter: brightness(2) blur(10px); }
+            15% { transform: translate(var(--burst-x), var(--burst-y)) scale(1.5) rotate(180deg); opacity: 1; filter: brightness(1.5) blur(0px); }
+            25% { transform: translate(var(--burst-x), var(--burst-y)) scale(1) rotate(360deg); opacity: 0.7; }
+            30% { transform: rotate(var(--rotation-start)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.6; }
+            100% { transform: rotate(var(--rotation-end)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.6; }
+        }
+
+        @keyframes counter-rotate { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(-360deg); } 
+        }
+
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <!-- Top Left VNIT Seal -->
+        
+        
+        <div class="star-field" id="starfield"></div>
+        <div class="grid-bg"></div>
+        <div class="scan-line"></div>
+        <div class="orbit-container" id="orbit-container"></div>
+
+        <!-- Header Navigation -->
+        <nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-10 flex justify-between items-center transition-all duration-300 bg-black border-b border-white/10">
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="#" id="nav-logo-home" class="flex items-center gap-2 md:gap-3 pl-0">
+                    
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786280732813-ee107996/vnit_bg_removed.png" alt="VNIT Seal" class="w-10 md:w-12 h-10 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] mix-blend-screen"><span class="font-bold tracking-widest text-[10px] md:text-sm lg:text-lg max-w-[150px] md:max-w-none uppercase">Visvesvaraya National Institute of Technology</span>
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-4 md:gap-8">
+                <!-- Theme Toggle Desktop (Left of Explore Events) -->
+                <button id="theme-toggle-desktop" class="hidden lg:flex w-10 h-10 items-center justify-center rounded-full border border-white/20 bg-white/5 hover:border-[#FFD700] hover:scale-110 transition-all duration-300 text-white" aria-label="Toggle Theme">
+                    <iconify-icon class="theme-icon text-xl" icon="lucide:sun"></iconify-icon>
+                </button>
+
+                <div class="hidden lg:flex items-center gap-8 xl:gap-12 text-sm font-medium tracking-[0.2em] uppercase">
+                    <a href="#events" id="nav-events-link" class="hover:text-gray-400 transition-colors">Explore Events</a>
+                    <a href="#about" id="nav-about-link" class="hover:text-gray-400 transition-colors">About</a>
+                </div>
+
+                <button class="lg:hidden text-white p-2" id="mobile-menu-btn" aria-label="Menu">
+                    <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-menu-overlay flex flex-col p-8">
+            <div class="flex justify-between items-center mb-12">
+                <div class="flex items-center gap-3">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786280732813-ee107996/vnit_bg_removed.png" alt="VNIT Seal" class="w-10 h-10 object-contain">
+                    <span class="font-bold tracking-widest text-sm">2026</span>
+                </div>
+                <button id="close-menu-btn" aria-label="Close Menu">
+                    <iconify-icon icon="lucide:x" class="text-3xl text-white"></iconify-icon>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 text-xl font-bold uppercase tracking-widest mb-12">
+                <a href="#home" id="mobile-nav-home" class="mobile-link">Home</a>
+                <a href="#events" id="mobile-nav-events" class="mobile-link">Events</a>
+                <a href="#about" id="mobile-nav-about" class="mobile-link">About</a>
+                <a href="#register" id="mobile-nav-register" class="mobile-link text-pink-500">Register Now</a>
+                
+                <!-- Theme Toggle Mobile (Below Nav Items) -->
+                <div class="pt-8 mt-8 border-t border-white/10">
+                    <button id="theme-toggle-mobile" class="flex items-center gap-4 px-6 py-4 rounded-xl border border-white/20 bg-white/5 text-sm uppercase tracking-widest w-full text-white">
+                        <iconify-icon class="theme-icon text-2xl" icon="lucide:sun"></iconify-icon>
+                        <span class="theme-label">Toggle Light Mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <header id="home" class="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden pt-20 px-4">
+            <div class="relative z-20 max-w-5xl mx-auto">
+                <p class="text-[10px] md:text-sm tracking-[0.3em] md:tracking-[0.5em] text-pink-500 uppercase mb-4 font-bold animate-pulse">Visvesvaraya National Institute of Technology</p>
+                <div class="flex items-center justify-center gap-4 md:gap-8 lg:gap-10 mb-6">
+                    
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786280253865-c7acba24/js_bg_removed.png" alt="Junior Scientist Logo" class="w-[80px] md:w-[110px] lg:w-[130px] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] mix-blend-screen"><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786280442433-15fd8a64/axis_bg_removed.png" alt="AXIS'27 Logo" class="w-[90px] md:w-[130px] lg:w-[160px] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] mix-blend-screen" style="width: 292px; height: 134px; filter: brightness(1.4) contrast(1.1) saturate(1.2);"><div class="h-12 w-px bg-white/20 hidden sm:block"></div>
+                    
+                </div>
+                <h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-6 glow-text tracking-tighter uppercase leading-none">Junior Scientist 2026</h1>
+                <p class="text-sm md:text-xl lg:text-2xl text-pink-400/80 mb-4 tracking-[0.3em] uppercase font-bold">The Ultimate Science Experience Awaits</p>
+                <p class="text-xs md:text-lg max-w-2xl mx-auto font-light leading-relaxed opacity-70 mb-10 px-4">7 Epic Events. Unlimited Possibilities. One Epic Journey. Join us on 11th October, 2026 for a day that redefines scientific excellence.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#events" id="hero-events-btn" class="w-full sm:w-auto px-10 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-200 transition-all">Explore Events</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="events" class="py-16 md:py-32 relative z-10">
+            <div class="container mx-auto px-4 md:px-10 text-center mb-16 section-fade-in">
+                <h2 class="text-3xl md:text-6xl font-black mb-4 italic tracking-tighter uppercase">7 Epic Events</h2>
+                <p class="text-gray-400 tracking-[0.3em] uppercase text-xs md:text-sm">Choose Your Challenge</p>
+            </div>
+            <div class="container mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                <a href="catapultikon.html" id="card-catapultikon" class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:target" class="text-4xl mb-6 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Catapultikon</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#FF1493] font-bold mb-4">Physics &amp; Precision</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Red Light. Green Light... with Physics. Master the laws of motion in our signature projectile challenge.</p>
+                    <div class="py-3 border-2 border-[#FF1493] text-[#FF1493] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FF1493] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="mun.html" id="card-mun" class="glass-card neon-card-blue p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:globe" class="text-4xl mb-6 text-[#00D4FF]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">MUN Summit</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#00D4FF] font-bold mb-4">Diplomacy &amp; Debate</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Master the art of global diplomacy. Resolve international crises in the Model United Nations forum.</p>
+                    <div class="py-3 border-2 border-[#00D4FF] text-[#00D4FF] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#00D4FF] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="mathamaze.html" id="card-mathamaze" class="glass-card neon-card-purple p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:brain" class="text-4xl mb-6 text-[#9D4EDD]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Mathamaze</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#9D4EDD] font-bold mb-4">Mathematical Mastery</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Navigate the labyrinth of logic. Prove your mathematical supremacy in this elite solving challenge.</p>
+                    <div class="py-3 border-2 border-[#9D4EDD] text-[#9D4EDD] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#9D4EDD] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="modelothon.html" id="card-modelothon" class="glass-card neon-card-cyan p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:layers" class="text-4xl mb-6 text-[#00F5FF]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Modelothon</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#00F5FF] font-bold mb-4">Innovation &amp; Modeling</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Build. Innovate. Compete. Manifest your engineering dreams into physical architectural models.</p>
+                    <div class="py-3 border-2 border-[#00F5FF] text-[#00F5FF] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#00F5FF] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="exquizit.html" id="card-exquizit" class="glass-card neon-card-green p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:help-circle" class="text-4xl mb-6 text-[#39FF14]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Exquizit</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#39FF14] font-bold mb-4">Knowledge Quest</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">High-speed intelligence test. The premier general science quiz rewarding both speed and accuracy.</p>
+                    <div class="py-3 border-2 border-[#39FF14] text-[#39FF14] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#39FF14] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="jso.html" id="card-olympiad" class="glass-card neon-card-yellow p-8 rounded-3xl group flex flex-col h-full section-fade-in">
+                    <iconify-icon icon="lucide:award" class="text-4xl mb-6 text-[#FFFF00]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">JS Olympiad</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#FFFF00] font-bold mb-4">Academic Excellence</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">The ultimate test of scientific logic. Rigorous assessments in Physics, Chemistry, and Biology.</p>
+                    <div class="py-3 border-2 border-[#FFFF00] text-[#FFFF00] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FFFF00] group-hover:text-black transition-all">Register</div>
+                </a>
+                <a href="arduinoexp.html" id="card-arduino" class="glass-card neon-card-orange p-8 rounded-3xl group flex flex-col h-full section-fade-in lg:col-span-2 xl:col-span-1">
+                    <iconify-icon icon="lucide:cpu" class="text-4xl mb-6 text-[#FF8C00]"></iconify-icon>
+                    <h3 class="text-2xl font-black mb-1 uppercase tracking-tighter">Arduino Expo</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-[#FF8C00] font-bold mb-4">Electronics &amp; Robotics</p>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">Build circuits. Control robots. Manifest your digital dreams into physical reality through electronics.</p>
+                    <div class="py-3 border-2 border-[#FF8C00] text-[#FF8C00] text-center font-bold uppercase tracking-widest text-xs group-hover:bg-[#FF8C00] group-hover:text-black transition-all">Register</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-32 relative bg-black z-10">
+            <div class="container mx-auto px-4 md:px-10">
+                <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <div class="section-fade-in">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">THE VISIONARY INSPIRATION</h2>
+                        <p class="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">Junior Scientist 2026, hosted by VNIT Nagpur, draws inspiration from the legendary Dr. APJ Abdul Kalam. We strive to foster the same scientific curiosity and visionary thinking that he embodied, providing a platform for the next generation of innovators to shine.</p>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="glass-card p-6 rounded-2xl">
+                                <span class="text-3xl md:text-4xl font-black block mb-2 text-pink-500">5000+</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Participants</span>
+                            </div>
+                            <div class="glass-card p-6 rounded-2xl">
+                                <span class="text-3xl md:text-4xl font-black block mb-2 text-blue-500">7</span>
+                                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Epic Challenges</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative section-fade-in group">
+                        <div class="absolute -inset-4 border border-white/20 rounded-2xl group-hover:scale-105 transition-all duration-500"></div>
+                        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/88a17fa9-0575-4f8b-8eab-13a352a14901/1786254017012-9025c2fe/Dr_APJ.jpeg" alt="Dr. APJ Abdul Kalam at VNIT Nagpur" class="rounded-xl relative z-10 w-full aspect-video object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overall-reps" class="py-16 md:py-32 relative z-10">
+            <div class="container mx-auto px-4 md:px-10 text-center mb-16 section-fade-in">
+                <h2 class="text-3xl md:text-6xl font-black mb-4 italic tracking-tighter uppercase">Overall Representatives</h2>
+                <p class="text-gray-400 tracking-[0.3em] uppercase text-xs md:text-sm">Meet the Team</p>
+            </div>
+            <div class="container mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+                <div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in">
+                    <iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Baba Suryawanshi</h3>
+                    <a href="tel:9699381424" id="rep-contact-baba" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9699381424</a>
+                </div>
+                <div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in">
+                    <iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Abhigyan Shukla</h3>
+                    <a href="tel:9451117474" id="rep-contact-shukla" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9451117474</a>
+                </div>
+                <div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in">
+                    <iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Janhavi Bhishma</h3>
+                    <a href="tel:9175992129" id="rep-contact-janhavi" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9175992129</a>
+                </div>
+                <div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in">
+                    <iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Dev Mehta</h3>
+                    <a href="tel:9588417440" id="rep-contact-dev" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">9588417440</a>
+                </div>
+                <div class="glass-card neon-card-pink p-8 rounded-3xl group flex flex-col items-center text-center section-fade-in">
+                    <iconify-icon icon="lucide:user" class="text-4xl mb-4 text-[#FF1493]"></iconify-icon>
+                    <h3 class="text-lg font-black mb-2 uppercase tracking-tighter">Prishita Mishra</h3>
+                    <a href="tel:8448927606" id="rep-contact-prishita" class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">8448927606</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="pt-20 pb-10 border-t border-white/10 bg-black z-10">
+            <div class="container mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 md:col-span-2 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <span class="text-xl md:text-2xl font-bold tracking-widest">VNIT NAGPUR</span>
+                    </div>
+                    <p class="text-gray-500 max-w-sm mx-auto md:mx-0 mb-8 font-medium">The central command hub for the Junior Scientist ecosystem. Experience the future of science through interactive competition.</p>
+                </div>
+                <div class="text-center md:text-left md:col-span-2">
+                    <h5 class="text-sm uppercase tracking-widest font-bold mb-6 text-white">Events</h5>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                            <li><a href="catapultikon.html" id="footer-link-catapult" class="hover:text-pink-500 transition-colors">Catapultikon</a></li>
+                            <li><a href="mun.html" id="footer-link-mun" class="hover:text-blue-500 transition-colors">MUN Summit</a></li>
+                        </ul>
+                        <ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                            <li><a href="mathamaze.html" id="footer-link-math" class="hover:text-purple-500 transition-colors">Mathamaze</a></li>
+                            <li><a href="modelothon.html" id="footer-link-model" class="hover:text-cyan-500 transition-colors">Modelothon</a></li>
+                        </ul>
+                        <ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                            <li><a href="exquizit.html" id="footer-link-exquizit" class="hover:text-green-500 transition-colors">Exquizit</a></li>
+                            <li><a href="jso.html" id="footer-link-olympiad" class="hover:text-yellow-500 transition-colors">Olympiad</a></li>
+                        </ul>
+                        <ul class="space-y-4 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                            <li><a href="arduinoexp.html" id="footer-link-arduino" class="hover:text-orange-500 transition-colors">Arduino Expo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 md:px-10 pt-10 border-t border-white/5 text-center text-[10px] text-gray-700 uppercase tracking-widest">
+                © 2026 JUNIOR SCIENTIST ECOSYSTEM. VISVESVARAYA NATIONAL INSTITUTE OF TECHNOLOGY. ALL SYSTEMS ACTIVE.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.onclick = () => mobileMenu.classList.add('active');
+        closeBtn.onclick = () => mobileMenu.classList.remove('active');
+        mobileLinks.forEach(link => {
+            link.onclick = () => mobileMenu.classList.remove('active');
+        });
+
+        const starContainer = document.getElementById('starfield');
+        function createStars() {
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.opacity = Math.random() * 0.5;
+                starContainer.appendChild(star);
+            }
+        }
+        createStars();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.section-fade-in').forEach(el => observer.observe(el));
+
+        const scienceIcons = ['lucide:microscope','lucide:atom','lucide:flask-conical','lucide:dna','lucide:biohazard','lucide:brain','lucide:cpu','lucide:test-tube-2','lucide:magnet','lucide:zap','lucide:lightbulb','lucide:telescope','lucide:component'];
+        const orbitContainer = document.getElementById('orbit-container');
+
+        function createOrbitElements() {
+            const elementCount = window.innerWidth < 768 ? 8 : 14;
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'science-element';
+                const icon = document.createElement('iconify-icon');
+                icon.setAttribute('icon', scienceIcons[i % scienceIcons.length]);
+                icon.style.fontSize = (Math.random() * 20 + 32) + 'px';
+                icon.className = 'element-inner';
+                element.appendChild(icon);
+                const angle = (i / elementCount) * Math.PI * 2;
+                const burstDist = window.innerWidth < 768 ? 120 : 250;
+                const burstX = Math.cos(angle) * burstDist + 'px';
+                const burstY = Math.sin(angle) * burstDist + 'px';
+                const radius = (window.innerWidth < 768 ? 35 : 45) + (Math.random() * 5) + 'vw';
+                const totalDuration = 35 + (Math.random() * 10) + 's';
+                const rotationStart = (i / elementCount * 360) + 'deg';
+                const rotationEnd = (parseFloat(rotationStart) + 360) + 'deg';
+                const rotationOffset = (Math.random() * 20 - 10) + 'deg';
+                element.style.setProperty('--burst-x', burstX);
+                element.style.setProperty('--burst-y', burstY);
+                element.style.setProperty('--orbit-radius', radius);
+                element.style.setProperty('--rotation-start', rotationStart);
+                element.style.setProperty('--rotation-end', rotationEnd);
+                element.style.setProperty('--rotation-offset', rotationOffset);
+                element.style.setProperty('--delay', (i * 0.15) + 's');
+                element.style.setProperty('--total-duration', totalDuration);
+                const inner = element.querySelector('.element-inner');
+                inner.style.animationDuration = '15s';
+                orbitContainer.appendChild(element);
+            }
+        }
+        createOrbitElements();
+
+        // Theme Toggle Logic
+        const themeToggles = [document.getElementById('theme-toggle-desktop'), document.getElementById('theme-toggle-mobile')];
+        const body = document.body;
+
+        function updateTheme(isLight) {
+            const nav = document.getElementById('navbar');
+            const icons = document.querySelectorAll('.theme-icon');
+            const labels = document.querySelectorAll('.theme-label');
+            
+            if (isLight) {
+                body.classList.add('light-mode');
+                icons.forEach(icon => icon.setAttribute('icon', 'lucide:moon'));
+                labels.forEach(label => label.textContent = 'Switch to Dark Mode');
+                themeToggles.forEach(btn => {
+                    if (btn) {
+                        btn.classList.replace('text-white', 'text-black');
+                        btn.classList.replace('border-white/20', 'border-black/20');
+                    }
+                });
+                if(nav) nav.style.backgroundColor = '#f9f3e6';
+            } else {
+                body.classList.remove('light-mode');
+                icons.forEach(icon => icon.setAttribute('icon', 'lucide:sun'));
+                labels.forEach(label => label.textContent = 'Switch to Light Mode');
+                themeToggles.forEach(btn => {
+                    if (btn) {
+                        btn.classList.replace('text-black', 'text-white');
+                        btn.classList.replace('border-black/20', 'border-white/20');
+                    }
+                });
+                if(nav) nav.style.backgroundColor = '#000000';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme-preference');
+        if (savedTheme === 'light') updateTheme(true);
+
+        themeToggles.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const isLight = body.classList.toggle('light-mode');
+                    updateTheme(isLight);
+                    localStorage.setItem('theme-preference', isLight ? 'light' : 'dark');
+                });
+            }
+        });
+
+        window.onscroll = () => {
+            const nav = document.getElementById('navbar');
+            const isLight = document.body.classList.contains('light-mode');
+            if (window.scrollY > 20) {
+                nav.style.backgroundColor = isLight ? '#f9f3e6' : '#000000';
+                nav.style.paddingTop = '12px';
+                nav.style.paddingBottom = '12px';
+            } else {
+                nav.style.backgroundColor = isLight ? '#f9f3e6' : '#000000';
+                nav.style.paddingTop = '16px';
+                nav.style.paddingBottom = '16px';
+            }
+        };
+    </script>
+
+</body></html>
