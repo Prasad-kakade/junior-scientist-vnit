@@ -2,7 +2,6 @@ import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 from routes import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun
 
@@ -16,12 +15,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(modelothon.router, prefix="/api")
-app.include_router(mathamaze.router, prefix="/api")
-app.include_router(jso.router, prefix="/api")
-app.include_router(catapultikon.router, prefix="/api")
-app.include_router(exquizit.router, prefix="/api")
-app.include_router(arduinoexp.router, prefix="/api")
-app.include_router(mun.router, prefix="/api")
+# List of all your routers
+routers = [
+    modelothon.router,
+    mathamaze.router,
+    jso.router,
+    catapultikon.router,
+    exquizit.router,
+    arduinoexp.router,
+    mun.router,
+]
 
-# Serve static HTML pages from the public/ directory
+# Register each router WITH and WITHOUT the /api prefix so Vercel never 404s
+for r in routers:
+    app.include_router(r, prefix="/api")
+    app.include_router(r)
