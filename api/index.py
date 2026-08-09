@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from api import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun
+from routes import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun
 
 app = FastAPI()
 
