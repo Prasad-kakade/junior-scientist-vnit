@@ -5,9 +5,9 @@ import logging
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-
-
-
+# --- STACK THE DECORATORS HERE ---
+# This forces FastAPI to accept both URL variations so Vercel can't 404 it.
+@router.post("/api/mathamaze/register")
 @router.post("/mathamaze/register")
 def register_student(
     full_name: str = Form(...),
