@@ -28,5 +28,4 @@ routers = [
 
 # Register each router WITH and WITHOUT the /api prefix so Vercel never 404s
 for r in routers:
-    app.include_router(r, prefix="/api")
     app.include_router(r)
