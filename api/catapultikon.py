@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Form, HTTPException
+import logging
 from api.google_sheet import get_sheet_connection
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 
@@ -63,6 +65,5 @@ def register_student(
                 "message": "Saved to Google Cloud!"
             }
     except Exception as e:
-            raise HTTPException(status_code=500, detail=str(e))
-
-    
+        logger.exception("Catapultikon registration failed")
+        raise HTTPException(status_code=500, detail="Registration failed. Please try again later.")

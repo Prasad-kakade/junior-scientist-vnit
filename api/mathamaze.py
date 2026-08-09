@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Form, HTTPException
 from api.google_sheet import get_sheet_connection
+import logging
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 
@@ -35,6 +37,9 @@ def register_student(
                 "message": "Saved Successfully!"
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception("Mathamaze registration failed")
+
+        raise HTTPException(status_code=500, detail="Registration failed. Please try again later.")
+
 
     
