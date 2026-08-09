@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from api import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun
 
@@ -20,3 +21,6 @@ app.include_router(catapultikon.router, prefix="/api")
 app.include_router(exquizit.router, prefix="/api")
 app.include_router(arduinoexp.router, prefix="/api")
 app.include_router(mun.router, prefix="/api")
+
+# Serve static HTML pages from the public/ directory
+app.mount("/", StaticFiles(directory="public", html=True), name="public")
