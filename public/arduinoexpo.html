@@ -1,6 +1,3 @@
-Page: ARDUINO EXPO | Light Mode Integration
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -418,7 +415,8 @@ themeToggle.addEventListener('click', () => {
                     const result = await response.json().catch(() => ({}));
 
                     if (response.ok) {
-                        alert('Registration Successful! Welcome to the Arduino Expo.');
+                        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+                        alert('Registration Successful! Welcome to the Arduino Expo.' + regId);
                         form.reset();
                         renderMembers();
                     } else {
@@ -436,6 +434,3 @@ themeToggle.addEventListener('click', () => {
     </script>
 </body>
 </html>
-```
-
-Please reference this design and implement it into our codebase; Try to understand the structure, which part of our codebase is relevant and implement
