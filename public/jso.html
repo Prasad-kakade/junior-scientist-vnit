@@ -1,0 +1,430 @@
+Page: Junior Scientist Olympiad | Theme Toggle Integration
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUNIOR SCIENTIST OLYMPIAD | Junior Scientist VNIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+
+        :root {
+            --bg-primary: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --neon-lime: #00FF00;
+            --neon-lime-glow: #ADFF2F;
+            --glass: rgba(0, 0, 0, 0.85);
+            --glass-border: rgba(0, 255, 0, 0.2);
+            --grid-color: rgba(0, 255, 0, 0.03);
+            --scan-opacity: 0.08;
+        }
+
+        [data-theme='light'] {
+            --bg-primary: #f8f8f8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --neon-lime: #2d7a3d;
+            --neon-lime-glow: #3a9d4d;
+            --glass: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --grid-color: rgba(0, 0, 0, 0.03);
+            --scan-opacity: 0.02;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        [data-theme='light'] .text-white { color: var(--text-primary) !important; }
+        [data-theme='light'] .text-gray-400 { color: var(--text-secondary) !important; }
+        [data-theme='light'] .bg-black { background-color: var(--bg-primary) !important; }
+        [data-theme='light'] .bg-black\/90 { background-color: var(--glass) !important; }
+        [data-theme='light'] .bg-black\/40 { background-color: rgba(0,0,0,0.05) !important; }
+        [data-theme='light'] .science-pattern { opacity: 0.05; filter: invert(1); }
+        [data-theme='light'] .neon-text { text-shadow: none; font-weight: 700; }
+
+        h1, h2, h3, h4, h5, .heading-font {
+            font-family: 'Clash Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .neon-text {
+            color: var(--neon-lime-glow);
+            text-shadow: 0 0 10px var(--neon-lime), 0 0 20px var(--neon-lime-glow);
+        }
+
+        .neon-border {
+            border: 1px solid var(--neon-lime);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .glass-card-neon {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease, background 0.3s ease;
+        }
+
+        .glass-card-neon:hover {
+            border-color: var(--neon-lime);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.1);
+        }
+
+        .sticky-form {
+            position: sticky;
+            top: 100px;
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-lime);
+            opacity: var(--scan-opacity);
+            z-index: 100;
+            animation: scan 12s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .science-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg");
+            z-index: -1;
+            opacity: 0.15;
+            animation: float-bg 60s linear infinite;
+        }
+
+        @keyframes float-bg {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        .form-input {
+            background: var(--bg-primary);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--neon-lime);
+            outline: none;
+            background: rgba(0, 255, 0, 0.05);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-lime);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <div class="grid-bg"></div>
+        <div class="science-pattern"></div>
+        <div class="scan-line"></div>
+
+        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-green-500/20">
+            <div class="flex items-center gap-3">
+<a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <div class="flex flex-col">
+                        <span class="font-bold tracking-widest text-lg leading-none uppercase text-green-400">JS OLYMPIAD</span>
+                        <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div class="flex items-center gap-4 lg:gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-white">
+                <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-green-500/30 hover:bg-green-500/10 transition-all text-xl">
+                    <span id="theme-icon">☀️</span>
+                </button>
+                <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" id="nav-home-link" class="hover:text-green-400 transition-colors">Hub Home</a>
+                <a href="catapultikon.html" id="nav-catapult-link" class="hover:text-green-400 transition-colors">Catapultikon</a>
+                <a href="mun.html" id="nav-mun-link" class="hover:text-green-400 transition-colors">MUN</a>
+                <a href="mathamaze.html" id="nav-math-link" class="hover:text-green-400 transition-colors">Mathamaze</a>
+                <a href="#enrollment" id="nav-cta-register" class="bg-green-600 text-black px-4 py-2 hover:bg-green-500 transition-all font-bold">Register Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Side: Event Content -->
+                <div class="lg:col-span-8 flex flex-col gap-10">
+                    
+                    <!-- Compact Hero Card -->
+                    <section id="hero-compact" class="relative glass-card-neon p-10 rounded-[2.5rem] border-l-4 border-l-green-500 overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 blur-[100px] -z-10"></div>
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full mb-6">
+                                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                <span class="text-[10px] font-bold tracking-[0.3em] text-green-400 uppercase">Academic Protocol Alpha</span>
+                            </div>
+                            <h1 class="text-4xl md:text-6xl lg:text-8xl font-black neon-text italic leading-[0.85] mb-6 tracking-tighter uppercase">JUNIOR SCIENTIST OLYMPIAD</h1>
+                            <p class="text-xl font-bold text-white tracking-[0.2em] opacity-80 uppercase mb-6">Excellence in Science</p>
+                            <p class="text-gray-400 leading-relaxed max-w-2xl mb-8">
+                                The ultimate test of analytical prowess and scientific deduction. Move beyond textbooks to solve complex logic problems through rigorous observation and deductive reasoning.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#enrollment" id="hero-cta-btn" class="px-8 py-3 bg-green-600 text-black font-black tracking-widest uppercase hover:bg-green-500 transition-all">Register Now</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Event Details Grid -->
+                    <section id="details-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card-neon p-8 rounded-3xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <iconify-icon icon="lucide:users" class="text-2xl text-green-400"></iconify-icon>
+                                <h3 class="text-xl font-black italic text-white">ELIGIBILITY</h3>
+                            </div>
+                            <p class="text-gray-400 text-sm">Open to students from Grade 8 to 12. Categories divided based on academic level.</p>
+                        </div>
+
+                        <div class="glass-card-neon p-8 rounded-3xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <iconify-icon icon="lucide:clipboard-list" class="text-2xl text-green-400"></iconify-icon>
+                                <h3 class="text-xl font-black italic text-white">FORMAT</h3>
+                            </div>
+                            <p class="text-gray-400 text-sm">41 higher-order thinking questions. 60-minute duration. OMR-based evaluation protocol.</p>
+                        </div>
+
+                        <div class="glass-card-neon p-8 rounded-3xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <iconify-icon icon="lucide:bar-chart-3" class="text-2xl text-green-400"></iconify-icon>
+                                <h3 class="text-xl font-black italic text-white">SCORING</h3>
+                            </div>
+                            <p class="text-gray-400 text-sm">Weightage given to logic over rote memory. Negative marking applies for advanced levels.</p>
+                        </div>
+
+                        <div class="glass-card-neon p-8 rounded-3xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <iconify-icon icon="lucide:calendar" class="text-2xl text-green-400"></iconify-icon>
+                                <h3 class="text-xl font-black italic text-white">TIMELINE</h3>
+                            </div>
+                            <p class="text-gray-400 text-sm">October 12, 2026. Reporting time: 09:00 AM. Exam commencement: 10:30 AM sharp.</p>
+                        </div>
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section id="contact-hub" class="flex flex-col gap-6">
+                        <h2 class="text-3xl font-black italic tracking-widest text-white">COORDINATORS</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="glass-card-neon p-6 rounded-2xl border-l-2 border-green-500">
+                                <h4 class="font-black italic text-white mb-1 uppercase">Academic Cell</h4>
+                                <a href="tel:+919876543210" id="contact-c1" class="text-green-400 font-bold tracking-widest">+91 98765 43210</a>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl border-l-2 border-green-500">
+                                <h4 class="font-black italic text-white mb-1 uppercase">Event In-Charge</h4>
+                                <a href="tel:+919988776655" id="contact-c2" class="text-green-400 font-bold tracking-widest">+91 99887 76655</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 mt-4">
+                            <a href="#" id="social-wa" class="w-12 h-12 glass-card-neon rounded-full flex items-center justify-center text-xl text-green-400 hover:bg-green-500/20 transition-all">
+                                <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+                            </a>
+                            <a href="#" id="social-ig" class="w-12 h-12 glass-card-neon rounded-full flex items-center justify-center text-xl text-green-400 hover:bg-green-500/20 transition-all">
+                                <iconify-icon icon="mdi:instagram"></iconify-icon>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Side: Sticky Enrollment Form -->
+                <aside class="lg:col-span-4">
+                    <div id="enrollment" class="sticky-form glass-card-neon p-8 rounded-[2.5rem] border border-green-500/30 neon-border flex flex-col gap-6">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-black italic text-green-400 mb-1">ENROLL NOW</h2>
+                            <p class="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase">Secure Your Academic Legacy</p>
+                        </div>
+
+<form id="registration-form" class="flex flex-col gap-4" novalidate>
+                            <input type="text" id="full_name" placeholder="Full Name" class="form-input" required>
+                            <input type="text" id="school" placeholder="School/College" class="form-input" required>
+                            <input type="text" id="student_class" placeholder="Grade Level (e.g. 10)" class="form-input" required>
+                            <input type="email" id="email" placeholder="Email Address" class="form-input" required>
+                            <input type="tel" id="phone" placeholder="Phone Number" class="form-input" required>
+                            <input type="tel" id="alt_phone" placeholder="Parent / Alt Phone (optional)" class="form-input">
+                            <input type="text" id="city" placeholder="City" class="form-input" required>
+
+                            <div class="mt-4 flex flex-col gap-3">
+                                <div class="flex justify-between items-center text-xs font-bold tracking-widest text-white uppercase">
+                                    <span class="opacity-60">Registration Fee</span>
+                                    <span class="text-green-400 text-lg">₹50</span>
+                                </div>
+                                <button type="submit" id="submit-enrollment" class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+                                    Pay & Register
+                                </button>
+                            </div>
+                        </form>
+
+                        <p class="text-[9px] text-gray-500 text-center leading-relaxed uppercase font-bold px-4">
+                            Verification email will be sent upon successful payment. Non-refundable academic seat.
+                        </p>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+
+        <footer class="w-full py-10 px-10 border-t border-green-500/20 bg-black mt-20">
+            <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-black tracking-[0.4em] text-green-500 uppercase">Scientia Sit Potentia • VNIT 2026</span>
+                </div>
+                <div class="flex gap-8 text-[9px] font-black tracking-widest text-white/50 uppercase">
+                    <a href="#" id="foot-privacy" class="hover:text-green-400 transition-colors">Privacy Policy</a>
+                    <a href="#" id="foot-terms" class="hover:text-green-400 transition-colors">Terms of Service</a>
+                    <a href="index.html" id="foot-contact" class="hover:text-green-400 transition-colors">Back to Hub</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('theme-preference', theme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        const savedTheme = localStorage.getItem('theme-preference') || 'dark';
+        setTheme(savedTheme);
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2');
+                nav.classList.add('py-4');
+            }
+        });
+
+// JSO Registration Form
+        (function () {
+            const form = document.getElementById('registration-form');
+            const submitBtn = document.getElementById('submit-enrollment');
+
+            const fieldIds = ['full_name', 'phone', 'alt_phone', 'email', 'school', 'city', 'student_class'];
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const fields = {};
+                fieldIds.forEach(id => { fields[id] = document.getElementById(id); });
+
+                let valid = true;
+                fieldIds.forEach(id => { fields[id].style.borderColor = ''; });
+
+                if (fields.full_name.value.trim().length < 2) { fields.full_name.style.borderColor = 'red'; valid = false; }
+                if (!/^\d{10}$/.test(fields.phone.value.trim())) { fields.phone.style.borderColor = 'red'; valid = false; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value.trim())) { fields.email.style.borderColor = 'red'; valid = false; }
+                if (fields.student_class.value.trim().length < 1) { fields.student_class.style.borderColor = 'red'; valid = false; }
+                if (fields.school.value.trim().length < 1) { fields.school.style.borderColor = 'red'; valid = false; }
+                if (fields.city.value.trim().length < 1) { fields.city.style.borderColor = 'red'; valid = false; }
+
+                if (!valid) {
+                    alert('Please correct the highlighted fields.');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('full_name', fields.full_name.value.trim());
+                formData.append('phone', fields.phone.value.trim());
+                formData.append('alt_phone', fields.alt_phone.value.trim());
+                formData.append('email', fields.email.value.trim());
+                formData.append('school', fields.school.value.trim());
+                formData.append('city', fields.city.value.trim());
+                formData.append('student_class', fields.student_class.value.trim());
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'SUBMITTING...';
+
+                try {
+                    const response = await fetch('/api/JSO/register', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (response.ok) {
+                        alert('Registration Successful! Welcome to the Junior Scientist Olympiad.');
+                        form.reset();
+                    } else {
+                        alert(result.detail || result.message || 'Registration failed. Please try again.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not connect to the server. Please check your connection and try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Pay & Register';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+```
+
+Please reference this design and implement it into our codebase; Try to understand the structure, which part of our codebase is relevant and implement

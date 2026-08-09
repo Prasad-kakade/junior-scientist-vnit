@@ -1,0 +1,124 @@
+Page: MODELOTHON | Light & Dark Mode Update
+
+```html
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MODELOTHON | Junior Scientist VNIT</title><script src="https://cdn.tailwindcss.com"></script><script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><style>@import url('https://fonts.cdnfonts.com/css/clash-grotesk');:root{--bg-deep:#000000;--text-main:#ffffff;--text-dim:#9ca3af;--text-muted:#6b7280;--neon-orange:#FFA500;--neon-orange-glow:#FFD700;--neon-cyan:#00D9FF;--glass:rgba(255,255,255,0.02);--glass-border:rgba(255,165,0,0.15);--nav-bg:rgba(0,0,0,0.9);--input-bg:rgba(255,255,255,0.05);--scroll-track:#000}[data-theme='light']{--bg-deep:#f5f5f5;--text-main:#1a1a1a;--text-dim:#4b5563;--text-muted:#9ca3af;--neon-orange:#e69500;--neon-orange-glow:#ffcc00;--neon-cyan:#0088cc;--glass:rgba(0,0,0,0.05);--glass-border:rgba(230,149,0,0.3);--nav-bg:rgba(255,255,255,0.9);--input-bg:rgba(0,0,0,0.05);--scroll-track:#e5e5e5}body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--bg-deep);color:var(--text-main);overflow-x:hidden;transition:background-color 0.3s ease,color 0.3s ease}h1,h2,h3,h4,h5,.heading-font{font-family:'Clash Grotesk',sans-serif;text-transform:uppercase;transition:color 0.3s ease}.neon-text-orange{color:var(--neon-orange-glow);text-shadow:0 0 10px var(--neon-orange),0 0 20px var(--neon-orange-glow);transition:all 0.3s ease}[data-theme='light'] .neon-text-orange{text-shadow:none;color:var(--neon-orange);font-weight:800}.neon-border-orange{border:1px solid var(--neon-orange);box-shadow:0 0 15px rgba(255,165,0,0.2)}.glass-card-neon{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(12px);transition:all 0.4s ease, background-color 0.3s ease, border-color 0.3s ease}.glass-card-neon:hover{border-color:var(--neon-orange);box-shadow:0 0 25px rgba(255,165,0,0.2)}@media (min-width: 1024px) { .sticky-form { position: sticky; top: 100px; } }.scan-line{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(0,217,255,0.08);z-index:100;animation:scan 12s linear infinite;pointer-events:none}@keyframes scan{0%{top:0}100%{top:100%}}.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,165,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,165,0,0.03) 1px,transparent 1px);background-size:50px 50px;z-index:-1;pointer-events:none}.gif-overlay{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:60%;opacity:0.05;z-index:-1;filter:grayscale(1) invert(1);pointer-events:none}[data-theme='light'] .gif-overlay{filter:grayscale(1) invert(0);opacity:0.08}.contact-banner-clip{clip-path:polygon(5% 0%,95% 0%,100% 50%,95% 100%,5% 100%,0% 50%)}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--scroll-track)}::-webkit-scrollbar-thumb{background:var(--neon-orange);border-radius:10px}</style></head><body><div class="min-h-screen relative flex flex-col"><div class="grid-bg"></div><div class="scan-line"></div><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Zic3Bnd3Y0ZHFqYmZicGZicGZicGZicGZicGZicGZicGZicGZicCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1TVtoGMMFxMKTXY/giphy.gif" class="gif-overlay" alt="innovation-bg"><nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-8 lg:px-10 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-lg border-b border-orange-500/20 transition-all duration-300"><div class="flex items-center gap-3"><a href="index.html" id="nav-logo" class="flex flex-col"><span class="font-bold tracking-widest text-base md:text-lg leading-none uppercase text-orange-400">MODELOTHON</span><span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-[var(--text-main)]">Junior Scientist 2026</span></a></div><div class="hidden lg:flex items-center gap-4 md:gap-8 lg:gap-12 text-[10px] md:text-[11px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[var(--text-main)]"><a href="index.html" id="nav-link-hub" class="hover:text-orange-400 transition-colors">Hub Home</a><a href="catapultikon.html" id="nav-link-catapult" class="hover:text-orange-400 transition-colors">Catapultikon</a><a href="mun.html" id="nav-link-mun" class="hover:text-orange-400 transition-colors">MUN</a><button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-orange-500/30 hover:border-orange-500 transition-all text-xl" title="Toggle Theme"><iconify-icon icon="lucide:moon" id="theme-icon"></iconify-icon></button>
+<select id="team_size" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all text-[var(--text-dim)]"><option value="1">Individual (1)</option><option value="2">Duo (2)</option><option value="3" selected>Trio (3)</option></select>
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const html = document.documentElement;
+
+const updateIcon = (theme) => {
+  themeIcon.setAttribute('icon', theme === 'light' ? 'lucide:sun' : 'lucide:moon');
+};
+
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+html.setAttribute('data-theme', savedTheme);
+updateIcon(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateIcon(newTheme);
+});
+
+// Modelothon Registration Form
+(function () {
+  const teamSizeSelect = document.getElementById('team_size');
+  const membersContainer = document.getElementById('members-container');
+  const form = document.getElementById('modelothon-register-form');
+  const submitBtn = document.getElementById('cta-submit-btn');
+
+  function renderMembers() {
+    const count = +teamSizeSelect.value;
+    membersContainer.innerHTML = '';
+    for (let i = 1; i <= count; i++) {
+      membersContainer.insertAdjacentHTML('beforeend', `
+        <div class="pt-4 border-t border-orange-500/10 space-y-1">
+          <p class="text-[10px] font-black text-orange-400 uppercase tracking-widest mb-2">Member ${i}</p>
+          <input type="text" id="member_${i}_name" placeholder="FULL NAME" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)] member-name" required>
+          <input type="tel" id="member_${i}_phone" placeholder="PHONE NUMBER" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)] member-phone" required>
+          <input type="tel" id="member_${i}_alt_phone" placeholder="PARENT / ALT PHONE (OPTIONAL)" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]">
+          <input type="email" id="member_${i}_email" placeholder="EMAIL ADDRESS" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)] member-email" required>
+          <input type="text" id="member_${i}_school" placeholder="SCHOOL / INSTITUTION" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]">
+          <input type="text" id="member_${i}_city" placeholder="CITY" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]">
+          <input type="text" id="member_${i}_class" placeholder="CLASS (e.g. 10th)" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]">
+        </div>
+      `);
+    }
+  }
+
+  renderMembers();
+  teamSizeSelect.addEventListener('change', renderMembers);
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    document.querySelectorAll('#modelothon-register-form input').forEach(el => { el.style.borderColor = ''; });
+
+    if (document.getElementById('team_name').value.trim().length < 2) {
+      document.getElementById('team_name').style.borderColor = 'red';
+      valid = false;
+    }
+    document.querySelectorAll('.member-name').forEach(el => {
+      if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
+    });
+    document.querySelectorAll('.member-phone').forEach(el => {
+      if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+    });
+    document.querySelectorAll('.member-email').forEach(el => {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+    });
+
+    if (!valid) {
+      alert('Please correct the highlighted fields.');
+      return;
+    }
+
+    const count = +teamSizeSelect.value;
+    const formData = new FormData();
+    formData.append('team_name', document.getElementById('team_name').value.trim());
+    formData.append('team_size', String(count));
+
+    for (let i = 1; i <= count; i++) {
+      formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
+      formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
+      formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
+      formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
+      formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
+      formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
+      formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'REGISTERING...';
+
+    try {
+      const response = await fetch('/api/modelothon/register', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        alert('Registration Successful! See you at Modelothon.');
+        form.reset();
+        renderMembers();
+      } else {
+        alert(result.detail || result.message || 'Registration failed. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Could not connect to the server. Please check your connection and try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Register Now';
+    }
+  });
+})();
+</script></body></html>
+```
+
+Please reference this design and implement it into our codebase; Try to understand the structure, which part of our codebase is relevant and implement

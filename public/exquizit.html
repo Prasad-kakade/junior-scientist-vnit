@@ -1,0 +1,480 @@
+Page: EXQUIZIT | Light & Dark Mode Update
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXQUIZIT | Junior Scientist VNIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+
+        :root {
+            --bg-deep: #000000;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --neon-cyan: #00D9FF;
+            --neon-cyan-glow: rgba(0, 217, 255, 0.4);
+            --neon-purple: #9D4EDD;
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --grid-color: rgba(0, 217, 255, 0.03);
+        }
+
+        [data-theme='light'] {
+            --bg-deep: #f8f8f8;
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --neon-cyan: #0088cc;
+            --neon-cyan-glow: transparent;
+            --neon-purple: #7B2CBF;
+            --glass: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --grid-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .neon-text-cyan {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan-glow);
+        }
+
+        .neon-border-cyan {
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+        }
+
+        .glass-card-neon {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-neon:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: rgba(0, 217, 255, 0.04);
+            z-index: 100;
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), 
+                              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .starfield {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, #051015 0%, #000 100%);
+            transition: opacity 0.3s ease;
+        }
+
+        [data-theme='light'] .starfield {
+            background: radial-gradient(circle at 50% 50%, #eef2f7 0%, #f8f8f8 100%);
+            opacity: 0.5;
+        }
+
+        [data-theme='light'] .neon-text-cyan {
+            text-shadow: none;
+            font-weight: 800;
+            color: var(--neon-cyan);
+        }
+
+        [data-theme='light'] .text-white, 
+        [data-theme='light'] .font-black.text-white {
+            color: #1a1a1a !important;
+        }
+
+        [data-theme='light'] .text-gray-400, 
+        [data-theme='light'] .text-gray-500, 
+        [data-theme='light'] .text-gray-600 {
+            color: #4b5563 !important;
+        }
+
+        [data-theme='light'] #main-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme='light'] nav a.text-white {
+            color: #1a1a1a !important;
+        }
+
+        [data-theme='light'] footer {
+            background: #ffffff;
+            border-top-color: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme='light'] .bg-white\/5 {
+            background-color: rgba(0, 0, 0, 0.04) !important;
+        }
+
+        [data-theme='light'] .border-white\/10 {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        [data-theme='light'] select, [data-theme='light'] input {
+            background-color: rgba(0, 0, 0, 0.03) !important;
+            color: #1a1a1a !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .contact-clip {
+            clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <div class="starfield"></div>
+        <div class="grid-bg"></div>
+        <div class="scan-line"></div>
+
+        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-cyan-500/10">
+            <div class="flex items-center gap-3">
+                <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <div class="flex flex-col">
+                        <span class="font-bold tracking-widest text-lg leading-none text-cyan-500 uppercase">EXQUIZIT</span>
+                        <span class="text-[9px] tracking-[0.4em] opacity-50 uppercase">Junior Scientist 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.2em] uppercase">
+                <a href="index.html" id="nav-link-home" class="text-white hover:text-cyan-400">Hub Home</a>
+                <a href="catapultikon.html" id="nav-link-catapult" class="text-gray-500 hover:text-cyan-400">Catapultikon</a>
+                <a href="mun.html" id="nav-link-mun" class="text-gray-500 hover:text-cyan-400">MUN</a>
+                <a href="mathamaze.html" id="nav-link-math" class="text-gray-500 hover:text-cyan-400">Mathamaze</a>
+                <button id="theme-toggle" class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-cyan-500/30 hover:bg-cyan-500/10 transition-all text-xl">
+                    <span id="theme-icon">☀️</span>
+                </button>
+                <a href="#register-form" id="nav-link-reg" class="px-4 py-2 border border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-black transition-all">Register</a>
+            </div>
+        </nav>
+
+        <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-8 flex flex-col gap-8">
+                    
+                    <section id="hero-compact" class="glass-card-neon p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span class="text-cyan-500 tracking-[0.5em] text-[10px] font-bold uppercase mb-4 block">Trivia Protocol Initialized</span>
+                            <h1 class="text-6xl md:text-8xl font-black neon-text-cyan italic mb-4 tracking-tighter">EXQUIZIT</h1>
+                            <p class="text-xl md:text-2xl font-bold text-white tracking-[0.1em] opacity-90 mb-6">True Discovery Begins Here.</p>
+                            <p class="text-gray-400 leading-relaxed max-w-2xl mb-8">
+                                Break the routine thought cycle and test your brilliance in the ultimate IQ standoff. EXQUIZIT isn't just a quiz; it's a high-stakes arena where critical thinking and rapid-fire deduction determine the masterminds of tomorrow.
+                            </p>
+                            <a href="#register-form" id="hero-cta-btn" class="inline-block px-10 py-4 bg-cyan-600 text-black font-black uppercase tracking-widest hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(0,217,255,0.3)]">Register Now</a>
+                        </div>
+                        <div class="absolute right-[-10%] bottom-[-10%] w-64 h-64 opacity-10">
+                             <iconify-icon icon="mdi:brain" class="text-[200px] text-cyan-500"></iconify-icon>
+                        </div>
+                    </section>
+
+                    <section id="event-details" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:layers" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">ROUND FORMAT</h4>
+                            </div>
+                            <p class="text-xs text-gray-500">2 Competitive Phases: Written Prelims followed by an intense Live Buzzer Finale for top teams.</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:clock" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">TIME LIMIT</h4>
+                            </div>
+                            <p class="text-xs text-gray-500">60 Minutes for Prelims. Rapid-fire response time for the Live Final round.</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:users" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">TEAM SIZE</h4>
+                            </div>
+                            <p class="text-xs text-gray-500 uppercase">Max 2 Members Per Team. Individual participation is also allowed.</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:graduation-cap" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">ELIGIBILITY</h4>
+                            </div>
+                            <p class="text-xs text-gray-500 uppercase">Two Categories: Junior (Classes 5-8) and Senior (Classes 9-12).</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:banknote" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">ENTRY FEE</h4>
+                            </div>
+                            <p class="text-lg font-black text-cyan-400 italic">₹50 / PERSON</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <iconify-icon icon="lucide:trophy" class="text-cyan-500"></iconify-icon>
+                                <h4 class="font-black text-white text-sm tracking-widest">PRIZE POOL</h4>
+                            </div>
+                            <p class="text-lg font-black text-purple-400 italic tracking-widest uppercase">Certification + Awards</p>
+                        </div>
+                    </section>
+
+                    <section id="contact-hub" class="glass-card-neon p-8 rounded-3xl border-white/5">
+                        <h3 class="text-2xl font-black italic mb-8 flex items-center gap-4">
+                            <span class="w-8 h-[2px] bg-cyan-500"></span>
+                            Event Coordinators
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Coordinator</span>
+                                    <span class="text-sm font-bold">Pranjali Borikar</span>
+                                </div>
+                                <a href="tel:+919371894804" id="contact-pranjali" class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all">
+                                    <iconify-icon icon="lucide:phone"></iconify-icon>
+                                </a>
+                            </div>
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Coordinator</span>
+                                    <span class="text-sm font-bold">Coordinator Name</span>
+                                </div>
+                                <a href="tel:+910000000000" id="contact-generic" class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all">
+                                    <iconify-icon icon="lucide:phone"></iconify-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-32 space-y-6">
+                        <div id="register-form" class="glass-card-neon p-8 rounded-3xl border-cyan-500/40 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 contact-clip"></div>
+<h4 class="text-2xl font-black italic mb-6 neon-text-cyan">Secure Entry</h4>
+                            <form class="space-y-4" id="exquizit-register-form" novalidate>
+                                <div>
+                                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2 ml-1">Team Name</label>
+                                    <input type="text" id="team_name" placeholder="ENTER TEAM NAME" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all" required>
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2 ml-1">Team Size</label>
+                                    <select id="team_size" class="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none">
+                                        <option value="1">SOLO</option>
+                                        <option value="2">TEAM OF 2</option>
+                                    </select>
+                                </div>
+                                <div id="members-container" class="space-y-4"></div>
+                                <button type="submit" id="register-btn-main" class="w-full py-4 bg-cyan-600 text-black font-black tracking-widest text-sm uppercase hover:bg-cyan-500 transition-all shadow-[0_0_20px_rgba(0,217,255,0.2)] mt-4">Initialize Protocol</button>
+                            </form>
+                            <p class="text-[9px] text-center text-gray-600 uppercase mt-6 tracking-widest">Registration fee ₹50/person payable at venue</p>
+                        </div>
+
+                        <div class="glass-card-neon p-6 rounded-2xl border-white/5 flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:map-pin" class="text-cyan-500"></iconify-icon>
+                                <div>
+                                    <h5 class="text-[10px] font-black uppercase text-white">Venue</h5>
+                                    <p class="text-xs text-gray-500">VNIT, Nagpur - Auditorium Complex</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:calendar" class="text-cyan-500"></iconify-icon>
+                                <div>
+                                    <h5 class="text-[10px] font-black uppercase text-white">Event Date</h5>
+                                    <p class="text-xs text-gray-500">February 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="pt-20 pb-10 bg-black border-t border-cyan-500/10">
+            <div class="max-w-7xl mx-auto px-10 flex flex-col items-center text-center">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-2xl font-black tracking-widest neon-text-cyan uppercase">EXQUIZIT</span>
+                </div>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12">Intelligence Protocol 2026 // VNIT Nagpur</p>
+                <div class="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-black uppercase text-gray-500">
+                    <a href="catapultikon.html" id="footer-link-1" class="hover:text-cyan-400 transition-colors">Catapultikon</a>
+                    <a href="mathamaze.html" id="footer-link-2" class="hover:text-cyan-400 transition-colors">Mathamaze</a>
+                    <a href="mun.html" id="footer-link-3" class="hover:text-cyan-400 transition-colors">MUN Summit</a>
+                    <a href="jso.html" id="footer-link-4" class="hover:text-cyan-400 transition-colors">JS Olympiad</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Load preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Exquizit Registration Form
+        (function () {
+            const teamSizeSelect = document.getElementById('team_size');
+            const membersContainer = document.getElementById('members-container');
+            const form = document.getElementById('exquizit-register-form');
+            const submitBtn = document.getElementById('register-btn-main');
+
+            function renderMembers() {
+                const count = +teamSizeSelect.value;
+                membersContainer.innerHTML = '';
+                for (let i = 1; i <= count; i++) {
+                    membersContainer.insertAdjacentHTML('beforeend', `
+                        <div class="pt-4 border-t border-white/10 space-y-1">
+                            <p class="text-[10px] font-bold text-cyan-500 uppercase tracking-widest block mb-2 ml-1">Member ${i}</p>
+                            <input type="text" id="member_${i}_name" placeholder="FULL NAME" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-name" required>
+                            <input type="tel" id="member_${i}_phone" placeholder="PHONE NUMBER" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-phone" required>
+                            <input type="tel" id="member_${i}_alt_phone" placeholder="PARENT / ALT PHONE (OPTIONAL)" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <input type="email" id="member_${i}_email" placeholder="EMAIL ADDRESS" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-email" required>
+                            <input type="text" id="member_${i}_school" placeholder="SCHOOL" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <input type="text" id="member_${i}_city" placeholder="CITY" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <input type="text" id="member_${i}_class" placeholder="CLASS (e.g. 10th)" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                        </div>
+                    `);
+                }
+            }
+
+            renderMembers();
+            teamSizeSelect.addEventListener('change', renderMembers);
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                let valid = true;
+                document.querySelectorAll('#exquizit-register-form input').forEach(el => { el.style.borderColor = ''; });
+
+                if (document.getElementById('team_name').value.trim().length < 2) {
+                    document.getElementById('team_name').style.borderColor = 'red';
+                    valid = false;
+                }
+                document.querySelectorAll('.member-name').forEach(el => {
+                    if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-phone').forEach(el => {
+                    if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-email').forEach(el => {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+
+                if (!valid) {
+                    alert('Please correct the highlighted fields.');
+                    return;
+                }
+
+                const count = +teamSizeSelect.value;
+                const formData = new FormData();
+                formData.append('team_name', document.getElementById('team_name').value.trim());
+                formData.append('team_size', String(count));
+
+                for (let i = 1; i <= count; i++) {
+                    formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
+                    formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
+                    formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
+                    formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
+                    formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
+                    formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
+                    formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'INITIALIZING...';
+
+                try {
+                    const response = await fetch('/api/exquizit/register', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (response.ok) {
+                        alert('Registration Successful! Welcome to Exquizit.');
+                        form.reset();
+                        renderMembers();
+                    } else {
+                        alert(result.detail || result.message || 'Registration failed. Please try again.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not connect to the server. Please check your connection and try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Initialize Protocol';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+```
+
+Please reference this design and implement it into our codebase; Try to understand the structure, which part of our codebase is relevant and implement
