@@ -25,4 +25,3 @@ app.include_router(arduinoexp.router, prefix="/api")
 app.include_router(mun.router, prefix="/api")
 
 # Serve static HTML pages from the public/ directory
-
