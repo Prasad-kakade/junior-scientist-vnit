@@ -171,6 +171,7 @@
         <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-green-500/20">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786297752917-a2b21486/jso_bg_removed.png" alt="JSO Logo" class="w-10 h-10 object-contain">
                     <div class="flex flex-col">
                         <span class="font-bold tracking-widest text-lg leading-none uppercase text-green-400">JS OLYMPIAD</span>
                         <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist 2026</span>
@@ -202,8 +203,13 @@
                         <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 blur-[100px] -z-10"></div>
                         <div class="relative z-10">
                             
-                            <h1 class="text-4xl md:text-6xl lg:text-8xl font-black neon-text italic leading-[0.85] mb-6 tracking-tighter uppercase">JUNIOR SCIENTIST OLYMPIAD</h1>
-                            <p class="text-xl font-bold text-white tracking-[0.2em] opacity-80 uppercase mb-6">Excellence in Science</p>
+                            <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+                                
+                                <div class="flex flex-col text-center md:text-left">
+                                    <h1 class="text-4xl md:text-6xl lg:text-8xl font-black neon-text italic leading-[0.85] mb-2 tracking-tighter uppercase">JUNIOR SCIENTIST OLYMPIAD</h1>
+                                    <p class="text-xl font-bold text-white tracking-[0.2em] opacity-80 uppercase">Excellence in Science</p>
+                                </div>
+                            <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786297752917-a2b21486/jso_bg_removed.png" alt="JSO Logo" class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain filter drop-shadow-[0_0_15px_rgba(0,255,0,0.4)]" style="width: 237px; height: 219px;"></div>
                             <p class="text-gray-400 leading-relaxed max-w-2xl mb-8">
                                 The ultimate test of analytical prowess and scientific deduction. Move beyond textbooks to solve complex logic problems through rigorous observation and deductive reasoning.
                             </p>
@@ -220,7 +226,7 @@
                                 <iconify-icon icon="lucide:users" class="text-2xl text-green-400"></iconify-icon>
                                 <h3 class="text-xl font-black italic text-white">ELIGIBILITY</h3>
                             </div>
-                            <p class="text-gray-400 text-sm">Open to students from Grade 8 to 12. Categories divided based on academic level.</p>
+                            <p class="text-gray-400 text-sm">Open to students of 5–10 grades. Categories divided based on age groups.</p>
                         </div>
 
                         <div class="glass-card-neon p-8 rounded-3xl">
@@ -228,7 +234,7 @@
                                 <iconify-icon icon="lucide:clipboard-list" class="text-2xl text-green-400"></iconify-icon>
                                 <h3 class="text-xl font-black italic text-white">FORMAT</h3>
                             </div>
-                            <p class="text-gray-400 text-sm">41 higher-order thinking questions. 60-minute duration. OMR-based evaluation protocol.</p>
+                            <p class="text-gray-400 text-sm">90-minute duration. Assessment of scientific logic and reasoning. round 1 will be pen and paper round</p>
                         </div>
 
                         <div class="glass-card-neon p-8 rounded-3xl">
@@ -236,7 +242,7 @@
                                 <iconify-icon icon="lucide:bar-chart-3" class="text-2xl text-green-400"></iconify-icon>
                                 <h3 class="text-xl font-black italic text-white">SCORING</h3>
                             </div>
-                            <p class="text-gray-400 text-sm">Weightage given to logic over rote memory. Negative marking applies for advanced levels.</p>
+                            <p class="text-gray-400 text-sm">Weightage given to logic over rote memory. Negative marking is applicable only to the 8–10 class&nbsp; group.</p>
                         </div>
 
                         <div class="glass-card-neon p-8 rounded-3xl">
@@ -244,7 +250,7 @@
                                 <iconify-icon icon="lucide:calendar" class="text-2xl text-green-400"></iconify-icon>
                                 <h3 class="text-xl font-black italic text-white">TIMELINE</h3>
                             </div>
-                            <p class="text-gray-400 text-sm">October 12, 2026. Reporting time: 09:00 AM. Exam commencement: 10:30 AM sharp.</p>
+                            <p class="text-gray-400 text-sm">Round 1: 4th October&nbsp;<br>Round 2: 11th October</p>
                         </div>
                     </section>
 
@@ -311,7 +317,7 @@
                 <aside class="lg:col-span-4">
                     <div id="enrollment" class="sticky-form glass-card-neon p-8 rounded-[2.5rem] border border-green-500/30 neon-border flex flex-col gap-6">
                         <div class="text-center">
-                            <h2 class="text-3xl font-black italic text-green-400 mb-1">ENROLL NOW</h2>
+                            <h2 class="text-3xl font-black italic text-green-400 mb-1">register NOW</h2>
                             <p class="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase">Secure Your Academic Legacy</p>
                         </div>
 
@@ -319,12 +325,13 @@
                             <input type="text" id="full_name" placeholder="Full Name" class="form-input" required>
                             <input type="text" id="school" placeholder="School/College" class="form-input" required>
                             <select id="student_class" class="form-input appearance-none bg-black/40" required>
-                                <option value="" disabled selected>Grade Level</option>
-                                <option value="8">Grade 8</option>
-                                <option value="9">Grade 9</option>
-                                <option value="10">Grade 10</option>
-                                <option value="11">Grade 11</option>
-                                <option value="12">Grade 12</option>
+                                <option value="" disabled selected>Age Group</option>
+                                <option value="5">5 Years Old</option>
+                                <option value="6">6 Years Old</option>
+                                <option value="7">7 Years Old</option>
+                                <option value="8">8 Years Old</option>
+                                <option value="9">9 Years Old</option>
+                                <option value="10">10 Years Old</option>
                             </select>
                             <input type="email" id="email" placeholder="Email Address" class="form-input" required>
                             <input type="tel" id="phone" placeholder="Phone Number" class="form-input" required>
@@ -334,7 +341,7 @@
                             <div class="mt-4 flex flex-col gap-3">
                                 <div class="flex justify-between items-center text-xs font-bold tracking-widest text-white uppercase">
                                     <span class="opacity-60">Registration Fee</span>
-                                    <span class="text-green-400 text-lg">₹50</span>
+                                    <span class="text-green-400 text-lg">₹40</span>
                                 </div>
                                 <button type="submit" id="submit-enrollment" class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
                                     Pay &amp; Register
