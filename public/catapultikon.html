@@ -1,194 +1,509 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CATAPULTIKON | Junior Scientist VNIT</title><script>(function(){try{var t=localStorage.getItem('cptk-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})()</script><script src="https://cdn.tailwindcss.com"></script><script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script>tailwind.config={theme:{extend:{colors:{ruby:{50:'#fdf1f3',100:'#fbe0e4',200:'#f5c1cb',300:'#ea94a5',400:'#da5c76',500:'#c41e3a',600:'#a3132b',700:'#830f24',800:'#630b1b',900:'#450712'}}}}}</script><style>@import url('https://fonts.cdnfonts.com/css/clash-grotesk');
-:root{
-  --bg-deep:#07020a;
-  --bg-deep-2:#050004;
-  --ruby:#c41e3a;
-  --ruby-glow:#ff3b5c;
-  --gold:#d4af37;
-  --glass:rgba(18,2,7,0.85);
-  --glass-border:rgba(196,30,58,0.32);
-  --text-main:#f5ece0;
-  --text-secondary:#cbb9a8;
-  --text-muted:#8d7768;
-  --scan-color:rgba(196,30,58,0.12);
-  --grid-color:rgba(196,30,58,0.045);
-  --glow-strong:rgba(196,30,58,0.55);
-  --glow-soft:rgba(212,175,55,0.35);
-  --input-bg:rgba(255,255,255,0.05);
-  --input-border:rgba(255,255,255,0.12)
-}
-[data-theme="light"]{
-  --bg-deep:#f3ead4;
-  --bg-deep-2:#ece0c2;
-  --glass:rgba(255,251,240,0.88);
-  --glass-border:rgba(196,30,58,0.25);
-  --text-main:#241208;
-  --text-secondary:#4a3524;
-  --text-muted:#8a7358;
-  --scan-color:rgba(196,30,58,0.08);
-  --grid-color:rgba(196,30,58,0.07);
-  --glow-strong:rgba(196,30,58,0.35);
-  --glow-soft:rgba(212,175,55,0.3);
-  --input-bg:rgba(36,18,8,0.04);
-  --input-border:rgba(36,18,8,0.16)
-}
-*{transition:background-color .35s ease,border-color .35s ease,color .35s ease}
-body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--bg-deep);color:var(--text-main);overflow-x:hidden}
-h1,h2,h3,h4,h5,.heading-font{font-family:'Clash Grotesk',sans-serif;text-transform:uppercase}
-.neon-text{color:var(--ruby);text-shadow:0 0 12px var(--glow-strong),0 0 26px var(--glow-soft)}
-.neon-border{border:1px solid var(--ruby);box-shadow:0 0 15px rgba(196,30,58,0.3)}
-.glass-card-neon{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(12px)}
-.site-surface{background:var(--bg-deep-2)!important}
-.text-mainc{color:var(--text-main)!important}
-.text-secondaryc{color:var(--text-secondary)!important}
-.text-mutedc{color:var(--text-muted)!important}
-.border-mutedc{border-color:var(--glass-border)!important}
-.sticky-form{position:sticky;top:100px}
-.scan-line{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--scan-color);z-index:100;animation:scan 12s linear infinite;pointer-events:none}
-@keyframes scan{0%{top:0}100%{top:100%}}
-.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:50px 50px;z-index:-1;pointer-events:none}
-.star-field{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:radial-gradient(circle at center,var(--bg-deep-2) 0%,var(--bg-deep) 100%)}
-.form-input{background:var(--input-bg);border:1px solid var(--input-border);color:var(--text-main);width:100%;padding:0.75rem 1rem;border-radius:0.375rem;font-size:0.875rem;margin-bottom:0.75rem;transition:all 0.3s}
-.form-input::placeholder{color:var(--text-muted)}
-.form-input:focus{border-color:var(--ruby);outline:none;background:rgba(196,30,58,0.06);box-shadow:0 0 10px rgba(196,30,58,0.2)}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--bg-deep)}
-::-webkit-scrollbar-thumb{background:var(--ruby);border-radius:10px}
+Page: CATAPULTIKON | Colorful Highlights Update
 
-/* --- Theme toggle --- */
-#theme-toggle{width:2.5rem;height:2.5rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-border);background:var(--glass);cursor:pointer}
-#theme-toggle iconify-icon{font-size:1.1rem;color:var(--ruby)}
-html[data-theme="dark"] .icon-moon{display:none}
-html[data-theme="light"] .icon-sun{display:none}
+```html
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATAPULTIKON | Wizarding Tournament</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
 
-/* --- Logo chip (readable on both themes) --- */
-.logo-chip{background:linear-gradient(160deg,#fbe9c8,#f3d9a0);border:1px solid rgba(196,30,58,0.4);box-shadow:0 0 14px rgba(196,30,58,0.25)}
-.logo-chip img{filter:drop-shadow(0 1px 1px rgba(0,0,0,0.25))}
+        :root {
+            --bg-deep: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --ruby-red: #C41E3A;
+            --ruby-glow: rgba(196, 30, 58, 0.6);
+            --gold-accent: #D4AF37;
+            --glass: rgba(15, 0, 0, 0.85);
+            --glass-border: rgba(196, 30, 58, 0.3);
+            --grid-color: rgba(196, 30, 58, 0.03);
+            --scan-opacity: 0.1;
+            --nav-bg: rgba(0, 0, 0, 0.95);
+            --star-field-opacity: 1;
+        }
 
-/* --- Hero wizarding art --- */
-.hero-art-frame{clip-path:polygon(0% 0%,100% 0%,100% 88%,92% 92%,84% 87%,76% 94%,68% 88%,60% 95%,52% 89%,44% 96%,36% 88%,28% 93%,20% 87%,12% 95%,4% 89%,0% 93%)}
-.hero-art-glow{filter:drop-shadow(0 0 18px var(--glow-strong)) drop-shadow(0 0 8px var(--glow-soft))}
-.ui-highlight{position:absolute;display:flex;align-items:center;gap:.35rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:9999px;padding:.3rem .65rem;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.35);animation:pulse-glow 2.6s ease-in-out infinite}
-@keyframes pulse-glow{0%,100%{box-shadow:0 0 8px rgba(212,175,55,0.25)}50%{box-shadow:0 0 18px rgba(212,175,55,0.55)}}
-</style></head><body><div class="min-h-screen relative flex flex-col"><div class="star-field"></div><div class="grid-bg"></div><div class="scan-line"></div><nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-3 px-4 md:px-10 flex justify-between items-center site-surface backdrop-blur-lg border-b border-ruby-500/20"><div class="flex items-center gap-3"><a href="index.html" id="nav-logo-link" class="flex items-center gap-3"><div class="w-10 h-10 md:w-11 md:h-11 logo-chip rounded-lg flex items-center justify-center p-1.5 shrink-0"><img src="images/catapultikon-logo.png" alt="Catapultikon Logo" class="w-full h-full object-contain"></div><div class="flex flex-col text-left"><span class="font-bold tracking-widest text-base md:text-lg leading-none uppercase text-ruby-500">CATAPULTIKON</span><span class="text-[9px] md:text-[10px] tracking-[0.3em] opacity-60 uppercase text-mainc">Junior Scientist 2026</span></div></a></div><div class="flex items-center gap-3"><div class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-mainc"><a href="index.html" id="nav-home-link" class="hover:text-ruby-400 transition-colors">Hub Home</a><a href="mathamaze.html" id="nav-mathamaze-link" class="hover:text-ruby-400 transition-colors">Mathamaze</a><a href="mun.html" id="nav-mun-link" class="hover:text-ruby-400 transition-colors">MUN</a><a href="#register-card" id="nav-cta-register" class="bg-ruby-600 text-white px-4 py-2 hover:bg-ruby-500 transition-all font-bold">Register Now</a></div><button id="theme-toggle" type="button" aria-label="Toggle light and dark theme"><iconify-icon icon="lucide:sun" class="icon-sun"></iconify-icon><iconify-icon icon="lucide:moon" class="icon-moon"></iconify-icon></button><button id="mobile-menu-btn" type="button" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center border border-ruby-500/30 bg-ruby-600/10 text-ruby-500" aria-label="Open menu"><iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon></button></div></nav><div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden site-surface backdrop-blur-xl flex flex-col p-6 transition-transform duration-300 translate-x-full" style="top:0"><div class="flex justify-between items-center mb-10"><div class="flex items-center gap-3"><div class="w-10 h-10 logo-chip rounded-lg flex items-center justify-center p-1.5 shrink-0"><img src="images/catapultikon-logo.png" alt="Catapultikon Logo" class="w-full h-full object-contain"></div><span class="font-black tracking-widest text-ruby-500 uppercase">Catapultikon</span></div><button id="mobile-menu-close" type="button" class="w-10 h-10 rounded-lg flex items-center justify-center border border-ruby-500/30 bg-ruby-600/10 text-ruby-500" aria-label="Close menu"><iconify-icon icon="lucide:x" class="text-xl"></iconify-icon></button></div><div class="flex flex-col gap-2 text-lg font-black uppercase tracking-widest text-mainc"><a href="index.html" class="mobile-link py-4 px-4 rounded-xl glass-card-neon hover:border-ruby-500 transition-colors">Hub Home</a><a href="mathamaze.html" class="mobile-link py-4 px-4 rounded-xl glass-card-neon hover:border-ruby-500 transition-colors">Mathamaze</a><a href="mun.html" class="mobile-link py-4 px-4 rounded-xl glass-card-neon hover:border-ruby-500 transition-colors">MUN</a><a href="#register-card" class="mobile-link py-4 px-4 rounded-xl glass-card-neon hover:border-ruby-500 transition-colors text-ruby-500">Register Now</a></div></div><main class="flex-1 max-w-[1400px] mx-auto w-full px-4 md:px-10 pt-28 md:pt-32 pb-20"><div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"><div class="lg:col-span-8 flex flex-col gap-10"><section id="hero-compact" class="relative flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-8 px-5 md:px-8 glass-card-neon rounded-3xl overflow-hidden"><div class="flex-1 z-10 text-center md:text-left"><p class="text-ruby-500 tracking-[0.5em] text-xs font-bold mb-4 uppercase">The Wizarding Trial</p><h1 class="text-4xl sm:text-5xl md:text-7xl font-black italic neon-text leading-tight mb-4 tracking-tighter">CATAPULTIKON</h1><h2 class="text-base md:text-xl font-bold tracking-[0.2em] text-secondaryc italic">AIM TRUE, CAST FAR — SPEED &amp; PRECISION</h2><div class="mt-8 flex justify-center md:justify-start"><a href="#register-card" id="hero-register-btn" class="px-8 py-3 bg-ruby-600 text-white font-black tracking-widest uppercase hover:bg-ruby-500 transition-all shadow-[0_0_20px_rgba(196,30,58,0.4)]">Register Now</a></div></div><div class="relative w-full max-w-[280px] md:w-[280px] h-[240px] sm:h-[280px] md:h-[320px] shrink-0 mx-auto md:mx-0"><span class="ui-highlight" style="top:6px;right:6px"><iconify-icon icon="lucide:sparkles"></iconify-icon>Est. 2026</span><span class="ui-highlight" style="bottom:34px;left:-6px"><iconify-icon icon="lucide:wand-2"></iconify-icon>Wizarding Ed.</span><div class="hero-art-frame w-full h-full hero-art-glow animate-pulse" style="animation-duration:3.5s"><svg viewBox="0 0 320 380" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="hatGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--ruby)"/><stop offset="55%" stop-color="#2a060d"/><stop offset="100%" stop-color="#0c0204"/></linearGradient><radialGradient id="moonGrad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="#8a6a1a"/></radialGradient><mask id="moonMask"><rect x="0" y="0" width="320" height="380" fill="#fff"/><circle cx="252" cy="46" r="24" fill="#000"/></mask></defs><circle cx="240" cy="52" r="27" fill="url(#moonGrad)" mask="url(#moonMask)" opacity="0.9"/><g opacity="0.95"><path d="M45 330 L228 78" stroke="#1c0b06" stroke-width="11" stroke-linecap="round"/><path d="M45 330 L228 78" stroke="var(--ruby)" stroke-width="11" stroke-linecap="round" stroke-dasharray="2 14" opacity="0.6"/><path d="M64 300 L82 288" stroke="var(--gold)" stroke-width="6" stroke-linecap="round"/></g><g fill="var(--gold)" class="hero-art-glow"><path d="M226 40 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/><path d="M250 74 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/><path d="M204 66 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/></g><path d="M160 26 C147 100 116 190 90 262 L230 262 C204 190 173 100 160 26 Z" fill="url(#hatGrad)" stroke="var(--ruby)" stroke-width="2"/><ellipse cx="160" cy="262" rx="114" ry="20" fill="#0c0204" stroke="var(--ruby)" stroke-width="2"/><rect x="112" y="222" width="96" height="22" rx="4" fill="var(--gold)" stroke="var(--ruby)" stroke-width="1.5"/><path d="M160 224 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="var(--ruby)"/><path d="M96 254 q64 -16 128 0" fill="none" stroke="var(--ruby)" stroke-width="1.5" opacity="0.5"/></svg></div></div></section><section id="quick-info" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"><div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-ruby-500"><iconify-icon icon="lucide:users" class="text-ruby-500 text-2xl mb-1"></iconify-icon><p class="text-[9px] text-mutedc font-black uppercase">Team Size</p><p class="text-sm font-black">Max 3 Members</p></div><div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-ruby-500"><iconify-icon icon="lucide:timer" class="text-ruby-500 text-2xl mb-1"></iconify-icon><p class="text-[9px] text-mutedc font-black uppercase">Duration</p><p class="text-sm font-black">30 Minutes</p></div><div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-ruby-500"><iconify-icon icon="lucide:banknote" class="text-ruby-500 text-2xl mb-1"></iconify-icon><p class="text-[9px] text-mutedc font-black uppercase">Entry Fee</p><p class="text-sm font-black">₹60 Per Team</p></div><div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-ruby-500"><iconify-icon icon="lucide:layers" class="text-ruby-500 text-2xl mb-1"></iconify-icon><p class="text-[9px] text-mutedc font-black uppercase">Rounds</p><p class="text-sm font-black">3 Elimination</p></div></section><section id="event-description" class="glass-card-neon p-6 md:p-8 rounded-2xl"><h3 class="text-ruby-500 font-black mb-4 flex items-center gap-3 tracking-widest uppercase text-sm"><iconify-icon icon="lucide:target"></iconify-icon> The Game Plan</h3><p class="text-secondaryc text-sm leading-relaxed italic mb-4">Wands down, catapults up. Step into a hall of enchanted engineering where only the sharpest young spellcrafters survive. Build, aim, and launch your catapult through three thrilling elimination rounds testing power, precision, and strategy.</p><p class="text-secondaryc text-sm leading-relaxed italic">Every shot decides your fate. Outwit your rivals, survive the trial, and seize the crown as the ultimate Catapultikon champion.</p></section><section id="rules" class="space-y-6"><h3 class="text-ruby-500 font-black uppercase tracking-widest text-sm border-l-4 border-ruby-500 pl-4">Rules and Regulations</h3><div class="grid md:grid-cols-1 gap-3"><div class="flex items-center gap-4 p-4 glass-card-neon rounded-xl group hover:border-ruby-500 transition-colors"><div class="w-8 h-8 rounded-full bg-ruby-600/20 flex items-center justify-center font-black text-ruby-500 text-xs">01</div><p class="text-sm text-secondaryc">Maximum 3 members per team (5th to 12th standard).</p></div><div class="flex items-center gap-4 p-4 glass-card-neon rounded-xl group hover:border-ruby-500 transition-colors"><div class="w-8 h-8 rounded-full bg-ruby-600/20 flex items-center justify-center font-black text-ruby-500 text-xs">02</div><p class="text-sm text-secondaryc">The participant must bring the letter of acceptance on the day of the event.</p></div><div class="flex items-center gap-4 p-4 glass-card-neon rounded-xl group hover:border-ruby-500 transition-colors"><div class="w-8 h-8 rounded-full bg-ruby-600/20 flex items-center justify-center font-black text-ruby-500 text-xs">03</div><p class="text-sm text-secondaryc">In case of any dispute, the decision of the organising committee is final.</p></div></div></section><section id="highlights" class="space-y-6"><h3 class="text-ruby-500 font-black uppercase tracking-widest text-sm flex items-center gap-3"><iconify-icon icon="lucide:camera"></iconify-icon> Highlights of Catapultikon25</h3><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"><div class="glass-card-neon rounded-xl overflow-hidden group border-b-2 border-ruby-500 hover:border-ruby-400 transition-all"><img src="images/image1.png" alt="Catapultikon25 Highlight 1" class="w-full h-44 md:h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="glass-card-neon rounded-xl overflow-hidden group border-b-2 border-ruby-500 hover:border-ruby-400 transition-all"><img src="images/image3.png" alt="Catapultikon25 Highlight 2" class="w-full h-44 md:h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div><div class="glass-card-neon rounded-xl overflow-hidden group border-b-2 border-ruby-500 hover:border-ruby-400 transition-all"><img src="images/image6.png" alt="Catapultikon25 Highlight 3" class="w-full h-44 md:h-52 object-cover group-hover:scale-105 transition-transform duration-500"></div></div></section><section id="coordinators"><h3 class="text-ruby-500 font-black uppercase tracking-widest text-sm mb-8 text-center">Field Marshals</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4"><a href="tel:9039110591" id="coord-akshansh" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-ruby-600/10 transition-all"><div class="w-10 h-10 site-surface rounded-lg flex items-center justify-center border border-ruby-500/30 group-hover:scale-110 transition-transform"><iconify-icon icon="lucide:phone" class="text-ruby-500"></iconify-icon></div><div><p class="text-[10px] font-black uppercase leading-none mb-1">Akshansh Namdeo</p><p class="text-xs text-ruby-500 font-bold tracking-wider">9039110591</p></div></a><a href="tel:8928037057" id="coord-arya" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-ruby-600/10 transition-all"><div class="w-10 h-10 site-surface rounded-lg flex items-center justify-center border border-ruby-500/30 group-hover:scale-110 transition-transform"><iconify-icon icon="lucide:phone" class="text-ruby-500"></iconify-icon></div><div><p class="text-[10px] font-black uppercase leading-none mb-1">Arya Pawar</p><p class="text-xs text-ruby-500 font-bold tracking-wider">8928037057</p></div></a><a href="tel:7038826254" id="coord-manoj" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-ruby-600/10 transition-all"><div class="w-10 h-10 site-surface rounded-lg flex items-center justify-center border border-ruby-500/30 group-hover:scale-110 transition-transform"><iconify-icon icon="lucide:phone" class="text-ruby-500"></iconify-icon></div><div><p class="text-[10px] font-black uppercase leading-none mb-1">Manoj Potrie</p><p class="text-xs text-ruby-500 font-bold tracking-wider">7038826254</p></div></a></div></section></div><div class="lg:col-span-4 lg:sticky-form"><div id="register-card" class="glass-card-neon p-6 md:p-8 rounded-3xl border-2 border-ruby-500/40 shadow-[0_0_30px_rgba(255,20,147,0.2)]"><div class="text-center mb-8"><div class="inline-flex gap-2 mb-4"><iconify-icon icon="mdi:square-outline" class="text-ruby-500 text-xl"></iconify-icon><iconify-icon icon="mdi:triangle-outline" class="text-ruby-500 text-xl"></iconify-icon><iconify-icon icon="mdi:circle-outline" class="text-ruby-500 text-xl"></iconify-icon></div><h3 class="text-2xl font-black italic tracking-wider text-ruby-500 mb-2">SIGN YOUR FATE</h3><p class="text-[10px] text-mutedc font-bold tracking-[0.3em] uppercase">Official Registration</p></div><form class="space-y-4" id="catapultikon-register-form" novalidate><div class="space-y-1"><label class="text-[10px] font-bold text-ruby-500 uppercase tracking-widest px-1">Team Identity</label><input type="text" id="team_name" placeholder="Team Name" class="form-input" required></div><div class="space-y-1"><label class="text-[10px] font-bold text-ruby-500 uppercase tracking-widest px-1">Team Size</label><select id="team_size" class="form-input" required><option value="1">1 Member</option><option value="2">2 Members</option><option value="3" selected="">3 Members</option></select></div><div id="members-container" class="space-y-4"></div><button type="submit" id="register-btn-main" class="w-full py-4 mt-6 bg-ruby-600 hover:bg-ruby-700 text-white font-black text-sm tracking-[0.2em] uppercase transition-all shadow-[0_0_20px_rgba(255,20,147,0.4)] hover:scale-[1.02]">ENTER THE ARENA</button></form><div class="pt-6 border-t border-mutedc text-center mt-6"><p class="text-[9px] text-mutedc font-bold uppercase tracking-[0.2em]">By registering, you agree to the game rules.</p></div></div></div></div></main><footer class="py-12 border-t border-ruby-500/10 site-surface text-center"><div class="flex items-center justify-center gap-2 mb-6"><div class="w-8 h-8 logo-chip rounded-md flex items-center justify-center p-1"><img src="images/catapultikon-logo.png" alt="Catapultikon Logo" class="w-full h-full object-contain"></div><span class="text-sm font-black tracking-[0.3em] text-ruby-500 uppercase">Catapultikon 2026 • VNIT Nagpur</span></div><div class="flex justify-center gap-8 text-mutedc mb-8"><a href="#" id="social-instagram" class="hover:text-ruby-500 transition-all text-2xl"><iconify-icon icon="lucide:instagram"></iconify-icon></a><a href="#" id="social-linkedin" class="hover:text-ruby-500 transition-all text-2xl"><iconify-icon icon="lucide:linkedin"></iconify-icon></a><a href="#" id="social-twitter" class="hover:text-ruby-500 transition-all text-2xl"><iconify-icon icon="lucide:twitter"></iconify-icon></a></div><p class="text-[10px] text-mutedc tracking-[0.4em] uppercase font-bold">PRECISION • POWER • SURVIVAL</p></footer></div><script>
-(function () {
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('cptk-theme', next); } catch (e) {}
-    });
-  }
-})();
+        [data-theme='light'] {
+            --bg-deep: #f8f8f8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4b5563;
+            --ruby-red: #9B111E;
+            --ruby-glow: transparent;
+            --gold-accent: #B8860B;
+            --glass: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(155, 17, 30, 0.2);
+            --grid-color: rgba(0, 0, 0, 0.04);
+            --scan-opacity: 0.02;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --star-field-opacity: 0;
+        }
 
-(function () {
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('mobile-menu-close');
-  const links = document.querySelectorAll('.mobile-link');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            width: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-  function openMenu() { if (menu) menu.classList.remove('translate-x-full'); }
-  function closeMenu() { if (menu) menu.classList.add('translate-x-full'); }
+        h1, h2, h3, h4, h5, .heading-font {
+            font-family: 'Clash Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
 
-  if (menuBtn) menuBtn.addEventListener('click', openMenu);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-  links.forEach(function (l) { l.addEventListener('click', closeMenu); });
-})();
+        .neon-text {
+            color: var(--ruby-red);
+            text-shadow: 0 0 10px var(--ruby-red), 0 0 20px var(--ruby-glow);
+            transition: all 0.3s ease;
+        }
+        [data-theme='light'] .neon-text {
+            text-shadow: none;
+            font-weight: 800;
+        }
 
-(function () {
-  const teamSizeSelect = document.getElementById('team_size');
-  const membersContainer = document.getElementById('members-container');
-  const form = document.getElementById('catapultikon-register-form');
-  const submitBtn = document.getElementById('register-btn-main');
+        .glass-card-neon {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+        [data-theme='light'] .glass-card-neon {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
 
-  function renderMembers() {
-    const count = +teamSizeSelect.value;
-    membersContainer.innerHTML = '';
-    for (let i = 1; i <= count; i++) {
-      membersContainer.insertAdjacentHTML('beforeend', `
-        <div class="pt-4 border-t border-mutedc space-y-1">
-          <p class="text-[10px] font-black text-ruby-500 uppercase tracking-widest mb-2">Member ${i}</p>
-          <input type="text" id="member_${i}_name" placeholder="Full Name" class="form-input member-name" required>
-          <input type="tel" id="member_${i}_phone" placeholder="Phone Number" class="form-input member-phone" required>
-          <input type="tel" id="member_${i}_alt_phone" placeholder="Parent / Alt Phone (optional)" class="form-input">
-          <input type="email" id="member_${i}_email" placeholder="Email Address" class="form-input member-email" required>
-          <input type="text" id="member_${i}_school" placeholder="School" class="form-input">
-          <input type="text" id="member_${i}_city" placeholder="City" class="form-input">
-          <input type="text" id="member_${i}_class" placeholder="Class (e.g. 10th)" class="form-input">
-        </div>
-      `);
-    }
-  }
+        .glass-card-neon:hover {
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
 
-  renderMembers();
-  teamSizeSelect.addEventListener('change', renderMembers);
+        .scan-line {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--ruby-red);
+            opacity: var(--scan-opacity);
+            z-index: 100;
+            animation: scan 12s linear infinite;
+            pointer-events: none;
+        }
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
 
-    let valid = true;
-    document.querySelectorAll('.form-input').forEach(el => { el.style.borderColor = ''; });
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), 
+                              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-    if (document.getElementById('team_name').value.trim().length < 2) {
-      document.getElementById('team_name').style.borderColor = 'red';
-      valid = false;
-    }
-    document.querySelectorAll('.member-name').forEach(el => {
-      if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
-    });
-    document.querySelectorAll('.member-phone').forEach(el => {
-      if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
-    });
-    document.querySelectorAll('.member-email').forEach(el => {
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
-    });
+        .star-field {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at center, #0a0005 0%, #000 100%);
+            opacity: var(--star-field-opacity);
+        }
 
-    if (!valid) {
-      alert('Please correct the highlighted fields.');
-      return;
-    }
+        .logo-gold-solid {
+            filter: invert(1) sepia(1) saturate(10000%) hue-rotate(45deg) brightness(1.2);
+            background-color: transparent;
+        }
 
-    const count = +teamSizeSelect.value;
-    const formData = new FormData();
-    formData.append('team_name', document.getElementById('team_name').value.trim());
-    formData.append('team_size', String(count));
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s;
+        }
+        [data-theme='light'] .form-input {
+            background: white;
+            border-color: #d1d5db;
+            color: #1a1a1a;
+        }
 
-    for (let i = 1; i <= count; i++) {
-      formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
-      formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
-      formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
-      formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
-      formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
-      formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
-      formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
-    }
+        .form-input:focus {
+            border-color: var(--gold-accent);
+            outline: none;
+            background: rgba(196, 30, 58, 0.05);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'LAUNCHING...';
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--ruby-red);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <div class="star-field"></div>
+        <div class="grid-bg"></div>
+        <div class="scan-line"></div>
 
-    try {
-      const response = await fetch('/api/catapultikon/register', {
-        method: 'POST',
-        body: formData
-      });
-      const result = await response.json().catch(() => ({}));
+        <!-- Navigation -->
+        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-3 md:py-4 px-4 sm:px-6 lg:px-10 flex justify-between items-center backdrop-blur-lg border-b border-[#C41E3A]/20" style="background-color: var(--nav-bg)">
+            <div class="flex items-center gap-3">
+                <a href="#" id="nav-logo-link" class="flex items-center gap-3">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786371943814-0d8fa6c1/catapultlogo-removebg-preview.png" alt="Catapult Logo" class="h-6 sm:h-8 md:h-10 logo-gold-solid drop-shadow-[0_0_5px_rgba(212,175,55,0.4)] transition-transform hover:scale-110 relative z-10">
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold tracking-widest text-base sm:text-lg leading-none uppercase text-[#C41E3A]">CATAPULTIKON</span>
+                        <span class="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] opacity-50 uppercase text-[var(--text-primary)]">Junior Scientist 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden lg:flex items-center gap-6 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em] xl:tracking-[0.3em] uppercase text-[var(--text-primary)]">
+                <button id="theme-toggle-desktop" class="w-10 h-10 flex items-center justify-center rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/10 transition-all text-lg">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="#" id="nav-home-link" class="hover:text-[#D4AF37] transition-colors">Hub Home</a>
+                <a href="#register-card" id="nav-cta-register" class="bg-[#C41E3A] text-black px-4 py-2 hover:bg-[#D4AF37] transition-all font-bold">Register Now</a>
+            </div>
+            <div class="lg:hidden flex items-center gap-3">
+                <button id="theme-toggle-mobile" class="w-9 h-9 flex items-center justify-center rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/10 transition-all text-base">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="#register-card" id="mobile-cta-register" class="bg-[#C41E3A] text-black px-3 py-1.5 text-xs hover:bg-[#D4AF37] transition-all font-bold uppercase tracking-widest">Register</a>
+            </div>
+        </nav>
 
-      if (response.ok) {
-        alert('Registration Successful! See you in the arena.');
-        form.reset();
-        renderMembers();
-      } else {
-        alert(result.detail || result.message || 'Registration failed. Please try again.');
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Could not connect to the server. Please check your connection and try again.');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'ENTER THE ARENA';
-    }
-  });
-})();
-</script></body></html>
+        <!-- Main Content -->
+        <main class="flex-1 max-w-[1440px] mx-auto w-full px-4 sm:px-6 lg:px-10 pt-24 sm:pt-28 md:pt-32 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
+                
+                <!-- Content Column -->
+                <div class="lg:col-span-8 flex flex-col gap-8 md:gap-12">
+                    
+                    <!-- Hero Section -->
+                    <section id="hero-compact" class="relative flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 py-8 sm:py-12 px-6 sm:px-10 glass-card-neon rounded-2xl sm:rounded-3xl overflow-hidden">
+                        <div class="flex-1 z-10 text-center md:text-left">
+                            <div class="mb-6 flex flex-col md:flex-row md:items-center gap-6">
+                                
+                                <div class="flex flex-col">
+                                    <p class="text-[#D4AF37] tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs font-bold mb-3 sm:mb-4 uppercase">The Magical Tournament</p>
+                                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black italic neon-text leading-tight mb-3 sm:mb-4 tracking-tighter">
+                                        CATAPULTIKON
+                                    </h1>
+                                </div>
+                            </div>
+                            <h2 class="text-sm sm:text-lg md:text-xl font-bold tracking-[0.1em] sm:tracking-[0.2em] text-[var(--text-primary)] opacity-90 italic">
+                                THREE TRIALS. ONE MASTER WIZARD. MAKE EVERY LAUNCH COUNT.
+                            </h2>
+                            <div class="mt-8 flex justify-center md:justify-start lg:hidden">
+                                <a href="#register-card" id="hero-register-btn-mob" class="px-8 py-3 bg-[#C41E3A] text-black font-black tracking-widest uppercase hover:bg-[#D4AF37] transition-all">Enter the Trial</a>
+                            </div>
+                        </div>
+                        <div class="relative w-full max-w-[220px] sm:max-w-[280px] aspect-square shrink-0">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786371943814-0d8fa6c1/catapultlogo-removebg-preview.png" alt="Hero Catapult Logo" class="w-full h-full object-contain logo-gold-solid drop-shadow-[0_0_40px_rgba(212,175,55,0.6)] animate-pulse" style="background-color: rgba(236, 186, 4, 0);">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Event Overview -->
+                    <section id="overview" class="glass-card-neon p-6 sm:p-10 rounded-2xl">
+                        <h3 class="text-[#D4AF37] font-black mb-6 flex items-center gap-3 tracking-widest uppercase text-sm sm:text-base">
+                            <iconify-icon icon="game-icons:parchment" class="text-xl"></iconify-icon> The Enchanted Scroll
+                        </h3>
+                        <div class="space-y-6 text-gray-300 text-sm sm:text-base leading-relaxed italic">
+                            <p>
+                                For centuries, the world of magic has been filled with powerful spells, legendary wizards, and extraordinary feats. But today, a new challenge awaits.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center gap-6">
+                                <p class="flex-1">
+                                    Hidden within the walls of the wizarding world lies an ancient magical artefact — the <span class="text-[#D4AF37] font-bold">Enchanted Catapult</span>. Only those who can master its power, speed, and precision can prove themselves worthy of the title of Master Wizard.
+                                </p>
+                            </div>
+                            <p>
+                                Today, you are no longer ordinary competitors. You are wizards entering the ultimate magical trial.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- The Three Trials (Rounds) -->
+                    <section id="rounds" class="space-y-6">
+                        <div class="text-center py-4">
+                            <span class="text-[#D4AF37] text-xl">✦ ✧ ✦ ✧ ✦</span>
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-[0.2em] text-lg sm:text-xl mt-2">The Three Trials</h3>
+                        </div>
+                        
+                        <div class="grid gap-6">
+                            <!-- Round 1 -->
+                            <div class="glass-card-neon p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4 class="text-[#D4AF37] font-black uppercase tracking-widest">Round 1 — The Wizard's Trial</h4>
+                                    <span class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim: Range</span>
+                                </div>
+                                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                                    Every wizard must first prove the power and reach of their magical catapult. Each team will receive 3 attempts, and the best attempt will be considered. The maximum range achieved will determine the ranking, and the top 50 percent teams will advance to the next magical trial.
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"Every great wizard begins with a first spell. Every great champion begins with a first launch."</p>
+                            </div>
+
+                            <!-- Round 2 -->
+                            <div class="glass-card-neon p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4 class="text-[#D4AF37] font-black uppercase tracking-widest">Round 2 — The Spellcasting Trial</h4>
+                                    <span class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim: Frequency</span>
+                                </div>
+                                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                                    The surviving wizards now face the ultimate test of speed and consistency. Each wizard will be given a certain amount of time to launch as many projectiles as possible. The number of successful launches within the given time will be recorded. Wizards who demonstrate the highest frequency of successful shots will qualify for the final round.
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"The clock is ticking, the spells are flying — only the fastest wizards will survive."</p>
+                            </div>
+
+                            <!-- Round 3 -->
+                            <div class="glass-card-neon p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4 class="text-[#D4AF37] font-black uppercase tracking-widest">Round 3 — Grand Finale</h4>
+                                    <span class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim: Range + Accuracy</span>
+                                </div>
+                                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                                    The final wizards enter the ultimate magical showdown. The target will be placed at the maximum successful range achieved in the previous rounds. Each finalist will have 3 chances to hit the Target. The challenge is to combine Range (Reach the target) and Accuracy (Hit the target successfully).
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"The final spell is cast. The target awaits. Only one wizard will claim the crown."</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Info Grid -->
+                    <section id="quick-info" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:calendar" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Tournament Date</p>
+                            <p class="text-sm sm:text-base font-black">11th October, 2026</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:banknote" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Trial Fee</p>
+                            <p class="text-sm sm:text-base font-black">₹60 Per Team</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:map-pin" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Magical Venue</p>
+                            <p class="text-sm sm:text-base font-black">VNIT Nagpur</p>
+                        </div>
+                    </section>
+
+                    <!-- Rules and Specs Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Rules -->
+                        <section id="rules" class="space-y-6">
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-widest text-sm border-l-4 border-[#C41E3A] pl-4">Tournament Laws</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">1.</span>
+                                    <p class="text-xs text-gray-200">A maximum of 3 members allowed per team (6th to 12th standard).</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">2.</span>
+                                    <p class="text-xs text-gray-200">Participants must bring the letter of acceptance on the day of the event.</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">3.</span>
+                                    <p class="text-xs text-gray-200">In case of any dispute, the organizing committee decision is final and binding.</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">4.</span>
+                                    <p class="text-xs text-gray-200">A team can contain players from different schools as well.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Specifications -->
+                        <section id="specs" class="space-y-6">
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-widest text-sm border-l-4 border-[#C41E3A] pl-4">Catapult Specifications</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">I.</span>
+                                    <p class="text-xs text-gray-200">Maximum size: 3×3×3 feet.</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">II.</span>
+                                    <p class="text-xs text-gray-200">Strictly non-handheld (No Slingshots allowed).</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">III.</span>
+                                    <p class="text-xs text-gray-200">Mechanical/non-electrical only. Single arm design. Any material except metal.</p>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 glass-card-neon rounded-xl">
+                                    <span class="text-[#D4AF37] font-bold">IV.</span>
+                                    <p class="text-xs text-gray-200">Must fire spherical projectiles (max diameter 4 cm).</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Highlights Section -->
+                    <section id="highlights-gallery" class="my-12 sm:my-16 md:my-20">
+                        <div class="text-center py-8 sm:py-12">
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-[0.2em] text-lg sm:text-xl">HIGHLIGHTS OF CATAPULTIKON 25</h3>
+                            <div class="h-1 w-20 bg-[#D4AF37] mx-auto mt-4 rounded-full"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-0 sm:px-2">
+                            <!-- Highlight Box 1 -->
+                            <div class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379475789-0144ac57/image1.png" alt="Highlight Image 1" class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Ancient Artifacts</p>
+                                </div>
+                            </div>
+                            <!-- Highlight Box 2 -->
+                            <div class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379521757-3c25ba23/image3.png" alt="Highlight Image 2" class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Trial of Wisdom</p>
+                                </div>
+                            </div>
+                            <!-- Highlight Box 3 -->
+                            <div class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379534096-79b47fee/image6.png" alt="Highlight Image 3" class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Final Showdown</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Coordinators -->
+                    <section id="coordinators" class="pb-8">
+                        <h3 class="text-[#C41E3A] font-black uppercase tracking-widest text-xs sm:text-sm mb-6 sm:mb-8 text-center">Magical Prefects</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <a href="tel:9039110591" id="coord-akshansh" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Akshansh Namdeo</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">9039110591</p>
+                                </div>
+                            </a>
+                            <a href="tel:8928037057" id="coord-arya" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Arya Pawar</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">8928037057</p>
+                                </div>
+                            </a>
+                            <a href="tel:7038826254" id="coord-manoj" class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Manoj Potrie</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">7038826254</p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Registration Sidebar -->
+                <div class="lg:col-span-4">
+                    <div id="register-card" class="lg:sticky lg:top-28 glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#C41E3A]/40 shadow-[0_0_30px_rgba(196,30,58,0.15)]">
+                        <div class="text-center mb-8">
+                            <div class="inline-flex gap-2 mb-4">
+                                <iconify-icon icon="lucide:wand-2" class="text-[#D4AF37] text-xl"></iconify-icon>
+                                <iconify-icon icon="lucide:sparkles" class="text-[#D4AF37] text-xl"></iconify-icon>
+                                <iconify-icon icon="lucide:castle" class="text-[#D4AF37] text-xl"></iconify-icon>
+                            </div>
+                            <h3 class="text-2xl font-black italic tracking-wider text-[#D4AF37] mb-2">ENROLL IN HOGWARTS</h3>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-[0.3em] uppercase">Tournament Enrollment</p>
+                        </div>
+                        
+                        <form class="space-y-4">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Wizarding Team Name</label>
+                                <input type="text" placeholder="Enter team identity" class="form-input" required="">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Lead Wizard</label>
+                                <input type="text" placeholder="Full Name" class="form-input" required="">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Magical Transmission (Email)</label>
+                                <input type="email" placeholder="wizard@hogwarts.edu" class="form-input" required="">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Owl ID (Contact)</label>
+                                <input type="tel" placeholder="Mobile Number" class="form-input" required="">
+                            </div>
+                            <button type="submit" id="register-btn-main" class="w-full py-4 mt-6 bg-[#C41E3A] hover:bg-red-800 text-black font-black text-sm tracking-[0.2em] uppercase transition-all shadow-[0_0_20px_rgba(196,30,58,0.4)] active:scale-95">CLAIM YOUR WAND</button>
+                        </form>
+                        
+                        <div class="pt-6 border-t border-white/10 text-center mt-6">
+                            <p class="text-[9px] text-gray-600 font-bold uppercase tracking-[0.2em]">Enter as a competitor. Leave as a legend.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-[#C41E3A]/10 text-center transition-colors duration-300" style="background-color: var(--nav-bg)">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786371943814-0d8fa6c1/catapultlogo-removebg-preview.png" alt="Catapult Logo Footer" class="h-5 sm:h-6 md:h-7 logo-gold-solid opacity-60">
+                <span class="text-sm font-black tracking-[0.3em] text-[#C41E3A] uppercase">Catapultikon 2026 • VNIT Nagpur</span>
+            </div>
+            <div class="flex justify-center gap-8 text-gray-500 mb-8">
+                <a href="#" id="social-instagram" class="hover:text-[#C41E3A] transition-all text-2xl"><iconify-icon icon="lucide:instagram"></iconify-icon></a>
+                <a href="#" id="social-linkedin" class="hover:text-[#C41E3A] transition-all text-2xl"><iconify-icon icon="lucide:linkedin"></iconify-icon></a>
+                <a href="#" id="social-twitter" class="hover:text-[#C41E3A] transition-all text-2xl"><iconify-icon icon="lucide:twitter"></iconify-icon></a>
+            </div>
+            <p class="text-[10px] text-gray-700 tracking-[0.4em] uppercase font-bold px-4">PRECISION • POWER • MAGIC</p>
+        </footer>
+    </div>
+    <script>
+        const themeToggles = [document.getElementById('theme-toggle-desktop'), document.getElementById('theme-toggle-mobile')];
+        const themeIcons = document.querySelectorAll('.theme-icon');
+        const html = document.documentElement;
+
+        const setTheme = (theme) => {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcons.forEach(icon => {
+                icon.innerText = theme === 'light' ? '☀️' : '🌙';
+            });
+        };
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                setTheme(currentTheme === 'light' ? 'dark' : 'light');
+            });
+        });
+    </script>
+
+</body></html>
+
