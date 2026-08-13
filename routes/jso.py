@@ -20,7 +20,11 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("JSO")
+        existing_ids = sheet.col_values(1)
+        next_seq = len(existing_ids)  # already excludes header row
+        registration_id = f"JSO{next_seq + 1:03d}"
         new_row = [
+                registration_id,
                 full_name,
                 phone,
                 alt_phone,
@@ -34,7 +38,8 @@ def register_student(
         
         return {
                 "status": "success",
-                "message": "Saved Successfully!"
+                "message": "Saved Successfully!",
+                "registration_id": registration_id
         }
     except Exception as e:
         logger.exception("JSO registration failed")

@@ -504,7 +504,8 @@
                     const result = await response.json().catch(() => ({}));
 
                     if (response.ok) {
-                        alert('Registration Successful! Welcome to the Junior Science Olympiad.');
+                        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}` : '';
+                        alert('Registration Successful! Welcome to the Junior Science Olympiad.' + regId);
                         form.reset();
                     } else {
                         alert(result.detail || result.message || 'Registration failed. Please try again.');
