@@ -6,7 +6,10 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
-
+def generate_registration_id(sheet, prefix: str = "JSO") -> str: # ID generator
+    existing_rows = sheet.get_all_values()
+    next_number = max(len(existing_rows) - 1, 0) + 1
+    return f"{prefix}{next_number:03d}"
 
 @router.post("/api/JSO/register")
 def register_student(
@@ -20,9 +23,7 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("JSO")
-        existing_ids = sheet.col_values(1)
-        next_seq = len(existing_ids)  # already excludes header row
-        registration_id = f"JSO{next_seq + 1:03d}"
+        registration_id = generate_registration_id(sheet) # add this
         new_row = [
                 registration_id,
                 full_name,
