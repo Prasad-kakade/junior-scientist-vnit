@@ -4,7 +4,10 @@ import logging
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
-
+def generate_registration_id(sheet, prefix: str = "MAM") -> str: # ID generator
+    existing_rows = sheet.get_all_values()
+    next_number = max(len(existing_rows) - 1, 0) + 1
+    return f"{prefix}{next_number:03d}"
 # --- STACK THE DECORATORS HERE ---
 # This forces FastAPI to accept both URL variations so Vercel can't 404 it.
 @router.post("/api/mathamaze/register")
@@ -20,7 +23,9 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("Mathamaze")
+        registration_id = generate_registration_id(sheet) # add this
         new_row = [
+                registration_id,    # add this
                 full_name,
                 phone,
                 alt_phone,
@@ -35,6 +40,7 @@ def register_student(
         return {
                 "status": "success",
                 "message": "Saved Successfully!"
+                ,"registration_id": registration_id
         }
     except Exception as e:
         logger.exception("Mathamaze registration failed")
