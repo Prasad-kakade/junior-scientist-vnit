@@ -7,6 +7,12 @@ logger = logging.getLogger(__name__)
 
 
 
+
+def generate_registration_id(sheet, prefix: str = "ARD") -> str: # ID generator
+    existing_rows = sheet.get_all_values()
+    next_number = max(len(existing_rows) - 1, 0) + 1
+    return f"{prefix}{next_number:03d}"
+    
 @router.post("/api/arduinoexp/register")
 def register_student(
     # Team Info
@@ -42,8 +48,9 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("ArduinoExpo")
-
+        registration_id = generate_registration_id(sheet) # add this
         new_row = [
+                registration_id,    # add this
                 team_name, team_size,
                 
                 # Member 1
@@ -61,7 +68,7 @@ def register_student(
 
         sheet.append_row(new_row)
             
-        return {"status": "success", "message": "Saved to Google Cloud!"}
+        return {"status": "success", "message": "Saved to Google Cloud!","registration_id": registration_id }
     except Exception as e:
         logger.exception("Arduino Expo registration failed")
 
