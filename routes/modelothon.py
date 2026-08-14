@@ -6,7 +6,10 @@ import logging
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-
+def generate_registration_id(sheet, prefix: str = "MOD") -> str: # ID generator
+    existing_rows = sheet.get_all_values()
+    next_number = max(len(existing_rows) - 1, 0) + 1
+    return f"{prefix}{next_number:03d}"
 
 @router.post("/api/modelothon/register")
 def register_student(
@@ -43,7 +46,7 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("Modelothon")
-
+        registration_id = generate_registration_id(sheet) # add this
         new_row = [
                 team_name, team_size,
                 
@@ -63,7 +66,7 @@ def register_student(
             # Insert the row into the Google Sheet automatically at the next available space
         sheet.append_row(new_row)
             
-        return {"status": "success", "message": "Saved to Google Cloud!"}
+        return {"status": "success", "message": "Saved to Google Cloud!",,"registration_id": registration_id}
     except Exception as e:
          logger.exception("Modelothon registration failed")
 
