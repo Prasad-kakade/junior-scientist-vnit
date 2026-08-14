@@ -43,6 +43,7 @@ def register_student(
     # Package the new data as a list (representing a row)
     # The columns in your Google Sheet should match this exact order
         new_row = [
+                registration_id,    # add this
                 team_name, team_size,
                 
                 # Member 1

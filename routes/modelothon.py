@@ -48,6 +48,7 @@ def register_student(
         sheet = get_sheet_connection("Modelothon")
         registration_id = generate_registration_id(sheet) # add this
         new_row = [
+                registration_id,    # add this
                 team_name, team_size,
                 
                 # Member 1

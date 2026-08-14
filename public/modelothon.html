@@ -123,7 +123,8 @@ themeToggle.addEventListener('click', () => {
       const result = await response.json().catch(() => ({}));
 
       if (response.ok) {
-        alert('Registration Successful! See you at Model-O-Thon.');
+        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+        alert('Registration Successful! Welcome to Modelothon.' + regId);
         form.reset();
         teamSizeSelector.value = '1';
         renderApplicantFields(1);
