@@ -66,7 +66,7 @@ def register_student(
             # Insert the row into the Google Sheet automatically at the next available space
         sheet.append_row(new_row)
             
-        return {"status": "success", "message": "Saved to Google Cloud!",,"registration_id": registration_id}
+        return {"status": "success", "message": "Saved to Google Cloud!","registration_id": registration_id}
     except Exception as e:
          logger.exception("Modelothon registration failed")
 
