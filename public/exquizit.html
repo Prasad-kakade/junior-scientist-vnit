@@ -1,9 +1,5 @@
-Page: EXQUIZIT | Light & Dark Mode Update
-
-```html
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXQUIZIT | Junior Scientist VNIT</title>
@@ -19,22 +15,24 @@ Page: EXQUIZIT | Light & Dark Mode Update
             --bg-deep: #000000;
             --text-main: #ffffff;
             --text-muted: #9ca3af;
-            --neon-cyan: #00D9FF;
-            --neon-cyan-glow: rgba(0, 217, 255, 0.4);
-            --neon-purple: #9D4EDD;
+            --neon-teal: #00D9FF;
+            --neon-teal-glow: rgba(0, 217, 255, 0.4);
+            --neon-orange: #00D9FF;
+            --neon-orange-glow: rgba(0, 217, 255, 0.4);
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.08);
             --grid-color: rgba(0, 217, 255, 0.03);
         }
 
         [data-theme='light'] {
-            --bg-deep: #FBF3E3;
+            --bg-deep: #f8f8f8;
             --text-main: #1a1a1a;
             --text-muted: #4b5563;
-            --neon-cyan: #0088cc;
-            --neon-cyan-glow: transparent;
-            --neon-purple: #7B2CBF;
-            --glass: rgba(255, 250, 235, 0.9);
+            --neon-teal: #0088cc;
+            --neon-teal-glow: transparent;
+            --neon-orange: #0088cc;
+            --neon-orange-glow: rgba(0, 136, 204, 0.15);
+            --glass: rgba(255, 255, 255, 0.9);
             --glass-border: rgba(0, 0, 0, 0.08);
             --grid-color: rgba(0, 0, 0, 0.05);
         }
@@ -53,14 +51,14 @@ Page: EXQUIZIT | Light & Dark Mode Update
             letter-spacing: -0.02em;
         }
 
-        .neon-text-cyan {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan-glow);
+        .neon-text-teal {
+            color: var(--neon-teal);
+            text-shadow: 0 0 10px var(--neon-teal), 0 0 20px var(--neon-teal-glow);
         }
 
-        .neon-border-cyan {
-            border: 1px solid var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+        .neon-text-orange {
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange-glow);
         }
 
         .glass-card-neon {
@@ -71,7 +69,7 @@ Page: EXQUIZIT | Light & Dark Mode Update
         }
 
         .glass-card-neon:hover {
-            border-color: var(--neon-cyan);
+            border-color: var(--neon-teal);
             box-shadow: 0 0 30px rgba(0, 217, 255, 0.1);
         }
 
@@ -107,54 +105,29 @@ Page: EXQUIZIT | Light & Dark Mode Update
             transition: opacity 0.3s ease;
         }
 
-[data-theme='light'] .starfield {
-            background: radial-gradient(circle at 50% 50%, #FDF6E3 0%, #FBF3E3 100%);
+        [data-theme='light'] .starfield {
+            background: radial-gradient(circle at 50% 50%, #eef2f7 0%, #f8f8f8 100%);
             opacity: 0.5;
         }
 
-        [data-theme='light'] .neon-text-cyan {
+        [data-theme='light'] .neon-text-teal, [data-theme='light'] .neon-text-orange {
             text-shadow: none;
             font-weight: 800;
-            color: var(--neon-cyan);
+        }
+
+        [data-theme='light'] img.exquizit-logo {
+            filter: brightness(0) saturate(100%) !important;
+            mix-blend-mode: normal;
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme='dark'] img.exquizit-logo {
+            transition: filter 0.3s ease;
         }
 
         [data-theme='light'] .text-white, 
         [data-theme='light'] .font-black.text-white {
             color: #1a1a1a !important;
-        }
-
-        [data-theme='light'] .text-gray-400, 
-        [data-theme='light'] .text-gray-500, 
-        [data-theme='light'] .text-gray-600 {
-            color: #4b5563 !important;
-        }
-
-[data-theme='light'] #main-nav {
-            background: rgba(255, 250, 235, 0.9);
-            border-bottom-color: rgba(0, 0, 0, 0.05);
-        }
-
-        [data-theme='light'] nav a.text-white {
-            color: #1a1a1a !important;
-        }
-
-[data-theme='light'] footer {
-            background: #FBF3E3;
-            border-top-color: rgba(0, 0, 0, 0.05);
-        }
-
-        [data-theme='light'] .bg-white\/5 {
-            background-color: rgba(0, 0, 0, 0.04) !important;
-        }
-
-        [data-theme='light'] .border-white\/10 {
-            border-color: rgba(0, 0, 0, 0.08) !important;
-        }
-
-        [data-theme='light'] select, [data-theme='light'] input {
-            background-color: rgba(0, 0, 0, 0.03) !important;
-            color: #1a1a1a !important;
-            border-color: rgba(0, 0, 0, 0.1) !important;
         }
 
         .contact-clip {
@@ -170,8 +143,27 @@ Page: EXQUIZIT | Light & Dark Mode Update
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--neon-cyan);
+            background: var(--neon-teal);
             border-radius: 10px;
+        }
+
+        @view-transition {
+            navigation: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #highlights figure {
+            will-change: transform, opacity;
         }
     </style>
 </head>
@@ -181,175 +173,304 @@ Page: EXQUIZIT | Light & Dark Mode Update
         <div class="grid-bg"></div>
         <div class="scan-line"></div>
 
-        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-cyan-500/10">
+        <nav id="main-nav" class="fixed top-0 left-0 w-full z-40 py-4 px-6 md:px-10 flex justify-between items-center bg-black dark:bg-black border-b border-cyan-500/10">
             <div class="flex items-center gap-3">
-                <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
-                    <div class="flex flex-col">
-                        <span class="font-bold tracking-widest text-lg leading-none text-cyan-500 uppercase">EXQUIZIT</span>
-                        <span class="text-[9px] tracking-[0.4em] opacity-50 uppercase">Junior Scientist 2026</span>
-                    </div>
+                <a href="index.html" id="nav-logo-link" class="flex flex-col">
+                    <span class="font-bold tracking-widest text-lg leading-none text-cyan-500 uppercase">EXQUIZIT</span>
+                    <span class="text-[9px] tracking-[0.4em] opacity-50 uppercase">Junior Scientist 2026</span>
                 </a>
             </div>
             <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.2em] uppercase">
-                <a href="index.html" id="nav-link-home" class="text-white hover:text-cyan-400">Hub Home</a>
-                <a href="catapultikon.html" id="nav-link-catapult" class="text-gray-500 hover:text-cyan-400">Catapultikon</a>
-                <a href="mun.html" id="nav-link-mun" class="text-gray-500 hover:text-cyan-400">MUN</a>
-                <a href="mathamaze.html" id="nav-link-math" class="text-gray-500 hover:text-cyan-400">Mathamaze</a>
-                <button id="theme-toggle" class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-cyan-500/30 hover:bg-cyan-500/10 transition-all text-xl">
+                <a href="index.html" id="nav-home-link" class="text-white hover:text-cyan-400">Hub Home</a>
+                <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-500/30 hover:bg-cyan-500/10 transition-all text-xl">
                     <span id="theme-icon">☀️</span>
                 </button>
-                <a href="#register-form" id="nav-link-reg" class="px-4 py-2 border border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-black transition-all">Register</a>
+                
             </div>
         </nav>
 
-        <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20 relative z-0">
+            <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8">
                 
-                <div class="lg:col-span-8 flex flex-col gap-8">
-                    
-                    <section id="hero-compact" class="glass-card-neon p-8 md:p-12 rounded-3xl relative overflow-hidden">
-                        <div class="relative z-10">
-                            <span class="text-cyan-500 tracking-[0.5em] text-[10px] font-bold uppercase mb-4 block">Trivia Protocol Initialized</span>
-                            <h1 class="text-6xl md:text-8xl font-black neon-text-cyan italic mb-4 tracking-tighter">EXQUIZIT</h1>
-                            <p class="text-xl md:text-2xl font-bold text-white tracking-[0.1em] opacity-90 mb-6">True Discovery Begins Here.</p>
-                            <p class="text-gray-400 leading-relaxed max-w-2xl mb-8">
-                                Break the routine thought cycle and test your brilliance in the ultimate IQ standoff. EXQUIZIT isn't just a quiz; it's a high-stakes arena where critical thinking and rapid-fire deduction determine the masterminds of tomorrow.
-                            </p>
-                            <a href="#register-form" id="hero-cta-btn" class="inline-block px-10 py-4 bg-cyan-600 text-black font-black uppercase tracking-widest hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(0,217,255,0.3)]">Register Now</a>
-                        </div>
-                        <div class="absolute right-[-10%] bottom-[-10%] w-64 h-64 opacity-10">
-                             <iconify-icon icon="mdi:brain" class="text-[200px] text-cyan-500"></iconify-icon>
-                        </div>
-                    </section>
-
-                    <section id="event-details" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:layers" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">ROUND FORMAT</h4>
-                            </div>
-                            <p class="text-xs text-gray-500">2 Competitive Phases: Written Prelims followed by an intense Live Buzzer Finale for top teams.</p>
-                        </div>
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:clock" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">TIME LIMIT</h4>
-                            </div>
-                            <p class="text-xs text-gray-500">60 Minutes for Prelims. Rapid-fire response time for the Live Final round.</p>
-                        </div>
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:users" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">TEAM SIZE</h4>
-                            </div>
-                            <p class="text-xs text-gray-500 uppercase">Max 2 Members Per Team. Individual participation is also allowed.</p>
-                        </div>
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:graduation-cap" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">ELIGIBILITY</h4>
-                            </div>
-                            <p class="text-xs text-gray-500 uppercase">Two Categories: Junior (Classes 5-8) and Senior (Classes 9-12).</p>
-                        </div>
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:banknote" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">ENTRY FEE</h4>
-                            </div>
-                            <p class="text-lg font-black text-cyan-400 italic">₹50 / PERSON</p>
-                        </div>
-                        <div class="glass-card-neon p-6 rounded-2xl">
-                            <div class="flex items-center gap-3 mb-2">
-                                <iconify-icon icon="lucide:trophy" class="text-cyan-500"></iconify-icon>
-                                <h4 class="font-black text-white text-sm tracking-widest">PRIZE POOL</h4>
-                            </div>
-                            <p class="text-lg font-black text-purple-400 italic tracking-widest uppercase">Certification + Awards</p>
-                        </div>
-                    </section>
-
-                    <section id="contact-hub" class="glass-card-neon p-8 rounded-3xl border-white/5">
-                        <h3 class="text-2xl font-black italic mb-8 flex items-center gap-4">
-                            <span class="w-8 h-[2px] bg-cyan-500"></span>
-                            Event Coordinators
-                        </h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Coordinator</span>
-                                    <span class="text-sm font-bold">Pranjali Borikar</span>
-                                </div>
-                                <a href="tel:+919371894804" id="contact-pranjali" class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all">
-                                    <iconify-icon icon="lucide:phone"></iconify-icon>
-                                </a>
-                            </div>
-                            <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Coordinator</span>
-                                    <span class="text-sm font-bold">Coordinator Name</span>
-                                </div>
-                                <a href="tel:+910000000000" id="contact-generic" class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all">
-                                    <iconify-icon icon="lucide:phone"></iconify-icon>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <aside class="lg:col-span-4">
+                <aside class="order-first lg:order-last lg:col-span-4">
                     <div class="lg:sticky lg:top-32 space-y-6">
-                        <div id="register-form" class="glass-card-neon p-8 rounded-3xl border-cyan-500/40 relative overflow-hidden">
+                        <div id="register-form" class="glass-card-neon p-6 md:p-8 rounded-3xl border-cyan-500/40 relative overflow-hidden">
                             <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 contact-clip"></div>
-<h4 class="text-2xl font-black italic mb-6 neon-text-cyan">Secure Entry</h4>
+                            <h4 class="text-2xl font-black italic mb-6 neon-text-teal">register now</h4>
+
                             <form class="space-y-4" id="exquizit-register-form" novalidate>
                                 <div>
                                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2 ml-1">Team Name</label>
                                     <input type="text" id="team_name" placeholder="ENTER TEAM NAME" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all" required>
                                 </div>
                                 <div>
-                                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2 ml-1">Team Size</label>
-                                    <select id="team_size" class="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none">
-                                        <option value="1">SOLO</option>
-                                        <option value="2">TEAM OF 2</option>
-                                    </select>
+                                    <label class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block mb-2">Number of Members</label>
+                                    <div class="relative">
+                                        <select id="team_size" class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm font-bold focus:border-cyan-500 outline-none transition-all text-white appearance-none cursor-pointer">
+                                            <option value="1" selected>1 MEMBER</option>
+                                            <option value="2">2 MEMBERS</option>
+                                        </select>
+                                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-cyan-400">
+                                            <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="members-container" class="space-y-4"></div>
-                                <button type="submit" id="register-btn-main" class="w-full py-4 bg-cyan-600 text-black font-black tracking-widest text-sm uppercase hover:bg-cyan-500 transition-all shadow-[0_0_20px_rgba(0,217,255,0.2)] mt-4">Initialize Protocol</button>
+
+                                <div id="members-container" class="space-y-6"></div>
+
+                                <div class="flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl group cursor-pointer">
+                                    <input type="checkbox" id="rules-accept" required class="mt-1 w-4 h-4 accent-cyan-500">
+                                    <label for="rules-accept" class="text-[11px] text-gray-400 leading-tight cursor-pointer group-hover:text-white transition-colors">
+                                        I hereby accept all the <strong>Rules and Regulations</strong> of EXQUIZIT and confirm that the details provided are accurate.
+                                    </label>
+                                </div>
+
+                                <button type="submit" id="register-btn-main" class="w-full py-4 bg-cyan-500 text-black font-black tracking-widest text-sm uppercase hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(0,217,255,0.25)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-500" disabled>SUBMIT</button>
                             </form>
                             <p class="text-[9px] text-center text-gray-600 uppercase mt-6 tracking-widest">Registration fee ₹50/person payable at venue</p>
                         </div>
-
-                        <div class="glass-card-neon p-6 rounded-2xl border-white/5 flex flex-col gap-4">
-                            <div class="flex items-center gap-3">
-                                <iconify-icon icon="lucide:map-pin" class="text-cyan-500"></iconify-icon>
-                                <div>
-                                    <h5 class="text-[10px] font-black uppercase text-white">Venue</h5>
-                                    <p class="text-xs text-gray-500">VNIT, Nagpur - Auditorium Complex</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <iconify-icon icon="lucide:calendar" class="text-cyan-500"></iconify-icon>
-                                <div>
-                                    <h5 class="text-[10px] font-black uppercase text-white">Event Date</h5>
-                                    <p class="text-xs text-gray-500">February 2026</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </aside>
+
+                <div class="order-last lg:order-first lg:col-span-8 space-y-8">
+                    
+                    <section id="hero-card" class="glass-card-neon p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span class="text-cyan-400 tracking-[0.2em] sm:tracking-[0.5em] text-[9px] sm:text-[10px] font-bold uppercase mb-5 block italic text-center md:text-left">"Unwrapping spectrum of curiosity"</span>
+                            <div id="eh_1iogpmyjl4h" class="flex flex-row-reverse items-center justify-center lg:justify-between gap-2 sm:gap-3 lg:gap-4 mb-6">
+                                
+                                <h1 class="text-4xl sm:text-6xl lg:text-9xl font-black neon-text-teal italic tracking-tighter whitespace-nowrap">EXQUIZIT</h1><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786388751201-0d9e93b1/ChatGPT_Image_Aug_11__2026__12_33_57_AM.png" alt="EXQUIZIT Icon" class="exquizit-logo w-16 h-16 sm:w-20 sm:h-20 lg:w-[120px] lg:h-[120px] max-w-[24vw] object-contain hover:scale-110 transition-transform duration-300" style="filter: drop-shadow(rgba(0, 217, 255, 0.6) 0px 0px 15px) brightness(1.1); mix-blend-mode: screen; width: 303px;">
+                            </div>
+                            <div class="max-w-2xl ml-auto text-center md:text-right">
+                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-[0.08em] mb-4 sm:mb-6">True Discovery Begins Here.</h2>
+                                <p class="text-gray-400 leading-relaxed mb-8 text-sm sm:text-base">Break the routine thought cycle and test your brilliance in the ultimate IQ standoff.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[-5%] top-[-5%] opacity-5">
+                            <iconify-icon icon="lucide:lightbulb" class="text-[300px] text-cyan-500"></iconify-icon>
+                        </div>
+                    </section>
+
+                    <section id="event-structure" class="space-y-6">
+                        <h3 class="text-2xl font-black italic flex items-center gap-4 text-white">
+                            <span class="w-8 h-[2px] bg-cyan-500"></span>
+                            EVENT STRUCTURE
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black">01</span>
+                                    <h4 class="font-black text-white tracking-widest">Genesis Phase</h4>
+                                </div>
+                                <p class="text-sm text-gray-500 leading-relaxed">Participants will be provided with a question paper with a variety of questions from a large variety of categories. They will be required to solve as many as they can within the given time.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black">02</span>
+                                    <h4 class="font-black text-white tracking-widest">Apex Encounter</h4>
+                                </div>
+                                <p class="text-sm text-gray-500 leading-relaxed">This round will be a surprise round like a fast-paced buzzer round format, with different categories and different questions at different difficulty levels.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="event-details" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:users" class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Team Size</h5>
+                            <p class="text-sm font-bold text-white">Single or two people</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/20">
+                            <iconify-icon icon="lucide:banknote" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Entry Fees</h5>
+                            <p class="text-sm font-bold text-white">₹50 per team</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:graduation-cap" class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Junior Geniuses</h5>
+                            <p class="text-sm font-bold text-white">5th to 8th grade</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:award" class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Senior Masterminds</h5>
+                            <p class="text-sm font-bold text-white">9th to 12th grade</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/40">
+                            <iconify-icon icon="lucide:calendar" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Round 1</h5>
+                            <p class="text-sm font-bold text-white">October 4th, 2026</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/40">
+                            <iconify-icon icon="lucide:calendar" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Round 2</h5>
+                            <p class="text-sm font-bold text-white">October 11th, 2026</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center md:col-span-3">
+                            <iconify-icon icon="lucide:map-pin" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Venue</h5>
+                            <p class="text-sm font-bold text-white">VNIT Nagpur</p>
+                        </div>
+                    </section>
+
+                    <section id="why-join" class="space-y-6">
+                        <h3 class="text-2xl font-black italic text-white">
+                            Why shouldn't you miss <span class="neon-text-teal">EXQUIZIT</span>?
+                        </h3>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:zap" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">No Rote Learning, Pure Connection</h4>
+                                <p class="text-xs text-gray-500">Forget memorizing formulas—it's all about lateral thinking, intuition, and connecting hidden clues.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:target" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">High-Stakes Decision Making</h4>
+                                <p class="text-xs text-gray-500">Deciding when to buzz or pass tests split-second instincts academics never teach.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:lightbulb" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">The Ultimate "Aha!" Rush</h4>
+                                <p class="text-xs text-gray-500">Experience the thrill when a complex question suddenly clicks into place.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:crown" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">Campus Dominance</h4>
+                                <p class="text-xs text-gray-500">Outsmart the sharpest minds in the room and claim ultimate bragging rights.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:shield-check" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">All Reward, Zero Risk</h4>
+                                <p class="text-xs text-gray-500">Build stage confidence and earn recognition with nothing to lose.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="rules" class="glass-card-neon p-8 rounded-3xl">
+                        <h3 class="text-2xl font-black italic mb-6 text-cyan-400">Rules and Regulations</h3>
+                        <ul class="space-y-4">
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">01.</span>
+                                <p class="text-sm text-gray-400">Participants are not allowed anything other than a pen and water bottle with them for the duration of the Rounds.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">02.</span>
+                                <p class="text-sm text-gray-400">Possession of exam boards and/or loose sheets is prohibited for the duration of the Rounds.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">03.</span>
+                                <p class="text-sm text-gray-400">The registration form is non-transferable, and registration fees is non-refundable.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">04.</span>
+                                <p class="text-sm text-gray-400">Participants have to carry the receipt on the day of the event.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">05.</span>
+                                <p class="text-sm text-gray-400">In case of any disputes, the decision of the organising committee will be final and binding.</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="introduction" class="glass-card-neon p-8 md:p-10 rounded-3xl">
+                        <div class="flex flex-col gap-6">
+                            <p class="text-xl text-cyan-400 font-bold leading-relaxed italic">
+                                "Discovery begins where traditional thinking ends. Trivia isn't just about recalling facts - it's about breaking routine thought and uncovering the extraordinary in everyday knowledge."
+                            </p>
+                            <p class="text-gray-400 leading-relaxed">
+                                Welcome to Exquizit, the ultimate battleground for sharp minds. Built for those who question the obvious, Exquizit challenges you to think critically under pressure across dynamic categories. It is a general knowledge quiz comprising different domains.
+                            </p>
+                            <div class="border-l-4 border-cyan-500 pl-6 py-2 mt-4">
+                                <p class="text-white italic text-lg">
+                                    ‐‐ "Curiosity about life in all of its aspects, I think, is still the secret of great creative people."
+                                </p>
+                                <p class="text-cyan-400 text-sm font-bold mt-2 uppercase">~ Leo Burnett, Advertising Executive &amp; Author</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="highlights" class="space-y-6">
+                        <div class="flex flex-col">
+                            <h3 class="text-2xl font-black italic text-cyan-400 uppercase">Event Highlights</h3>
+                            <div class="w-12 h-1 bg-cyan-500 mt-2 mb-8"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <figure class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out" style="animation: slideUp 0.6s forwards 0ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391759030-950e2867/WhatsApp_Image_2026-08-11_at_1.21.07_AM.jpeg" alt="Participants in a quiz hall" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]"></div>
+                            </figure>
+                            <figure class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out" style="animation: slideUp 0.6s forwards 150ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391785055-c20c0337/WhatsApp_Image_2026-08-11_at_1.21.08_AM.jpeg" alt="Students discussing questions" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]"></div>
+                            </figure>
+                            <figure class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out" style="animation: slideUp 0.6s forwards 300ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391808498-4e8d686d/WhatsApp_Image_2026-08-11_at_1.21.08_AM__1_.jpeg" alt="Students writing quiz paper" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]"></div>
+                            </figure>
+                            <figure class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out" style="animation: slideUp 0.6s forwards 450ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391844670-d0a00fec/WhatsApp_Image_2026-08-11_at_1.21.09_AM.jpeg" alt="Quiz session in progress" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]"></div>
+                            </figure>
+                            <figure class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out" style="animation: slideUp 0.6s forwards 600ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391825786-eab06dab/WhatsApp_Image_2026-08-11_at_1.21.08_AM__2_.jpeg" alt="Concentrated participants" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]"></div>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section id="coordinators" class="glass-card-neon p-8 rounded-3xl">
+                        <h3 class="text-2xl font-black italic mb-6 text-cyan-400">Event Coordinators</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="group flex flex-col gap-1">
+                                <span class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Aarya Chaudhari</span>
+                                <a href="tel:9370578703" id="coord-aarya-link" class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9370578703
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Aditya Shingne</span>
+                                <a href="tel:9511218956" id="coord-aditya-link" class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9511218956
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Perul Katre</span>
+                                <a href="tel:9022325559" id="coord-perul-link" class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9022325559
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Taksh Chauhan</span>
+                                <a href="tel:6263610877" id="coord-taksh-link" class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    6263610877
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Shambhavi Joshi</span>
+                                <a href="tel:8329210002" id="coord-shambhavi-link" class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    8329210002
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </main>
 
-        <footer class="pt-20 pb-10 bg-black border-t border-cyan-500/10">
+        <footer class="pt-20 pb-10 bg-black dark:bg-black border-t border-cyan-500/10 z-40 relative">
             <div class="max-w-7xl mx-auto px-10 flex flex-col items-center text-center">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="text-2xl font-black tracking-widest neon-text-cyan uppercase">EXQUIZIT</span>
+                    <span class="text-2xl font-black tracking-widest neon-text-teal uppercase">EXQUIZIT</span>
                 </div>
-                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12">Intelligence Protocol 2026 // VNIT Nagpur</p>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12 italic">Intelligence Protocol 2026 // VNIT Nagpur</p>
                 <div class="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-black uppercase text-gray-500">
-                    <a href="catapultikon.html" id="footer-link-1" class="hover:text-cyan-400 transition-colors">Catapultikon</a>
-                    <a href="mathamaze.html" id="footer-link-2" class="hover:text-cyan-400 transition-colors">Mathamaze</a>
-                    <a href="mun.html" id="footer-link-3" class="hover:text-cyan-400 transition-colors">MUN Summit</a>
-                    <a href="jso.html" id="footer-link-4" class="hover:text-cyan-400 transition-colors">JS Olympiad</a>
+                    <a href="index.html" id="footer-home-link" class="hover:text-cyan-400">Home</a>
+                    <a href="#" id="footer-privacy-link" class="hover:text-cyan-400">Privacy Policy</a>
+                    <a href="#" id="footer-terms-link" class="hover:text-cyan-400">Terms of Service</a>
                 </div>
             </div>
         </footer>
@@ -359,7 +480,6 @@ Page: EXQUIZIT | Light & Dark Mode Update
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
 
-        // Load preference
         const savedTheme = localStorage.getItem('theme') || 'dark';
         html.setAttribute('data-theme', savedTheme);
         updateIcon(savedTheme);
@@ -382,7 +502,12 @@ Page: EXQUIZIT | Light & Dark Mode Update
             const teamSizeSelect = document.getElementById('team_size');
             const membersContainer = document.getElementById('members-container');
             const form = document.getElementById('exquizit-register-form');
+            const rulesAccept = document.getElementById('rules-accept');
             const submitBtn = document.getElementById('register-btn-main');
+
+            function updateButtonState() {
+                submitBtn.disabled = !(form.checkValidity() && rulesAccept.checked);
+            }
 
             function renderMembers() {
                 const count = +teamSizeSelect.value;
@@ -397,14 +522,24 @@ Page: EXQUIZIT | Light & Dark Mode Update
                             <input type="email" id="member_${i}_email" placeholder="EMAIL ADDRESS" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-email" required>
                             <input type="text" id="member_${i}_school" placeholder="SCHOOL" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
                             <input type="text" id="member_${i}_city" placeholder="CITY" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
-                            <input type="text" id="member_${i}_class" placeholder="CLASS (e.g. 10th)" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <select id="member_${i}_class" class="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none">
+                                <option value="" disabled selected>SELECT ELIGIBILITY</option>
+                                <option value="junior">JUNIOR (5-8)</option>
+                                <option value="senior">SENIOR (9-12)</option>
+                            </select>
                         </div>
                     `);
                 }
+                membersContainer.querySelectorAll('input, select').forEach(el => {
+                    el.addEventListener('input', updateButtonState);
+                    el.addEventListener('change', updateButtonState);
+                });
+                updateButtonState();
             }
 
             renderMembers();
             teamSizeSelect.addEventListener('change', renderMembers);
+            rulesAccept.addEventListener('change', updateButtonState);
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -426,8 +561,8 @@ Page: EXQUIZIT | Light & Dark Mode Update
                     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
                 });
 
-                if (!valid) {
-                    alert('Please correct the highlighted fields.');
+                if (!valid || !rulesAccept.checked) {
+                    alert('Please correct the highlighted fields and accept the rules.');
                     return;
                 }
 
@@ -457,7 +592,8 @@ Page: EXQUIZIT | Light & Dark Mode Update
                     const result = await response.json().catch(() => ({}));
 
                     if (response.ok) {
-                        alert('Registration Successful! Welcome to Exquizit.');
+                        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+                        alert('Registration Successful! Welcome to Exquizit.' + regId);
                         form.reset();
                         renderMembers();
                     } else {
@@ -468,13 +604,12 @@ Page: EXQUIZIT | Light & Dark Mode Update
                     alert('Could not connect to the server. Please check your connection and try again.');
                 } finally {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Initialize Protocol';
+                    submitBtn.textContent = 'SUBMIT';
+                    updateButtonState();
                 }
             });
         })();
     </script>
-</body>
-</html>
-```
 
-Please reference this design and implement it into our codebase; Try to understand the structure, which part of our codebase is relevant and implement
+
+</body></html>
