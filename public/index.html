@@ -197,8 +197,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
             opacity: 0;
             animation: burstAndOrbit var(--total-duration) cubic-bezier(0.16, 1, 0.3, 1) infinite;
             animation-delay: var(--delay);
@@ -211,10 +209,10 @@
 
         @keyframes burstAndOrbit {
             0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; filter: brightness(2); }
-            15% { transform: translate(var(--burst-x), var(--burst-y)) scale(1.5) rotate(180deg); opacity: 1; filter: brightness(1.5); }
-            25% { transform: translate(var(--burst-x), var(--burst-y)) scale(1) rotate(360deg); opacity: 0.7; }
-            30% { transform: rotate(var(--rotation-start)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.4; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
-            100% { transform: rotate(var(--rotation-end)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.4; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
+            15% { transform: translate(var(--burst-x), var(--burst-y)) scale(1.5) rotate(180deg); opacity: 1; filter: brightness(1.0); }
+            25% { transform: translate(var(--burst-x), var(--burst-y)) scale(1) rotate(360deg); opacity: 0.2; }
+            30% { transform: rotate(var(--rotation-start)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.2; }
+            100% { transform: rotate(var(--rotation-end)) translateX(var(--orbit-radius)) rotate(var(--rotation-offset)); opacity: 0.2; }
         }
 
         @keyframes counter-rotate { 
@@ -542,7 +540,26 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.section-fade-in').forEach(el => observer.observe(el));
 
+        // Icons are matched to the event whose color/theme they best represent:
+        // target -> Catapultikon (gold), globe -> MUN Summit (blue), brain -> Mathamaze (purple),
+        // flask-conical/layers -> Modelothon (cyan), help-circle/dna -> Exquizit (green),
+        // award/zap/lightbulb -> JS Olympiad (yellow), cpu/component -> Arduino Expo (orange)
         const scienceIcons = ['lucide:microscope','lucide:atom','lucide:flask-conical','lucide:dna','lucide:biohazard','lucide:brain','lucide:cpu','lucide:test-tube-2','lucide:magnet','lucide:zap','lucide:lightbulb','lucide:telescope','lucide:component'];
+        const iconColorMap = {
+            'lucide:microscope':    '#39FF14', // Exquizit green — general science inquiry
+            'lucide:atom':          '#00D4FF', // MUN Summit blue — fundamental/global science
+            'lucide:flask-conical': '#00F5FF', // Modelothon cyan — building/experimentation
+            'lucide:dna':           '#39FF14', // Exquizit green — biology/quiz domain
+            'lucide:biohazard':     '#39FF14', // Exquizit green — biology/quiz domain
+            'lucide:brain':         '#9D4EDD', // Mathamaze purple — logic & reasoning
+            'lucide:cpu':           '#FF8C00', // Arduino Expo orange — electronics
+            'lucide:test-tube-2':   '#FFD700', // Catapultikon gold — chemistry/alchemy
+            'lucide:magnet':        '#FFD700', // Catapultikon gold — physics/mechanics
+            'lucide:zap':           '#FFFF00', // JS Olympiad yellow — physics energy
+            'lucide:lightbulb':     '#FFFF00', // JS Olympiad yellow — ideas/discovery
+            'lucide:telescope':     '#00D4FF', // MUN Summit blue — exploration/global view
+            'lucide:component':     '#FF8C00'  // Arduino Expo orange — circuits/engineering
+        };
         const orbitContainer = document.getElementById('orbit-container');
 
         function createOrbitElements() {
@@ -550,10 +567,17 @@
             for (let i = 0; i < elementCount; i++) {
                 const element = document.createElement('div');
                 element.className = 'science-element';
+                const iconName = scienceIcons[i % scienceIcons.length];
                 const icon = document.createElement('iconify-icon');
-                icon.setAttribute('icon', scienceIcons[i % scienceIcons.length]);
+                icon.setAttribute('icon', iconName);
                 icon.style.fontSize = (Math.random() * 20 + 32) + 'px';
                 icon.className = 'element-inner';
+
+                // Color-code each icon to match its corresponding event theme
+                const color = iconColorMap[iconName] || '#ffffff';
+                icon.style.color = color;
+                icon.style.filter = `drop-shadow(0 0 15px ${color}) brightness(1.3)`;
+
                 element.appendChild(icon);
                 const angle = (i / elementCount) * Math.PI * 2;
                 const burstDist = window.innerWidth < 768 ? 160 : 320;
