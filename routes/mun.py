@@ -6,7 +6,10 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
-
+def generate_registration_id(sheet, prefix: str = "MUN") -> str: # ID generator
+    existing_rows = sheet.get_all_values()
+    next_number = max(len(existing_rows) - 1, 0) + 1
+    return f"{prefix}{next_number:03d}"
 
 @router.post("/api/mun/register")
 def register_student(
@@ -53,9 +56,9 @@ def register_student(
 ):
     try:
         sheet = get_sheet_connection("MUN")
-
+        registration_id = generate_registration_id(sheet) # add this
         new_row = [
-        
+                registration_id,    # add this
                 team_name,
                 team_size,
         
@@ -78,6 +81,7 @@ def register_student(
         return {
                 "status": "success",
                 "message": "Saved Successfully!"
+                ,"registration_id": registration_id
         }
     except Exception as e:
         logger.exception("MUN registration failed")
