@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun
+from routes import modelothon, mathamaze, jso, catapultikon, exquizit, arduinoexp, mun, image
 
 app = FastAPI()
 
@@ -24,6 +24,7 @@ routers = [
     exquizit.router,
     arduinoexp.router,
     mun.router,
+    image.router,
 ]
 
 # Register each router WITH and WITHOUT the /api prefix so Vercel never 404s

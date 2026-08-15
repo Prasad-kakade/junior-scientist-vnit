@@ -398,6 +398,22 @@
                                     <span class="text-green-400 text-xl">₹40</span>
                                 </div>
                                 <img src="images/%20qr_sample.png" alt="Sample payment QR code" class="mx-auto w-40 rounded-xl">
+                                <div class="flex flex-col gap-2">
+                                    <label for="payment-receipt" class="text-[10px] font-black tracking-widest text-white/60 uppercase">
+                                        Upload payment screenshot (required)
+                                    </label>
+                                    <input
+                                        type="file"
+                                        id="payment-receipt"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        required
+                                        class="form-input cursor-pointer text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-green-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:text-green-400 hover:file:bg-green-500/30"
+                                    >
+                                    <button type="button" id="upload-payment-image" class="w-full border border-green-500/50 hover:bg-green-500/10 text-green-400 py-3 rounded-xl text-sm font-black italic tracking-widest uppercase transition-all">
+                                        Upload Image
+                                    </button>
+                                    <p id="upload-status" class="hidden text-center text-[10px] font-bold" role="status" aria-live="polite"></p>
+                                </div>
                                 <button type="submit" id="submit-enrollment" class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
                                     Pay &amp; Register
                                 </button>
@@ -461,8 +477,68 @@
         (function () {
             const form = document.getElementById('registration-form');
             const submitBtn = document.getElementById('submit-enrollment');
+            const paymentReceipt = document.getElementById('payment-receipt');
+            const uploadBtn = document.getElementById('upload-payment-image');
+            const uploadStatus = document.getElementById('upload-status');
+            const IMAGE_UPLOAD_ENDPOINT = '/api/upload';
+            let paymentReceiptUploaded = false;
 
             const fieldIds = ['full_name', 'phone', 'alt_phone', 'email', 'school', 'city', 'student_class'];
+
+            function showUploadStatus(message, isError = false) {
+                uploadStatus.textContent = message;
+                uploadStatus.classList.remove('hidden', 'text-green-400', 'text-red-400');
+                uploadStatus.classList.add(isError ? 'text-red-400' : 'text-green-400');
+            }
+
+            paymentReceipt.addEventListener('change', function () {
+                paymentReceiptUploaded = false;
+
+                if (paymentReceipt.files[0]) {
+                    showUploadStatus('Click “Upload Image” to upload this payment screenshot.', true);
+                } else {
+                    uploadStatus.classList.add('hidden');
+                }
+            });
+
+            uploadBtn.addEventListener('click', async function () {
+                const image = paymentReceipt.files[0];
+
+                if (!image) {
+                    paymentReceiptUploaded = false;
+                    showUploadStatus('Please choose a payment screenshot first.', true);
+                    return;
+                }
+
+                paymentReceiptUploaded = false;
+                uploadBtn.disabled = true;
+                uploadBtn.textContent = 'UPLOADING...';
+                showUploadStatus('Uploading payment screenshot...');
+
+                try {
+                    const uploadData = new FormData();
+                    uploadData.append('image', image);
+
+                    const response = await fetch(IMAGE_UPLOAD_ENDPOINT, {
+                        method: 'POST',
+                        body: uploadData
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Image upload failed.');
+                    }
+
+                    paymentReceiptUploaded = true;
+                    showUploadStatus(result.message || 'Payment screenshot uploaded successfully.');
+                } catch (err) {
+                    paymentReceiptUploaded = false;
+                    showUploadStatus(err.message || 'Unable to upload image. Please try again.', true);
+                } finally {
+                    uploadBtn.disabled = false;
+                    uploadBtn.textContent = 'UPLOAD IMAGE';
+                }
+            });
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -482,6 +558,12 @@
 
                 if (!valid) {
                     alert('Please correct the highlighted fields.');
+                    return;
+                }
+
+                if (!paymentReceiptUploaded) {
+                    showUploadStatus('Upload the payment screenshot before registering.', true);
+                    paymentReceipt.focus();
                     return;
                 }
 
@@ -508,6 +590,8 @@
                         const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}` : '';
                         alert('Registration Successful! Welcome to the Junior Science Olympiad.' + regId);
                         form.reset();
+                        paymentReceiptUploaded = false;
+                        uploadStatus.classList.add('hidden');
                     } else {
                         alert(result.detail || result.message || 'Registration failed. Please try again.');
                     }
