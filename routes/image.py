@@ -20,9 +20,9 @@ MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 
 def get_drive_service():
     """Build a Drive client from the service-account JSON stored in Vercel."""
-    credentials_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
+    credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
     if not credentials_json:
-        raise RuntimeError("GOOGLE_SERVICE_ACCOUNT_JSON is not configured.")
+        raise RuntimeError("GOOGLE_CREDENTIALS_JSON is not configured.")
 
     credentials = service_account.Credentials.from_service_account_info(
         json.loads(credentials_json), scopes=SCOPES
