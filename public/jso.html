@@ -513,7 +513,7 @@
                     const result = await response.json().catch(() => ({}));
 
                     if (!response.ok) {
-                        throw new Error(result.error || 'Image upload failed.');
+                        throw new Error(result.detail || result.error || 'Image upload failed.');
                     }
 
                     showUploadStatus(result.message || 'Payment screenshot uploaded successfully.');

@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
-from google.oauth2 import service_account
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseUpload
@@ -19,14 +20,17 @@ MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 
 
 def get_drive_service():
-    """Build a Drive client from the service-account JSON stored in Vercel."""
-    credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-    if not credentials_json:
-        raise RuntimeError("GOOGLE_CREDENTIALS_JSON is not configured.")
+    """Build a Drive client for the personal Google account stored in Vercel."""
+    token_json = os.environ.get("GOOGLE_DRIVE_OAUTH_TOKEN_JSO")
+    if not token_json:
+        raise RuntimeError("GOOGLE_DRIVE_OAUTH_TOKEN_JSON is not configured.")
 
-    credentials = service_account.Credentials.from_service_account_info(
-        json.loads(credentials_json), scopes=SCOPES
-    )
+    credentials = Credentials.from_authorized_user_info(json.loads(token_json), SCOPES)
+    if credentials.expired and credentials.refresh_token:
+        credentials.refresh(Request())
+    if not credentials.valid:
+        raise RuntimeError("Google Drive OAuth credentials are invalid or expired.")
+
     return build("drive", "v3", credentials=credentials, cache_discovery=False)
 
 
