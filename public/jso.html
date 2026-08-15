@@ -400,13 +400,12 @@
                                 <img src="images/%20qr_sample.png" alt="Sample payment QR code" class="mx-auto w-40 rounded-xl">
                                 <div class="flex flex-col gap-2">
                                     <label for="payment-receipt" class="text-[10px] font-black tracking-widest text-white/60 uppercase">
-                                        Upload payment screenshot (required)
+                                        Upload payment screenshot
                                     </label>
                                     <input
                                         type="file"
                                         id="payment-receipt"
-                                        accept="image/jpeg,image/png,image/webp"
-                                        required
+                                        accept="image/*"
                                         class="form-input cursor-pointer text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-green-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:text-green-400 hover:file:bg-green-500/30"
                                     >
                                     <button type="button" id="upload-payment-image" class="w-full border border-green-500/50 hover:bg-green-500/10 text-green-400 py-3 rounded-xl text-sm font-black italic tracking-widest uppercase transition-all">
@@ -480,8 +479,8 @@
             const paymentReceipt = document.getElementById('payment-receipt');
             const uploadBtn = document.getElementById('upload-payment-image');
             const uploadStatus = document.getElementById('upload-status');
+            // image.py runs this local Flask endpoint and uploads to the configured private Drive folder.
             const IMAGE_UPLOAD_ENDPOINT = '/api/upload';
-            let paymentReceiptUploaded = false;
 
             const fieldIds = ['full_name', 'phone', 'alt_phone', 'email', 'school', 'city', 'student_class'];
 
@@ -491,26 +490,14 @@
                 uploadStatus.classList.add(isError ? 'text-red-400' : 'text-green-400');
             }
 
-            paymentReceipt.addEventListener('change', function () {
-                paymentReceiptUploaded = false;
-
-                if (paymentReceipt.files[0]) {
-                    showUploadStatus('Click “Upload Image” to upload this payment screenshot.', true);
-                } else {
-                    uploadStatus.classList.add('hidden');
-                }
-            });
-
             uploadBtn.addEventListener('click', async function () {
                 const image = paymentReceipt.files[0];
 
                 if (!image) {
-                    paymentReceiptUploaded = false;
                     showUploadStatus('Please choose a payment screenshot first.', true);
                     return;
                 }
 
-                paymentReceiptUploaded = false;
                 uploadBtn.disabled = true;
                 uploadBtn.textContent = 'UPLOADING...';
                 showUploadStatus('Uploading payment screenshot...');
@@ -529,10 +516,8 @@
                         throw new Error(result.error || 'Image upload failed.');
                     }
 
-                    paymentReceiptUploaded = true;
                     showUploadStatus(result.message || 'Payment screenshot uploaded successfully.');
                 } catch (err) {
-                    paymentReceiptUploaded = false;
                     showUploadStatus(err.message || 'Unable to upload image. Please try again.', true);
                 } finally {
                     uploadBtn.disabled = false;
@@ -561,12 +546,6 @@
                     return;
                 }
 
-                if (!paymentReceiptUploaded) {
-                    showUploadStatus('Upload the payment screenshot before registering.', true);
-                    paymentReceipt.focus();
-                    return;
-                }
-
                 const formData = new FormData();
                 formData.append('full_name', fields.full_name.value.trim());
                 formData.append('phone', fields.phone.value.trim());
@@ -590,8 +569,6 @@
                         const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}` : '';
                         alert('Registration Successful! Welcome to the Junior Science Olympiad.' + regId);
                         form.reset();
-                        paymentReceiptUploaded = false;
-                        uploadStatus.classList.add('hidden');
                     } else {
                         alert(result.detail || result.message || 'Registration failed. Please try again.');
                     }
