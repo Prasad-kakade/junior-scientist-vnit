@@ -7,11 +7,24 @@
         'catapultikon.html': '#D4AF37',
         'mathamaze.html': '#9D4EDD'
     };
+    const qrCodes = {
+    'mun.html': 'images/qr_mun.png',
+    'modelothon.html': 'images/qr_modelothon.png',
+    'jso.html': 'images/qr_jso.png',
+    'exquizit.html': 'images/qr_exquizit.png',
+    'arduinoexp.html': 'images/qr_arduino.png',
+    'catapultikon.html': 'images/qr_catapultikon.png',
+    'mathamaze.html': 'images/qr_mathamaze.png'
+};
     const forms = document.querySelectorAll('form');
 
     forms.forEach((form) => {
         const pageName = window.location.pathname.split('/').pop();
         const accent = accents[pageName] || '#00aa66';
+        const qrCode = qrCodes[pageName];
+        console.log("Current page:", pageName);
+        console.log("QR path:", qrCode);
+        console.log("Full QR URL:", new URL(qrCode, window.location.href).href);
         const submitButton = form.querySelector('button[type="submit"]');
         if (!submitButton) return;
 
@@ -21,7 +34,13 @@
             <div class="flex items-center justify-between text-xs font-black uppercase tracking-widest" style="color: ${accent}">
                 <span>Payment screenshot</span><span>Required</span>
             </div>
-            <img src="images/%20qr_sample.png" alt="Sample payment QR code" class="mx-auto w-40 rounded-xl">
+            <img 
+            src="${qrCode}" 
+            alt="Sample payment QR code" 
+            id="payment-qr"
+            class="mx-auto w-40 rounded-xl cursor-pointer transition-transform duration-300 hover:scale-105"
+            title="Click to enlarge QR code"
+           >
             <label class="text-xs font-bold uppercase tracking-wider" style="color: ${accent}">
                 Upload payment screenshot
                 <input type="file" accept="image/jpeg,image/png,image/webp" required class="mt-2 block w-full rounded-lg border border-current bg-transparent px-3 py-2 text-xs">
@@ -98,3 +117,32 @@
         });
     });
 })();
+// =========================================
+// QR CODE CLICK TO ENLARGE
+// =========================================
+
+document.addEventListener('click', function (event) {
+
+    const qr = event.target.closest('#payment-qr');
+
+    if (qr) {
+        const modal = document.getElementById('qr-modal');
+        const largeQR = document.getElementById('qr-large');
+
+        largeQR.src = qr.src;
+        modal.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (
+        event.target.id === 'qr-close' ||
+        event.target.id === 'qr-modal'
+    ) {
+        const modal = document.getElementById('qr-modal');
+
+        modal.classList.remove('active');
+
+        document.body.style.overflow = '';
+    }
+});
