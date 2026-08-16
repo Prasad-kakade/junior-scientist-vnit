@@ -341,6 +341,16 @@
         [data-theme='light'] #event-details .bg-cyan-500\/10 {
             background-color: rgba(0, 136, 204, 0.08) !important;
         }
+
+        .scroll-hint-btn {
+            transform: translateX(-50%);
+            animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+        }
+
+        @keyframes scroll-hint-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
     </style>
 </head>
 
@@ -457,6 +467,7 @@
                         <div class="absolute left-[-5%] top-[-5%] opacity-5">
                             <iconify-icon icon="lucide:lightbulb" class="text-[300px] text-cyan-500"></iconify-icon>
                         </div>
+                        <button type="button" onclick="document.getElementById('event-structure').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden absolute bottom-3 left-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
                     </section>
 
                     <section id="event-structure" class="space-y-6">

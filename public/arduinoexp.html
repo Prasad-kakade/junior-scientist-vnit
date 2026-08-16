@@ -399,6 +399,16 @@
         height: 75vw;
     }
 }
+
+.scroll-hint-btn {
+    transform: translateX(-50%);
+    animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+}
     </style>
 </head>
 
@@ -469,6 +479,7 @@
                                 </p>
                             </div>
                         </div>
+                        <button type="button" onclick="document.getElementById('event-description').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden absolute bottom-3 left-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full border border-teal-400 text-teal-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
                     </section>
 
                     <section id="event-description" class="glass-card-neon p-8 rounded-3xl border-teal-500/20">
