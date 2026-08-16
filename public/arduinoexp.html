@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARDUINO EXPO | Junior Scientist 2026</title>
@@ -7,9 +9,12 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+
         :root {
             --bg-deep: #000000;
             --neon-teal: #14b8a6;
@@ -19,6 +24,7 @@
             --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-deep);
@@ -27,84 +33,118 @@
             width: 100%;
             transition: all 0.3s ease;
         }
+
         [data-theme='light'] body {
             background-color: #f8f8f8 !important;
             color: #1a1a1a !important;
         }
+
         [data-theme='light'] .grid-bg {
-            background-image: linear-gradient(rgba(0, 128, 128, 0.05) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(0, 128, 128, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(0, 128, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 128, 128, 0.05) 1px, transparent 1px);
         }
+
         [data-theme='light'] .glass-card-neon {
             background: rgba(255, 255, 255, 0.8) !important;
             border-color: rgba(0, 0, 0, 0.1) !important;
             backdrop-filter: blur(16px);
         }
+
         [data-theme='light'] .neon-text {
             text-shadow: none !important;
             color: #008080 !important;
         }
+
         [data-theme='light'] .neon-text-orange {
             text-shadow: none !important;
             color: #e69500 !important;
         }
+
         [data-theme='light'] .text-gray-400 {
             color: #4b5563 !important;
         }
+
         [data-theme='light'] .text-white {
             color: #111827 !important;
         }
+
         [data-theme='light'] nav {
             background: white !important;
             border-bottom-color: #e5e7eb !important;
         }
+
         [data-theme='light'] .form-input-dynamic {
             border-bottom-color: rgba(0, 0, 0, 0.1) !important;
             color: #1a1a1a !important;
         }
-        h1, h2, h3, h4, h5, .heading-font {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .heading-font {
             font-family: 'Clash Grotesk', sans-serif;
             text-transform: uppercase;
         }
+
         .neon-text {
             color: var(--neon-teal);
             text-shadow: 0 0 10px var(--neon-teal), 0 0 20px var(--neon-teal-glow);
         }
+
         .neon-text-orange {
             color: var(--neon-orange);
             text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange-glow);
         }
+
         .glass-card-neon {
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(12px);
             transition: all 0.4s ease;
         }
+
         .glass-card-neon:hover {
             border-color: var(--neon-teal);
             box-shadow: 0 0 25px rgba(20, 184, 166, 0.2);
         }
+
         .scan-line {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: rgba(20, 184, 166, 0.08);
             z-index: 100;
             animation: scan 12s linear infinite;
             pointer-events: none;
         }
+
         @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
         }
+
         .grid-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
             pointer-events: none;
         }
+
         .form-input-dynamic {
             background: transparent;
             border-bottom: 1px solid rgba(20, 184, 166, 0.3);
@@ -114,98 +154,349 @@
             font-size: 0.875rem;
             transition: all 0.3s ease;
         }
+
         .form-input-dynamic:focus {
             outline: none;
             border-bottom-color: var(--neon-teal);
             box-shadow: 0 1px 0 var(--neon-teal);
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #000;
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--neon-teal);
             border-radius: 10px;
         }
+
         .member-form-enter {
             animation: slideDown 0.4s ease forwards;
         }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* ================================
+   MEMBERS FORM - LIGHT/DARK THEME
+   ================================ */
+
+        /* Member section divider */
+        .member-form-enter,
+        #members-container>div {
+            border-color: rgba(255, 255, 255, 0.12) !important;
         }
+
+        /* Member heading */
+        #members-container p {
+            color: #14b8a6 !important;
+        }
+
+        /* Member inputs - DARK MODE */
+        #members-container .form-input-dynamic {
+            background: rgba(255, 255, 255, 0.02) !important;
+            color: #ffffff !important;
+            border-bottom: 1px solid rgba(20, 184, 166, 0.35) !important;
+        }
+
+        #members-container .form-input-dynamic::placeholder {
+            color: rgba(255, 255, 255, 0.45) !important;
+        }
+
+        /* Member inputs - LIGHT MODE */
+        [data-theme='light'] #members-container>div {
+            border-color: rgba(0, 0, 0, 0.12) !important;
+        }
+
+        [data-theme='light'] #members-container .form-input-dynamic {
+            background: rgba(0, 0, 0, 0.03) !important;
+            color: #111827 !important;
+            border-bottom: 1px solid rgba(0, 128, 128, 0.35) !important;
+        }
+
+        [data-theme='light'] #members-container .form-input-dynamic::placeholder {
+            color: #6b7280 !important;
+        }
+
+        /* Focus state */
+        #members-container .form-input-dynamic:focus {
+            border-bottom-color: #14b8a6 !important;
+            box-shadow: 0 1px 0 #14b8a6 !important;
+        }
+
+        /* Make dropdown visible in both themes */
+        #team_size {
+            appearance: auto !important;
+            cursor: pointer;
+        }
+
+        #team_size option {
+            background: #111827;
+            color: #ffffff;
+        }
+
+        [data-theme='light'] #team_size {
+            background: #ffffff !important;
+            color: #111827 !important;
+        }
+
+        [data-theme='light'] #team_size option {
+            background: #ffffff !important;
+            color: #111827 !important;
+        }
+
+
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .member-form-enter {
+            animation: slideDown 0.4s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================
+   INDEPENDENT REGISTRATION FORM
+   ========================================= */
+
+        
+
+        /* Registration form scrollbar - Chrome / Edge */
+        
+    /* =========================================
+   REGISTRATION FORM - NORMAL PAGE SCROLL
+   ========================================= */
+
+.register-panel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}    
+        /* =========================================
+   MOBILE
+   ========================================= */
+
+        
+        /* =========================================
+   QR CODE CLICK TO ENLARGE
+   ========================================= */
+
+.qr-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    backdrop-filter: blur(8px);
+}
+
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal-content {
+    position: relative;
+
+    background: #ffffff;
+
+    padding: 25px;
+    border-radius: 20px;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 0 40px rgba(20, 184, 166, 0.4);
+}
+
+#qr-large {
+    width: min(500px, 75vw);
+    height: min(500px, 75vw);
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+
+    border-radius: 10px;
+}
+
+.qr-modal-content p {
+    margin-top: 15px;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.qr-close {
+    position: absolute;
+
+    top: 8px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.qr-close:hover {
+    background: #14b8a6;
+    color: #000;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .qr-modal-content {
+        padding: 18px;
+    }
+
+    #qr-large {
+        width: 75vw;
+        height: 75vw;
+    }
+}
     </style>
 </head>
+
 <body>
     <div class="min-h-screen relative flex flex-col">
         <div class="grid-bg"></div>
         <div class="scan-line"></div>
 
-        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-3 sm:py-4 px-4 sm:px-6 lg:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-teal-500/20">
+        <nav id="main-nav"
+            class="fixed top-0 left-0 w-full z-50 py-3 sm:py-4 px-4 sm:px-6 lg:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-teal-500/20">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-4 group">
-                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786363602179-9ea8a36b/logoarduino.jpeg" alt="Arduino Logo" class="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform duration-300">
+                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786363602179-9ea8a36b/logoarduino.jpeg"
+                        alt="Arduino Logo"
+                        class="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform duration-300">
                     <div class="flex flex-col">
-                        <span class="font-bold tracking-widest text-lg leading-none uppercase text-teal-400">ARDUINO EXPO</span>
-                        <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist 2026</span>
+                        <span class="font-bold tracking-widest text-lg leading-none uppercase text-teal-400">ARDUINO
+                            EXPO</span>
+                        <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist
+                            2026</span>
                     </div>
                 </a>
             </div>
             <div class="flex items-center gap-3 sm:gap-6">
-                <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-teal-500/30 hover:bg-teal-500/10 transition-all text-xl" aria-label="Toggle Theme">
+                <button id="theme-toggle"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-teal-500/30 hover:bg-teal-500/10 transition-all text-xl"
+                    aria-label="Toggle Theme">
                     <span id="theme-icon">🌙</span>
                 </button>
-                <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-white">
-                    <a href="index.html" id="nav-home-link" class="hover:text-teal-400 transition-colors">Hub Home</a>
-                    <a href="#register-form-section" id="nav-register-link" class="bg-teal-600 text-black px-4 py-2 hover:bg-teal-500 transition-all font-bold">Register</a>
+                <div
+                    class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-white">
+                    <a href="index.html" id="nav-home-link" class="hover:text-teal-400 transition-colors">Events</a>
+
                 </div>
             </div>
         </nav>
 
         <main class="flex-1 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10 pt-24 sm:pt-28 lg:pt-32 pb-12 lg:pb-20">
             <div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
-                
+
                 <div class="lg:col-span-8 contents lg:flex lg:flex-col lg:gap-8 md:lg:gap-10">
-                    
-                    <section id="hero-card" class="glass-card-neon p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] relative overflow-hidden group">
+
+                    <section id="hero-card"
+                        class="glass-card-neon p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] relative overflow-hidden group">
                         <div class="absolute top-0 right-0 p-8 opacity-20 pointer-events-none">
                             <iconify-icon icon="lucide:cpu" class="text-9xl text-teal-500"></iconify-icon>
                         </div>
-                        <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-8 lg:gap-12 text-center sm:text-left">
+                        <div
+                            class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-8 lg:gap-12 text-center sm:text-left">
                             <div class="shrink-0">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786445906617-acfc2df9/arduinologo.png" alt="Arduino Robot Logo - Futuristic Robot with Circuit Board Arms" class="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 object-contain rounded-2xl filter drop-shadow-[0_0_20px_rgba(20,184,166,0.6)] group-hover:scale-105 transition-transform duration-500" style="width: 252px; height: 313px;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786445906617-acfc2df9/arduinologo.png"
+                                    alt="Arduino Robot Logo - Futuristic Robot with Circuit Board Arms"
+                                    class="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 object-contain rounded-2xl filter drop-shadow-[0_0_20px_rgba(20,184,166,0.6)] group-hover:scale-105 transition-transform duration-500"
+                                    style="width: 252px; height: 313px;">
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-teal-500 font-bold tracking-[0.4em] text-[10px] uppercase mb-2 block">Hardware &amp; IoT Symposium</span>
-                                <h1 class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black italic tracking-tighter neon-text mb-2">ARDUINO EXPO</h1>
-                                <p class="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-4 tracking-wide">Ideate. Inspire. Ignite.</p>
+                                <span
+                                    class="text-teal-500 font-bold tracking-[0.4em] text-[10px] uppercase mb-2 block">Hardware
+                                    &amp; IoT Symposium</span>
+                                <h1
+                                    class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black italic tracking-tighter neon-text mb-2">
+                                    ARDUINO EXPO</h1>
+                                <p class="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-4 tracking-wide">
+                                    Ideate. Inspire. Ignite.</p>
                                 <p class="text-gray-400 leading-relaxed max-w-xl text-sm sm:text-base lg:text-lg">
-                                    VNIT's premier hardware battlefield. Witness the fusion of embedded systems, robotics, and creative problem-solving.
+                                    VNIT's premier hardware battlefield. Witness the fusion of embedded systems,
+                                    robotics, and creative problem-solving.
                                 </p>
                             </div>
                         </div>
                     </section>
 
                     <section id="event-description" class="glass-card-neon p-8 rounded-3xl border-teal-500/20">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">EVENT DESCRIPTION</h3>
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">EVENT
+                            DESCRIPTION</h3>
                         <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                            ARDUINO Expo 2026 is a premier school-level technology exhibition dedicated to nurturing innovation, creativity, and technical excellence among young minds. Brings ideas to life by building the future with Electronics, Embedded Systems, Robotics, Internet of Things (IoT), Artificial Intelligence (AI), and Automation. It encourages students to think creatively, solve real world problems and showcase their technical skills.
+                            ARDUINO Expo 2026 is a premier school-level technology exhibition dedicated to nurturing
+                            innovation, creativity, and technical excellence among young minds. Brings ideas to life by
+                            building the future with Electronics, Embedded Systems, Robotics, Internet of Things (IoT),
+                            Artificial Intelligence (AI), and Automation. It encourages students to think creatively,
+                            solve real world problems and showcase their technical skills.
                         </p>
                     </section>
 
                     <section id="competition-categories">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">COMPETITION CATEGORIES</h3>
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">COMPETITION
+                            CATEGORIES</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="glass-card-neon p-6 rounded-3xl border-teal-500/30">
                                 <div class="flex items-center gap-3 mb-4">
                                     <iconify-icon icon="lucide:compass" class="text-2xl text-teal-400"></iconify-icon>
                                     <h4 class="text-white font-black tracking-widest text-lg">EXPLORER</h4>
                                 </div>
-                                <span class="text-teal-500 text-[10px] font-bold block mb-4 tracking-[0.2em]">CLASSES 5th - 8th</span>
+                                <span class="text-teal-500 text-[10px] font-bold block mb-4 tracking-[0.2em]">CLASSES
+                                    5th - 8th</span>
                                 <p class="text-gray-400 text-sm leading-relaxed">
-                                    The Explorer category introduces students to the fundamentals of electronics, embedded systems, programming, sensors, and automation.
+                                    The Explorer category introduces students to the fundamentals of electronics,
+                                    embedded systems, programming, sensors, and automation.
                                 </p>
                             </div>
                             <div class="glass-card-neon p-6 rounded-3xl border-teal-500/30">
@@ -213,44 +504,59 @@
                                     <iconify-icon icon="lucide:zap" class="text-2xl text-teal-400"></iconify-icon>
                                     <h4 class="text-white font-black tracking-widest text-lg">INNOVATOR</h4>
                                 </div>
-                                <span class="text-teal-500 text-[10px] font-bold block mb-4 tracking-[0.2em]">CLASSES 9th - 12th</span>
+                                <span class="text-teal-500 text-[10px] font-bold block mb-4 tracking-[0.2em]">CLASSES
+                                    9th - 12th</span>
                                 <p class="text-gray-400 text-sm leading-relaxed">
-                                    Participants are encouraged to explore &amp; integrate Multiple Electronic Components, AI, IoT, Robotics, Automation, Mobile &amp; Web Apps, Cloud Computing, Custom PCBs, and CAD tools.
+                                    Participants are encouraged to explore &amp; integrate Multiple Electronic
+                                    Components, AI, IoT, Robotics, Automation, Mobile &amp; Web Apps, Cloud Computing,
+                                    Custom PCBs, and CAD tools.
                                 </p>
                             </div>
                         </div>
                     </section>
 
                     <section id="competition-themes">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">COMPETITION THEMES</h3>
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">COMPETITION
+                            THEMES</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="glass-card-neon p-8 rounded-3xl">
                                 <h4 class="text-teal-400 font-bold mb-4 tracking-widest text-sm">EXPLORER THEMES</h4>
                                 <ul class="space-y-2 text-gray-400 text-sm mb-6">
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Smart Home &amp; Daily Life</li>
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Environment &amp; Safety</li>
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Robotics &amp; Automation</li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Smart Home &amp; Daily Life</li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Environment &amp; Safety</li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Robotics &amp; Automation</li>
                                 </ul>
                                 <p class="text-[10px] text-gray-500 italic uppercase leading-relaxed">
-                                    Examples: Automatic Street Light, Smart Dustbin, Smart doorbell, Rain alarm, Automatic plant watering system, Obstacle Avoiding System.
+                                    Examples: Automatic Street Light, Smart Dustbin, Smart doorbell, Rain alarm,
+                                    Automatic plant watering system, Obstacle Avoiding System.
                                 </p>
                             </div>
                             <div class="glass-card-neon p-8 rounded-3xl">
                                 <h4 class="text-teal-400 font-bold mb-4 tracking-widest text-sm">INNOVATOR THEMES</h4>
                                 <ul class="space-y-2 text-gray-400 text-sm mb-6">
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Sustainable &amp; Smart Technologies</li>
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Advanced Embedded Systems</li>
-                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-teal-500"></iconify-icon> Intelligent Systems &amp; Advanced Robotics</li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Sustainable &amp; Smart Technologies
+                                    </li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Advanced Embedded Systems</li>
+                                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check"
+                                            class="text-teal-500"></iconify-icon> Intelligent Systems &amp; Advanced
+                                        Robotics</li>
                                 </ul>
                                 <p class="text-[10px] text-gray-500 italic uppercase leading-relaxed">
-                                    Examples: Gesture Controlled Robot, Robotic Arm, Automatic Sorting Machine, Autonomous Robot, Smart Waste Management, Smart Irrigation.
+                                    Examples: Gesture Controlled Robot, Robotic Arm, Automatic Sorting Machine,
+                                    Autonomous Robot, Smart Waste Management, Smart Irrigation.
                                 </p>
                             </div>
                         </div>
                     </section>
 
                     <section id="logistics-venue" class="glass-card-neon p-8 rounded-3xl">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">LOGISTICS &amp; VENUE</h3>
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">LOGISTICS &amp;
+                            VENUE</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="flex flex-col">
                                 <span class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Event Date</span>
@@ -268,79 +574,116 @@
                     </section>
 
                     <section id="general-instructions" class="glass-card-neon p-8 rounded-3xl border-orange-500/20">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">GENERAL INSTRUCTIONS</h3>
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">GENERAL
+                            INSTRUCTIONS</h3>
                         <ol class="space-y-4 text-gray-400 text-sm sm:text-base">
-                            <li class="flex gap-4"><span class="text-teal-500 font-black">01</span> Any microcontroller (Arduino, ESP32, Raspberry Pi, etc.) is allowed.</li>
-                            <li class="flex gap-4"><span class="text-teal-500 font-black">02</span> Every participant/team must present a fully functional working model.</li>
-                            <li class="flex gap-4"><span class="text-teal-500 font-black">03</span> Candidates may participate individually or in groups of up to 3 members.</li>
+                            <li class="flex gap-4"><span class="text-teal-500 font-black">01</span> Any microcontroller
+                                (Arduino, ESP32, Raspberry Pi, etc.) is allowed.</li>
+                            <li class="flex gap-4"><span class="text-teal-500 font-black">02</span> Every
+                                participant/team must present a fully functional working model.</li>
+                            <li class="flex gap-4"><span class="text-teal-500 font-black">03</span> Candidates may
+                                participate individually or in groups of up to 3 members.</li>
                         </ol>
                     </section>
 
-                    <section id="arduino-project-gallery" class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-teal-500/30">
+                    <section id="arduino-project-gallery"
+                        class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-teal-500/30">
                         <div class="flex items-center justify-between gap-4 mb-6">
                             <div>
-                                <span class="text-teal-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-2" style="width: 294px; height: 36px; font-size: 23.7px; line-height: 35.5px;">PROJECT SHOWCASES</span>
+                                <span class="text-teal-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-2"
+                                    style="width: 294px; height: 36px; font-size: 23.7px; line-height: 35.5px;">PROJECT
+                                    SHOWCASES</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                            <div class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472595334-52132238/WhatsApp_Image_2026-08-11_at_11.44.40_PM.jpeg" alt="LED Circuit Project" class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
+                            <div
+                                class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472595334-52132238/WhatsApp_Image_2026-08-11_at_11.44.40_PM.jpeg"
+                                    alt="LED Circuit Project"
+                                    class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
                             </div>
-                            <div class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472631155-2cc60f7c/WhatsApp_Image_2026-08-11_at_11.44.52_PM.jpeg" alt="AI Robot Showcase" class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
+                            <div
+                                class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472631155-2cc60f7c/WhatsApp_Image_2026-08-11_at_11.44.52_PM.jpeg"
+                                    alt="AI Robot Showcase"
+                                    class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
                             </div>
-                            <div class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472653407-0ea6bf3e/WhatsApp_Image_2026-08-11_at_11.44.52_PM__1_.jpeg" alt="Student Project Presentations" class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
+                            <div
+                                class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472653407-0ea6bf3e/WhatsApp_Image_2026-08-11_at_11.44.52_PM__1_.jpeg"
+                                    alt="Student Project Presentations"
+                                    class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
                             </div>
-                            <div class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472681995-84413aef/WhatsApp_Image_2026-08-11_at_11.44.52_PM__2_.jpeg" alt="Robotic Vehicle Demonstration" class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
+                            <div
+                                class="glass-card-neon rounded-2xl overflow-hidden border-teal-500/30 shadow-[0_0_18px_rgba(20,184,166,0.15)] transition-all duration-300 hover:scale-[1.02] hover:border-teal-400 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786472681995-84413aef/WhatsApp_Image_2026-08-11_at_11.44.52_PM__2_.jpeg"
+                                    alt="Robotic Vehicle Demonstration"
+                                    class="w-full h-56 sm:h-64 lg:h-72 object-cover transition-transform duration-300 hover:scale-105">
                             </div>
                         </div>
                     </section>
 
-                    <section id="coordinators" class="order-last lg:order-none glass-card-neon p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-orange-500/30">
-                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">EVENT COORDINATORS</h3>
+                    <section id="coordinators"
+                        class="order-last lg:order-none glass-card-neon p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-orange-500/30">
+                        <h3 class="text-xl font-black mb-6 neon-text-orange tracking-[0.2em] uppercase">EVENT
+                            COORDINATORS</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
-                            <div class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
+                            <div
+                                class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
                                 <span class="text-white font-bold text-sm block">Avanti Wangulkar</span>
-                                <a id="coord-avanti-tel" href="tel:+919309811321" class="text-orange-400 text-xs hover:underline">(9309811321)</a>
+                                <a id="coord-avanti-tel" href="tel:+919309811321"
+                                    class="text-orange-400 text-xs hover:underline">(9309811321)</a>
                             </div>
-                            <div class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
+                            <div
+                                class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
                                 <span class="text-white font-bold text-sm block">Saksham Yadav</span>
-                                <a id="coord-saksham-tel" href="tel:+918440082344" class="text-orange-400 text-xs hover:underline">(8440082344)</a>
+                                <a id="coord-saksham-tel" href="tel:+918440082344"
+                                    class="text-orange-400 text-xs hover:underline">(8440082344)</a>
                             </div>
-                            <div class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
+                            <div
+                                class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
                                 <span class="text-white font-bold text-sm block">Satyam Jaiswal</span>
-                                <a id="coord-satyam-tel" href="tel:+919235380096" class="text-orange-400 text-xs hover:underline">(9235380096)</a>
+                                <a id="coord-satyam-tel" href="tel:+919235380096"
+                                    class="text-orange-400 text-xs hover:underline">(9235380096)</a>
                             </div>
-                            <div class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
+                            <div
+                                class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
                                 <span class="text-white font-bold text-sm block">Satyanshu Jaiswal</span>
-                                <a id="coord-satyanshu-tel" href="tel:+919399951266" class="text-orange-400 text-xs hover:underline">(9399951266)</a>
+                                <a id="coord-satyanshu-tel" href="tel:+919399951266"
+                                    class="text-orange-400 text-xs hover:underline">(9399951266)</a>
                             </div>
-                            <div class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
+                            <div
+                                class="glass-card-neon p-3 rounded-xl neon-border-orange transform hover:-translate-y-1 transition-all">
                                 <span class="text-white font-bold text-sm block">Rehan Shaikh</span>
-                                <a id="coord-rehan-tel" href="tel:+918799915188" class="text-orange-400 text-xs hover:underline">(8799915188)</a>
+                                <a id="coord-rehan-tel" href="tel:+918799915188"
+                                    class="text-orange-400 text-xs hover:underline">(8799915188)</a>
                             </div>
                         </div>
                     </section>
                 </div>
 
                 <div id="register-form-section" class="order-first lg:order-none lg:col-span-4 relative mt-6 lg:mt-0">
-                    <div>
-                        <div class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
+                    <div class="register-panel">
+                        <div
+                            class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
                             <div class="text-center mb-8">
-                                <iconify-icon icon="lucide:rocket" class="text-3xl text-teal-500 mb-2 opacity-50"></iconify-icon>
+                                <iconify-icon icon="lucide:rocket"
+                                    class="text-3xl text-teal-500 mb-2 opacity-50"></iconify-icon>
                                 <h2 class="text-2xl font-black italic tracking-tighter uppercase mb-2">REGISTER NOW</h2>
-                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Secure your hardware station</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Secure your hardware
+                                    station</p>
                             </div>
 
                             <form class="space-y-4" id="arduinoexp-register-form" novalidate>
                                 <div class="space-y-1">
-                                    <label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block ml-1">Team Name</label>
-                                    <input type="text" id="team_name" class="form-input-dynamic" placeholder="Enter team name" required>
+                                    <label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block ml-1">Team
+                                        Name</label>
+                                    <input type="text" id="team_name" class="form-input-dynamic"
+                                        placeholder="Enter team name" required>
                                 </div>
                                 <div class="space-y-1">
-                                    <label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block ml-1">Team Size</label>
+                                    <label class="text-[10px] uppercase font-bold text-gray-400 mb-1 block ml-1">Team
+                                        Size</label>
                                     <select id="team_size" class="form-input-dynamic" required>
                                         <option value="1">1 Member</option>
                                         <option value="2">2 Members</option>
@@ -348,13 +691,16 @@
                                     </select>
                                 </div>
                                 <div id="members-container" class="space-y-4"></div>
-                                <button type="submit" id="register-btn-main" class="w-full bg-teal-500 hover:bg-teal-400 text-black font-black py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] uppercase tracking-widest text-sm mt-4">
+                                <button type="submit" id="register-btn-main"
+                                    class="w-full bg-teal-500 hover:bg-teal-400 text-black font-black py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] uppercase tracking-widest text-sm mt-4">
                                     INITIALIZE ENTRY
                                 </button>
                             </form>
-                            
-                            <p class="text-[8px] text-center text-gray-600 font-bold uppercase tracking-[0.3em] mt-6 flex items-center justify-center gap-2">
-                                <iconify-icon icon="lucide:shield-check"></iconify-icon> SECURED VIA VNIT-HARDWARE-ENCRYPTION
+
+                            <p
+                                class="text-[8px] text-center text-gray-600 font-bold uppercase tracking-[0.3em] mt-6 flex items-center justify-center gap-2">
+                                <iconify-icon icon="lucide:shield-check"></iconify-icon> SECURED VIA
+                                VNIT-HARDWARE-ENCRYPTION
                             </p>
                         </div>
                     </div>
@@ -365,10 +711,12 @@
         <footer class="pt-16 pb-8 border-t border-teal-500/10 bg-black">
             <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col items-center gap-6">
                 <span class="text-sm font-bold tracking-[0.4em] text-teal-500 uppercase">ARDUINO EXPO</span>
-                <div class="flex flex-wrap justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.3em] uppercase text-gray-500">
-                    <a id="footer-hub-link" href="index.html" class="hover:text-teal-400 transition-colors">Hub Home</a>
+                <div
+                    class="flex flex-wrap justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.3em] uppercase text-gray-500">
+                    <a id="footer-hub-link" href="index.html" class="hover:text-teal-400 transition-colors">Events</a>
                 </div>
-                <p class="text-[8px] text-gray-700 uppercase tracking-[0.5em] text-center pt-8 border-t border-white/5 w-full">
+                <p
+                    class="text-[8px] text-gray-700 uppercase tracking-[0.5em] text-center pt-8 border-t border-white/5 w-full">
                     © 2026 Junior Scientist VNIT Nagpur. Prototyping The Future.
                 </p>
             </div>
@@ -487,6 +835,21 @@
                 }
             });
         })();
-    </script>
-<script src="payment-upload.js"></script>
-</body></html>
+        </script>
+        <!-- QR CODE POPUP -->
+        <div id="qr-modal" class="qr-modal">
+            <div class="qr-modal-content">
+                <button type="button" id="qr-close" class="qr-close">&times;</button>
+
+                <img id="qr-large" src="images/qr_arduino.png" alt="Enlarged Payment QR Code">
+
+                    <p>Scan to make payment</p>
+            </div>
+        </div>
+
+
+      
+    <script src="payment-upload.js"></script>
+</body>
+
+</html>
