@@ -364,6 +364,11 @@
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(6px); }
         }
+
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
     </style>
 </head>
 
@@ -382,9 +387,12 @@
             style="background-color: var(--nav-bg)">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
-                    <img src="images/catapultikon-logo-gold.png"
-                        alt="Catapult Logo"
-                        class="h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
+                    <img src="images/js-logo-dark.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-dark h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
+                    <img src="images/js-logo-light.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-light h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
                     <div class="flex flex-col text-left">
                         <span
                             class="font-bold tracking-widest text-base sm:text-lg leading-none uppercase text-[#C41E3A]">CATAPULTIKON</span>

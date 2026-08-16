@@ -409,6 +409,11 @@
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(6px); }
 }
+
+.nav-logo-dark { display: block; }
+.nav-logo-light { display: none; }
+[data-theme='light'] .nav-logo-dark { display: none; }
+[data-theme='light'] .nav-logo-light { display: block; }
     </style>
 </head>
 
@@ -421,9 +426,12 @@
             class="fixed top-0 left-0 w-full z-50 py-3 sm:py-4 px-4 sm:px-6 lg:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-teal-500/20">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-4 group">
-                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786363602179-9ea8a36b/logoarduino.jpeg"
-                        alt="Arduino Logo"
-                        class="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform duration-300">
+                    <img src="images/js-logo-dark.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-dark h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform duration-300">
+                    <img src="images/js-logo-light.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-light h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,184,166,0.4)] group-hover:scale-110 transition-transform duration-300">
                     <div class="flex flex-col">
                         <span class="font-bold tracking-widest text-lg leading-none uppercase text-teal-400">ARDUINO
                             EXPO</span>

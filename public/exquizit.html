@@ -351,6 +351,11 @@
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(6px); }
         }
+
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
     </style>
 </head>
 
@@ -363,9 +368,13 @@
         <nav id="main-nav"
             class="fixed top-0 left-0 w-full z-40 py-4 px-6 md:px-10 flex justify-between items-center bg-black dark:bg-black border-b border-cyan-500/10">
             <div class="flex items-center gap-3">
-                <a href="index.html" id="nav-logo-link" class="flex flex-col">
+                <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <img src="images/js-logo-dark.png" alt="Junior Scientist Logo" class="nav-logo-dark w-9 h-9 object-contain">
+                    <img src="images/js-logo-light.png" alt="Junior Scientist Logo" class="nav-logo-light w-9 h-9 object-contain">
+                    <div class="flex flex-col">
                     <span class="font-bold tracking-widest text-lg leading-none text-cyan-500 uppercase">EXQUIZIT</span>
                     <span class="text-[9px] tracking-[0.4em] opacity-50 uppercase">Junior Scientist 2026</span>
+                    </div>
                 </a>
             </div>
             <div class="flex items-center gap-4 text-[11px] font-bold tracking-[0.2em] uppercase">
