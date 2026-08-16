@@ -7,11 +7,24 @@
         'catapultikon.html': '#D4AF37',
         'mathamaze.html': '#9D4EDD'
     };
+    const qrCodes = {
+    'mun.html': 'images/qr_mun.png',
+    'modelothon.html': 'images/qr_modelothon.png',
+    'jso.html': 'images/qr_jso.png',
+    'exquizit.html': 'images/qr_exquizit.png',
+    'arduinoexp.html': 'images/qr_arduino.png',
+    'catapultikon.html': 'images/qr_catapultikon.png',
+    'mathamaze.html': 'images/qr_mathamaze.png'
+};
     const forms = document.querySelectorAll('form');
 
     forms.forEach((form) => {
         const pageName = window.location.pathname.split('/').pop();
         const accent = accents[pageName] || '#00aa66';
+        const qrCode = qrCodes[pageName];
+        console.log("Current page:", pageName);
+        console.log("QR path:", qrCode);
+        console.log("Full QR URL:", new URL(qrCode, window.location.href).href);
         const submitButton = form.querySelector('button[type="submit"]');
         if (!submitButton) return;
 
@@ -22,7 +35,7 @@
                 <span>Payment screenshot</span><span>Required</span>
             </div>
             <img 
-            src="junior-scientist-vnit\public\images\h60rupeesoffqr.jpeg" 
+            src="${qrCode}" 
             alt="Sample payment QR code" 
             id="payment-qr"
             class="mx-auto w-40 rounded-xl cursor-pointer transition-transform duration-300 hover:scale-105"
