@@ -764,7 +764,7 @@
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
         html.setAttribute('data-theme', savedTheme);
         updateIcon(savedTheme);
 
@@ -773,7 +773,7 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
             html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('js-theme', newTheme);
             updateIcon(newTheme);
         });
 

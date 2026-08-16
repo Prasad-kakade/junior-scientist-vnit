@@ -590,8 +590,6 @@
                         class="text-[11px] uppercase tracking-widest text-[#FF1493] font-bold hover:text-white transition-colors">8448927606</a>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
         </section>
 
         <section id="web-team" class="py-16 md:py-32 relative z-10 bg-black/40">
@@ -658,7 +656,6 @@
                 </div>
             </div>
         </section>
->>>>>>> 1ad4a26cb6d0c7e57d5de9e3b6f14ac4886ba7e9
 
         <footer class="pt-20 pb-10 border-t border-white/10 bg-black z-10">
             <div class="container mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
@@ -838,7 +835,7 @@
             }
         }
 
-        const savedTheme = localStorage.getItem('theme-preference');
+        const savedTheme = localStorage.getItem('js-theme');
         if (savedTheme === 'light') updateTheme(true);
 
         [themeToggleDesktop, themeToggleMobile].forEach(btn => {
@@ -846,7 +843,7 @@
                 btn.addEventListener('click', () => {
                     const isLight = body.classList.toggle('light-mode');
                     updateTheme(isLight);
-                    localStorage.setItem('theme-preference', isLight ? 'light' : 'dark');
+                    localStorage.setItem('js-theme', isLight ? 'light' : 'dark');
                 });
             }
         });

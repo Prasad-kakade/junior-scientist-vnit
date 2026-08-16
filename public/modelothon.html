@@ -1,666 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MODEL-O-THON | Junior Scientist VNIT</title><script src="https://cdn.tailwindcss.com"></script><script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"><style>@import url('https://fonts.cdnfonts.com/css/clash-grotesk');:root{--bg-deep:#000000;--text-main:#ffffff;--text-dim:#9ca3af;--text-muted:#6b7280;--neon-orange:#FFA500;--neon-orange-glow:#FFD700;--neon-cyan:#00D9FF;--glass:rgba(255,255,255,0.02);--glass-border:rgba(255,165,0,0.15);--nav-bg:rgba(0,0,0,0.9);--input-bg:rgba(255,255,255,0.05);--scroll-track:#000}[data-theme='light']{--bg-deep:#f5f5f5;--text-main:#1a1a1a;--text-dim:#4b5563;--text-muted:#9ca3af;--neon-orange:#e69500;--neon-orange-glow:#ffcc00;--neon-cyan:#0088cc;--glass:rgba(0,0,0,0.05);--glass-border:rgba(230,149,0,0.3);--nav-bg:rgba(255,255,255,0.9);--input-bg:rgba(0,0,0,0.05);--scroll-track:#e5e5e5}body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--bg-deep);color:var(--text-main);overflow-x:hidden;transition:background-color 0.3s ease,color 0.3s ease}h1,h2,h3,h4,h5,.heading-font{font-family:'Clash Grotesk',sans-serif;text-transform:uppercase;transition:color 0.3s ease}.neon-text-orange{color:var(--neon-orange-glow);text-shadow:0 0 10px var(--neon-orange),0 0 20px var(--neon-orange-glow);transition:all 0.3s ease}[data-theme='light'] .neon-text-orange{text-shadow:none;color:var(--neon-orange);font-weight:800}.neon-border-orange{border:1px solid var(--neon-orange);box-shadow:0 0 15px rgba(255,165,0,0.2)}.glass-card-neon{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(12px);transition:all 0.4s ease, background-color 0.3s ease, border-color 0.3s ease}.glass-card-neon:hover{border-color:var(--neon-orange);box-shadow:0 0 25px rgba(255,165,0,0.2)}@media (min-width: 1024px) { .sticky-form { position: sticky; top: 100px; } }.scan-line{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(0,217,255,0.08);z-index:100;animation:scan 12s linear infinite;pointer-events:none}@keyframes scan{0%{top:0}100%{top:100%}}.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,165,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,165,0,0.03) 1px,transparent 1px);background-size:50px 50px;z-index:-1;pointer-events:none}.gif-overlay{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:60%;opacity:0.05;z-index:-1;filter:grayscale(1) invert(1);pointer-events:none}[data-theme='light'] .gif-overlay{filter:grayscale(1) invert(0);opacity:0.08}.contact-banner-clip{clip-path:polygon(5% 0%,95% 0%,100% 50%,95% 100%,5% 100%,0% 50%)}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--scroll-track)}::-webkit-scrollbar-thumb{background:var(--neon-orange);border-radius:10px}.applicant-section{transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);opacity:0;height:0;overflow:hidden;margin:0}.applicant-section.active{opacity:1;height:auto;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--glass-border)}.logo-mask { filter: grayscale(1) invert(1) contrast(2) brightness(1.8); mix-blend-mode: screen; background: transparent; box-shadow: none; transition: none; }
+[data-theme='light'] .logo-mask { filter: grayscale(1) contrast(2) brightness(0.6); mix-blend-mode: multiply; }
+/* White-on-black logo: screen removes black bg in dark mode */
+.hero-logo-transparent { background: transparent !important; border: none !important; box-shadow: none !important; mix-blend-mode: screen; filter: none; }
+[data-theme='light'] .hero-logo-transparent { mix-blend-mode: multiply; filter: brightness(0.2) contrast(1.2); }</style></head><body><div class="min-h-screen relative flex flex-col"><div class="grid-bg"></div><div class="scan-line"></div><nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-8 lg:px-10 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-lg border-b border-orange-500/20 transition-all duration-300"><div class="flex items-center gap-3"><a href="index.html" id="nav-logo-link" class="flex flex-col"><div class="flex items-center gap-2">
+  <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786372587065-1505a77e/image.png" id="nav-logo-img" alt="Logo" class="w-6 h-6 object-contain logo-mask">
+  <span class="font-bold tracking-widest text-base md:text-lg leading-none uppercase text-orange-400">MODEL-O-THON</span>
+</div><span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-[var(--text-main)]">Junior Scientist 2026</span></a></div><div class="hidden lg:flex items-center gap-4 md:gap-8 lg:gap-12 text-[10px] md:text-[11px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[var(--text-main)]"><a href="index.html" id="nav-link-hub" class="hover:text-orange-400 transition-colors">Hub Home</a><button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-orange-500/30 hover:border-orange-500 transition-all text-xl" title="Toggle Theme"><iconify-icon icon="lucide:moon" id="theme-icon"></iconify-icon></button></div></nav><main class="flex-1 max-w-[1400px] mx-auto w-full px-4 md:px-8 lg:px-10 pt-28 md:pt-32 pb-20"><div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12"><div class="lg:col-span-8 flex flex-col gap-8 order-2 lg:order-1"><section id="hero-compact" class="glass-card-neon p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[2.5rem] relative overflow-hidden"><div class="relative z-10"><div class="flex flex-col sm:flex-row items-center justify-center lg:justify-between gap-3 sm:gap-4 mb-8">
+  <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786561356124-868c299e/ChatGPT_Image_Aug_13__2026__12_31_16_AM.png" id="hero-logo-img" alt="Model-O-Thon Logo - Gear and Rocket" class="w-14 sm:w-16 lg:w-[90px] h-14 sm:h-16 lg:h-[90px] object-contain hero-logo-transparent hover:scale-110 transition-transform duration-300" style="filter: drop-shadow(rgba(255, 165, 0, 0.6) 0px 0px 15px) brightness(1.1); width: 163px; height: 139px;">
+  <h2 class="text-xl sm:text-3xl lg:text-8xl text-center sm:text-right font-black neon-text-orange tracking-tighter italic uppercase">MODEL-O-THON</h2>
+</div><p class="text-base sm:text-xl lg:text-2xl font-bold text-[var(--text-main)] tracking-[0.2em] sm:tracking-[0.3em] opacity-80 uppercase mb-6">Carnival of the creators: The Epic model making showdown</p><div class="max-w-xl text-[var(--text-dim)] leading-relaxed text-sm sm:text-base"><p class="mb-4">Junior Scientist presents Model-o-thon — a platform for young children to showcase their creative skills and knowledge through a single project — a model! Transform your imagination into reality, fostering practical concepts, creativity, and design skills while rediscovering the joy of learning through hands-on experience in model making — a fundamental step in scientific exploration !!</p><p></p></div></div><div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[100px] -mr-32 -mt-32"></div></section><div id="details-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><section id="eligibility" class="glass-card-neon p-6 rounded-3xl"><h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Eligibility</h3><ul class="space-y-2 text-[var(--text-dim)] text-xs"><li>• Students of Classes 5 - 12</li><li>• Max 3 members</li><li>• Registered school only</li></ul></section><section id="fees" class="glass-card-neon p-6 rounded-3xl"><h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Event Fee</h3><div class="flex items-center gap-4"><span class="text-4xl font-black text-[var(--text-main)]" style="width: 55px; height: 47px; font-size: 21.2px; line-height: 23.5px;">Rs 60</span><span class="text-gray-500 uppercase text-xs tracking-tighter">Per Team</span></div><p class="text-orange-500/60 text-[10px] mt-4 uppercase tracking-tighter">Rs 60 per team</p></section><section id="date" class="glass-card-neon p-6 rounded-3xl"><h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Event Date</h3><div class="flex items-center gap-3"><iconify-icon icon="lucide:calendar" class="text-2xl text-orange-500"></iconify-icon><span class="text-xl font-black text-[var(--text-main)]">11th Oct</span></div></section><section id="venue" class="glass-card-neon p-6 rounded-3xl"><h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Venue</h3><div class="flex items-center gap-3"><iconify-icon icon="lucide:map-pin" class="text-2xl text-orange-500"></iconify-icon><span class="text-lg font-black text-[var(--text-main)] leading-tight uppercase">VNIT Campus</span></div><p class="text-gray-500 text-[10px] mt-2 uppercase">Nagpur, Maharashtra</p></section></div><section id="structure-details" class="grid md:grid-cols-2 gap-8"><div class="glass-card-neon p-8 rounded-[2rem]"><h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon icon="lucide:layers" class="text-xl"></iconify-icon>Event Structure</h3><div class="space-y-4 text-[var(--text-dim)] text-sm leading-relaxed"><p>Junior scientist provides a platform for young talents to rediscover creativity with the most fundamental and efficient starting step-model making.</p><ul class="space-y-3"><li><span class="text-white font-bold">Team Limit:</span> The participating team should consist of NOT more than 3 members.</li><li><span class="text-white font-bold">Format:</span> All types of models (working and non-working) are acceptable and will be evaluated on the same grounds.</li><li><span class="text-white font-bold">Presentation:</span> Use of charts and paperwork for presentation is advisable.</li><li><span class="text-white font-bold">Rounds:</span> The event will consist of one round.</li></ul></div></div><div class="glass-card-neon p-8 rounded-[2rem]"><h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon icon="lucide:award" class="text-xl"></iconify-icon>Competition Flow</h3><div class="space-y-4 text-[var(--text-dim)] text-sm leading-relaxed"><ul class="space-y-4"><li class="flex gap-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">01</span><span>Teams will be required to conceptualize their models in detail and deliver a presentation to the panel of judges. Judging time: <span class="text-white">3 minutes per team</span>.</span></li><li class="flex gap-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">02</span><span>The judges will ask questions regarding the working and applications of the models to test the conceptual understanding of the participants.</span></li><li class="flex gap-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">03</span><span>The team that stands out will win the competition!</span></li></ul></div></div></section><section id="themes-criteria" class="grid md:grid-cols-2 gap-8"><div class="glass-card-neon p-8 rounded-[2rem]"><h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon icon="lucide:palette" class="text-xl"></iconify-icon>Event Themes</h3><div class="space-y-4"><div class="bg-orange-500/5 p-4 rounded-xl border border-orange-500/10"><span class="text-[10px] text-orange-400 font-bold uppercase tracking-widest mb-1 block">5-8</span><p class="text-lg font-black text-white italic">Trash to Treasure</p><p class="text-[var(--text-dim)] text-sm mt-2">Trash is just a treasure waiting to be built !!</p><p class="text-[var(--text-dim)] text-sm mt-2">Examples: Solar oven from a pizza box, Plastic spoon water wheel, Self watering plastic bottle planter, Rubber band powered rover, etc</p></div><div class="bg-white/5 p-4 rounded-xl border border-white/10 opacity-60"><span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1 block">9-12</span><p class="text-lg font-black text-white italic uppercase">Tech for the planet</p><p class="text-[var(--text-dim)] text-sm mt-2">Design.Build.Green</p><p class="text-[var(--text-dim)] text-sm mt-2">Examples: gravity based water harvesting systems, waste segregation, renewable energy, natural cooling systems, etc</p></div><p class="text-[var(--text-muted)] text-[10px] uppercase tracking-widest mt-4 italic">Note: The event will consist of one round.</p></div></div><div class="glass-card-neon p-8 rounded-[2rem]"><h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon icon="lucide:list-checks" class="text-xl"></iconify-icon>Judging Criteria</h3><div class="grid grid-cols-1 gap-2"><div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">1. Originality</div><div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">2. Creativity</div><div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">3. Conceptual knowledge</div><div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">4. Impact on the environment and society</div><div class="flex items-center gap-3 p-2 text-sm text-[var(--text-dim)]">5. Presentation skills</div></div></div></section><section id="instructions" class="glass-card-neon p-8 sm:p-10 rounded-[2.5rem]"><h3 class="text-orange-400 font-bold mb-8 tracking-widest uppercase flex items-center gap-3"><iconify-icon icon="lucide:alert-circle" class="text-2xl"></iconify-icon>General Instructions</h3><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><div class="space-y-4"><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">01.</span><p>Participants should be well-equipped with all essential materials.</p></div><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">02.</span><p>Only water and electricity will be provided.</p></div></div><div class="space-y-4"><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">03.</span><p>Parents and teachers will not be allowed in the exhibition hall.</p></div><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">04.</span><p>Use of inflammable materials will not be allowed.</p></div></div><div class="space-y-4"><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">05.</span><p>It is advisable for the participants to bring tiffin.</p></div><div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">06.</span><p>Participants will be responsible for the safekeeping of their models and valuables.</p></div></div><div class="mt-8 pt-8 border-t border-white/10"><h4 class="text-orange-400 font-bold mb-5 tracking-widest uppercase flex items-center gap-3"><iconify-icon icon="lucide:clipboard-check" class="text-xl"></iconify-icon>Participant Checklist</h4><div class="grid md:grid-cols-2 gap-4 text-sm text-[var(--text-dim)]"><p>• Bring your model, essential materials, and a filled registration form.</p><p>• Essential model-making materials.</p><p>• Charts / paperwork, if needed for presentation.</p><p>• Tiffin for the participant team.</p></div></div></div></section><section id="highlights" class="mt-4 flex flex-col gap-6"><h3 class="text-2xl sm:text-3xl font-black neon-text-orange italic uppercase tracking-tighter">Highlights of Model-O-Thon</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><div class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group"><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290910538-d1af81d2/Photo_from_Aryan_Pawar__4_.jpg" alt="Innovation Display" class="w-full h-48 md:h-56 object-cover"></div><div class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group"><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290912357-5f4e646c/Photo_from_Aryan_Pawar__5_.jpg" alt="Science Model" class="w-full h-48 md:h-56 object-cover"></div><div class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group"><img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290913870-8dd8f644/Photo_from_Aryan_Pawar__6_.jpg" alt="Prototyping" class="w-full h-48 md:h-56 object-cover"></div></div></section></div><aside class="lg:col-span-4 order-1 lg:order-2"><div id="registration-card" class="sticky-form glass-card-neon p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border-orange-500/30 shadow-[0_0_50px_rgba(255,165,0,0.1)] transition-all duration-500"><div class="text-center mb-8"><h3 class="text-2xl font-black neon-text-orange mb-2 italic uppercase">Quick Register</h3><p class="text-[10px] tracking-widest uppercase text-gray-500">Secure Your Participation</p></div><form id="modelothon-form" class="space-y-6"><div class="space-y-4"><div><label class="block text-[10px] font-bold tracking-widest text-orange-400 uppercase mb-2">Team Name</label><input type="text" id="team-name-input" placeholder="ENTER YOUR TEAM NAME" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]" required=""></div><div><label class="block text-[10px] font-bold tracking-widest text-orange-400 uppercase mb-2">Team Size</label><select id="team-size-selector" class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all text-[var(--text-dim)] appearance-none cursor-pointer"><option value="1">Individual (1)</option><option value="2">Duo (2)</option><option value="3">Trio (3)</option></select></div></div><div id="applicants-container" class="space-y-0"></div><button type="submit" id="cta-submit-btn" class="w-full bg-orange-600 hover:bg-orange-500 text-black font-black py-4 rounded-xl transition-all shadow-[0_10px_30px_rgba(255,165,0,0.3)] uppercase tracking-widest mt-6">Register Now</button></form><div class="mt-8 flex flex-col gap-3"><div class="flex items-center gap-3 text-gray-500 text-[10px] uppercase tracking-widest"><iconify-icon icon="lucide:check-circle" class="text-orange-500 text-lg"></iconify-icon><span>VNIT Flagship Competition</span></div><div class="flex items-center gap-3 text-gray-500 text-[10px] uppercase tracking-widest"><iconify-icon icon="lucide:shield" class="text-orange-500 text-lg"></iconify-icon><span>Merit Certification</span></div></div></div></aside></div><section id="coordinators" class="mt-20 px-4"><div class="contact-banner-clip glass-card-neon py-12 px-10 border-t-2 border-orange-500/40 relative"><div class="relative z-10"><h3 class="text-center text-3xl font-black neon-text-orange mb-12 italic uppercase tracking-tighter">Event Coordinators</h3><div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 max-w-7xl mx-auto"><div class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group"><h5 class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">Nachiket Despande</h5><a href="tel:+918482810753" id="coord-nachiket" class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon icon="lucide:phone" class="text-xs"></iconify-icon>+91 84828 10753</a></div><div class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group"><h5 class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">Amrita Ahuja</h5><a href="tel:+917821921210" id="coord-amrita" class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon icon="lucide:phone" class="text-xs"></iconify-icon>+91 78219 21210</a></div><div class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group"><h5 class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">Shaunak Doye</h5><a href="tel:+917385394459" id="coord-shaunak" class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon icon="lucide:phone" class="text-xs"></iconify-icon>+91 73853 94459</a></div><div class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group"><h5 class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">Anvay Suryavanshi</h5><a href="tel:+918793642985" id="coord-anvay" class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon icon="lucide:phone" class="text-xs"></iconify-icon>+91 87936 42985</a></div><div class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group"><h5 class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">Shourya Goyal</h5><a href="tel:+918218447115" id="coord-shourya" class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon icon="lucide:phone" class="text-xs"></iconify-icon>+91 82184 47115</a></div></div></div></div></section></main><footer class="py-12 px-6 border-t border-white/10 bg-black/50"><div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] tracking-[0.3em] uppercase text-gray-500"><div class="flex flex-col items-center md:items-start gap-2"><p>© 2026 Junior Scientist VNIT Nagpur</p><p class="text-orange-500/60">Model-O-Thon • Prototypes Redefined</p></div><div class="flex gap-6"><a href="#" id="social-ig" class="hover:text-orange-400 transition-colors">Instagram</a><a href="#" id="social-li" class="hover:text-orange-400 transition-colors">LinkedIn</a><a href="#" id="social-tw" class="hover:text-orange-400 transition-colors">Twitter</a></div><div class="text-center md:text-right"><span>Innovate. Prototype. Repeat.</span></div></div></footer></div><script>
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const html = document.documentElement;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MODEL-O-THON | Junior Scientist VNIT</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
-    rel="stylesheet">
-  <style>
-    @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+const updateIcon = (theme) => {
+  themeIcon.setAttribute('icon', theme === 'light' ? 'lucide:sun' : 'lucide:moon');
+};
 
-    :root {
-      --bg-deep: #000000;
-      --text-main: #ffffff;
-      --text-dim: #9ca3af;
-      --text-muted: #6b7280;
-      --neon-orange: #FFA500;
-      --neon-orange-glow: #FFD700;
-      --neon-cyan: #00D9FF;
-      --glass: rgba(255, 255, 255, 0.02);
-      --glass-border: rgba(255, 165, 0, 0.15);
-      --nav-bg: rgba(0, 0, 0, 0.9);
-      --input-bg: rgba(255, 255, 255, 0.05);
-      --scroll-track: #000
-    }
+const savedTheme = localStorage.getItem('js-theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+updateIcon(savedTheme);
 
-    [data-theme='light'] {
-      --bg-deep: #f5f5f5;
-      --text-main: #1a1a1a;
-      --text-dim: #4b5563;
-      --text-muted: #9ca3af;
-      --neon-orange: #e69500;
-      --neon-orange-glow: #ffcc00;
-      --neon-cyan: #0088cc;
-      --glass: rgba(0, 0, 0, 0.05);
-      --glass-border: rgba(230, 149, 0, 0.3);
-      --nav-bg: rgba(255, 255, 255, 0.9);
-      --input-bg: rgba(0, 0, 0, 0.05);
-      --scroll-track: #e5e5e5
-    }
+themeToggle.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('js-theme', newTheme);
+  updateIcon(newTheme);
+});
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-deep);
-      color: var(--text-main);
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease
-    }
+// Model-O-Thon Registration Form
+(function () {
+  const teamSizeSelector = document.getElementById('team-size-selector');
+  const container = document.getElementById('applicants-container');
+  const form = document.getElementById('modelothon-form');
+  const submitBtn = document.getElementById('cta-submit-btn');
+  const teamNameInput = document.getElementById('team-name-input');
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    .heading-font {
-      font-family: 'Clash Grotesk', sans-serif;
-      text-transform: uppercase;
-      transition: color 0.3s ease
-    }
-
-    .neon-text-orange {
-      color: var(--neon-orange-glow);
-      text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange-glow);
-      transition: all 0.3s ease
-    }
-
-    [data-theme='light'] .neon-text-orange {
-      text-shadow: none;
-      color: var(--neon-orange);
-      font-weight: 800
-    }
-
-    .neon-border-orange {
-      border: 1px solid var(--neon-orange);
-      box-shadow: 0 0 15px rgba(255, 165, 0, 0.2)
-    }
-
-    .glass-card-neon {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(12px);
-      transition: all 0.4s ease, background-color 0.3s ease, border-color 0.3s ease
-    }
-
-    .glass-card-neon:hover {
-      border-color: var(--neon-orange);
-      box-shadow: 0 0 25px rgba(255, 165, 0, 0.2)
-    }
-
-    @media (min-width: 1024px) {
-      .sticky-form {
-        position: relative;
-      }
-    }
-
-    .scan-line {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: rgba(0, 217, 255, 0.08);
-      z-index: 100;
-      animation: scan 12s linear infinite;
-      pointer-events: none
-    }
-
-    @keyframes scan {
-      0% {
-        top: 0
-      }
-
-      100% {
-        top: 100%
-      }
-    }
-
-    .grid-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(rgba(255, 165, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 165, 0, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      z-index: -1;
-      pointer-events: none
-    }
-
-    .gif-overlay {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60%;
-      height: 60%;
-      opacity: 0.05;
-      z-index: -1;
-      filter: grayscale(1) invert(1);
-      pointer-events: none
-    }
-
-    [data-theme='light'] .gif-overlay {
-      filter: grayscale(1) invert(0);
-      opacity: 0.08
-    }
-
-    .contact-banner-clip {
-      clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--scroll-track)
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--neon-orange);
-      border-radius: 10px
-    }
-
-    .applicant-section {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      margin: 0
-    }
-
-    .applicant-section.active {
-      opacity: 1;
-      height: auto;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--glass-border)
-    }
-
-    .logo-mask {
-      filter: grayscale(1) invert(1) contrast(2) brightness(1.8);
-      mix-blend-mode: screen;
-      background: transparent;
-      box-shadow: none;
-      transition: none;
-    }
-
-    [data-theme='light'] .logo-mask {
-      filter: grayscale(1) contrast(2) brightness(0.6);
-      mix-blend-mode: multiply;
-    }
-
-    /* White-on-black logo: screen removes black bg in dark mode */
-    .hero-logo-transparent {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      mix-blend-mode: screen;
-      filter: none;
-    }
-    /* QR CODE POPUP */
-
-.qr-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.85);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(8px);
-}
-
-.qr-modal.active {
-    display: flex;
-}
-
-.qr-modal-content {
-    position: relative;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 20px;
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 40px rgba(255, 165, 0, 0.5);
-}
-
-#qr-large {
-    width: min(500px, 75vw);
-    height: min(500px, 75vw);
-    object-fit: contain;
-    image-rendering: pixelated;
-    border-radius: 10px;
-}
-
-.qr-modal-content p {
-    margin-top: 15px;
-    color: #111827;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.qr-close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background: #111827;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.qr-close:hover {
-    background: #FFA500;
-    color: #000;
-}
-
-@media (max-width: 640px) {
-    .qr-modal-content {
-        padding: 18px;
-    }
-
-    #qr-large {
-        width: 75vw;
-        height: 75vw;
-    }
-}
-    [data-theme='light'] .hero-logo-transparent {
-      mix-blend-mode: multiply;
-      filter: brightness(0.2) contrast(1.2);
-    }
-    /* Fix hard-coded white text in light mode */
-
-[data-theme='light'] .text-white {
-    color: var(--text-main) !important;
-}
-  </style>
-</head>
-
-<body>
-  <div class="min-h-screen relative flex flex-col">
-    <div class="grid-bg"></div>
-    <div class="scan-line"></div>
-    <nav id="main-nav"
-      class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-8 lg:px-10 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-lg border-b border-orange-500/20 transition-all duration-300">
-      <div class="flex items-center gap-3"><a href="index.html" id="nav-logo-link" class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <img
-              src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786372587065-1505a77e/image.png"
-              id="nav-logo-img" alt="Logo" class="w-6 h-6 object-contain logo-mask">
-            <span
-              class="font-bold tracking-widest text-base md:text-lg leading-none uppercase text-orange-400">MODEL-O-THON</span>
-          </div><span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-[var(--text-main)]">Junior Scientist
-            2026</span>
-        </a></div>
-      <div
-        class="flex items-center gap-3 md:gap-8 lg:gap-12 text-[10px] md:text-[11px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[var(--text-main)]">
-        <a href="index.html" id="nav-link-hub" class="hover:text-orange-400 transition-colors">Events</a><button
-          id="theme-toggle"
-          class="w-10 h-10 flex items-center justify-center rounded-full border border-orange-500/30 hover:border-orange-500 transition-all text-xl"
-          title="Toggle Theme"><iconify-icon icon="lucide:moon" id="theme-icon"></iconify-icon></button></div>
-    </nav>
-    <main class="flex-1 max-w-[1400px] mx-auto w-full px-4 md:px-8 lg:px-10 pt-28 md:pt-32 pb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
-        <div class="lg:col-span-8 flex flex-col gap-8 order-2 lg:order-1">
-          <section id="hero-compact"
-            class="glass-card-neon p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[2.5rem] relative overflow-hidden">
-            <div class="relative z-10">
-              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-between gap-3 sm:gap-4 mb-8">
-                <img
-                  src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786561356124-868c299e/ChatGPT_Image_Aug_13__2026__12_31_16_AM.png"
-                  id="hero-logo-img" alt="Model-O-Thon Logo - Gear and Rocket"
-                  class="w-14 sm:w-16 lg:w-[90px] h-14 sm:h-16 lg:h-[90px] object-contain hero-logo-transparent hover:scale-110 transition-transform duration-300"
-                  style="filter: drop-shadow(rgba(255, 165, 0, 0.6) 0px 0px 15px) brightness(1.1); width: 163px; height: 139px;">
-                <h2
-                  class="text-xl sm:text-3xl lg:text-8xl text-center sm:text-right font-black neon-text-orange tracking-tighter italic uppercase">
-                  MODEL-O-THON</h2>
-              </div>
-              <p
-                class="text-base sm:text-xl lg:text-2xl font-bold text-[var(--text-main)] tracking-[0.2em] sm:tracking-[0.3em] opacity-80 uppercase mb-6">
-                Carnival of the creators: The Epic model making showdown</p>
-              <div class="max-w-xl text-[var(--text-dim)] leading-relaxed text-sm sm:text-base">
-                <p class="mb-4">Junior Scientist presents Model-o-thon — a platform for young children to showcase their
-                  creative skills and knowledge through a single project — a model! Transform your imagination into
-                  reality, fostering practical concepts, creativity, and design skills while rediscovering the joy of
-                  learning through hands-on experience in model making — a fundamental step in scientific exploration !!
-                </p>
-                <p></p>
-              </div>
-            </div>
-            <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[100px] -mr-32 -mt-32">
-            </div>
-          </section>
-          <div id="details-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <section id="eligibility" class="glass-card-neon p-6 rounded-3xl">
-              <h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Eligibility</h3>
-              <ul class="space-y-2 text-[var(--text-dim)] text-xs">
-                <li>• Students of Classes 5 - 12</li>
-                <li>• Max 3 members</li>
-                <li>• Registered school only</li>
-              </ul>
-            </section>
-            <section id="fees" class="glass-card-neon p-6 rounded-3xl">
-              <h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Event Fee</h3>
-              <div class="flex items-center gap-4"><span class="text-4xl font-black text-[var(--text-main)]"
-                  style="width: 55px; height: 47px; font-size: 21.2px; line-height: 23.5px;">Rs 60</span><span
-                  class="text-gray-500 uppercase text-xs tracking-tighter">Per Team</span></div>
-              <p class="text-orange-500/60 text-[10px] mt-4 uppercase tracking-tighter">Rs 60 per team</p>
-            </section>
-            <section id="date" class="glass-card-neon p-6 rounded-3xl">
-              <h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Event Date</h3>
-              <div class="flex items-center gap-3"><iconify-icon icon="lucide:calendar"
-                  class="text-2xl text-orange-500"></iconify-icon><span
-                  class="text-xl font-black text-[var(--text-main)]">11th Oct</span></div>
-            </section>
-            <section id="venue" class="glass-card-neon p-6 rounded-3xl">
-              <h3 class="text-orange-400 font-bold mb-4 tracking-widest uppercase">Venue</h3>
-              <div class="flex items-center gap-3"><iconify-icon icon="lucide:map-pin"
-                  class="text-2xl text-orange-500"></iconify-icon><span
-                  class="text-lg font-black text-[var(--text-main)] leading-tight uppercase">VNIT Campus</span></div>
-              <p class="text-gray-500 text-[10px] mt-2 uppercase">Nagpur, Maharashtra</p>
-            </section>
-          </div>
-          <section id="structure-details" class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card-neon p-8 rounded-[2rem]">
-              <h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon
-                  icon="lucide:layers" class="text-xl"></iconify-icon>Event Structure</h3>
-              <div class="space-y-4 text-[var(--text-dim)] text-sm leading-relaxed">
-                <p>Junior scientist provides a platform for young talents to rediscover creativity with the most
-                  fundamental and efficient starting step-model making.</p>
-                <ul class="space-y-3">
-                  <li><span class="text-white font-bold">Team Limit:</span> The participating team should consist of NOT
-                    more than 3 members.</li>
-                  <li><span class="text-white font-bold">Format:</span> All types of models (working and non-working)
-                    are acceptable and will be evaluated on the same grounds.</li>
-                  <li><span class="text-white font-bold">Presentation:</span> Use of charts and paperwork for
-                    presentation is advisable.</li>
-                  <li><span class="text-white font-bold">Rounds:</span> The event will consist of one round.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="glass-card-neon p-8 rounded-[2rem]">
-              <h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon
-                  icon="lucide:award" class="text-xl"></iconify-icon>Competition Flow</h3>
-              <div class="space-y-4 text-[var(--text-dim)] text-sm leading-relaxed">
-                <ul class="space-y-4">
-                  <li class="flex gap-3"><span
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">01</span><span>Teams
-                      will be required to conceptualize their models in detail and deliver a presentation to the panel
-                      of judges. Judging time: <span class="text-white">3 minutes per team</span>.</span></li>
-                  <li class="flex gap-3"><span
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">02</span><span>The
-                      judges will ask questions regarding the working and applications of the models to test the
-                      conceptual understanding of the participants.</span></li>
-                  <li class="flex gap-3"><span
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-[10px] font-bold">03</span><span>The
-                      team that stands out will win the competition!</span></li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section id="themes-criteria" class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card-neon p-8 rounded-[2rem]">
-              <h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon
-                  icon="lucide:palette" class="text-xl"></iconify-icon>Event Themes</h3>
-              <div class="space-y-4">
-                <div class="bg-orange-500/5 p-4 rounded-xl border border-orange-500/10"><span
-                    class="text-[10px] text-orange-400 font-bold uppercase tracking-widest mb-1 block">5-8</span>
-                  <p class="text-lg font-black text-white italic">Trash to Treasure</p>
-                  <p class="text-[var(--text-dim)] text-sm mt-2">Trash is just a treasure waiting to be built !!</p>
-                  <p class="text-[var(--text-dim)] text-sm mt-2">Examples: Solar oven from a pizza box, Plastic spoon
-                    water wheel, Self watering plastic bottle planter, Rubber band powered rover, etc</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/10 opacity-60"><span
-                    class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1 block">9-12</span>
-                  <p class="text-lg font-black text-white italic uppercase">Tech for the planet</p>
-                  <p class="text-[var(--text-dim)] text-sm mt-2">Design.Build.Green</p>
-                  <p class="text-[var(--text-dim)] text-sm mt-2">Examples: gravity based water harvesting systems, waste
-                    segregation, renewable energy, natural cooling systems, etc</p>
-                </div>
-                <p class="text-[var(--text-muted)] text-[10px] uppercase tracking-widest mt-4 italic">Note: The event
-                  will consist of one round.</p>
-              </div>
-            </div>
-            <div class="glass-card-neon p-8 rounded-[2rem]">
-              <h3 class="text-orange-400 font-bold mb-6 tracking-widest uppercase flex items-center gap-2"><iconify-icon
-                  icon="lucide:list-checks" class="text-xl"></iconify-icon>Judging Criteria</h3>
-              <div class="grid grid-cols-1 gap-2">
-                <div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">1.
-                  Originality</div>
-                <div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">2.
-                  Creativity</div>
-                <div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">3.
-                  Conceptual knowledge</div>
-                <div class="flex items-center gap-3 p-2 border-b border-white/5 text-sm text-[var(--text-dim)]">4.
-                  Impact on the environment and society</div>
-                <div class="flex items-center gap-3 p-2 text-sm text-[var(--text-dim)]">5. Presentation skills</div>
-              </div>
-            </div>
-          </section>
-          <section id="instructions" class="glass-card-neon p-8 sm:p-10 rounded-[2.5rem]">
-            <h3 class="text-orange-400 font-bold mb-8 tracking-widest uppercase flex items-center gap-3"><iconify-icon
-                icon="lucide:alert-circle" class="text-2xl"></iconify-icon>General Instructions</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div class="space-y-4">
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">01.</span>
-                  <p>Participants should be well-equipped with all essential materials.</p>
-                </div>
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">02.</span>
-                  <p>Only water and electricity will be provided.</p>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">03.</span>
-                  <p>Parents and teachers will not be allowed in the exhibition hall.</p>
-                </div>
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">04.</span>
-                  <p>Use of inflammable materials will not be allowed.</p>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">05.</span>
-                  <p>It is advisable for the participants to bring tiffin.</p>
-                </div>
-                <div class="flex gap-3 text-sm text-[var(--text-dim)]"><span class="text-orange-500">06.</span>
-                  <p>Participants will be responsible for the safekeeping of their models and valuables.</p>
-                </div>
-              </div>
-              <div class="mt-8 pt-8 border-t border-white/10">
-                <h4 class="text-orange-400 font-bold mb-5 tracking-widest uppercase flex items-center gap-3">
-                  <iconify-icon icon="lucide:clipboard-check" class="text-xl"></iconify-icon>Participant Checklist</h4>
-                <div class="grid md:grid-cols-2 gap-4 text-sm text-[var(--text-dim)]">
-                  <p>• Bring your model, essential materials, and a filled registration form.</p>
-                  <p>• Essential model-making materials.</p>
-                  <p>• Charts / paperwork, if needed for presentation.</p>
-                  <p>• Tiffin for the participant team.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="highlights" class="mt-4 flex flex-col gap-6">
-            <h3 class="text-2xl sm:text-3xl font-black neon-text-orange italic uppercase tracking-tighter">Highlights of
-              Model-O-Thon</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div
-                class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group">
-                <img
-                  src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290910538-d1af81d2/Photo_from_Aryan_Pawar__4_.jpg"
-                  alt="Innovation Display" class="w-full h-48 md:h-56 object-cover"></div>
-              <div
-                class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group">
-                <img
-                  src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290912357-5f4e646c/Photo_from_Aryan_Pawar__5_.jpg"
-                  alt="Science Model" class="w-full h-48 md:h-56 object-cover"></div>
-              <div
-                class="glass-card-neon rounded-2xl overflow-hidden neon-border-orange shadow-lg hover:-translate-y-1 transition-all duration-300 p-0 group">
-                <img
-                  src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786290913870-8dd8f644/Photo_from_Aryan_Pawar__6_.jpg"
-                  alt="Prototyping" class="w-full h-48 md:h-56 object-cover"></div>
-            </div>
-          </section>
-        </div>
-        <aside class="lg:col-span-4 order-1 lg:order-2">
-          <div id="registration-card"
-            class="sticky-form glass-card-neon p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border-orange-500/30 shadow-[0_0_50px_rgba(255,165,0,0.1)] transition-all duration-500">
-            <div class="text-center mb-8">
-              <h3 class="text-2xl font-black neon-text-orange mb-2 italic uppercase">Quick Register</h3>
-              <p class="text-[10px] tracking-widest uppercase text-gray-500">Secure Your Participation</p>
-            </div>
-            <form id="modelothon-form" class="space-y-6">
-              <div class="space-y-4">
-                <div><label class="block text-[10px] font-bold tracking-widest text-orange-400 uppercase mb-2">Team
-                    Name</label><input type="text" id="team-name-input" placeholder="ENTER YOUR TEAM NAME"
-                    class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]"
-                    required=""></div>
-                <div><label class="block text-[10px] font-bold tracking-widest text-orange-400 uppercase mb-2">Team
-                    Size</label><select id="team-size-selector"
-                    class="w-full bg-[var(--input-bg)] border border-orange-500/10 p-4 rounded-xl text-sm text-[var(--text-main)] focus:border-orange-500 outline-none transition-all text-[var(--text-dim)] appearance-none cursor-pointer">
-                    <option value="1">Individual (1)</option>
-                    <option value="2">Duo (2)</option>
-                    <option value="3">Trio (3)</option>
-                  </select></div>
-              </div>
-              <div id="applicants-container" class="space-y-0"></div><button type="submit" id="cta-submit-btn"
-                class="w-full bg-orange-600 hover:bg-orange-500 text-black font-black py-4 rounded-xl transition-all shadow-[0_10px_30px_rgba(255,165,0,0.3)] uppercase tracking-widest mt-6">Register
-                Now</button>
-            </form>
-            <div class="mt-8 flex flex-col gap-3">
-              <div class="flex items-center gap-3 text-gray-500 text-[10px] uppercase tracking-widest"><iconify-icon
-                  icon="lucide:check-circle" class="text-orange-500 text-lg"></iconify-icon><span>VNIT Flagship
-                  Competition</span></div>
-              <div class="flex items-center gap-3 text-gray-500 text-[10px] uppercase tracking-widest"><iconify-icon
-                  icon="lucide:shield" class="text-orange-500 text-lg"></iconify-icon><span>Merit Certification</span>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-      <section id="coordinators" class="mt-20 px-4">
-        <div class="contact-banner-clip glass-card-neon py-12 px-10 border-t-2 border-orange-500/40 relative">
-          <div class="relative z-10">
-            <h3 class="text-center text-3xl font-black neon-text-orange mb-12 italic uppercase tracking-tighter">Event
-              Coordinators</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 max-w-7xl mx-auto">
-              <div
-                class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group">
-                <h5
-                  class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">
-                  Nachiket Despande</h5><a href="tel:+918482810753" id="coord-nachiket"
-                  class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon
-                    icon="lucide:phone" class="text-xs"></iconify-icon>+91 84828 10753</a>
-              </div>
-              <div
-                class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group">
-                <h5
-                  class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">
-                  Amrita Ahuja</h5><a href="tel:+917821921210" id="coord-amrita"
-                  class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon
-                    icon="lucide:phone" class="text-xs"></iconify-icon>+91 78219 21210</a>
-              </div>
-              <div
-                class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group">
-                <h5
-                  class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">
-                  Shaunak Doye</h5><a href="tel:+917385394459" id="coord-shaunak"
-                  class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon
-                    icon="lucide:phone" class="text-xs"></iconify-icon>+91 73853 94459</a>
-              </div>
-              <div
-                class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group">
-                <h5
-                  class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">
-                  Anvay Suryavanshi</h5><a href="tel:+918793642985" id="coord-anvay"
-                  class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon
-                    icon="lucide:phone" class="text-xs"></iconify-icon>+91 87936 42985</a>
-              </div>
-              <div
-                class="text-center p-3 glass-card-neon rounded-2xl border border-orange-500/10 hover:border-orange-500 transition-all group">
-                <h5
-                  class="text-sm font-bold mb-1 text-[var(--text-main)] group-hover:text-orange-400 uppercase tracking-tighter">
-                  Shourya Goyal</h5><a href="tel:+918218447115" id="coord-shourya"
-                  class="text-[var(--text-dim)] text-[10px] flex items-center justify-center gap-1 hover:text-[var(--text-main)] transition-colors"><iconify-icon
-                    icon="lucide:phone" class="text-xs"></iconify-icon>+91 82184 47115</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="py-12 px-6 border-t border-white/10 bg-black/50">
-      <div
-        class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] tracking-[0.3em] uppercase text-gray-500">
-        <div class="flex flex-col items-center md:items-start gap-2">
-          <p>© 2026 Junior Scientist VNIT Nagpur</p>
-          <p class="text-orange-500/60">Model-O-Thon • Prototypes Redefined</p>
-        </div>
-        <div class="flex gap-6"><a href="#" id="social-ig"
-            class="hover:text-orange-400 transition-colors">Instagram</a><a href="#" id="social-li"
-            class="hover:text-orange-400 transition-colors">LinkedIn</a><a href="#" id="social-tw"
-            class="hover:text-orange-400 transition-colors">Twitter</a></div>
-        <div class="text-center md:text-right"><span>Innovate. Prototype. Repeat.</span></div>
-      </div>
-    </footer>
-  </div>
-  <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const html = document.documentElement;
-
-    const updateIcon = (theme) => {
-      themeIcon.setAttribute('icon', theme === 'light' ? 'lucide:sun' : 'lucide:moon');
-    };
-
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    html.setAttribute('data-theme', savedTheme);
-    updateIcon(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme);
+  const renderApplicantFields = (count) => {
+    const currentData = {};
+    container.querySelectorAll('input').forEach(input => {
+      currentData[input.name] = input.value;
     });
 
-    // Model-O-Thon Registration Form
-    (function () {
-      const teamSizeSelector = document.getElementById('team-size-selector');
-      const container = document.getElementById('applicants-container');
-      const form = document.getElementById('modelothon-form');
-      const submitBtn = document.getElementById('cta-submit-btn');
-      const teamNameInput = document.getElementById('team-name-input');
+    container.innerHTML = '';
 
-      const renderApplicantFields = (count) => {
-        const currentData = {};
-        container.querySelectorAll('input').forEach(input => {
-          currentData[input.name] = input.value;
-        });
-
-        container.innerHTML = '';
-
-        for (let i = 1; i <= count; i++) {
-          const section = document.createElement('div');
-          section.className = 'applicant-section active';
-          section.innerHTML = `
+    for (let i = 1; i <= count; i++) {
+      const section = document.createElement('div');
+      section.className = 'applicant-section active';
+      section.innerHTML = `
         <h4 class="text-xs font-black text-orange-400 tracking-[0.2em] uppercase mb-4">Applicant ${i}</h4>
         <div class="space-y-3">
           <input type="text" name="name_${i}" placeholder="FULL NAME" value="${currentData[`name_${i}`] || ''}" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-xs text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)] applicant-name" required>
@@ -673,102 +62,84 @@
           <input type="text" name="class_${i}" placeholder="CLASS / STANDARD" value="${currentData[`class_${i}`] || ''}" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-xs text-[var(--text-main)] focus:border-orange-500 outline-none transition-all placeholder:text-[var(--text-muted)]" required>
         </div>
       `;
-          container.appendChild(section);
-        }
-      };
+      container.appendChild(section);
+    }
+  };
 
-      teamSizeSelector.addEventListener('change', (e) => {
-        renderApplicantFields(parseInt(e.target.value));
+  teamSizeSelector.addEventListener('change', (e) => {
+    renderApplicantFields(parseInt(e.target.value));
+  });
+
+  renderApplicantFields(1);
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    teamNameInput.style.borderColor = '';
+    container.querySelectorAll('input').forEach(el => { el.style.borderColor = ''; });
+
+    if (teamNameInput.value.trim().length < 2) {
+      teamNameInput.style.borderColor = 'red';
+      valid = false;
+    }
+    container.querySelectorAll('.applicant-name').forEach(el => {
+      if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
+    });
+    container.querySelectorAll('.applicant-phone').forEach(el => {
+      if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+    });
+    container.querySelectorAll('.applicant-email').forEach(el => {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+    });
+
+    if (!valid) {
+      alert('Please correct the highlighted fields.');
+      return;
+    }
+
+    const count = parseInt(teamSizeSelector.value);
+    const formData = new FormData();
+    formData.append('team_name', teamNameInput.value.trim());
+    formData.append('team_size', String(count));
+
+    for (let i = 1; i <= count; i++) {
+      formData.append(`member_${i}_name`, container.querySelector(`[name="name_${i}"]`).value.trim());
+      formData.append(`member_${i}_phone`, container.querySelector(`[name="phone_${i}"]`).value.trim());
+      formData.append(`member_${i}_alt_phone`, container.querySelector(`[name="alt_phone_${i}"]`).value.trim());
+      formData.append(`member_${i}_email`, container.querySelector(`[name="email_${i}"]`).value.trim());
+      formData.append(`member_${i}_school`, container.querySelector(`[name="school_${i}"]`).value.trim());
+      formData.append(`member_${i}_class`, container.querySelector(`[name="class_${i}"]`).value.trim());
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'REGISTERING...';
+
+    try {
+      const response = await fetch('/api/modelothon/register', {
+        method: 'POST',
+        body: formData
       });
+      const result = await response.json().catch(() => ({}));
 
-      renderApplicantFields(1);
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        let valid = true;
-        teamNameInput.style.borderColor = '';
-        container.querySelectorAll('input').forEach(el => { el.style.borderColor = ''; });
-
-        if (teamNameInput.value.trim().length < 2) {
-          teamNameInput.style.borderColor = 'red';
-          valid = false;
-        }
-        container.querySelectorAll('.applicant-name').forEach(el => {
-          if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
-        });
-        container.querySelectorAll('.applicant-phone').forEach(el => {
-          if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
-        });
-        container.querySelectorAll('.applicant-email').forEach(el => {
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
-        });
-
-        if (!valid) {
-          alert('Please correct the highlighted fields.');
-          return;
-        }
-
-        const count = parseInt(teamSizeSelector.value);
-        const formData = new FormData();
-        formData.append('team_name', teamNameInput.value.trim());
-        formData.append('team_size', String(count));
-
-        for (let i = 1; i <= count; i++) {
-          formData.append(`member_${i}_name`, container.querySelector(`[name="name_${i}"]`).value.trim());
-          formData.append(`member_${i}_phone`, container.querySelector(`[name="phone_${i}"]`).value.trim());
-          formData.append(`member_${i}_alt_phone`, container.querySelector(`[name="alt_phone_${i}"]`).value.trim());
-          formData.append(`member_${i}_email`, container.querySelector(`[name="email_${i}"]`).value.trim());
-          formData.append(`member_${i}_school`, container.querySelector(`[name="school_${i}"]`).value.trim());
-          formData.append(`member_${i}_class`, container.querySelector(`[name="class_${i}"]`).value.trim());
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'REGISTERING...';
-
-        try {
-          const response = await fetch('/api/modelothon/register', {
-            method: 'POST',
-            body: formData
-          });
-          const result = await response.json().catch(() => ({}));
-
-          if (response.ok) {
-            const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
-            alert('Registration Successful! Welcome to Modelothon.' + regId);
-            form.reset();
-            teamSizeSelector.value = '1';
-            renderApplicantFields(1);
-          } else {
-            alert(result.detail || result.message || 'Registration failed. Please try again.');
-          }
-        } catch (err) {
-          console.error(err);
-          alert('Could not connect to the server. Please check your connection and try again.');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Register Now';
-        }
-      });
-    })();
-  </script>
-  <!-- QR CODE POPUP -->
-<div id="qr-modal" class="qr-modal">
-    <div class="qr-modal-content">
-
-        <button type="button" id="qr-close" class="qr-close">
-            &times;
-        </button>
-
-        <img id="qr-large" src="" alt="Enlarged Payment QR Code">
-
-        <p>Scan to make payment</p>
-
-    </div>
-</div>
-
-
-  <script src="payment-upload.js"></script>
-</body>
-
-</html>
+      if (response.ok) {
+        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+        alert('Registration Successful! Welcome to Modelothon.' + regId);
+        form.reset();
+        teamSizeSelector.value = '1';
+        renderApplicantFields(1);
+      } else {
+        alert(result.detail || result.message || 'Registration failed. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Could not connect to the server. Please check your connection and try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Register Now';
+    }
+  });
+})();
+</script>
+<script src="payment-upload.js"></script>
+</body></html>

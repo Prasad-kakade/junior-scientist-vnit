@@ -449,7 +449,7 @@
             }
         }
 
-        const savedTheme = localStorage.getItem('theme-preference');
+        const savedTheme = localStorage.getItem('js-theme');
         if (savedTheme === 'light') updateTheme(true);
 
         themeToggles.forEach(btn => {
@@ -457,7 +457,7 @@
                 btn.addEventListener('click', () => {
                     const isLight = body.classList.toggle('light-mode');
                     updateTheme(isLight);
-                    localStorage.setItem('theme-preference', isLight ? 'light' : 'dark');
+                    localStorage.setItem('js-theme', isLight ? 'light' : 'dark');
                 });
             }
         });
