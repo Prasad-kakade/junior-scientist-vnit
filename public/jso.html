@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
-<head>
+<html lang="en" data-theme="dark"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUNIOR SCIENTIST OLYMPIAD | Junior Scientist VNIT</title>
@@ -9,8 +7,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
 
@@ -46,42 +43,15 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        [data-theme='light'] .text-white {
-            color: var(--text-primary) !important;
-        }
+        [data-theme='light'] .text-white { color: var(--text-primary) !important; }
+        [data-theme='light'] .text-gray-400 { color: var(--text-secondary) !important; }
+        [data-theme='light'] .bg-black { background-color: var(--bg-primary) !important; }
+        [data-theme='light'] .bg-black\/90 { background-color: var(--glass) !important; }
+        [data-theme='light'] .bg-black\/40 { background-color: rgba(0,0,0,0.05) !important; }
+        [data-theme='light'] .science-pattern { opacity: 0.05; filter: invert(1); }
+        [data-theme='light'] .neon-text { text-shadow: none; font-weight: 700; }
 
-        [data-theme='light'] .text-gray-400 {
-            color: var(--text-secondary) !important;
-        }
-
-        [data-theme='light'] .bg-black {
-            background-color: var(--bg-primary) !important;
-        }
-
-        [data-theme='light'] .bg-black\/90 {
-            background-color: var(--glass) !important;
-        }
-
-        [data-theme='light'] .bg-black\/40 {
-            background-color: rgba(0, 0, 0, 0.05) !important;
-        }
-
-        [data-theme='light'] .science-pattern {
-            opacity: 0.05;
-            filter: invert(1);
-        }
-
-        [data-theme='light'] .neon-text {
-            text-shadow: none;
-            font-weight: 700;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        .heading-font {
+        h1, h2, h3, h4, h5, .heading-font {
             font-family: 'Clash Grotesk', sans-serif;
             text-transform: uppercase;
         }
@@ -127,13 +97,8 @@
         }
 
         @keyframes scan {
-            0% {
-                top: 0;
-            }
-
-            100% {
-                top: 100%;
-            }
+            0% { top: 0; }
+            100% { top: 100%; }
         }
 
         .grid-bg {
@@ -161,13 +126,8 @@
         }
 
         @keyframes float-bg {
-            from {
-                background-position: 0 0;
-            }
-
-            to {
-                background-position: 1000px 1000px;
-            }
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
         }
 
         .form-input {
@@ -187,12 +147,10 @@
             background: rgba(0, 255, 0, 0.05);
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
         }
-
         .form-input option {
             background-color: #111111;
             color: #ffffff;
         }
-
         [data-theme='light'] .jso-logo {
             filter: brightness(0);
         }
@@ -214,176 +172,59 @@
             background: var(--neon-lime);
             border-radius: 10px;
         }
-        /* =========================================
-   QR CODE POPUP
-   ========================================= */
 
-.qr-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    background: rgba(0, 0, 0, 0.85);
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    backdrop-filter: blur(8px);
-}
-
-.qr-modal.active {
-    display: flex;
-}
-
-.qr-modal-content {
-    position: relative;
-
-    background: #ffffff;
-
-    padding: 25px;
-    border-radius: 20px;
-
-    max-width: 90vw;
-    max-height: 90vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
-}
-
-#qr-large {
-    width: min(500px, 75vw);
-    height: min(500px, 75vw);
-
-    object-fit: contain;
-    image-rendering: pixelated;
-    border-radius: 10px;
-}
-
-.qr-modal-content p {
-    margin-top: 15px;
-    color: #111827;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.qr-close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-
-    width: 36px;
-    height: 36px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: #111827;
-    color: white;
-
-    font-size: 25px;
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 2;
-}
-
-.qr-close:hover {
-    background: #2d7a3d;
-    color: white;
-}
-
-@media (max-width: 640px) {
-
-    .qr-modal-content {
-        padding: 18px;
-    }
-
-    #qr-large {
-        width: 75vw;
-        height: 75vw;
-    }
-}
-    @media (max-width: 1023px) {
-    main > div > aside {
-        order: -1;
-    }
-}
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
     </style>
 </head>
-
 <body>
     <div class="min-h-screen relative flex flex-col">
         <div class="grid-bg"></div>
         <div class="science-pattern"></div>
         <div class="scan-line"></div>
 
-        <nav id="main-nav"
-            class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-green-500/20">
+        <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-green-500/20">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
-                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786297752917-a2b21486/jso_bg_removed.png"
-                        alt="JSO Logo" class="jso-logo w-10 h-10 object-contain">
+                    <img src="images/js-logo-dark.png" alt="Junior Scientist Logo" class="nav-logo-dark jso-logo w-10 h-10 object-contain">
+                    <img src="images/js-logo-light.png" alt="Junior Scientist Logo" class="nav-logo-light jso-logo w-10 h-10 object-contain">
                     <div class="flex flex-col">
-                        <span class="font-bold tracking-widest text-lg leading-none uppercase text-green-400">Junior
-                            Science OLYMPIAD</span>
-                        <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist
-                            2026</span>
+                        <span class="font-bold tracking-widest text-lg leading-none uppercase text-green-400">Junior Science OLYMPIAD</span>
+                        <span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior Scientist 2026</span>
                     </div>
                 </a>
             </div>
             <div class="flex items-center gap-4 lg:gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-white">
-                <button id="theme-toggle"
-                    class="w-10 h-10 flex items-center justify-center rounded-full border border-green-500/30 hover:bg-green-500/10 transition-all text-xl">
+                <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-green-500/30 hover:bg-green-500/10 transition-all text-xl">
                     <span id="theme-icon">☀️</span>
                 </button>
-                <div class="flex items-center gap-3 sm:gap-8">
-                    <a href="index.html" id="nav-home-link"
-                        class="hover:text-green-400 transition-colors uppercase">Events
-                    </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" id="nav-home-link" class="hover:text-green-400 transition-colors uppercase">Hub Home</a>
                 </div>
             </div>
         </nav>
 
         <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
+                
                 <!-- Left Side: Event Content -->
-                <div class="lg:col-span-8 flex flex-col gap-8">
-
+                <div class="lg:col-span-8 order-last lg:order-none flex flex-col gap-8">
+                    
                     <!-- Header & Tagline -->
                     <section id="event-hero" class="glass-card-neon p-8 rounded-[2rem] border-l-4 border-l-green-500">
                         <div class="flex flex-col md:flex-row items-center gap-8">
-                            <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786297752917-a2b21486/jso_bg_removed.png"
-                                alt="JSO Logo"
-                                class="jso-logo h-32 md:w-48 md:h-48 object-contain filter drop-shadow-[0_0_20px_rgba(0,255,0,0.3)]">
+                            <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786297752917-a2b21486/jso_bg_removed.png" alt="JSO Logo" class="jso-logo h-32 md:w-48 md:h-48 object-contain filter drop-shadow-[0_0_20px_rgba(0,255,0,0.3)]">
                             <div class="flex flex-col text-center md:text-left">
-                                <h1
-                                    class="text-4xl md:text-6xl lg:text-7xl font-black neon-text italic leading-[0.9] mb-4 tracking-tighter uppercase">
-                                    JUNIOR SCIENce OLYMPIAD</h1>
-                                <p
-                                    class="text-lg md:text-xl font-bold text-white tracking-[0.2em] opacity-80 uppercase">
-                                    ‘Fueling Curiosity, Inspiring Innovation’</p>
+                                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black neon-text italic leading-[0.9] mb-4 tracking-tighter uppercase">JUNIOR SCIENce OLYMPIAD</h1>
+                                <p class="text-lg md:text-xl font-bold text-white tracking-[0.2em] opacity-80 uppercase">‘Fueling Curiosity, Inspiring Innovation’</p>
                             </div>
                         </div>
                         <div class="mt-8 pt-8 border-t border-green-500/10">
-                            <h3 class="text-sm font-black text-green-400 tracking-widest uppercase mb-3">Event
-                                Description</h3>
+                            <h3 class="text-sm font-black text-green-400 tracking-widest uppercase mb-3">Event Description</h3>
                             <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                                Junior Science Olympiad is a platform to challenge your scientific knowledge and
-                                analytical skills. Through two exciting rounds, participants compete, learn, and
-                                showcase their passion for science.
+                                Junior Science Olympiad is a platform to challenge your scientific knowledge and analytical skills. Through two exciting rounds, participants compete, learn, and showcase their passion for science.
                             </p>
                         </div>
                     </section>
@@ -398,17 +239,12 @@
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="p-4 rounded-xl bg-white/5 border border-white/5">
-                                    <span
-                                        class="text-[10px] font-black tracking-widest text-green-400 uppercase">ELIMINATION
-                                        ROUND</span>
-                                    <p class="text-xs text-gray-400 mt-1">Pen and paper examination featuring
-                                        application based questions (MCQ, Integer type, Match the columns, etc.)</p>
+                                    <span class="text-[10px] font-black tracking-widest text-green-400 uppercase">ELIMINATION ROUND</span>
+                                    <p class="text-xs text-gray-400 mt-1">Pen and paper examination featuring application based questions (MCQ, Integer type, Match the columns, etc.)</p>
                                 </div>
                                 <div class="p-4 rounded-xl bg-white/5 border border-white/5">
-                                    <span class="text-[10px] font-black tracking-widest text-green-400 uppercase">FINAL
-                                        ROUND</span>
-                                    <p class="text-xs text-gray-400 mt-1">This will be a non disclosed round which will
-                                        provide a surprise element.</p>
+                                    <span class="text-[10px] font-black tracking-widest text-green-400 uppercase">FINAL ROUND</span>
+                                    <p class="text-xs text-gray-400 mt-1">This will be a non disclosed round which will provide a surprise element.</p>
                                 </div>
                             </div>
                         </section>
@@ -420,22 +256,15 @@
                                 <h3 class="text-xl font-black italic text-white">Age Groups</h3>
                             </div>
                             <div class="flex flex-col gap-4">
-                                <div
-                                    class="p-4 rounded-xl bg-white/5 border border-white/5 flex justify-between items-center">
-                                    <span
-                                        class="text-[10px] font-black tracking-widest text-white uppercase">MINDSPARK</span>
-                                    <span class="text-[10px] text-green-400 font-bold uppercase">5th, 6th, 7th
-                                        Class</span>
+                                <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex justify-between items-center">
+                                    <span class="text-[10px] font-black tracking-widest text-white uppercase">MINDSPARK</span>
+                                    <span class="text-[10px] text-green-400 font-bold uppercase">5th, 6th, 7th Class</span>
                                 </div>
-                                <div
-                                    class="p-4 rounded-xl bg-white/5 border border-white/5 flex justify-between items-center">
-                                    <span
-                                        class="text-[10px] font-black tracking-widest text-white uppercase">MASTERMIND</span>
-                                    <span class="text-[10px] text-green-400 font-bold uppercase">8th, 9th, 10th
-                                        Class</span>
+                                <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex justify-between items-center">
+                                    <span class="text-[10px] font-black tracking-widest text-white uppercase">MASTERMIND</span>
+                                    <span class="text-[10px] text-green-400 font-bold uppercase">8th, 9th, 10th Class</span>
                                 </div>
-                                <div
-                                    class="mt-auto pt-4 flex items-center justify-between text-[10px] font-black text-white/40 uppercase tracking-widest">
+                                <div class="mt-auto pt-4 flex items-center justify-between text-[10px] font-black text-white/40 uppercase tracking-widest">
                                     <span>TEAM SIZE</span>
                                     <span class="text-white">INDIVIDUAL PARTICIPATION</span>
                                 </div>
@@ -451,20 +280,17 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-black text-green-400 uppercase tracking-tighter">ROUND
-                                    1</span>
+                                <span class="text-[10px] font-black text-green-400 uppercase tracking-tighter">ROUND 1</span>
                                 <span class="text-lg font-bold text-white">4th October</span>
                                 <span class="text-xs text-gray-500 uppercase font-bold">Pen and Paper Test</span>
                             </div>
                             <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-black text-green-400 uppercase tracking-tighter">ROUND
-                                    2</span>
+                                <span class="text-[10px] font-black text-green-400 uppercase tracking-tighter">ROUND 2</span>
                                 <span class="text-lg font-bold text-white">11th October</span>
                                 <span class="text-xs text-gray-500 uppercase font-bold">Surprise Round</span>
                             </div>
                             <div class="flex flex-col gap-1">
-                                <span
-                                    class="text-[10px] font-black text-green-400 uppercase tracking-tighter">VENUE</span>
+                                <span class="text-[10px] font-black text-green-400 uppercase tracking-tighter">VENUE</span>
                                 <span class="text-lg font-bold text-white">VNIT NAGPUR</span>
                                 <span class="text-xs text-gray-500 uppercase font-bold">Main Campus</span>
                             </div>
@@ -479,40 +305,28 @@
                         </div>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">1</span>
-                                <p class="text-xs text-gray-400">Registration fee is ₹30 per candidate (non-refundable).
-                                </p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">1</span>
+                                <p class="text-xs text-gray-400">Registration fee is ₹40 per candidate (non-refundable).</p>
                             </li>
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">2</span>
-                                <p class="text-xs text-gray-400">Candidates must carry the receipt of the form on the
-                                    day of the event.</p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">2</span>
+                                <p class="text-xs text-gray-400">Candidates must carry the receipt of the form on the day of the event.</p>
                             </li>
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">3</span>
-                                <p class="text-xs text-gray-400">The decision of the organizers will be final in case of
-                                    any disputes.</p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">3</span>
+                                <p class="text-xs text-gray-400">The decision of the organizers will be final in case of any disputes.</p>
                             </li>
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">4</span>
-                                <p class="text-xs text-gray-400">Carry appropriate stationery (ball pen-blue/black,
-                                    pencil, eraser) and water bottles.</p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">4</span>
+                                <p class="text-xs text-gray-400">Carry appropriate stationery (ball pen-blue/black, pencil, eraser) and water bottles.</p>
                             </li>
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">5</span>
-                                <p class="text-xs text-gray-400">Questions paper differ by age group but remain
-                                    identical within each group.</p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">5</span>
+                                <p class="text-xs text-gray-400">Questions paper differ by age group but remain identical within each group.</p>
                             </li>
                             <li class="flex gap-3 items-start">
-                                <span
-                                    class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">6</span>
-                                <p class="text-xs text-gray-400">Prizes awarded to 1st place and runners-up via
-                                    normalization for fairness.</p>
+                                <span class="w-5 h-5 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-[10px] flex-shrink-0 font-bold mt-0.5">6</span>
+                                <p class="text-xs text-gray-400">Prizes awarded to 1st place and runners-up via normalization for fairness.</p>
                             </li>
                         </ul>
                     </section>
@@ -520,21 +334,17 @@
                     <!-- Highlights Section -->
                     <section id="event-highlights" class="flex flex-col gap-6">
                         <div class="flex flex-col gap-1">
-                            <h2 class="text-2xl font-black italic tracking-widest neon-text uppercase">Event Highlights
-                            </h2>
+                            <h2 class="text-2xl font-black italic tracking-widest neon-text uppercase">Event Highlights</h2>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290157393-7cd79e37/Screenshot_2026-08-09_210700.png"
-                                    alt="Hall" class="w-full h-full object-cover">
+                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290157393-7cd79e37/Screenshot_2026-08-09_210700.png" alt="Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             </div>
-                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290159868-5535b2a1/Screenshot_2026-08-09_210724.png"
-                                    alt="Judging" class="w-full h-full object-cover">
+                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290159868-5535b2a1/Screenshot_2026-08-09_210724.png" alt="Judging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             </div>
-                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon">
-                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290161014-2022eae8/Screenshot_2026-08-09_211202.png"
-                                    alt="Process" class="w-full h-full object-cover">
+                            <div class="aspect-video rounded-2xl overflow-hidden glass-card-neon group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786290161014-2022eae8/Screenshot_2026-08-09_211202.png" alt="Process" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             </div>
                         </div>
                     </section>
@@ -543,53 +353,36 @@
                     <section id="contact-hub" class="flex flex-col gap-6">
                         <h2 class="text-2xl font-black italic tracking-widest text-white uppercase">COORDINATORS</h2>
                         <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                            <div
-                                class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
-                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Dhiraj
-                                    Rayate</h3>
-                                <a href="tel:9403527299"
-                                    class="text-green-400 font-mono text-[10px] font-bold">9403527299</a>
+                            <div class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
+                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Dhiraj Rayate</h3>
+                                <a href="tel:9403527299" class="text-green-400 font-mono text-[10px] font-bold">9403527299</a>
                             </div>
-                            <div
-                                class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
-                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Anagha Bodhe
-                                </h3>
-                                <a href="tel:8788673590"
-                                    class="text-green-400 font-mono text-[10px] font-bold">8788673590</a>
+                            <div class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
+                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Anagha Bodhe</h3>
+                                <a href="tel:8788673590" class="text-green-400 font-mono text-[10px] font-bold">8788673590</a>
                             </div>
-                            <div
-                                class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
-                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Bhumika
-                                    Bhole</h3>
-                                <a href="tel:9422615475"
-                                    class="text-green-400 font-mono text-[10px] font-bold">9422615475</a>
+                            <div class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
+                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Bhumika Bhole</h3>
+                                <a href="tel:9422615475" class="text-green-400 font-mono text-[10px] font-bold">9422615475</a>
                             </div>
-                            <div
-                                class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
-                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Satyam
-                                    Jhamtani</h3>
-                                <a href="tel:8208502831"
-                                    class="text-green-400 font-mono text-[10px] font-bold">8208502831</a>
+                            <div class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
+                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Satyam Jhamtani</h3>
+                                <a href="tel:8208502831" class="text-green-400 font-mono text-[10px] font-bold">8208502831</a>
                             </div>
-                            <div
-                                class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
-                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Vivant
-                                    Lonkar</h3>
-                                <a href="tel:7820803908"
-                                    class="text-green-400 font-mono text-[10px] font-bold">7820803908</a>
+                            <div class="glass-card-neon rounded-xl p-3 flex flex-col items-center text-center justify-center transition-all duration-300 hover:border-green-400">
+                                <h3 class="font-bold text-[10px] uppercase text-white tracking-widest mb-1">Vivant Lonkar</h3>
+                                <a href="tel:7820803908" class="text-green-400 font-mono text-[10px] font-bold">7820803908</a>
                             </div>
                         </div>
                     </section>
                 </div>
 
                 <!-- Right Side: Enrollment Form -->
-                <aside class="lg:col-span-4">
-                    <div id="enrollment"
-                        class="glass-card-neon p-8 rounded-[2rem] border border-green-500/30 neon-border flex flex-col gap-6">
+                <aside class="lg:col-span-4 order-first lg:order-none">
+                    <div id="enrollment" class="glass-card-neon p-8 rounded-[2rem] border border-green-500/30 neon-border flex flex-col gap-6">
                         <div class="text-center">
                             <h2 class="text-3xl font-black italic text-green-400 mb-1">REGISTER NOW</h2>
-                            <p class="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase">Fueling Your
-                                Scientific Journey</p>
+                            <p class="text-[10px] font-black tracking-[0.4em] text-white/40 uppercase">Fueling Your Scientific Journey</p>
                         </div>
 
                         <form id="registration-form" class="flex flex-col gap-4" novalidate>
@@ -602,35 +395,31 @@
                             </select>
                             <input type="email" id="email" placeholder="Email Address" class="form-input" required>
                             <input type="tel" id="phone" placeholder="Phone Number" class="form-input" required>
-                            <input type="tel" id="alt_phone" placeholder="Parent / Alt Phone (optional)"
-                                class="form-input">
+                            <input type="tel" id="alt_phone" placeholder="Parent / Alt Phone (optional)" class="form-input">
                             <input type="text" id="city" placeholder="City" class="form-input" required>
 
                             <div class="mt-4 flex flex-col gap-3">
-                                <div
-                                    class="flex justify-between items-center text-[10px] font-black tracking-widest text-white uppercase">
+                                <div class="flex justify-between items-center text-[10px] font-black tracking-widest text-white uppercase">
                                     <span class="opacity-60">Registration Fee</span>
-                                    <span class="text-green-400 text-xl">₹30</span>
+                                    <span class="text-green-400 text-xl">₹40</span>
                                 </div>
-                                <img src="images/qr_jso.png" alt="JSO Payment QR Code" id="payment-qr"
-                                    class="mx-auto w-40 rounded-xl cursor-pointer transition-transform duration-300 hover:scale-105"
-                                    title="Click to enlarge QR code">
+                                <img src="images/%20qr_sample.png" alt="Sample payment QR code" class="mx-auto w-40 rounded-xl">
                                 <div class="flex flex-col gap-2">
-                                    <label for="payment-receipt"
-                                        class="text-[10px] font-black tracking-widest text-white/60 uppercase">
+                                    <label for="payment-receipt" class="text-[10px] font-black tracking-widest text-white/60 uppercase">
                                         Upload payment screenshot
                                     </label>
-                                    <input type="file" id="payment-receipt" accept="image/*"
-                                        class="form-input cursor-pointer text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-green-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:text-green-400 hover:file:bg-green-500/30">
-                                    <button type="button" id="upload-payment-image"
-                                        class="w-full border border-green-500/50 hover:bg-green-500/10 text-green-400 py-3 rounded-xl text-sm font-black italic tracking-widest uppercase transition-all">
+                                    <input
+                                        type="file"
+                                        id="payment-receipt"
+                                        accept="image/*"
+                                        class="form-input cursor-pointer text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-green-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:text-green-400 hover:file:bg-green-500/30"
+                                    >
+                                    <button type="button" id="upload-payment-image" class="w-full border border-green-500/50 hover:bg-green-500/10 text-green-400 py-3 rounded-xl text-sm font-black italic tracking-widest uppercase transition-all">
                                         Upload Image
                                     </button>
-                                    <p id="upload-status" class="hidden text-center text-[10px] font-bold" role="status"
-                                        aria-live="polite"></p>
+                                    <p id="upload-status" class="hidden text-center text-[10px] font-bold" role="status" aria-live="polite"></p>
                                 </div>
-                                <button type="submit" id="submit-enrollment"
-                                    class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+                                <button type="submit" id="submit-enrollment" class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
                                     Pay &amp; Register
                                 </button>
                             </div>
@@ -648,14 +437,12 @@
         <footer class="w-full py-10 px-10 border-t border-green-500/20 bg-black mt-20">
             <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-4">
-                    <span class="text-[10px] font-black tracking-[0.4em] text-green-500 uppercase">&nbsp;VNIT
-                        2026</span>
+                    <span class="text-[10px] font-black tracking-[0.4em] text-green-500 uppercase">&nbsp;VNIT 2026</span>
                 </div>
                 <div class="flex gap-8 text-[9px] font-black tracking-widest text-white/50 uppercase">
                     <a href="#" id="foot-privacy" class="hover:text-green-400 transition-colors">Privacy Policy</a>
                     <a href="#" id="foot-terms" class="hover:text-green-400 transition-colors">Terms of Service</a>
-                    <a href="index.html" id="foot-contact" class="hover:text-green-400 transition-colors">Back to
-                        Hub</a>
+                    <a href="index.html" id="foot-contact" class="hover:text-green-400 transition-colors">Back to Hub</a>
                 </div>
             </div>
         </footer>
@@ -669,7 +456,7 @@
         function setTheme(theme) {
             html.setAttribute('data-theme', theme);
             themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
-            localStorage.setItem('theme-preference', theme);
+            localStorage.setItem('js-theme', theme);
         }
 
         themeToggle.addEventListener('click', () => {
@@ -677,7 +464,7 @@
             setTheme(current === 'dark' ? 'light' : 'dark');
         });
 
-        const savedTheme = localStorage.getItem('theme-preference') || 'dark';
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
         setTheme(savedTheme);
 
         window.addEventListener('scroll', () => {
@@ -801,54 +588,5 @@
             });
         })();
     </script>
-     </script>
 
-<!-- QR CODE POPUP -->
-<div id="qr-modal" class="qr-modal">
-    <div class="qr-modal-content">
-
-        <button type="button" id="qr-close" class="qr-close">
-            &times;
-        </button>
-
-        <img
-            id="qr-large"
-            src=""
-            alt="Enlarged JSO Payment QR Code">
-
-        <p>Scan to make payment</p>
-
-    </div>
-</div>
-
-<script>
-    // QR CODE CLICK TO ENLARGE
-    document.addEventListener('click', function (event) {
-
-        const qr = event.target.closest('#payment-qr');
-
-        if (qr) {
-            const modal = document.getElementById('qr-modal');
-            const largeQR = document.getElementById('qr-large');
-
-            largeQR.src = qr.src;
-            modal.classList.add('active');
-
-            document.body.style.overflow = 'hidden';
-        }
-
-        if (
-            event.target.id === 'qr-close' ||
-            event.target.id === 'qr-modal'
-        ) {
-            const modal = document.getElementById('qr-modal');
-
-            modal.classList.remove('active');
-
-            document.body.style.overflow = '';
-        }
-    });
-</script>
-</body>
-
-</html>
+</body></html>
