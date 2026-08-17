@@ -280,25 +280,60 @@
    INDEPENDENT REGISTRATION FORM
    ========================================= */
 
-        
+        .register-panel {
+            position: fixed;
+            top: 100px;
+            right: 2.5rem;
+
+            width: calc(33.333333% - 3rem);
+            max-width: 460px;
+
+            height: calc(100vh - 120px);
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            padding-right: 6px;
+
+            scrollbar-width: thin;
+            scrollbar-color: #14b8a6 transparent;
+        }
 
         /* Registration form scrollbar - Chrome / Edge */
-        
-    /* =========================================
-   REGISTRATION FORM - NORMAL PAGE SCROLL
-   ========================================= */
+        .register-panel::-webkit-scrollbar {
+            width: 6px;
+        }
 
-.register-panel {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-}    
+        .register-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .register-panel::-webkit-scrollbar-thumb {
+            background: #14b8a6;
+            border-radius: 10px;
+        }
+
         /* =========================================
    MOBILE
    ========================================= */
 
-        
+        @media (max-width: 1023px) {
+            .register-panel {
+                position: relative;
+
+                top: auto;
+                right: auto;
+
+                width: 100%;
+                max-width: none;
+
+                height: auto;
+
+                overflow: visible;
+
+                padding-right: 0;
+            }
+        }
         /* =========================================
    QR CODE CLICK TO ENLARGE
    ========================================= */
@@ -429,7 +464,7 @@
                     <span id="theme-icon">🌙</span>
                 </button>
                 <div
-                    class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-[0.3em] uppercase text-white">
+                    class="flex items-center gap-4 sm:gap-6 text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white">
                     <a href="index.html" id="nav-home-link" class="hover:text-teal-400 transition-colors">Events</a>
 
                 </div>
@@ -663,9 +698,14 @@
                 </div>
 
                 <div id="register-form-section" class="order-first lg:order-none lg:col-span-4 relative mt-6 lg:mt-0">
+<<<<<<< HEAD
+                    <div>
+                        <div class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
+=======
                     <div class="register-panel">
                         <div
                             class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
+>>>>>>> 04c9e77 (git add .)
                             <div class="text-center mb-8">
                                 <iconify-icon icon="lucide:rocket"
                                     class="text-3xl text-teal-500 mb-2 opacity-50"></iconify-icon>
@@ -713,7 +753,7 @@
                 <span class="text-sm font-bold tracking-[0.4em] text-teal-500 uppercase">ARDUINO EXPO</span>
                 <div
                     class="flex flex-wrap justify-center gap-6 md:gap-10 text-[9px] font-bold tracking-[0.3em] uppercase text-gray-500">
-                    <a id="footer-hub-link" href="index.html" class="hover:text-teal-400 transition-colors">Events</a>
+                    <a id="footer-hub-link" href="index.html" class="hover:text-teal-400 transition-colors">Hub Home</a>
                 </div>
                 <p
                     class="text-[8px] text-gray-700 uppercase tracking-[0.5em] text-center pt-8 border-t border-white/5 w-full">
@@ -801,6 +841,7 @@
                 for (let i = 1; i <= count; i++) {
                     formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
                     formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
+  
                     formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
                     formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
                     formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
@@ -835,13 +876,13 @@
                 }
             });
         })();
-        </script>
+        </script
         <!-- QR CODE POPUP -->
         <div id="qr-modal" class="qr-modal">
             <div class="qr-modal-content">
                 <button type="button" id="qr-close" class="qr-close">&times;</button>
 
-                <img id="qr-large" src="images/qr_arduino.png" alt="Enlarged Payment QR Code">
+                <img id="qr-large" src="" alt="Enlarged Payment QR Code">
 
                     <p>Scan to make payment</p>
             </div>
