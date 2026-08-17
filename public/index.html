@@ -310,6 +310,10 @@
         body.light-mode .axis-logo-light {
             display: inline-block !important;
         }
+        .nav-logo-dark { display: inline-block; }
+        .nav-logo-light { display: none; }
+        body.light-mode .nav-logo-dark { display: none; }
+        body.light-mode .nav-logo-light { display: inline-block; }
     </style>
 </head>
 
@@ -329,9 +333,11 @@
             <div class="flex items-center gap-2 md:gap-3">
                 <a href="#" id="nav-logo-home" class="flex items-center gap-2 md:gap-3 pl-0">
 
-                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8f835b9c-d5b3-4e04-bd0d-aef05551a1aa/1786280732813-ee107996/vnit_bg_removed.png"
-                        alt="VNIT Seal"
-                        class="w-10 md:w-12 h-10 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] "><span
+                    <img src="images/js-logo-dark.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-dark w-10 md:w-12 h-10 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] "><img src="images/js-logo-light.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-light w-10 md:w-12 h-10 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] "><span
                         class="font-bold tracking-widest text-[10px] md:text-sm lg:text-lg max-w-[150px] md:max-w-none uppercase">Visvesvaraya
                         National Institute of Technology</span>
                 </a>
@@ -836,7 +842,7 @@
             }
         }
 
-        const savedTheme = localStorage.getItem('theme-preference');
+        const savedTheme = localStorage.getItem('js-theme');
         if (savedTheme === 'light') updateTheme(true);
 
         [themeToggleDesktop, themeToggleMobile].forEach(btn => {
@@ -844,7 +850,7 @@
                 btn.addEventListener('click', () => {
                     const isLight = body.classList.toggle('light-mode');
                     updateTheme(isLight);
-                    localStorage.setItem('theme-preference', isLight ? 'light' : 'dark');
+                    localStorage.setItem('js-theme', isLight ? 'light' : 'dark');
                 });
             }
         });

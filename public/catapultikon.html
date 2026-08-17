@@ -354,6 +354,29 @@
                 height: 75vw;
             }
         }
+
+        .scroll-hint-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-hint-btn.scroll-hint-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes scroll-hint-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
     </style>
 </head>
 
@@ -372,10 +395,12 @@
             style="background-color: var(--nav-bg)">
             <div class="flex items-center gap-3">
                 <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
-                    <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786371943814-0d8fa6c1/catapultlogo-removebg-preview.png"
-                        alt="Catapult Logo"
-                        class="h-7 sm:h-9 md:h-11 mr-3 logo-gold-vibrant drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10"
-                        style="color: rgb(226, 178, 2);">
+                    <img src="images/js-logo-dark.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-dark h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
+                    <img src="images/js-logo-light.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-light h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
                     <div class="flex flex-col text-left">
                         <span
                             class="font-bold tracking-widest text-base sm:text-lg leading-none uppercase text-[#C41E3A]">CATAPULTIKON</span>
@@ -442,6 +467,7 @@
                                 class="w-full h-full max-w-full object-contain drop-shadow[0_0_70px_rgba(212,175,55,0.95)]"
                                 width="280" height="280">
                         </div>
+                        <button type="button" id="scroll-hint-catapultikon" onclick="document.getElementById('quick-info').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border backdrop-blur-sm" style="border-color:#D4AF37;color:#D4AF37;background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
                     </section>
 
                     <!-- Event Overview -->
@@ -799,9 +825,9 @@
         <footer class="py-12 border-t border-[#C41E3A]/10 text-center transition-colors duration-300"
             style="background-color: var(--nav-bg)">
             <div class="flex items-center justify-center gap-2 mb-6">
-                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786371943814-0d8fa6c1/catapultlogo-removebg-preview.png"
+                <img src="images/catapultikon-logo-gold.png"
                     alt="Catapult Logo Footer"
-                    class="h-5 sm:h-6 md:h-7 logo-gold-vibrant drop-shadow-[0_0_10px_rgba(212,175,55,0.8)] opacity-60">
+                    class="h-5 sm:h-6 md:h-7 drop-shadow-[0_0_10px_rgba(212,175,55,0.8)] opacity-60">
                 <span class="text-sm font-black tracking-[0.3em] text-[#C41E3A] uppercase">Catapultikon 2026 • VNIT
                     Nagpur</span>
             </div>
@@ -820,13 +846,13 @@
 
         const setTheme = (theme) => {
             html.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('js-theme', theme);
             themeIcons.forEach(icon => {
                 icon.innerText = theme === 'light' ? '☀️' : '🌙';
             });
         };
 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
         setTheme(savedTheme);
 
         themeToggles.forEach(toggle => {
@@ -970,6 +996,21 @@
     </div>
 
     <script src="payment-upload.js"></script>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('scroll-hint-catapultikon');
+            var target = document.getElementById('quick-info');
+            if (btn && target && 'IntersectionObserver' in window) {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        btn.classList.toggle('scroll-hint-hidden', entry.isIntersecting);
+                    });
+                }, { threshold: 0 });
+                obs.observe(target);
+            }
+        })();
+    </script>
 
 </body>
 

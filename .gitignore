@@ -5,3 +5,4 @@ __pycache__/
 credential.json
 oauth_client.json
 token.json
+.windsurfrules
