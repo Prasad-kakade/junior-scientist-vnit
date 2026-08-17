@@ -246,24 +246,6 @@
             color: #111827 !important;
         }
 
-
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .member-form-enter {
-            animation: slideDown 0.4s ease forwards;
-        }
-
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -724,14 +706,9 @@
                 </div>
 
                 <div id="register-form-section" class="order-first lg:order-none lg:col-span-4 relative mt-6 lg:mt-0">
-<<<<<<< HEAD
-                    <div>
-                        <div class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
-=======
                     <div class="register-panel">
                         <div
                             class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border-teal-500/30">
->>>>>>> 04c9e77 (git add .)
                             <div class="text-center mb-8">
                                 <iconify-icon icon="lucide:rocket"
                                     class="text-3xl text-teal-500 mb-2 opacity-50"></iconify-icon>
@@ -789,23 +766,40 @@
         </footer>
     </div>
 
+    <!-- QR CODE POPUP -->
+    <div id="qr-modal" class="qr-modal">
+        <div class="qr-modal-content">
+            <button type="button" id="qr-close" class="qr-close">&times;</button>
+            <img id="qr-large" src="" alt="Enlarged Payment QR Code">
+            <p>Scan to make payment</p>
+        </div>
+    </div>
+
+    <button type="button" id="scroll-hint-arduinoexp" onclick="document.getElementById('hero-card').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border border-teal-400 text-teal-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
+
     <script>
+        // ---- Theme toggle (persists via localStorage) ----
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
 
+        function updateIcon(theme) {
+            themeIcon.innerText = theme === 'light' ? '☀️' : '🌙';
+        }
+
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                html.removeAttribute('data-theme');
-                themeIcon.textContent = '🌙';
-            } else {
-                html.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '☀️';
-            }
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('js-theme', newTheme);
+            updateIcon(newTheme);
         });
 
-        // Arduino Expo Registration Form
+        // ---- Arduino Expo Registration Form ----
         (function () {
             const teamSizeSelect = document.getElementById('team_size');
             const membersContainer = document.getElementById('members-container');
@@ -867,7 +861,6 @@
                 for (let i = 1; i <= count; i++) {
                     formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
                     formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
-  
                     formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
                     formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
                     formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
@@ -902,44 +895,8 @@
                 }
             });
         })();
-        </script
-        <!-- QR CODE POPUP -->
-        <div id="qr-modal" class="qr-modal">
-            <div class="qr-modal-content">
-                <button type="button" id="qr-close" class="qr-close">&times;</button>
 
-                <img id="qr-large" src="" alt="Enlarged Payment QR Code">
-
-                    <p>Scan to make payment</p>
-            </div>
-        </div>
-
-
-      
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-
-        function updateIcon(theme) {
-            themeIcon.innerText = theme === 'light' ? '☀️' : '🌙';
-        }
-
-        const savedTheme = localStorage.getItem('js-theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('js-theme', newTheme);
-            updateIcon(newTheme);
-        });
-    </script>
-    <script src="payment-upload.js"></script>
-    <button type="button" id="scroll-hint-arduinoexp" onclick="document.getElementById('hero-card').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border border-teal-400 text-teal-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
-    <script>
+        // ---- Scroll hint visibility ----
         (function () {
             var btn = document.getElementById('scroll-hint-arduinoexp');
             var target = document.getElementById('hero-card');
@@ -953,6 +910,7 @@
             }
         })();
     </script>
+    <script src="payment-upload.js"></script>
 </body>
 
 </html>
