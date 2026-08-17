@@ -766,16 +766,15 @@
                         </div>
                     `);
                 }
-                membersContainer.querySelectorAll('input, select').forEach(el => {
-                    el.addEventListener('input', updateButtonState);
-                    el.addEventListener('change', updateButtonState);
-                });
                 updateButtonState();
             }
 
             function updateButtonState() {
                 submitBtn.disabled = !form.checkValidity();
             }
+
+            form.addEventListener('input', updateButtonState);
+            form.addEventListener('change', updateButtonState);
 
             renderMembers();
             teamSizeSelect.addEventListener('change', renderMembers);
@@ -850,6 +849,7 @@
         })();
     </script>
     </script>
+<<<<<<< HEAD
     <!-- QR CODE POPUP -->
     <div id="qr-modal" class="qr-modal">
         <div class="qr-modal-content">
@@ -873,3 +873,7 @@
 </body>
 
 </html>
+=======
+    </body></html>
+    </body></html>
+>>>>>>> origin/main
