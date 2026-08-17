@@ -272,6 +272,20 @@
             color: var(--text-primary);
         }
 
+        textarea.form-input-mun {
+            text-transform: none;
+            resize: vertical;
+            min-height: 70px;
+            line-height: 1.5;
+        }
+
+        .questionnaire-q {
+            font-size: 10px;
+            line-height: 1.6;
+            text-transform: none;
+            letter-spacing: 0.02em;
+        }
+
         #register-submit-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -431,11 +445,11 @@
                     </section>
                     <section id="quick-info-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-[var(--neon-blue)]">
-                            <iconify-icon icon="lucide:users"
+                            <iconify-icon icon="lucide:user"
                                 class="text-[var(--neon-blue)] text-2xl mb-1"></iconify-icon>
                             <p class="text-[9px] text-[var(--text-secondary)] font-black uppercase tracking-widest">Team
                                 Size</p>
-                            <p class="text-xs font-black uppercase">Varies / Individual</p>
+                            <p class="text-xs font-black uppercase">Individual Only</p>
                         </div>
                         <div class="glass-card-neon p-4 rounded-xl text-center border-b-2 border-[var(--neon-blue)]">
                             <iconify-icon icon="lucide:timer"
@@ -559,7 +573,7 @@
                                 "You are never too young to lead." — Kofi Annan</p>
                         </section>
                     </div>
-                    
+                    <section id="highlights-section">
                         <h3
                             class="text-[var(--neon-blue)] text-sm font-black mb-6 flex items-center gap-3 tracking-[0.3em] uppercase">
                             <iconify-icon icon="lucide:camera" class="text-lg"></iconify-icon>
@@ -650,22 +664,89 @@
                         class="glass-card-neon p-8 rounded-3xl border-t border-[var(--neon-blue)] shadow-[0_0_20px_rgba(31,81,186,0.2)]">
                         <h3 class="text-2xl font-black text-[var(--text-primary)] mb-2 italic tracking-tighter">DELEGATE
                             REGISTRATION</h3>
-                        <p class="text-[var(--text-secondary)] text-[10px] uppercase tracking-widest mb-8">Secure your
-                            seat in the Human Rights Council.</p>
+                        <p class="text-[var(--text-secondary)] text-[10px] uppercase tracking-widest mb-8">Individual
+                            registration only. Secure your seat in the Human Rights Council.</p>
                         <form class="space-y-5" id="mun-register-form" novalidate>
                             <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Delegation
-                                    / Team Name</label><input type="text" id="team_name"
-                                    placeholder="Enter Delegation Name" class="form-input-mun" required></div>
+                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Full
+                                    Name</label><input type="text" id="delegate_name"
+                                    placeholder="Enter Full Name" class="form-input-mun" required></div>
                             <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Team
-                                    Size</label><select id="team_size" class="form-input-mun" required>
-                                    <option value="1">1 Delegate</option>
-                                    <option value="2">2 Delegates</option>
-        
-                                </select></div>
-                            <div id="members-container" class="space-y-4"></div><button type="submit"
-                                id="register-submit-btn"
+                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">School</label><input
+                                    type="text" id="delegate_school" placeholder="Enter School Name"
+                                    class="form-input-mun" required></div>
+                            <div class="space-y-2"><label
+                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Email</label><input
+                                    type="email" id="delegate_email" placeholder="Enter Official Email"
+                                    class="form-input-mun" required></div>
+                            <div class="space-y-2"><label
+                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Phone
+                                    Number</label><input type="tel" id="delegate_phone"
+                                    placeholder="10-Digit Phone Number" class="form-input-mun" required></div>
+
+                            <div class="pt-4 border-t border-[var(--glass-border)] space-y-5">
+                                <p
+                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">
+                                    Compulsory Questionnaire</p>
+
+                                <div class="space-y-2">
+                                    <label for="q1" class="questionnaire-q text-[var(--text-primary)] block px-1">Q1)
+                                        Some wars burn beneath a thousand cameras; others starve in the dark. Why does
+                                        the world's compassion follow the headline rather than the hunger, and what is
+                                        the true cost of that selective gaze?</label>
+                                    <textarea id="q1" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="q2" class="questionnaire-q text-[var(--text-primary)] block px-1">Q2)
+                                        Many clean-energy technologies depend on minerals that are found and processed
+                                        in only a few countries. Could the world's shift to clean energy create a new
+                                        kind of dependence between countries? How can this be avoided?</label>
+                                    <textarea id="q2" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="q3" class="questionnaire-q text-[var(--text-primary)] block px-1">Q3)
+                                        Artificial intelligence can now create realistic videos, images, and voices of
+                                        political leaders. If people can no longer easily tell what is real and what is
+                                        fake, how can democracies protect fair and trustworthy elections?</label>
+                                    <textarea id="q3" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="q4" class="questionnaire-q text-[var(--text-primary)] block px-1">Q4)
+                                        The dragon has mastered the age of the electron while the eagle still trades in
+                                        the age of fire. When the poorer half of the world must choose which century to
+                                        wire its cities for, what does it truly purchase along with the cheaper
+                                        cable?</label>
+                                    <textarea id="q4" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="q5" class="questionnaire-q text-[var(--text-primary)] block px-1">Q5)
+                                        Five guardians hold permanent keys to a house built from the ashes of 1945, and
+                                        any one of them may bolt the door alone. Eighty years on, should the locks be
+                                        changed, the keys be shared, or the house be rebuilt from its
+                                        foundation?</label>
+                                    <textarea id="q5" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="q6" class="questionnaire-q text-[var(--text-primary)] block px-1">Q6)
+                                        What newborn oracle, raised on the harvested memories of all humankind, now
+                                        drafts verses, verdicts and war plans alike, while its own makers quarrel over
+                                        who holds the leash and who carries the blame?</label>
+                                    <textarea id="q6" class="form-input-mun" rows="3"
+                                        placeholder="Your answer" required></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="register-submit-btn"
                                 class="w-full bg-[var(--neon-blue)] hover:bg-blue-600 py-4 text-white font-black uppercase tracking-widest text-sm transition-all shadow-lg shadow-[0_0_20px_rgba(31,81,186,0.3)] mt-4">Submit
                                 Credentials</button>
                         </form>
@@ -718,6 +799,16 @@
             </div>
         </footer>
     </div>
+
+    <!-- QR CODE POPUP -->
+    <div id="qr-modal" class="qr-modal">
+        <div class="qr-modal-content">
+            <button type="button" id="qr-close" class="qr-close">&times;</button>
+            <img id="qr-large" src="" alt="Enlarged Payment QR Code">
+            <p>Scan to make payment</p>
+        </div>
+    </div>
+
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -739,41 +830,11 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         updateTheme(savedTheme);
 
-        // MUN Registration Form
+        // MUN Registration Form (single-delegate + compulsory questionnaire)
         (function () {
-            const teamSizeSelect = document.getElementById('team_size');
-            const membersContainer = document.getElementById('members-container');
             const form = document.getElementById('mun-register-form');
             const submitBtn = document.getElementById('register-submit-btn');
-
-            function renderMembers() {
-                const count = +teamSizeSelect.value;
-                membersContainer.innerHTML = '';
-                for (let i = 1; i <= count; i++) {
-                    membersContainer.insertAdjacentHTML('beforeend', `
-                        <div class="space-y-2 pt-4 border-t border-[var(--glass-border)]">
-                            <p class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Delegate ${i}</p>
-                            <input type="text" id="member_${i}_name" placeholder="Full Name" class="form-input-mun member-name" required>
-                            <input type="tel" id="member_${i}_phone" placeholder="Phone Number" class="form-input-mun member-phone" required>
-                            <input type="tel" id="member_${i}_alt_phone" placeholder="Parent / Alt Phone (optional)" class="form-input-mun">
-                            <input type="email" id="member_${i}_email" placeholder="Official Email" class="form-input-mun member-email" required>
-                            <input type="text" id="member_${i}_school" placeholder="School" class="form-input-mun">
-                            <input type="text" id="member_${i}_city" placeholder="City" class="form-input-mun">
-                            <select id="member_${i}_class" class="form-input-mun">
-                                <option value="" disabled selected>Select Standard</option>
-                                <option value="6">6th Standard</option>
-                                <option value="7">7th Standard</option>
-                                <option value="8">8th Standard</option>
-                                <option value="9">9th Standard</option>
-                                <option value="10">10th Standard</option>
-                                <option value="11">11th Standard</option>
-                                <option value="12">12th Standard</option>
-                            </select>
-                        </div>
-                    `);
-                }
-                updateButtonState();
-            }
+            const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
 
             function updateButtonState() {
                 submitBtn.disabled = !form.checkValidity();
@@ -781,49 +842,42 @@
 
             form.addEventListener('input', updateButtonState);
             form.addEventListener('change', updateButtonState);
-
-            renderMembers();
-            teamSizeSelect.addEventListener('change', renderMembers);
+            updateButtonState();
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 let valid = true;
-                document.querySelectorAll('#mun-register-form input').forEach(el => { el.style.borderColor = ''; });
+                document.querySelectorAll('#mun-register-form input, #mun-register-form textarea').forEach(el => { el.style.borderColor = ''; });
 
-                if (document.getElementById('team_name').value.trim().length < 2) {
-                    document.getElementById('team_name').style.borderColor = 'red';
-                    valid = false;
-                }
-                document.querySelectorAll('.member-name').forEach(el => {
-                    if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
-                });
-                document.querySelectorAll('.member-phone').forEach(el => {
-                    if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
-                });
-                document.querySelectorAll('.member-email').forEach(el => {
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                const nameEl = document.getElementById('delegate_name');
+                const schoolEl = document.getElementById('delegate_school');
+                const emailEl = document.getElementById('delegate_email');
+                const phoneEl = document.getElementById('delegate_phone');
+
+                if (nameEl.value.trim().length < 2) { nameEl.style.borderColor = 'red'; valid = false; }
+                if (schoolEl.value.trim().length < 2) { schoolEl.style.borderColor = 'red'; valid = false; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) { emailEl.style.borderColor = 'red'; valid = false; }
+                if (!/^\d{10}$/.test(phoneEl.value.trim())) { phoneEl.style.borderColor = 'red'; valid = false; }
+
+                questionIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el.value.trim().length < 5) { el.style.borderColor = 'red'; valid = false; }
                 });
 
                 if (!valid) {
-                    alert('Please correct the highlighted fields.');
+                    alert('Please correct the highlighted fields, including all questionnaire answers.');
                     return;
                 }
 
-                const count = +teamSizeSelect.value;
                 const formData = new FormData();
-                formData.append('team_name', document.getElementById('team_name').value.trim());
-                formData.append('team_size', String(count));
-
-                for (let i = 1; i <= count; i++) {
-                    formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
-                    formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
-                    formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
-                    formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
-                    formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
-                    formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
-                    formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
-                }
+                formData.append('delegate_name', nameEl.value.trim());
+                formData.append('delegate_school', schoolEl.value.trim());
+                formData.append('delegate_email', emailEl.value.trim());
+                formData.append('delegate_phone', phoneEl.value.trim());
+                questionIds.forEach(id => {
+                    formData.append(id, document.getElementById(id).value.trim());
+                });
 
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'SUBMITTING...';
@@ -839,7 +893,6 @@
                         const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
                         alert('Registration Successful! Welcome to the Model United Nations.' + regId);
                         form.reset();
-                        renderMembers();
                     } else {
                         alert(result.detail || result.message || 'Registration failed. Please try again.');
                     }
@@ -854,32 +907,7 @@
             });
         })();
     </script>
-    </script>
-<<<<<<< HEAD
-    <!-- QR CODE POPUP -->
-    <div id="qr-modal" class="qr-modal">
-        <div class="qr-modal-content">
-
-            <button type="button" id="qr-close" class="qr-close">
-                &times;
-            </button>
-
-            <img id="qr-large" src="" alt="Enlarged Payment QR Code">
-
-            <p>Scan to make payment</p>
-
-        </div>
-    </div>
-
-
     <script src="payment-upload.js"></script>
 </body>
 
 </html>
-</body>
-
-</html>
-=======
-    </body></html>
-    </body></html>
->>>>>>> origin/main
