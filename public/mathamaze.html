@@ -343,6 +343,10 @@
         height: 75vw;
       }
     }
+    .nav-logo-dark { display: block; }
+    .nav-logo-light { display: none; }
+    body.light-mode .nav-logo-dark { display: none; }
+    body.light-mode .nav-logo-light { display: block; }
   </style>
 </head>
 
@@ -354,11 +358,10 @@
     <nav id="main-nav"
       class="fixed top-0 left-0 w-full z-50 py-3 px-4 sm:px-6 md:px-8 lg:px-10 flex justify-between items-center bg-black/90 backdrop-blur-lg border-b border-purple-500/20">
       <div class="flex items-center gap-3"><a href="index.html" id="nav-logo" class="flex items-center gap-3">
-          <div id="mathamaze-logo-nav" class="w-10 h-10 flex-shrink-0"><img
-              src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/687498b6-d01d-45da-bb50-6853a9cd2d06/1786794085893-ea342e30/mam_dark_bg.png"
-              alt="MATHAMAZE Dark Logo" class="logo-dark w-full h-full object-contain"><img
-              src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/687498b6-d01d-45da-bb50-6853a9cd2d06/1786793551411-0d663ac8/mam_bg_rm.png"
-              alt="MATHAMAZE Light Logo" class="logo-light w-full h-full object-contain"></div>
+          <div id="mathamaze-logo-nav" class="w-10 h-10 flex-shrink-0"><img src="images/js-logo-dark.png" alt="Junior Scientist Logo"
+              class="nav-logo-dark h-9 w-9 sm:h-11 sm:w-11 object-contain">
+          <img src="images/js-logo-light.png" alt="Junior Scientist Logo"
+              class="nav-logo-light h-9 w-9 sm:h-11 sm:w-11 object-contain"></div>
           <div class="flex flex-col"><span
               class="font-bold tracking-widest text-[10px] sm:text-xs md:text-sm lg:text-base leading-none uppercase text-purple-400">MATHAMAZE</span><span
               class="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior

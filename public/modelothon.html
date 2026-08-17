@@ -292,6 +292,10 @@
 [data-theme='light'] .text-white {
     color: var(--text-main) !important;
 }
+.nav-logo-dark { display: block; }
+.nav-logo-light { display: none; }
+[data-theme='light'] .nav-logo-dark { display: none; }
+[data-theme='light'] .nav-logo-light { display: block; }
   </style>
 </head>
 
@@ -301,22 +305,23 @@
     <div class="scan-line"></div>
     <nav id="main-nav"
       class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-8 lg:px-10 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-lg border-b border-orange-500/20 transition-all duration-300">
-      <div class="flex items-center gap-3"><a href="index.html" id="nav-logo-link" class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <img
-              src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786561356124-868c299e/ChatGPT_Image_Aug_13__2026__12_31_16_AM.png"
-              id="nav-logo-img" alt="Logo" class="w-6 h-6 object-contain hero-logo-transparent">
-            <span
-              class="font-bold tracking-widest text-base md:text-lg leading-none uppercase text-orange-400">MODEL-O-THON</span>
-          </div><span class="text-[10px] tracking-[0.3em] opacity-50 uppercase text-[var(--text-main)]">Junior Scientist
-            2026</span>
-        </a></div>
-      <div
-        class="flex items-center gap-3 md:gap-8 lg:gap-12 text-[10px] md:text-[11px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[var(--text-main)]">
-        <a href="index.html" id="nav-link-hub" class="hover:text-orange-400 transition-colors">Events</a><button
-          id="theme-toggle"
-          class="w-10 h-10 flex items-center justify-center rounded-full border border-orange-500/30 hover:border-orange-500 transition-all text-xl"
-          title="Toggle Theme"><iconify-icon icon="lucide:moon" id="theme-icon"></iconify-icon></button></div>
+      <div class="flex items-center gap-3"><a href="index.html" id="nav-logo" class="flex items-center gap-3">
+                <img src="images/js-logo-dark.png" alt="Junior Scientist Logo"
+                    class="nav-logo-dark h-9 w-9 sm:h-11 sm:w-11 object-contain">
+                <img src="images/js-logo-light.png" alt="Junior Scientist Logo"
+                    class="nav-logo-light h-9 w-9 sm:h-11 sm:w-11 object-contain">
+                <div class="flex flex-col"><span
+              class="font-bold tracking-widest text-[10px] sm:text-xs md:text-sm lg:text-base leading-none uppercase text-orange-400">modelothon</span><span
+              class="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.3em] opacity-50 uppercase text-white">Junior
+              Scientist 2026</span></div>
+            </a></div>
+            <div
+                class="flex items-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-[var(--text-primary)]">
+                <a href="index.html" id="nav-home-link" class="hover:text-[var(--neon-blue)] transition-colors">Events
+                </a><button id="theme-toggle"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-[var(--neon-blue)]/30 hover:bg-[var(--neon-blue)]/10 transition-all text-xl"><span
+                        id="theme-icon">🌙</span></button>
+            </div>
     </nav>
     <main class="flex-1 max-w-[1400px] mx-auto w-full px-4 md:px-8 lg:px-10 pt-28 md:pt-32 pb-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
