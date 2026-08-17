@@ -467,7 +467,6 @@
                                 class="w-full h-full max-w-full object-contain drop-shadow[0_0_70px_rgba(212,175,55,0.95)]"
                                 width="280" height="280">
                         </div>
-                        <button type="button" id="scroll-hint-catapultikon" onclick="document.getElementById('quick-info').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border backdrop-blur-sm" style="border-color:#D4AF37;color:#D4AF37;background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
                     </section>
 
                     <!-- Event Overview -->
@@ -996,10 +995,12 @@
 
     <script src="payment-upload.js"></script>
 
+    <button type="button" id="scroll-hint-catapultikon" onclick="document.getElementById('hero-compact').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border backdrop-blur-sm" style="border-color:#D4AF37;color:#D4AF37;background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
+
     <script>
         (function () {
             var btn = document.getElementById('scroll-hint-catapultikon');
-            var target = document.getElementById('quick-info');
+            var target = document.getElementById('hero-compact');
             if (btn && target && 'IntersectionObserver' in window) {
                 var obs = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
