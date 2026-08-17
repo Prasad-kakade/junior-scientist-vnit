@@ -897,16 +897,15 @@
                         </div>
                     `);
                 }
-                membersContainer.querySelectorAll('input, select').forEach(el => {
-                    el.addEventListener('input', updateButtonState);
-                    el.addEventListener('change', updateButtonState);
-                });
                 updateButtonState();
             }
 
             function updateButtonState() {
                 submitBtn.disabled = !form.checkValidity();
             }
+
+            form.addEventListener('input', updateButtonState);
+            form.addEventListener('change', updateButtonState);
 
             renderMembers();
             teamSizeSelect.addEventListener('change', renderMembers);
