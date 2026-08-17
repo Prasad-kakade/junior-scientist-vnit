@@ -484,7 +484,6 @@
                         <div class="absolute left-[-5%] top-[-5%] opacity-5">
                             <iconify-icon icon="lucide:lightbulb" class="text-[300px] text-cyan-500"></iconify-icon>
                         </div>
-                        <button type="button" id="scroll-hint-exquizit" onclick="document.getElementById('event-structure').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
                     </section>
 
                     <section id="event-structure" class="space-y-6">
@@ -937,10 +936,11 @@
         </div>
     </div>
     <script src="payment-upload.js"></script>
+    <button type="button" id="scroll-hint-exquizit" onclick="document.getElementById('hero-card').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
     <script>
         (function () {
             var btn = document.getElementById('scroll-hint-exquizit');
-            var target = document.getElementById('event-structure');
+            var target = document.getElementById('hero-card');
             if (btn && target && 'IntersectionObserver' in window) {
                 var obs = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
