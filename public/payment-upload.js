@@ -90,7 +90,8 @@
                 const eventName = pageName.replace('.html', '');
                 
                 // Universal line to find the name input across all your HTML forms
-                const nameInput = form.querySelector('#full_name, #name, input[name="full_name"], input[name="name"], input[name="team_name"]');
+                // Universal line to find the name input across ALL forms (Individual & Team)
+                const nameInput = form.querySelector('#team-name-input, input[name="team_name"], input[name="name_1"], #full_name, #name, #delegate_name, input[name="full_name"], input[name="name"]');
                 
                 let applicantName = "Unknown-Applicant";
                 if (nameInput && nameInput.value.trim() !== '') {
