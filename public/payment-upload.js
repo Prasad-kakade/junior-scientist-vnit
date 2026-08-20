@@ -70,7 +70,7 @@
             }
         });
 
-        uploadButton.addEventListener('click', async () => {
+       uploadButton.addEventListener('click', async () => {
             const image = fileInput.files[0];
             if (!image) {
                 showStatus('Please choose a payment screenshot first.', true);
@@ -85,6 +85,28 @@
             try {
                 const data = new FormData();
                 data.append('image', image);
+
+                // --- NEW: Grab event name and applicant name ---
+                const eventName = pageName.replace('.html', '');
+                
+                // Universal line to find the name input across all your HTML forms
+                const nameInput = form.querySelector('#full_name, #name, input[name="full_name"], input[name="name"], input[name="team_name"]');
+                
+                let applicantName = "Unknown-Applicant";
+                if (nameInput && nameInput.value.trim() !== '') {
+                    applicantName = nameInput.value.trim();
+                } else {
+                    // Stop the upload if they haven't typed their name yet
+                    showStatus('Please type your Name in the form above before uploading.', true);
+                    uploadButton.disabled = false;
+                    uploadButton.textContent = 'Upload Image';
+                    return;
+                }
+
+                data.append('applicant_name', applicantName);
+                data.append('event_name', eventName);
+                // -----------------------------------------------
+
                 const response = await fetch('/api/upload', { method: 'POST', body: data });
                 const result = await response.json().catch(() => ({}));
 
