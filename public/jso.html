@@ -667,7 +667,7 @@
         </footer>
     </div>
 
-    <script>
+   <script>
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
@@ -701,54 +701,8 @@
         (function () {
             const form = document.getElementById('registration-form');
             const submitBtn = document.getElementById('submit-enrollment');
-            const paymentReceipt = document.getElementById('payment-receipt');
-            const uploadBtn = document.getElementById('upload-payment-image');
-            const uploadStatus = document.getElementById('upload-status');
-            // image.py runs this local Flask endpoint and uploads to the configured private Drive folder.
-            const IMAGE_UPLOAD_ENDPOINT = '/api/upload';
 
             const fieldIds = ['full_name', 'phone', 'alt_phone', 'email', 'school', 'city', 'student_class'];
-
-            function showUploadStatus(message, isError = false) {
-                uploadStatus.textContent = message;
-                uploadStatus.classList.remove('hidden', 'text-green-400', 'text-red-400');
-                uploadStatus.classList.add(isError ? 'text-red-400' : 'text-green-400');
-            }
-
-            uploadBtn.addEventListener('click', async function () {
-                const image = paymentReceipt.files[0];
-
-                if (!image) {
-                    showUploadStatus('Please choose a payment screenshot first.', true);
-                    return;
-                }
-
-                uploadBtn.disabled = true;
-                uploadBtn.textContent = 'UPLOADING...';
-                showUploadStatus('Uploading payment screenshot...');
-
-                try {
-                    const uploadData = new FormData();
-                    uploadData.append('image', image);
-
-                    const response = await fetch(IMAGE_UPLOAD_ENDPOINT, {
-                        method: 'POST',
-                        body: uploadData
-                    });
-                    const result = await response.json().catch(() => ({}));
-
-                    if (!response.ok) {
-                        throw new Error(result.detail || result.error || 'Image upload failed.');
-                    }
-
-                    showUploadStatus(result.message || 'Payment screenshot uploaded successfully.');
-                } catch (err) {
-                    showUploadStatus(err.message || 'Unable to upload image. Please try again.', true);
-                } finally {
-                    uploadBtn.disabled = false;
-                    uploadBtn.textContent = 'UPLOAD IMAGE';
-                }
-            });
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -807,54 +761,15 @@
             });
         })();
     </script>
-     </script>
 
-<!-- QR CODE POPUP -->
-<div id="qr-modal" class="qr-modal">
-    <div class="qr-modal-content">
-
-        <button type="button" id="qr-close" class="qr-close">
-            &times;
-        </button>
-
-        <img
-            id="qr-large"
-            src=""
-            alt="Enlarged JSO Payment QR Code">
-
-        <p>Scan to make payment</p>
-
+    <!-- QR CODE POPUP -->
+    <div id="qr-modal" class="qr-modal">
+        <div class="qr-modal-content">
+            <button type="button" id="qr-close" class="qr-close">&times;</button>
+            <img id="qr-large" src="" alt="Enlarged JSO Payment QR Code">
+            <p>Scan to make payment</p>
+        </div>
     </div>
-</div>
 
-<script>
-    // QR CODE CLICK TO ENLARGE
-    document.addEventListener('click', function (event) {
-
-        const qr = event.target.closest('#payment-qr');
-
-        if (qr) {
-            const modal = document.getElementById('qr-modal');
-            const largeQR = document.getElementById('qr-large');
-
-            largeQR.src = qr.src;
-            modal.classList.add('active');
-
-            document.body.style.overflow = 'hidden';
-        }
-
-        if (
-            event.target.id === 'qr-close' ||
-            event.target.id === 'qr-modal'
-        ) {
-            const modal = document.getElementById('qr-modal');
-
-            modal.classList.remove('active');
-
-            document.body.style.overflow = '';
-        }
-    });
-</script>
-</body>
-
-</html>
+    <!-- The Universal Uploader Script -->
+    <script src="payment-upload.js"></script>
