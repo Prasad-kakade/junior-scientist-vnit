@@ -669,8 +669,7 @@
                         <form class="space-y-5" id="mun-register-form" novalidate>
                             <div class="space-y-2"><label
                                     class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Full
-                                    Name</label><input type="text" id="delegate_name"
-                                    placeholder="Enter Full Name" class="form-input-mun" required></div>
+                                    Name</label><input type="text" id="full_name" placeholder="Enter Full Name" class="form-input-mun" required></div>
                             <div class="space-y-2"><label
                                     class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">School</label><input
                                     type="text" id="delegate_school" placeholder="Enter School Name"
@@ -850,7 +849,7 @@
                 let valid = true;
                 document.querySelectorAll('#mun-register-form input, #mun-register-form textarea').forEach(el => { el.style.borderColor = ''; });
 
-                const nameEl = document.getElementById('delegate_name');
+                const nameEl = document.getElementById('full_name');
                 const schoolEl = document.getElementById('delegate_school');
                 const emailEl = document.getElementById('delegate_email');
                 const phoneEl = document.getElementById('delegate_phone');

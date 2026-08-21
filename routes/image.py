@@ -2,9 +2,11 @@ import io
 import json
 import logging
 import os
+import re
+import time
 from pathlib import Path
 
-from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
@@ -34,8 +36,19 @@ def get_drive_service():
     return build("drive", "v3", credentials=credentials, cache_discovery=False)
 
 
+def sanitize_filename_part(text: str) -> str:
+    """Removes special characters and spaces for safe filenames."""
+    # Replace anything that isn't alphanumeric with a hyphen
+    cleaned = re.sub(r'[^a-zA-Z0-9]+', '-', text.strip())
+    return cleaned.strip('-').lower()
+
+
 @router.post("/api/upload")
-async def upload_image(image: UploadFile = File(...)):
+async def upload_image(
+    image: UploadFile = File(...),
+    applicant_name: str = Form(...),
+    event_name: str = Form(...)
+):
     """Upload a payment screenshot to the configured private Google Drive folder."""
     if image.content_type not in ALLOWED_IMAGE_TYPES:
         raise HTTPException(
@@ -56,11 +69,19 @@ async def upload_image(image: UploadFile = File(...)):
         logger.error("GOOGLE_DRIVE_FOLDER_ID is not configured.")
         raise HTTPException(status_code=500, detail="Image upload is not configured.")
 
-    filename = Path(image.filename or "payment-receipt").name
+    # --- NEW FILENAME GENERATION LOGIC ---
+    original_ext = Path(image.filename).suffix if image.filename else ""
+    clean_name = sanitize_filename_part(applicant_name)
+    clean_event = sanitize_filename_part(event_name)
+    timestamp = int(time.time())
+    
+    # Example: modelothon_john-doe_1716345600.png
+    new_filename = f"{clean_event}_{clean_name}_{timestamp}{original_ext}"
+
     try:
         drive_service = get_drive_service()
         uploaded_file = drive_service.files().create(
-            body={"name": filename, "parents": [folder_id]},
+            body={"name": new_filename, "parents": [folder_id]},
             media_body=MediaIoBaseUpload(
                 io.BytesIO(contents), mimetype=image.content_type, resumable=False
             ),
@@ -75,4 +96,5 @@ async def upload_image(image: UploadFile = File(...)):
     return {
         "message": "Payment screenshot uploaded successfully.",
         "drive_file_id": uploaded_file.get("id"),
+        "filename": new_filename
     }

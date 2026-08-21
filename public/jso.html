@@ -602,9 +602,13 @@
                             <input type="text" id="full_name" placeholder="Full Name" class="form-input" required>
                             <input type="text" id="school" placeholder="School/College" class="form-input" required>
                             <select id="student_class" class="form-input appearance-none bg-black/40" required>
-                                <option value="" disabled selected>Select Age Group</option>
-                                <option value="mindspark">Mindspark (5th-7th Class)</option>
-                                <option value="mastermind">Mastermind (8th-10th Class)</option>
+                                <option value="" disabled selected>Select Class</option>
+                                <option value="5">5th Class</option>
+                                <option value="6">6th Class</option>
+                                <option value="7">7th Class</option>
+                                <option value="8">8th Class</option>
+                                <option value="9">9th Class</option>
+                                <option value="10">10th Class</option>
                             </select>
                             <input type="email" id="email" placeholder="Email Address" class="form-input" required>
                             <input type="tel" id="phone" placeholder="Phone Number" class="form-input" required>
@@ -618,23 +622,7 @@
                                     <span class="opacity-60">Registration Fee</span>
                                     <span class="text-green-400 text-xl">₹30</span>
                                 </div>
-                                <img src="images/qr_jso.png" alt="JSO Payment QR Code" id="payment-qr"
-                                    class="mx-auto w-40 rounded-xl cursor-pointer transition-transform duration-300 hover:scale-105"
-                                    title="Click to enlarge QR code">
-                                <div class="flex flex-col gap-2">
-                                    <label for="payment-receipt"
-                                        class="text-[10px] font-black tracking-widest text-white/60 uppercase">
-                                        Upload payment screenshot
-                                    </label>
-                                    <input type="file" id="payment-receipt" accept="image/*"
-                                        class="form-input cursor-pointer text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-green-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:text-green-400 hover:file:bg-green-500/30">
-                                    <button type="button" id="upload-payment-image"
-                                        class="w-full border border-green-500/50 hover:bg-green-500/10 text-green-400 py-3 rounded-xl text-sm font-black italic tracking-widest uppercase transition-all">
-                                        Upload Image
-                                    </button>
-                                    <p id="upload-status" class="hidden text-center text-[10px] font-bold" role="status"
-                                        aria-live="polite"></p>
-                                </div>
+                                
                                 <button type="submit" id="submit-enrollment"
                                     class="w-full bg-green-600 hover:bg-green-500 text-black py-4 rounded-xl text-lg font-black italic tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(0,255,0,0.2)]">
                                     Pay &amp; Register
@@ -667,7 +655,7 @@
         </footer>
     </div>
 
-    <script>
+   <script>
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
@@ -701,54 +689,8 @@
         (function () {
             const form = document.getElementById('registration-form');
             const submitBtn = document.getElementById('submit-enrollment');
-            const paymentReceipt = document.getElementById('payment-receipt');
-            const uploadBtn = document.getElementById('upload-payment-image');
-            const uploadStatus = document.getElementById('upload-status');
-            // image.py runs this local Flask endpoint and uploads to the configured private Drive folder.
-            const IMAGE_UPLOAD_ENDPOINT = '/api/upload';
 
             const fieldIds = ['full_name', 'phone', 'alt_phone', 'email', 'school', 'city', 'student_class'];
-
-            function showUploadStatus(message, isError = false) {
-                uploadStatus.textContent = message;
-                uploadStatus.classList.remove('hidden', 'text-green-400', 'text-red-400');
-                uploadStatus.classList.add(isError ? 'text-red-400' : 'text-green-400');
-            }
-
-            uploadBtn.addEventListener('click', async function () {
-                const image = paymentReceipt.files[0];
-
-                if (!image) {
-                    showUploadStatus('Please choose a payment screenshot first.', true);
-                    return;
-                }
-
-                uploadBtn.disabled = true;
-                uploadBtn.textContent = 'UPLOADING...';
-                showUploadStatus('Uploading payment screenshot...');
-
-                try {
-                    const uploadData = new FormData();
-                    uploadData.append('image', image);
-
-                    const response = await fetch(IMAGE_UPLOAD_ENDPOINT, {
-                        method: 'POST',
-                        body: uploadData
-                    });
-                    const result = await response.json().catch(() => ({}));
-
-                    if (!response.ok) {
-                        throw new Error(result.detail || result.error || 'Image upload failed.');
-                    }
-
-                    showUploadStatus(result.message || 'Payment screenshot uploaded successfully.');
-                } catch (err) {
-                    showUploadStatus(err.message || 'Unable to upload image. Please try again.', true);
-                } finally {
-                    uploadBtn.disabled = false;
-                    uploadBtn.textContent = 'UPLOAD IMAGE';
-                }
-            });
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -807,54 +749,6 @@
             });
         })();
     </script>
-     </script>
 
-<!-- QR CODE POPUP -->
-<div id="qr-modal" class="qr-modal">
-    <div class="qr-modal-content">
-
-        <button type="button" id="qr-close" class="qr-close">
-            &times;
-        </button>
-
-        <img
-            id="qr-large"
-            src=""
-            alt="Enlarged JSO Payment QR Code">
-
-        <p>Scan to make payment</p>
-
-    </div>
-</div>
-
-<script>
-    // QR CODE CLICK TO ENLARGE
-    document.addEventListener('click', function (event) {
-
-        const qr = event.target.closest('#payment-qr');
-
-        if (qr) {
-            const modal = document.getElementById('qr-modal');
-            const largeQR = document.getElementById('qr-large');
-
-            largeQR.src = qr.src;
-            modal.classList.add('active');
-
-            document.body.style.overflow = 'hidden';
-        }
-
-        if (
-            event.target.id === 'qr-close' ||
-            event.target.id === 'qr-modal'
-        ) {
-            const modal = document.getElementById('qr-modal');
-
-            modal.classList.remove('active');
-
-            document.body.style.overflow = '';
-        }
-    });
-</script>
-</body>
-
-</html>
+    <!-- The Universal Uploader Script -->
+    <script src="payment-upload.js"></script>
