@@ -23,7 +23,7 @@ MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 
 def get_drive_service():
     """Build a Drive client for the personal Google account stored in Vercel."""
-    token_json = os.environ.get("GOOGLE_DRIVE_OAUTH_TOKEN_JSO")
+    token_json = os.environ.get("GOOGLE_DRIVE_OAUTH_TOKEN_JSON")
     if not token_json:
         raise RuntimeError("GOOGLE_DRIVE_OAUTH_TOKEN_JSON is not configured.")
 
