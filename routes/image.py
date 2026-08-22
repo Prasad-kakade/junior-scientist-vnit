@@ -7,7 +7,9 @@ import time
 from pathlib import Path
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
-from google.oauth2 import service_account  # Added this for Service Accounts
+# Restored the correct OAuth imports
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseUpload
@@ -22,9 +24,12 @@ MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 
 def get_drive_service():
     """Build a Drive client for the personal Google account stored in Vercel."""
+    # Matches the exact variable name in your Vercel settings
     token_json = os.environ.get("GOOGLE_DRIVE_OAUTH_TOKEN_JSO")
+    
     if not token_json:
-        raise RuntimeError("GOOGLE_DRIVE_OAUTH_TOKEN_JSON is not configured.")
+        # Updated the error message so we know for sure this new code is running
+        raise RuntimeError("GOOGLE_DRIVE_OAUTH_TOKEN_JSO is still empty or not found in Vercel.")
 
     credentials = Credentials.from_authorized_user_info(json.loads(token_json), SCOPES)
     if credentials.expired and credentials.refresh_token:
@@ -34,9 +39,9 @@ def get_drive_service():
 
     return build("drive", "v3", credentials=credentials, cache_discovery=False)
 
+
 def sanitize_filename_part(text: str) -> str:
     """Removes special characters and spaces for safe filenames."""
-    # Replace anything that isn't alphanumeric with a hyphen
     cleaned = re.sub(r'[^a-zA-Z0-9]+', '-', text.strip())
     return cleaned.strip('-').lower()
 
@@ -67,13 +72,11 @@ async def upload_image(
         logger.error("GOOGLE_DRIVE_FOLDER_ID is not configured.")
         raise HTTPException(status_code=500, detail="Image upload is not configured.")
 
-    # --- NEW FILENAME GENERATION LOGIC ---
     original_ext = Path(image.filename).suffix if image.filename else ""
     clean_name = sanitize_filename_part(applicant_name)
     clean_event = sanitize_filename_part(event_name)
     timestamp = int(time.time())
     
-    # Example: modelothon_john-doe_1716345600.png
     new_filename = f"{clean_event}_{clean_name}_{timestamp}{original_ext}"
 
     try:
