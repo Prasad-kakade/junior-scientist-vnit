@@ -124,17 +124,23 @@
                 data.append('image', image);
 
                 // --- Grab event name and applicant name ---
-                // --- Grab event name and applicant name ---
+              // --- Grab event name and applicant name ---
                 const eventName = pageName.replace('.html', '');
 
-                // Universal line to find the name input across ALL forms (Individual & Team)
-                const nameInput = form.querySelector('#team_name, #team-name-input, input[name="team_name"], input[name="name_1"], #full_name, #name, #delegate_name, input[name="full_name"], input[name="name"]');
-
+                // Look for ANY text input that has 'name' in its ID or name attribute (case-insensitive)
+                const nameInputs = form.querySelectorAll('input[id*="name" i], input[name*="name" i]');
+                
                 let applicantName = "Unknown-Applicant";
-                if (nameInput && nameInput.value.trim() !== '') {
-                    applicantName = nameInput.value.trim();
-                } else {
-                    // Stop the upload if they haven't typed their name yet
+                
+                // Loop through the found inputs and grab the first one that isn't empty
+                for (let input of nameInputs) {
+                    if (input.value.trim() !== '') {
+                        applicantName = input.value.trim();
+                        break; 
+                    }
+                }
+
+                if (applicantName === "Unknown-Applicant") {
                     showStatus('Please type your Name or Team Name in the form above before uploading.', true);
                     uploadButton.disabled = false;
                     uploadButton.textContent = 'Upload Image';
