@@ -953,4 +953,958 @@
     </script>
 </body>
 
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXQUIZIT | Junior Scientist VNIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+
+        :root {
+            --bg-deep: #000000;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --neon-teal: #00D9FF;
+            --neon-teal-glow: rgba(0, 217, 255, 0.4);
+            --neon-orange: #00D9FF;
+            --neon-orange-glow: rgba(0, 217, 255, 0.4);
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --grid-color: rgba(0, 217, 255, 0.03);
+        }
+
+        [data-theme='light'] {
+            --bg-deep: #f8f8f8;
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --neon-teal: #0088cc;
+            --neon-teal-glow: transparent;
+            --neon-orange: #0088cc;
+            --neon-orange-glow: rgba(0, 136, 204, 0.15);
+            --glass: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --grid-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .neon-text-teal {
+            color: var(--neon-teal);
+            text-shadow: 0 0 10px var(--neon-teal), 0 0 20px var(--neon-teal-glow);
+        }
+
+        .neon-text-orange {
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange-glow);
+        }
+
+        .glass-card-neon {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-neon:hover {
+            border-color: var(--neon-teal);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 217, 255, 0.04);
+            z-index: 100;
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, #051015 0%, #000 100%);
+            transition: opacity 0.3s ease;
+        }
+
+        [data-theme='light'] .starfield {
+            background: radial-gradient(circle at 50% 50%, #eef2f7 0%, #f8f8f8 100%);
+            opacity: 0.5;
+        }
+
+        [data-theme='light'] .neon-text-teal,
+        [data-theme='light'] .neon-text-orange {
+            text-shadow: none;
+            font-weight: 800;
+        }
+
+        [data-theme='light'] img.exquizit-logo {
+            filter: brightness(0) saturate(100%) !important;
+            mix-blend-mode: normal;
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme='dark'] img.exquizit-logo {
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme='light'] .text-white,
+        [data-theme='light'] .font-black.text-white {
+            color: #1a1a1a !important;
+        }
+
+        .contact-clip {
+            clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-teal);
+            border-radius: 10px;
+        }
+
+        /* FIX DROPDOWN VISIBILITY IN LIGHT MODE */
+
+        [data-theme='light'] select {
+            background-color: #ffffff !important;
+            color: #111827 !important;
+            border-color: #d1d5db !important;
+        }
+
+        [data-theme='light'] select option {
+            background-color: #ffffff !important;
+            color: #111827 !important;
+        }
+
+        /* Dark mode */
+        [data-theme='dark'] select {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+        }
+
+        [data-theme='dark'] select option {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+        }
+
+        /* =========================================
+   QR CODE POPUP
+   ========================================= */
+
+        .qr-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .qr-modal.active {
+            display: flex;
+        }
+
+        .qr-modal-content {
+            position: relative;
+
+            background: #ffffff;
+
+            padding: 25px;
+            border-radius: 20px;
+
+            max-width: 90vw;
+            max-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.4);
+        }
+
+        #qr-large {
+            width: min(500px, 75vw);
+            height: min(500px, 75vw);
+
+            object-fit: contain;
+            image-rendering: pixelated;
+            border-radius: 10px;
+        }
+
+        .qr-modal-content p {
+            margin-top: 15px;
+            color: #111827;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .qr-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+
+            width: 36px;
+            height: 36px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #111827;
+            color: white;
+
+            font-size: 25px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            z-index: 2;
+        }
+
+        .qr-close:hover {
+            background: #00D9FF;
+            color: #000;
+        }
+
+        @media (max-width: 640px) {
+            .qr-modal-content {
+                padding: 18px;
+            }
+
+            #qr-large {
+                width: 75vw;
+                height: 75vw;
+            }
+        }
+
+        @view-transition {
+            navigation: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #highlights figure {
+            will-change: transform, opacity;
+        }
+
+        /* =========================================
+   EXQUIZIT EVENT DETAILS - LIGHT MODE
+   ========================================= */
+
+        [data-theme='light'] #event-details .glass-card-neon {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(0, 136, 204, 0.18);
+        }
+
+        [data-theme='light'] #event-details h5 {
+            color: #4b5563 !important;
+        }
+
+        [data-theme='light'] #event-details p {
+            color: #1a1a1a !important;
+            font-weight: 700;
+        }
+
+        [data-theme='light'] #event-details iconify-icon {
+            color: #0088cc !important;
+        }
+
+        [data-theme='light'] #event-details .bg-cyan-500\/10 {
+            background-color: rgba(0, 136, 204, 0.08) !important;
+        }
+
+        .scroll-hint-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-hint-btn.scroll-hint-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes scroll-hint-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <div class="starfield"></div>
+        <div class="grid-bg"></div>
+        <div class="scan-line"></div>
+
+        <nav id="main-nav"
+            class="fixed top-0 left-0 w-full z-40 py-4 px-6 md:px-10 flex justify-between items-center bg-black dark:bg-black border-b border-cyan-500/10">
+            <div class="flex items-center gap-3">
+                <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <img src="images/js-logo-dark.png" alt="Junior Scientist Logo" class="nav-logo-dark w-9 h-9 object-contain">
+                    <img src="images/js-logo-light.png" alt="Junior Scientist Logo" class="nav-logo-light w-9 h-9 object-contain">
+                    <div class="flex flex-col">
+                    <span class="font-bold tracking-widest text-lg leading-none text-cyan-500 uppercase">EXQUIZIT</span>
+                    <span class="text-[9px] tracking-[0.4em] opacity-50 uppercase">Junior Scientist 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div class="flex items-center gap-4 text-[11px] font-bold tracking-[0.2em] uppercase">
+                <a href="index.html" id="nav-home-link" class="text-cyan-400 ">Events</a>
+                <button id="theme-toggle"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-500/30 hover:bg-cyan-500/10 transition-all text-xl">
+                    <span id="theme-icon">☀️</span>
+                </button>
+
+            </div>
+        </nav>
+
+        <main class="flex-1 max-w-[1400px] mx-auto w-full px-6 md:px-10 pt-32 pb-20 relative z-0">
+            <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8">
+
+                <aside class="order-first lg:order-last lg:col-span-4">
+                    <div class="space-y-6">
+                        <div id="register-form"
+                            class="glass-card-neon p-6 md:p-8 rounded-3xl border-cyan-500/40 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 contact-clip"></div>
+                            <h4 class="text-2xl font-black italic mb-6 neon-text-teal">register now</h4>
+
+                            <form class="space-y-4" id="exquizit-register-form" novalidate>
+                                <div>
+                                    <label
+                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2 ml-1">Team
+                                        Name</label>
+                                    <input type="text" id="team_name" placeholder="ENTER TEAM NAME"
+                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all"
+                                        required>
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block mb-2">Number
+                                        of Members</label>
+                                    <div class="relative">
+                                        <select id="team_size"
+                                            class="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-sm font-bold focus:border-cyan-500 outline-none transition-all appearance-none cursor-pointer">
+                                            <option value="1" selected>1 MEMBER</option>
+                                            <option value="2">2 MEMBERS</option>
+                                        </select>
+                                        <div
+                                            class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-cyan-400">
+                                            <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="members-container" class="space-y-6"></div>
+
+                                <div
+                                    class="flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl group cursor-pointer">
+                                    <input type="checkbox" id="rules-accept" required
+                                        class="mt-1 w-4 h-4 accent-cyan-500">
+                                    <label for="rules-accept"
+                                        class="text-[11px] text-gray-400 leading-tight cursor-pointer group-hover:text-white transition-colors">
+                                        I hereby accept all the <strong>Rules and Regulations</strong> of EXQUIZIT and
+                                        confirm that the details provided are accurate.
+                                    </label>
+                                </div>
+
+                                <button type="submit" id="register-btn-main"
+                                    class="w-full py-4 bg-cyan-500 text-black font-black tracking-widest text-sm uppercase hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(0,217,255,0.25)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-500"
+                                    disabled>SUBMIT</button>
+                            </form>
+                            <p class="text-[9px] text-center text-gray-600 uppercase mt-6 tracking-widest">Registration
+                                fee ₹50/person payable at venue</p>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="order-last lg:order-first lg:col-span-8 space-y-8">
+
+                    <section id="hero-card"
+                        class="glass-card-neon p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span
+                                class="text-cyan-400 tracking-[0.2em] sm:tracking-[0.5em] text-[9px] sm:text-[10px] font-bold uppercase mb-5 block italic text-center md:text-left">"Unwrapping
+                                spectrum of curiosity"</span>
+                            <div id="eh_1iogpmyjl4h"
+                                class="flex flex-row-reverse items-center justify-center lg:justify-between gap-2 sm:gap-3 lg:gap-4 mb-6">
+
+                                <h1
+                                    class="text-4xl sm:text-6xl lg:text-9xl font-black neon-text-teal italic tracking-tighter whitespace-nowrap">
+                                    EXQUIZIT</h1><img
+                                    src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786388751201-0d9e93b1/ChatGPT_Image_Aug_11__2026__12_33_57_AM.png"
+                                    alt="EXQUIZIT Icon"
+                                    class="exquizit-logo w-16 h-16 sm:w-20 sm:h-20 lg:w-[120px] lg:h-[120px] max-w-[24vw] object-contain hover:scale-110 transition-transform duration-300"
+                                    style="filter: drop-shadow(rgba(0, 217, 255, 0.6) 0px 0px 15px) brightness(1.1); mix-blend-mode: screen; width: 303px;">
+                            </div>
+                            <div class="max-w-2xl ml-auto text-center md:text-right">
+                                <h2
+                                    class="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-[0.08em] mb-4 sm:mb-6">
+                                    True Discovery Begins Here.</h2>
+                                <p class="text-gray-400 leading-relaxed mb-8 text-sm sm:text-base">Break the routine
+                                    thought cycle and test your brilliance in the ultimate IQ standoff.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-[-5%] top-[-5%] opacity-5">
+                            <iconify-icon icon="lucide:lightbulb" class="text-[300px] text-cyan-500"></iconify-icon>
+                        </div>
+                    </section>
+
+                    <section id="event-structure" class="space-y-6">
+                        <h3 class="text-2xl font-black italic flex items-center gap-4 text-white">
+                            <span class="w-8 h-[2px] bg-cyan-500"></span>
+                            EVENT STRUCTURE
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black">01</span>
+                                    <h4 class="font-black text-white tracking-widest">Genesis Phase</h4>
+                                </div>
+                                <p class="text-sm text-gray-500 leading-relaxed">Participants will be provided with a
+                                    question paper with a variety of questions from a large variety of categories. They
+                                    will be required to solve as many as they can within the given time.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black">02</span>
+                                    <h4 class="font-black text-white tracking-widest">Apex Encounter</h4>
+                                </div>
+                                <p class="text-sm text-gray-500 leading-relaxed">This round will be a surprise round
+                                    like a fast-paced buzzer round format, with different categories and different
+                                    questions at different difficulty levels.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="event-details" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:users" class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Team Size</h5>
+                            <p class="text-sm font-bold text-white">Single or two people</p>
+                        </div>
+                        <div
+                            class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/20">
+                            <iconify-icon icon="lucide:banknote" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Entry Fees</h5>
+                            <p class="text-sm font-bold text-white">₹50 per team</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:graduation-cap"
+                                class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Junior Geniuses</h5>
+                            <p class="text-sm font-bold text-white">5th to 8th grade</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center">
+                            <iconify-icon icon="lucide:award" class="text-2xl text-cyan-500 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Senior Masterminds</h5>
+                            <p class="text-sm font-bold text-white">9th to 12th grade</p>
+                        </div>
+                        <div
+                            class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/40">
+                            <iconify-icon icon="lucide:calendar" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Round 1</h5>
+                            <p class="text-sm font-bold text-white">October 4th, 2026</p>
+                        </div>
+                        <div
+                            class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center border-cyan-500/40">
+                            <iconify-icon icon="lucide:calendar" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Round 2</h5>
+                            <p class="text-sm font-bold text-white">October 11th, 2026</p>
+                        </div>
+                        <div
+                            class="glass-card-neon p-6 rounded-2xl flex flex-col items-center text-center md:col-span-3">
+                            <iconify-icon icon="lucide:map-pin" class="text-2xl text-cyan-400 mb-2"></iconify-icon>
+                            <h5 class="text-[10px] font-black text-gray-500 uppercase mb-1">Venue</h5>
+                            <p class="text-sm font-bold text-white">VNIT Nagpur</p>
+                        </div>
+                    </section>
+
+                    <section id="why-join" class="space-y-6">
+                        <h3 class="text-2xl font-black italic text-white">
+                            Why shouldn't you miss <span class="neon-text-teal">EXQUIZIT</span>?
+                        </h3>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:zap" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">No Rote Learning, Pure Connection</h4>
+                                <p class="text-xs text-gray-500">Forget memorizing formulas—it's all about lateral
+                                    thinking, intuition, and connecting hidden clues.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:target" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">High-Stakes Decision Making</h4>
+                                <p class="text-xs text-gray-500">Deciding when to buzz or pass tests split-second
+                                    instincts academics never teach.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:lightbulb"
+                                    class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">The Ultimate "Aha!" Rush</h4>
+                                <p class="text-xs text-gray-500">Experience the thrill when a complex question suddenly
+                                    clicks into place.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:crown" class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">Campus Dominance</h4>
+                                <p class="text-xs text-gray-500">Outsmart the sharpest minds in the room and claim
+                                    ultimate bragging rights.</p>
+                            </div>
+                            <div class="glass-card-neon p-6 rounded-2xl">
+                                <iconify-icon icon="lucide:shield-check"
+                                    class="text-2xl text-cyan-400 mb-3"></iconify-icon>
+                                <h4 class="font-black text-white text-sm mb-2">All Reward, Zero Risk</h4>
+                                <p class="text-xs text-gray-500">Build stage confidence and earn recognition with
+                                    nothing to lose.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="rules" class="glass-card-neon p-8 rounded-3xl">
+                        <h3 class="text-2xl font-black italic mb-6 text-cyan-400">Rules and Regulations</h3>
+                        <ul class="space-y-4">
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">01.</span>
+                                <p class="text-sm text-gray-400">Participants are not allowed anything other than a pen
+                                    and water bottle with them for the duration of the Rounds.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">02.</span>
+                                <p class="text-sm text-gray-400">Possession of exam boards and/or loose sheets is
+                                    prohibited for the duration of the Rounds.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">03.</span>
+                                <p class="text-sm text-gray-400">The registration form is non-transferable, and
+                                    registration fees is non-refundable.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">04.</span>
+                                <p class="text-sm text-gray-400">Participants have to carry the receipt on the day of
+                                    the event.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="text-cyan-500 font-black">05.</span>
+                                <p class="text-sm text-gray-400">In case of any disputes, the decision of the organising
+                                    committee will be final and binding.</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="introduction" class="glass-card-neon p-8 md:p-10 rounded-3xl">
+                        <div class="flex flex-col gap-6">
+                            <p class="text-xl text-cyan-400 font-bold leading-relaxed italic">
+                                "Discovery begins where traditional thinking ends. Trivia isn't just about recalling
+                                facts - it's about breaking routine thought and uncovering the extraordinary in everyday
+                                knowledge."
+                            </p>
+                            <p class="text-gray-400 leading-relaxed">
+                                Welcome to Exquizit, the ultimate battleground for sharp minds. Built for those who
+                                question the obvious, Exquizit challenges you to think critically under pressure across
+                                dynamic categories. It is a general knowledge quiz comprising different domains.
+                            </p>
+                            <div class="border-l-4 border-cyan-500 pl-6 py-2 mt-4">
+                                <p class="text-white italic text-lg">
+                                    ‐‐ "Curiosity about life in all of its aspects, I think, is still the secret of
+                                    great creative people."
+                                </p>
+                                <p class="text-cyan-400 text-sm font-bold mt-2 uppercase">~ Leo Burnett, Advertising
+                                    Executive &amp; Author</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="highlights" class="space-y-6">
+                        <div class="flex flex-col">
+                            <h3 class="text-2xl font-black italic text-cyan-400 uppercase">Event Highlights</h3>
+                            <div class="w-12 h-1 bg-cyan-500 mt-2 mb-8"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <figure
+                                class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+                                style="animation: slideUp 0.6s forwards 0ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391759030-950e2867/WhatsApp_Image_2026-08-11_at_1.21.07_AM.jpeg"
+                                    alt="Participants in a quiz hall"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]">
+                                </div>
+                            </figure>
+                            <figure
+                                class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+                                style="animation: slideUp 0.6s forwards 150ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391785055-c20c0337/WhatsApp_Image_2026-08-11_at_1.21.08_AM.jpeg"
+                                    alt="Students discussing questions"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]">
+                                </div>
+                            </figure>
+                            <figure
+                                class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+                                style="animation: slideUp 0.6s forwards 300ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391808498-4e8d686d/WhatsApp_Image_2026-08-11_at_1.21.08_AM__1_.jpeg"
+                                    alt="Students writing quiz paper"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]">
+                                </div>
+                            </figure>
+                            <figure
+                                class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+                                style="animation: slideUp 0.6s forwards 450ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391844670-d0a00fec/WhatsApp_Image_2026-08-11_at_1.21.09_AM.jpeg"
+                                    alt="Quiz session in progress"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]">
+                                </div>
+                            </figure>
+                            <figure
+                                class="group relative rounded-2xl border border-white/10 overflow-hidden bg-white/5 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+                                style="animation: slideUp 0.6s forwards 600ms;">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/8a45ad43-2abe-4142-8adc-f7e236d5c047/1786391825786-eab06dab/WhatsApp_Image_2026-08-11_at_1.21.08_AM__2_.jpeg"
+                                    alt="Concentrated participants"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-[inset_0_0_20px_rgba(0,217,255,0.25)]">
+                                </div>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section id="coordinators" class="glass-card-neon p-8 rounded-3xl">
+                        <h3 class="text-2xl font-black italic mb-6 text-cyan-400">Event Coordinators</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="group flex flex-col gap-1">
+                                <span
+                                    class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Aarya
+                                    Chaudhari</span>
+                                <a href="tel:9370578703" id="coord-aarya-link"
+                                    class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9370578703
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span
+                                    class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Aditya
+                                    Shingne</span>
+                                <a href="tel:9511218956" id="coord-aditya-link"
+                                    class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9511218956
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span
+                                    class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Perul
+                                    Katre</span>
+                                <a href="tel:9022325559" id="coord-perul-link"
+                                    class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    9022325559
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span
+                                    class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Taksh
+                                    Chauhan</span>
+                                <a href="tel:6263610877" id="coord-taksh-link"
+                                    class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    6263610877
+                                </a>
+                            </div>
+                            <div class="group flex flex-col gap-1">
+                                <span
+                                    class="text-sm font-bold text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">Shambhavi
+                                    Joshi</span>
+                                <a href="tel:8329210002" id="coord-shambhavi-link"
+                                    class="flex items-center gap-2 text-[11px] text-gray-500 hover:text-cyan-400 transition-colors">
+                                    <iconify-icon icon="lucide:phone" class="text-cyan-500"></iconify-icon>
+                                    8329210002
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="pt-20 pb-10 bg-black dark:bg-black border-t border-cyan-500/10 z-40 relative">
+            <div class="max-w-7xl mx-auto px-10 flex flex-col items-center text-center">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-2xl font-black tracking-widest neon-text-teal uppercase">EXQUIZIT</span>
+                </div>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12 italic">Intelligence Protocol 2026
+                    // VNIT Nagpur</p>
+                <div
+                    class="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-black uppercase text-gray-500">
+                    <a href="index.html" id="footer-home-link" class="hover:text-cyan-400">Home</a>
+                    <a href="#" id="footer-privacy-link" class="hover:text-cyan-400">Privacy Policy</a>
+                    <a href="#" id="footer-terms-link" class="hover:text-cyan-400">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('js-theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Exquizit Registration Form
+        (function () {
+            const teamSizeSelect = document.getElementById('team_size');
+            const membersContainer = document.getElementById('members-container');
+            const form = document.getElementById('exquizit-register-form');
+            const rulesAccept = document.getElementById('rules-accept');
+            const submitBtn = document.getElementById('register-btn-main');
+
+            function updateButtonState() {
+                submitBtn.disabled = !(form.checkValidity() && rulesAccept.checked);
+            }
+
+            function renderMembers() {
+                const count = +teamSizeSelect.value;
+                membersContainer.innerHTML = '';
+                for (let i = 1; i <= count; i++) {
+                    membersContainer.insertAdjacentHTML('beforeend', `
+                        <div class="pt-4 border-t border-white/10 space-y-1">
+                            <p class="text-[10px] font-bold text-cyan-500 uppercase tracking-widest block mb-2 ml-1">Member ${i}</p>
+                            <input type="text" id="member_${i}_name" placeholder="FULL NAME" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-name" required>
+                            <input type="tel" id="member_${i}_phone" placeholder="PHONE NUMBER" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-phone" required>
+                            <input type="tel" id="member_${i}_alt_phone" placeholder="PARENT / ALT PHONE (OPTIONAL)" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <input type="email" id="member_${i}_email" placeholder="EMAIL ADDRESS" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all member-email" required>
+                            <input type="text" id="member_${i}_school" placeholder="SCHOOL" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <input type="text" id="member_${i}_city" placeholder="CITY" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none transition-all">
+                            <select id="member_${i}_class" class="w-full bg-white text-grey-900 border border-white/10 rounded-lg px-4 py-3 text-[11px] font-bold focus:border-cyan-500 outline-none">
+                                <option value="" disabled selected>SELECT ELIGIBILITY</option>
+                                <option value="junior">JUNIOR (5-8)</option>
+                                <option value="senior">SENIOR (9-12)</option>
+                            </select>
+                        </div>
+                    `);
+                }
+                updateButtonState();
+            }
+
+            form.addEventListener('input', updateButtonState);
+            form.addEventListener('change', updateButtonState);
+
+            renderMembers();
+            teamSizeSelect.addEventListener('change', renderMembers);
+            rulesAccept.addEventListener('change', updateButtonState);
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                let valid = true;
+                document.querySelectorAll('#exquizit-register-form input').forEach(el => { el.style.borderColor = ''; });
+
+                if (document.getElementById('team_name').value.trim().length < 2) {
+                    document.getElementById('team_name').style.borderColor = 'red';
+                    valid = false;
+                }
+                document.querySelectorAll('.member-name').forEach(el => {
+                    if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-phone').forEach(el => {
+                    if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-email').forEach(el => {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+
+                if (!valid || !rulesAccept.checked) {
+                    alert('Please correct the highlighted fields and accept the rules.');
+                    return;
+                }
+
+                const count = +teamSizeSelect.value;
+                const formData = new FormData();
+                formData.append('team_name', document.getElementById('team_name').value.trim());
+                formData.append('team_size', String(count));
+
+                for (let i = 1; i <= count; i++) {
+                    formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
+                    formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
+                    formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
+                    formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
+                    formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
+                    formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
+                    formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'INITIALIZING...';
+
+                try {
+                    const response = await fetch('/api/exquizit/register', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (response.ok) {
+                        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+                        alert('Registration Successful! Welcome to Exquizit.' + regId);
+                        form.reset();
+                        renderMembers();
+                    } else {
+                        alert(result.detail || result.message || 'Registration failed. Please try again.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not connect to the server. Please check your connection and try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'SUBMIT';
+                    updateButtonState();
+                }
+            });
+        })();
+    </script>
+    <!-- QR CODE POPUP -->
+    <div id="qr-modal" class="qr-modal">
+        <div class="qr-modal-content">
+
+            <button type="button" id="qr-close" class="qr-close">
+                &times;
+            </button>
+
+            <img id="qr-large" src="" alt="Enlarged Payment QR Code">
+
+            <p>Scan to make payment</p>
+
+        </div>
+    </div>
+    <script src="payment-upload.js"></script>
+    <button type="button" id="scroll-hint-exquizit" onclick="document.getElementById('hero-card').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 backdrop-blur-sm" style="background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
+    <script>
+        (function () {
+            var btn = document.getElementById('scroll-hint-exquizit');
+            var target = document.getElementById('hero-card');
+            if (btn && target && 'IntersectionObserver' in window) {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        btn.classList.toggle('scroll-hint-hidden', entry.isIntersecting);
+                    });
+                }, { threshold: 0 });
+                obs.observe(target);
+            }
+        })();
+    </script>
+</body>
+
 </html>

@@ -1015,4 +1015,1020 @@
 
 </body>
 
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATAPULTIKON | Wizarding Tournament</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
+
+        :root {
+            --bg-deep: #0a0f23;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --ruby-red: #C41E3A;
+            --ruby-glow: rgba(196, 30, 58, 0.85);
+            --gold-accent: #D4AF37;
+            --glass: rgba(15, 0, 0, 0.85);
+            --glass-border: rgba(196, 30, 58, 0.3);
+            --grid-color: rgba(196, 30, 58, 0.03);
+            --scan-opacity: 0.1;
+            --nav-bg: rgba(0, 0, 0, 0.95);
+            --star-field-opacity: 1;
+        }
+
+        [data-theme='light'] {
+            --bg-deep: #fafafa;
+            --text-primary: #0a0a0a;
+            --text-secondary: #3d3d3d;
+            --ruby-red: #8B0000;
+            --ruby-glow: transparent;
+            --gold-accent: #856404;
+            --glass: rgba(255, 255, 255, 0.98);
+            --glass-border: rgba(139, 0, 0, 0.15);
+            --grid-color: rgba(0, 0, 0, 0.05);
+            --scan-opacity: 0.02;
+            --nav-bg: rgba(255, 255, 255, 0.98);
+            --star-field-opacity: 0;
+        }
+
+        /* Visibility Overrides for Light Mode */
+        [data-theme='light'] .text-gray-100 {
+            color: #1a1a1a !important;
+            font-weight: 500;
+        }
+
+        [data-theme='light'] .text-white {
+            color: #000000 !important;
+            font-weight: 600;
+        }
+
+        [data-theme='light'] .text-\[\#C41E3A\] {
+            color: var(--ruby-red) !important;
+        }
+
+        [data-theme='light'] .bg-\[\#C41E3A\] {
+            background-color: var(--ruby-red) !important;
+            color: white !important;
+        }
+
+        [data-theme='light'] .border-\[\#C41E3A\] {
+            border-color: var(--ruby-red) !important;
+        }
+
+        [data-theme='light'] .text-\[\#D4AF37\] {
+            color: var(--gold-accent) !important;
+        }
+
+        [data-theme='light'] .opacity-50 {
+            opacity: 0.75 !important;
+        }
+
+        [data-theme='light'] .opacity-60 {
+            opacity: 0.8 !important;
+        }
+
+        [data-theme='light'] .opacity-90 {
+            opacity: 1 !important;
+        }
+
+        [data-theme='light'] .text-gray-500 {
+            color: #4b5563 !important;
+        }
+
+        [data-theme='light'] .text-gray-600 {
+            color: #374151 !important;
+        }
+
+        [data-theme='light'] .text-gray-700 {
+            color: #1f2937 !important;
+        }
+
+        [data-theme='light'] #coordinators {
+            background-color: #ffffff !important;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin: 1rem -1rem;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            width: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .heading-font {
+            font-family: 'Clash Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .neon-text {
+            color: var(--ruby-red);
+            text-shadow: 0 0 15px var(--ruby-red), 0 0 30px var(--ruby-glow), 0 0 45px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme='light'] .neon-text {
+            text-shadow: none;
+            font-weight: 800;
+        }
+
+        .glass-card-neon {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme='light'] .glass-card-neon {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--glass-border);
+        }
+
+        .glass-card-neon:hover {
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--ruby-red);
+            opacity: var(--scan-opacity);
+            z-index: 100;
+            animation: scan 12s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at center, #0a0005 0%, #000 100%);
+            opacity: var(--star-field-opacity);
+        }
+
+        .logo-gold-vibrant {
+            filter: brightness(0) saturate(100%) invert(84%) sepia(68%) saturate(1000%) hue-rotate(5deg) brightness(1.1) contrast(1.15);
+            background-color: transparent;
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        [data-theme='light'] .form-input {
+            background: white;
+            border-color: #d1d5db;
+            color: #0a0a0a;
+        }
+
+        .form-input:focus {
+            border-color: var(--gold-accent);
+            outline: none;
+            background: rgba(196, 30, 58, 0.05);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        select.form-input option {
+            background: #0a0f23;
+            color: #ffffff;
+        }
+
+        [data-theme='light'] select.form-input option {
+            background: #ffffff;
+            color: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ruby-red);
+            border-radius: 10px;
+        }
+
+        /* =========================================
+   QR CODE POPUP
+   ========================================= */
+
+        .qr-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .qr-modal.active {
+            display: flex;
+        }
+
+        .qr-modal-content {
+            position: relative;
+
+            background: #ffffff;
+
+            padding: 25px;
+            border-radius: 20px;
+
+            max-width: 90vw;
+            max-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        #qr-large {
+            width: min(500px, 75vw);
+            height: min(500px, 75vw);
+
+            object-fit: contain;
+            image-rendering: pixelated;
+            border-radius: 10px;
+        }
+
+        .qr-modal-content p {
+            margin-top: 15px;
+            color: #111827;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .qr-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+
+            width: 36px;
+            height: 36px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #111827;
+            color: white;
+
+            font-size: 25px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            z-index: 2;
+        }
+
+        .qr-close:hover {
+            background: #D4AF37;
+            color: #000;
+        }
+
+        @media (max-width: 640px) {
+            .qr-modal-content {
+                padding: 18px;
+            }
+
+            #qr-large {
+                width: 75vw;
+                height: 75vw;
+            }
+        }
+
+        .scroll-hint-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-hint-btn.scroll-hint-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes scroll-hint-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        .nav-logo-dark { display: block; }
+        .nav-logo-light { display: none; }
+        [data-theme='light'] .nav-logo-dark { display: none; }
+        [data-theme='light'] .nav-logo-light { display: block; }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen relative flex flex-col">
+        <div class="star-field"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/5 via-transparent to-transparent pointer-events-none">
+        </div>
+        <div class="grid-bg"></div>
+        <div class="scan-line"></div>
+
+        <!-- Navigation -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 w-full z-50 py-3 md:py-4 px-4 sm:px-6 lg:px-10 flex justify-between items-center backdrop-blur-lg border-b border-[#D4AF37]/30 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+            style="background-color: var(--nav-bg)">
+            <div class="flex items-center gap-3">
+                <a href="index.html" id="nav-logo-link" class="flex items-center gap-3">
+                    <img src="images/js-logo-dark.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-dark h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
+                    <img src="images/js-logo-light.png"
+                        alt="Junior Scientist Logo"
+                        class="nav-logo-light h-7 sm:h-9 md:h-11 mr-3 drop-shadow-[0_0_12px_rgba(212,175,55,1)] transition-transform hover:scale-110 relative z-10">
+                    <div class="flex flex-col text-left">
+                        <span
+                            class="font-bold tracking-widest text-base sm:text-lg leading-none uppercase text-[#C41E3A]">CATAPULTIKON</span>
+                        <span
+                            class="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] opacity-50 uppercase text-[var(--text-primary)]">Junior
+                            Scientist 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div
+                class="hidden lg:flex items-center gap-6 xl:gap-8 text-[10px] xl:text-[11px] font-bold tracking-[0.2em] xl:tracking-[0.3em] uppercase text-[var(--text-primary)]">
+                <button id="theme-toggle-desktop"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/10 transition-all text-lg">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="index.html" id="nav-home-link" class="hover:text-[#D4AF37] transition-colors">Events</a>
+
+            </div>
+            <div class="lg:hidden flex items-center gap-3">
+                <button id="theme-toggle-mobile"
+                    class="w-9 h-9 flex items-center justify-center rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/10 transition-all text-base">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 max-w-[1440px] mx-auto w-full px-4 sm:px-6 lg:px-10 pt-24 sm:pt-28 md:pt-32 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 flex flex-col lg:grid lg:grid-cols-12 gap-8 xl:gap-12">
+
+                <!-- Content Column -->
+                <div class="lg:col-span-8 flex flex-col gap-6 sm:gap-8 md:gap-12 order-2 lg:order-1">
+
+                    <!-- Hero Section -->
+                    <section id="hero-compact"
+                        class="relative flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 py-6 sm:py-12 px-4 sm:px-10 glass-card-neon rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.1)]">
+                        <div class="flex-1 z-10 text-center md:text-left w-full">
+                            <div class="mb-6 flex flex-col items-center md:items-start gap-4">
+                                <div class="flex flex-col">
+                                    <p
+                                        class="text-[#D4AF37] tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs font-bold mb-3 sm:mb-4 uppercase">
+                                        The Magical Tournament</p>
+                                    <h1
+                                        class="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-black italic neon-text leading-tight mb-2 sm:mb-4 tracking-tighter w-full drop-shadow-lg">
+                                        CATAPULTIKON
+                                    </h1>
+                                </div>
+                                <h2
+                                    class="text-xs sm:text-sm md:text-lg font-bold tracking-[0.05em] sm:tracking-[0.2em] text-[var(--text-primary)] opacity-100 italic w-full leading-tight md:leading-relaxed">
+                                    MASTER THE MAGICAL LAUNCH
+                                </h2>
+                            </div>
+
+                            <div class="mt-8 flex justify-center md:justify-start lg:hidden">
+                                <a href="#register-card" id="hero-register-btn-mob"
+                                    class="px-8 py-3 bg-[#C41E3A] text-black font-black tracking-widest uppercase hover:bg-[#D4AF37] transition-all">Enter
+                                    the Trial</a>
+                            </div>
+                        </div>
+                        <div
+                            class="relative w-24 sm:w-44 md:w-64 lg:w-72 h-24 sm:h-44 md:h-64 lg:h-72 aspect-square shrink-0 flex items-center justify-center overflow-hidden p-1 sm:p-2 md:p-3">
+                            <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786699324852-6a777f5b/ChatGPT_Image_Aug_14__2026__02_51_56_PM.png"
+                                alt="Hero Catapult Logo"
+                                class="w-full h-full max-w-full object-contain drop-shadow[0_0_70px_rgba(212,175,55,0.95)]"
+                                width="280" height="280">
+                        </div>
+                    </section>
+
+                    <!-- Event Overview -->
+                    <section id="overview" class="glass-card-neon p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl">
+                        <h3
+                            class="text-[#D4AF37] font-black mb-6 flex items-center gap-3 tracking-widest uppercase text-sm sm:text-base">
+                            <iconify-icon icon="game-icons:parchment" class="text-xl"></iconify-icon> The Enchanted
+                            Scroll
+                        </h3>
+                        <div
+                            class="space-y-4 sm:space-y-6 text-gray-100 text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-loose italic drop-shadow-sm">
+                            <p>
+                                For centuries, the world of magic has been filled with powerful spells, legendary
+                                wizards, and extraordinary feats. But today, a new challenge awaits.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center gap-6">
+                                <p class="flex-1">
+                                    Hidden within the walls of the wizarding world lies an ancient magical artefact —
+                                    the <span class="text-[#D4AF37] font-bold">Enchanted Catapult</span>. Only those who
+                                    can master its power, speed, and precision can prove themselves worthy of the title
+                                    of Master Wizard.
+                                </p>
+                            </div>
+                            <p>
+                                Today, you are no longer ordinary competitors. You are wizards entering the ultimate
+                                magical trial.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- The Three Trials (Rounds) -->
+                    <section id="rounds" class="space-y-4 sm:space-y-6">
+                        <div class="text-center py-4">
+                            <span class="text-[#D4AF37] text-xl" style="font-weight: 700;">✦ ✧ THEME: HARRY PORTER✧
+                                ✦</span>
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-[0.2em] text-lg sm:text-xl mt-2">The
+                                Three Trials</h3>
+                        </div>
+
+                        <div class="grid gap-6">
+                            <div class="glass-card-neon p-3 sm:p-5 md:p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div
+                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4
+                                        class="text-[#D4AF37] font-black uppercase tracking-widest text-xs sm:text-sm md:text-base">
+                                        Round 1 — The Wizard's Trial</h4>
+                                    <span
+                                        class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim:
+                                        Range</span>
+                                </div>
+                                <p
+                                    class="text-gray-100 text-xs sm:text-sm md:text-base font-medium leading-relaxed mb-3 sm:mb-4">
+                                    Every wizard must first prove the power and reach of their magical catapult. Each
+                                    team will receive 3 attempts, and the best attempt will be considered. The maximum
+                                    range achieved will determine the ranking, and the top 50 percent teams will advance
+                                    to the next magical trial.
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"Every great wizard
+                                    begins with a first spell. Every great champion begins with a first launch."</p>
+                            </div>
+
+                            <div class="glass-card-neon p-3 sm:p-5 md:p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div
+                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4
+                                        class="text-[#D4AF37] font-black uppercase tracking-widest text-xs sm:text-sm md:text-base">
+                                        Round 2 — The Spellcasting Trial</h4>
+                                    <span
+                                        class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim:
+                                        Frequency</span>
+                                </div>
+                                <p
+                                    class="text-gray-100 text-xs sm:text-sm md:text-base font-medium leading-relaxed mb-3 sm:mb-4">
+                                    The surviving wizards now face the ultimate test of speed and consistency. Each
+                                    wizard will be given a certain amount of time to launch as many projectiles as
+                                    possible. The number of successful launches within the given time will be recorded.
+                                    Wizards who demonstrate the highest frequency of successful shots will qualify for
+                                    the final round.
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"The clock is ticking,
+                                    the spells are flying — only the fastest wizards will survive."</p>
+                            </div>
+
+                            <div class="glass-card-neon p-3 sm:p-5 md:p-6 rounded-2xl border-l-4 border-[#C41E3A]">
+                                <div
+                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                                    <h4
+                                        class="text-[#D4AF37] font-black uppercase tracking-widest text-xs sm:text-sm md:text-base">
+                                        Round 3 — Grand Finale</h4>
+                                    <span
+                                        class="px-3 py-1 bg-[#C41E3A]/20 text-[#C41E3A] text-[10px] font-black uppercase tracking-tighter">Aim:
+                                        Range + Accuracy</span>
+                                </div>
+                                <p
+                                    class="text-gray-100 text-xs sm:text-sm md:text-base font-medium leading-relaxed mb-3 sm:mb-4">
+                                    The final wizards enter the ultimate magical showdown. The target will be placed at
+                                    the maximum successful range achieved in the previous rounds. Each finalist will
+                                    have 3 chances to hit the Target. The challenge is to combine Range (Reach the
+                                    target) and Accuracy (Hit the target successfully).
+                                </p>
+                                <p class="text-[#D4AF37] text-[10px] sm:text-xs italic font-bold">"The final spell is
+                                    cast. The target awaits. Only one wizard will claim the crown."</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Info Grid -->
+                    <section id="quick-info" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:calendar" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Tournament Date</p>
+                            <p class="text-xs sm:text-base font-black">11th October, 2026</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:banknote" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Trial Fee</p>
+                            <p class="text-xs sm:text-base font-black">₹60 Per Team</p>
+                        </div>
+                        <div class="glass-card-neon p-6 rounded-xl text-center border-b-2 border-[#C41E3A]">
+                            <iconify-icon icon="lucide:map-pin" class="text-[#C41E3A] text-2xl mb-2"></iconify-icon>
+                            <p class="text-[10px] text-gray-500 font-black uppercase">Magical Venue</p>
+                            <p class="text-xs sm:text-base font-black">VNIT Nagpur</p>
+                        </div>
+                    </section>
+
+                    <!-- Rules and Specs Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <section id="rules" class="space-y-6">
+                            <h3
+                                class="text-[#C41E3A] font-black uppercase tracking-widest text-xs sm:text-sm border-l-4 border-[#C41E3A] pl-4">
+                                Tournament Laws</h3>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">1.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">A maximum of 3 members
+                                        allowed per team (6th to 12th standard).</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">2.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">Participants must bring the
+                                        letter of acceptance on the day of the event.</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">3.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">In case of any dispute, the
+                                        organizing committee decision is final and binding.</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">4.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">A team can contain players
+                                        from different schools as well.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="specs" class="space-y-6">
+                            <h3
+                                class="text-[#C41E3A] font-black uppercase tracking-widest text-xs sm:text-sm border-l-4 border-[#C41E3A] pl-4">
+                                Catapult Specifications</h3>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">I.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">Maximum size: 3×3×3 feet.</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">II.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">Strictly non-handheld (No
+                                        Slingshots allowed).</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">III.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">Mechanical/non-electrical
+                                        only. Single arm design. Any material except metal.</p>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 glass-card-neon rounded-xl bg-black/20 backdrop-blur-md">
+                                    <span class="text-[#D4AF37] font-bold">IV.</span>
+                                    <p class="text-xs sm:text-sm font-semibold text-white">Must fire spherical
+                                        projectiles (max diameter 4 cm).</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Highlights Section -->
+                    <section id="highlights-gallery" class="my-12 sm:my-16 md:my-20">
+                        <div class="text-center py-8 sm:py-12">
+                            <h3 class="text-[#C41E3A] font-black uppercase tracking-[0.2em] text-lg sm:text-xl">
+                                HIGHLIGHTS OF CATAPULTIKON 25</h3>
+                            <div class="h-1 w-20 bg-[#D4AF37] mx-auto mt-4 rounded-full"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-0 sm:px-2 w-full">
+                            <div
+                                class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379475789-0144ac57/image1.png"
+                                    alt="Highlight Image 1"
+                                    class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105 bg-gray-900">
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Ancient
+                                        Artifacts</p>
+                                </div>
+                            </div>
+                            <div
+                                class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379521757-3c25ba23/image3.png"
+                                    alt="Highlight Image 2"
+                                    class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105 bg-gray-900">
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Trial of
+                                        Wisdom</p>
+                                </div>
+                            </div>
+                            <div
+                                class="relative w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-[#C41E3A]/20 hover:border-[#D4AF37]/50 group">
+                                <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/20f1db05-b0e5-4779-9ac3-0c8f6c871bf8/1786379534096-79b47fee/image6.png"
+                                    alt="Highlight Image 3"
+                                    class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105 bg-gray-900">
+                                <div class="absolute bottom-4 left-4 border-l-2 border-[#D4AF37] pl-3">
+                                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest">Final
+                                        Showdown</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Coordinators -->
+                    <section id="coordinators" class="pb-8 transition-colors duration-300">
+                        <h3
+                            class="text-[#C41E3A] font-black uppercase tracking-widest text-xs sm:text-sm mb-6 sm:mb-8 text-center">
+                            Magical Prefects</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <a href="tel:9039110591" id="coord-akshansh"
+                                class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0"
+                                    style="background-color: rgb(51, 51, 51);">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Akshansh
+                                        Namdeo</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">9039110591</p>
+                                </div>
+                            </a>
+                            <a href="tel:7038826254" id="coord-manoj"
+                                class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0"
+                                    style="background-color: rgb(51, 51, 51);">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Manoj Potre
+                                    </p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">7038826254</p>
+                                </div>
+                            </a>
+                            <a href="tel:8928037057" id="coord-arya"
+                                class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0"
+                                    style="background-color: rgb(51, 51, 51);">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Arya pawar
+                                    </p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">8928037057</p>
+                                </div>
+                            </a>
+                            <a href="tel:8956411808" id="coord-vaibhavi"
+                                class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0"
+                                    style="background-color: rgb(51, 51, 51);">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Vaibhavi
+                                        Tembhurne</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">8956411808</p>
+                                </div>
+                            </a>
+                            <a href="tel:9860607461" id="coord-aditya"
+                                class="glass-card-neon p-4 rounded-xl flex items-center gap-4 group hover:bg-[#D4AF37]/10 transition-all">
+                                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center border border-[#D4AF37]/30 shrink-0"
+                                    style="background-color: rgb(51, 51, 51);">
+                                    <iconify-icon icon="lucide:phone" class="text-[#D4AF37] text-base"></iconify-icon>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-[10px] font-black uppercase leading-none mb-1 truncate">Aditya Anil
+                                        Mali</p>
+                                    <p class="text-xs text-[#C41E3A] font-bold">9860607461</p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Registration Sidebar -->
+                <div class="lg:col-span-4 order-1 lg:order-2">
+                    <div id="register-card"
+                        class="glass-card-neon p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#C41E3A]/40 shadow-[0_0_30px_rgba(196,30,58,0.15)]">
+                        <div class="text-center mb-8">
+                            <div class="inline-flex gap-2 mb-4">
+                                <iconify-icon icon="lucide:wand-2" class="text-[#D4AF37] text-xl"></iconify-icon>
+                                <iconify-icon icon="lucide:sparkles" class="text-[#D4AF37] text-xl"></iconify-icon>
+                                <iconify-icon icon="lucide:castle" class="text-[#D4AF37] text-xl"></iconify-icon>
+                            </div>
+                            <h3
+                                class="text-xl sm:text-2xl font-black italic tracking-wider text-[#D4AF37] mb-1 sm:mb-2">
+                                REGISTER NOW</h3>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-[0.3em] uppercase">Tournament
+                                Enrollment</p>
+                        </div>
+
+                        <form class="space-y-4" id="catapultikon-register-form" novalidate>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Team
+                                    Name</label>
+                                <input type="text" id="team_name" placeholder="Enter team identity" class="form-input"
+                                    required>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#C41E3A] uppercase tracking-widest px-1">Team
+                                    Size</label>
+                                <select id="team_size" class="form-input" required>
+                                    <option value="1">1 Member</option>
+                                    <option value="2">2 Members</option>
+                                    <option value="3" selected>3 Members</option>
+                                </select>
+                            </div>
+
+                            <div id="members-container" class="space-y-4"></div>
+
+                            <button type="submit" id="register-btn-main"
+                                class="w-full py-4 mt-6 bg-[#C41E3A] hover:bg-red-800 text-black font-black text-base sm:text-sm tracking-[0.2em] uppercase transition-all shadow-[0_0_25px_rgba(212,175,55,0.5)] border border-[#D4AF37]/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                                style="font-weight: 500;">CLAIM YOUR WAND</button>
+                        </form>
+
+                        <div class="pt-6 border-t border-white/10 text-center mt-6">
+                            <p class="text-[9px] text-gray-600 font-bold uppercase tracking-[0.2em]">Enter as a
+                                competitor. Leave as a legend.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-[#C41E3A]/10 text-center transition-colors duration-300"
+            style="background-color: var(--nav-bg)">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <img src="images/catapultikon-logo-gold.png"
+                    alt="Catapult Logo Footer"
+                    class="h-5 sm:h-6 md:h-7 drop-shadow-[0_0_10px_rgba(212,175,55,0.8)] opacity-60">
+                <span class="text-sm font-black tracking-[0.3em] text-[#C41E3A] uppercase">Catapultikon 2026 • VNIT
+                    Nagpur</span>
+            </div>
+            <div
+                class="flex flex-wrap justify-center gap-x-10 gap-y-3 mb-6 text-[10px] font-black uppercase text-gray-500">
+                <a href="index.html" id="footer-home-link" class="hover:text-[#D4AF37] transition-colors">Home</a>
+            </div>
+
+            <p class="text-[10px] text-gray-700 tracking-[0.4em] uppercase font-bold px-4">PRECISION • POWER • MAGIC</p>
+        </footer>
+    </div>
+    <script>
+        const themeToggles = [document.getElementById('theme-toggle-desktop'), document.getElementById('theme-toggle-mobile')];
+        const themeIcons = document.querySelectorAll('.theme-icon');
+        const html = document.documentElement;
+
+        const setTheme = (theme) => {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('js-theme', theme);
+            themeIcons.forEach(icon => {
+                icon.innerText = theme === 'light' ? '☀️' : '🌙';
+            });
+        };
+
+        const savedTheme = localStorage.getItem('js-theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                setTheme(currentTheme === 'light' ? 'dark' : 'light');
+            });
+        });
+    </script>
+
+    <!-- Catapultikon Registration Form -->
+    <script>
+        (function () {
+            const teamSizeSelect = document.getElementById('team_size');
+            const membersContainer = document.getElementById('members-container');
+            const form = document.getElementById('catapultikon-register-form');
+            const submitBtn = document.getElementById('register-btn-main');
+
+            function renderMembers() {
+                const count = +teamSizeSelect.value;
+                membersContainer.innerHTML = '';
+                for (let i = 1; i <= count; i++) {
+                    membersContainer.insertAdjacentHTML('beforeend', `
+                        <div class="pt-4 border-t border-white/10 space-y-1">
+                            <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest mb-2">Member ${i}</p>
+                            <input type="text" id="member_${i}_name" placeholder="Full Name" class="form-input member-name" required>
+                            <input type="tel" id="member_${i}_phone" placeholder="Phone Number" class="form-input member-phone" required>
+                            <input type="tel" id="member_${i}_alt_phone" placeholder="Parent / Alt Phone (optional)" class="form-input">
+                            <input type="email" id="member_${i}_email" placeholder="Email Address" class="form-input member-email" required>
+                            <input type="text" id="member_${i}_school" placeholder="School" class="form-input">
+                            <input type="text" id="member_${i}_city" placeholder="City" class="form-input">
+                            <select id="member_${i}_class" class="form-input">
+                                <option value="" disabled selected>Select Standard</option>
+                                <option value="6">6th Standard</option>
+                                <option value="7">7th Standard</option>
+                                <option value="8">8th Standard</option>
+                                <option value="9">9th Standard</option>
+                                <option value="10">10th Standard</option>
+                                <option value="11">11th Standard</option>
+                                <option value="12">12th Standard</option>
+                            </select>
+                        </div>
+                    `);
+                }
+                updateButtonState();
+            }
+
+            function updateButtonState() {
+                submitBtn.disabled = !form.checkValidity();
+            }
+
+            form.addEventListener('input', updateButtonState);
+            form.addEventListener('change', updateButtonState);
+
+            renderMembers();
+            teamSizeSelect.addEventListener('change', renderMembers);
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                let valid = true;
+                form.querySelectorAll('input').forEach(el => { el.style.borderColor = ''; });
+
+                if (document.getElementById('team_name').value.trim().length < 2) {
+                    document.getElementById('team_name').style.borderColor = 'red';
+                    valid = false;
+                }
+                document.querySelectorAll('.member-name').forEach(el => {
+                    if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-phone').forEach(el => {
+                    if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+                document.querySelectorAll('.member-email').forEach(el => {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                });
+
+                if (!valid) {
+                    alert('Please correct the highlighted fields before submitting.');
+                    return;
+                }
+
+                const count = +teamSizeSelect.value;
+                const formData = new FormData();
+                formData.append('team_name', document.getElementById('team_name').value.trim());
+                formData.append('team_size', String(count));
+
+                for (let i = 1; i <= count; i++) {
+                    formData.append(`member_${i}_name`, document.getElementById(`member_${i}_name`).value.trim());
+                    formData.append(`member_${i}_phone`, document.getElementById(`member_${i}_phone`).value.trim());
+                    formData.append(`member_${i}_alt_phone`, document.getElementById(`member_${i}_alt_phone`).value.trim());
+                    formData.append(`member_${i}_email`, document.getElementById(`member_${i}_email`).value.trim());
+                    formData.append(`member_${i}_school`, document.getElementById(`member_${i}_school`).value.trim());
+                    formData.append(`member_${i}_city`, document.getElementById(`member_${i}_city`).value.trim());
+                    formData.append(`member_${i}_class`, document.getElementById(`member_${i}_class`).value.trim());
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'CASTING SPELL...';
+
+                try {
+                    const response = await fetch('/api/catapultikon/register', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json().catch(() => ({}));
+
+                    if (response.ok) {
+                        const regId = result.registration_id ? `\n\nYour Registration ID: ${result.registration_id}\n(Save this for reference)` : '';
+                        alert('Registration Successful! Welcome to Catapultikon.' + regId);
+                        form.reset();
+                        renderMembers();
+                    } else {
+                        alert(result.detail || result.message || 'Registration failed. Please try again.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not connect to the server. Please check your connection and try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'CLAIM YOUR WAND';
+                    updateButtonState();
+                }
+            });
+        })();
+    </script>
+    <!-- QR CODE POPUP -->
+    <div id="qr-modal" class="qr-modal">
+        <div class="qr-modal-content">
+
+            <button type="button" id="qr-close" class="qr-close">
+                &times;
+            </button>
+
+            <img id="qr-large" src="" alt="Enlarged Payment QR Code">
+
+            <p>Scan to make payment</p>
+
+        </div>
+    </div>
+
+    <script src="payment-upload.js"></script>
+
+    <button type="button" id="scroll-hint-catapultikon" onclick="document.getElementById('hero-compact').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Scroll to event info" class="scroll-hint-btn lg:hidden z-20 w-9 h-9 flex items-center justify-center rounded-full border backdrop-blur-sm" style="border-color:#D4AF37;color:#D4AF37;background:rgba(0,0,0,0.35);"><iconify-icon icon="lucide:chevron-down" class="text-lg"></iconify-icon></button>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('scroll-hint-catapultikon');
+            var target = document.getElementById('hero-compact');
+            if (btn && target && 'IntersectionObserver' in window) {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        btn.classList.toggle('scroll-hint-hidden', entry.isIntersecting);
+                    });
+                }, { threshold: 0 });
+                obs.observe(target);
+            }
+        })();
+    </script>
+
+</body>
+
 </html>
