@@ -7,8 +7,7 @@ import time
 from pathlib import Path
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
+from google.oauth2 import service_account  # Added this for Service Accounts
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseUpload
@@ -22,17 +21,22 @@ MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 
 
 def get_drive_service():
-    """Build a Drive client for the personal Google account stored in Vercel."""
-    token_json = os.environ.get("GOOGLE_DRIVE_OAUTH_TOKEN_JSON")
+    """Build a Drive client using Google Cloud Service Account credentials."""
+    # Changed the expected environment variable name to reflect the new key type
+    token_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
     if not token_json:
-        raise RuntimeError("GOOGLE_DRIVE_OAUTH_TOKEN_JSON is not configured.")
+        raise RuntimeError("GOOGLE_SERVICE_ACCOUNT_JSON is not configured.")
 
-    credentials = Credentials.from_authorized_user_info(json.loads(token_json), SCOPES)
-    if credentials.expired and credentials.refresh_token:
-        credentials.refresh(Request())
-    if not credentials.valid:
-        raise RuntimeError("Google Drive OAuth credentials are invalid or expired.")
+    try:
+        service_account_info = json.loads(token_json)
+        credentials = service_account.Credentials.from_service_account_info(
+            service_account_info, scopes=SCOPES
+        )
+    except Exception as e:
+        logger.error(f"Failed to parse service account credentials: {e}")
+        raise RuntimeError("Google Drive Service Account credentials are invalid.")
 
+    # Service Account credentials handle their own token refreshes automatically!
     return build("drive", "v3", credentials=credentials, cache_discovery=False)
 
 
