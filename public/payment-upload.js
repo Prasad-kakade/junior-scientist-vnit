@@ -124,17 +124,18 @@
                 data.append('image', image);
 
                 // --- Grab event name and applicant name ---
+                // --- Grab event name and applicant name ---
                 const eventName = pageName.replace('.html', '');
 
                 // Universal line to find the name input across ALL forms (Individual & Team)
-                const nameInput = form.querySelector('#team-name-input, input[name="team_name"], input[name="name_1"], #full_name, #name, #delegate_name, input[name="full_name"], input[name="name"]');
+                const nameInput = form.querySelector('#team_name, #team-name-input, input[name="team_name"], input[name="name_1"], #full_name, #name, #delegate_name, input[name="full_name"], input[name="name"]');
 
                 let applicantName = "Unknown-Applicant";
                 if (nameInput && nameInput.value.trim() !== '') {
                     applicantName = nameInput.value.trim();
                 } else {
                     // Stop the upload if they haven't typed their name yet
-                    showStatus('Please type your Name in the form above before uploading.', true);
+                    showStatus('Please type your Name or Team Name in the form above before uploading.', true);
                     uploadButton.disabled = false;
                     uploadButton.textContent = 'Upload Image';
                     return;
@@ -142,6 +143,7 @@
 
                 data.append('applicant_name', applicantName);
                 data.append('event_name', eventName);
+                // -----------------------------------------------
                 // -----------------------------------------------
 
                 const response = await fetch('/api/upload', { method: 'POST', body: data });
