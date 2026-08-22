@@ -1,8 +1,0 @@
-venv/
-__pycache__/
-*.pyc
-.env
-credential.json
-oauth_client.json
-token.json
-.windsurfrules
