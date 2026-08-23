@@ -75,6 +75,31 @@
             html:not([data-theme]) body.light-mode input:autofill {
                 color: #111827 !important;
             }
+
+            /* Belt-and-suspenders: force the text color on every form
+               field unconditionally, regardless of whether a value came
+               from typing, a click on the browser's suggestion dropdown,
+               or actual profile autofill. This does not depend on which
+               native mechanism the browser used, so it can't silently
+               fail to match like the :-webkit-autofill-only rules above
+               could. Background/border are left alone -- only text color
+               is forced, so each page's existing field styling is kept. */
+            [data-theme='dark'] input,
+            [data-theme='dark'] select,
+            [data-theme='dark'] textarea,
+            html:not([data-theme]) body:not(.light-mode) input,
+            html:not([data-theme]) body:not(.light-mode) select,
+            html:not([data-theme]) body:not(.light-mode) textarea {
+                color: #ffffff !important;
+            }
+            [data-theme='light'] input,
+            [data-theme='light'] select,
+            [data-theme='light'] textarea,
+            html:not([data-theme]) body.light-mode input,
+            html:not([data-theme]) body.light-mode select,
+            html:not([data-theme]) body.light-mode textarea {
+                color: #111827 !important;
+            }
         `;
         document.head.appendChild(style);
     }
