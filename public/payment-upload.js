@@ -28,6 +28,53 @@
                 caret-color: currentColor;
                 transition: background-color 9999s ease-in-out 0s;
             }
+
+            /* Browser-suggested autofill (name/email/etc picked from the
+               dropdown) forces its own black text + light background via
+               a UA style that ignores our page CSS. currentColor above
+               isn't reliable enough on its own, so force explicit theme
+               colors here too, covering both theming setups used across
+               the 7 pages: the [data-theme] attribute (6 pages) and
+               mathamaze.html's body.light-mode class. */
+            [data-theme='dark'] input:-webkit-autofill,
+            [data-theme='dark'] input:-webkit-autofill:hover,
+            [data-theme='dark'] input:-webkit-autofill:focus,
+            [data-theme='dark'] input:-webkit-autofill:active,
+            [data-theme='dark'] select:-webkit-autofill,
+            [data-theme='dark'] textarea:-webkit-autofill,
+            html:not([data-theme]) body:not(.light-mode) input:-webkit-autofill,
+            html:not([data-theme]) body:not(.light-mode) input:-webkit-autofill:hover,
+            html:not([data-theme]) body:not(.light-mode) input:-webkit-autofill:focus,
+            html:not([data-theme]) body:not(.light-mode) input:-webkit-autofill:active {
+                -webkit-text-fill-color: #ffffff !important;
+                caret-color: #ffffff !important;
+                box-shadow: 0 0 0px 1000px #111827 inset !important;
+                transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+            }
+            [data-theme='light'] input:-webkit-autofill,
+            [data-theme='light'] input:-webkit-autofill:hover,
+            [data-theme='light'] input:-webkit-autofill:focus,
+            [data-theme='light'] input:-webkit-autofill:active,
+            [data-theme='light'] select:-webkit-autofill,
+            [data-theme='light'] textarea:-webkit-autofill,
+            html:not([data-theme]) body.light-mode input:-webkit-autofill,
+            html:not([data-theme]) body.light-mode input:-webkit-autofill:hover,
+            html:not([data-theme]) body.light-mode input:-webkit-autofill:focus,
+            html:not([data-theme]) body.light-mode input:-webkit-autofill:active {
+                -webkit-text-fill-color: #111827 !important;
+                caret-color: #111827 !important;
+                box-shadow: 0 0 0px 1000px #ffffff inset !important;
+                transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+            }
+            /* Firefox / modern Chrome unprefixed pseudo-class */
+            [data-theme='dark'] input:autofill,
+            html:not([data-theme]) body:not(.light-mode) input:autofill {
+                color: #ffffff !important;
+            }
+            [data-theme='light'] input:autofill,
+            html:not([data-theme]) body.light-mode input:autofill {
+                color: #111827 !important;
+            }
         `;
         document.head.appendChild(style);
     }
