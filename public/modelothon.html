@@ -52,6 +52,25 @@
     [data-theme='light'] { color-scheme: light; }
     [data-theme='dark'] { color-scheme: dark; }
 
+    /* FIX DROPDOWN VISIBILITY */
+    [data-theme='light'] select {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        border-color: #d1d5db !important;
+    }
+    [data-theme='light'] select option {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+    }
+    [data-theme='dark'] select {
+        background-color: #111827 !important;
+        color: #ffffff !important;
+    }
+    [data-theme='dark'] select option {
+        background-color: #111827 !important;
+        color: #ffffff !important;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-deep);
