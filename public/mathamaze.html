@@ -681,7 +681,10 @@
         fieldIds.forEach(id => { fields[id].style.borderColor = ''; });
 
         if (fields.full_name.value.trim().length < 2) { fields.full_name.style.borderColor = 'red'; valid = false; }
-        if (!/^\d{10}$/.test(fields.phone.value.trim())) { fields.phone.style.borderColor = 'red'; valid = false; }
+        if (!/^\+?[\d\s]+$/.test(fields.phone.value.trim())) {
+            fields.phone.style.borderColor = 'red';
+            valid = false;
+        }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.value.trim())) { fields.email.style.borderColor = 'red'; valid = false; }
         if (fields.student_class.value.trim().length < 1) { fields.student_class.style.borderColor = 'red'; valid = false; }
         if (fields.school.value.trim().length < 1) { fields.school.style.borderColor = 'red'; valid = false; }
