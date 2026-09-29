@@ -877,7 +877,10 @@
                 if (nameEl.value.trim().length < 2) { nameEl.style.borderColor = 'red'; valid = false; }
                 if (schoolEl.value.trim().length < 2) { schoolEl.style.borderColor = 'red'; valid = false; }
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) { emailEl.style.borderColor = 'red'; valid = false; }
-                if (!/^\d{10}$/.test(phoneEl.value.trim())) { phoneEl.style.borderColor = 'red'; valid = false; }
+                if (!/^(?:\+91\s?)?\d+$/.test(phoneEl.value.trim())) {
+                    phoneEl.style.borderColor = 'red';
+                    valid = false;
+                }
 
                 questionIds.forEach(id => {
                     const el = document.getElementById(id);

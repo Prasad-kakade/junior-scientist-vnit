@@ -864,7 +864,13 @@
                     if (el.value.trim().length < 2) { el.style.borderColor = 'red'; valid = false; }
                 });
                 document.querySelectorAll('.member-phone').forEach(el => {
-                    if (!/^\d{10}$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
+                    const phone = el.value.trim();
+                    const digits = phone.replace(/\D/g, '');
+
+                    if (!/^\+?[\d\s]+$/.test(phone) || digits.length < 10) {
+                        el.style.borderColor = 'red';
+                        valid = false;
+                    }
                 });
                 document.querySelectorAll('.member-email').forEach(el => {
                     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { el.style.borderColor = 'red'; valid = false; }
