@@ -114,13 +114,13 @@
         'jso.html': '#22c55e'
     };
     const qrCodes = {
-    'mun.html': 'images/qr_mun.png',
-    'modelothon.html': 'images/qr_modelothon.png',
-    'jso.html': 'images/qr_jso.png',
-    'exquizit.html': 'images/qr_exquizit.png',
-    'arduinoexp.html': 'images/qr_arduino.png',
-    'catapultikon.html': 'images/qr_catapultikon.png',
-    'mathamaze.html': 'images/qr_mathamaze.png'
+    'mun.html': 'images/qr_new_mun.png',
+    'modelothon.html': 'images/cata_ardui_mode.png',
+    'jso.html': 'images/qr_jso_mathamaze.png',
+    'exquizit.html': 'images/qr_new_exquizit.png',
+    'arduinoexp.html': 'images/cata_ardui_mode.png',
+    'catapultikon.html': 'images/cata_ardui_mode.png',
+    'mathamaze.html': 'images/qr_jso_mathamaze.png'
 };
     const forms = document.querySelectorAll('form');
 
