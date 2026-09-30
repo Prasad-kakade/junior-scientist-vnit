@@ -114,7 +114,7 @@
         'jso.html': '#22c55e'
     };
     const qrCodes = {
-    'mun.html': 'images/qr_new_mun.png',
+    'mun.html': 'images/qr_mun.png',
     'modelothon.html': 'images/cata_ardui_mode.png',
     'jso.html': 'images/qr_jso_mathamaze.png',
     'exquizit.html': 'images/qr_new_exquizit.png',
