@@ -117,8 +117,8 @@
     'mun.html': 'images/Mun_abaa.jpeg',
     'modelothon.html': 'images/Cat_Mod_abaa.jpeg',
     'jso.html': 'images/Jso_abaa.jpeg',
-    'exquizit.html': 'images/qr_new_exquizit.png',
-    'arduinoexp.html': 'images/cata_ardui_mode.png',
+    'exquizit.html': 'images/Exquizit_abaa.jpeg',
+    'arduinoexp.html': 'images/Arduino_abaa.jpeg',
     'catapultikon.html': 'images/Cat_Mod_abaa.jpeg',
     'mathamaze.html': 'images/mathamaze_abaa.jpeg'
 };
