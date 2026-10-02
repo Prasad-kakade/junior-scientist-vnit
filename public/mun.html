@@ -679,110 +679,126 @@
                             </a></div>
                     </section>
                 </div>
-                <aside class="lg:col-span-4">
-                    <div id="register"
-                        class="glass-card-neon p-8 rounded-3xl border-t border-[var(--neon-blue)] shadow-[0_0_20px_rgba(31,81,186,0.2)]">
-                        <h3 class="text-2xl font-black text-[var(--text-primary)] mb-2 italic tracking-tighter">DELEGATE
-                            REGISTRATION</h3>
-                        <p class="text-[var(--text-secondary)] text-[10px] uppercase tracking-widest mb-8">Individual
-                            registration only. Secure your seat in the Human Rights Council.</p>
-                        <form class="space-y-5" id="mun-register-form" novalidate>
-                            <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Full
-                                    Name</label><input type="text" id="full_name" placeholder="Enter Full Name" class="form-input-mun" required></div>
-                            <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">School</label><input
-                                    type="text" id="delegate_school" placeholder="Enter School Name"
-                                    class="form-input-mun" required></div>
-                            <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Email</label><input
-                                    type="email" id="delegate_email" placeholder="Enter Official Email"
-                                    class="form-input-mun" required></div>
-                            <div class="space-y-2"><label
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Phone
-                                    Number</label><input type="tel" id="delegate_phone"
-                                    placeholder="10-Digit Phone Number" class="form-input-mun" required></div>
+               <aside class="lg:col-span-4">
+    <!-- 1. RELATIVE WRAPPER (Added relative overflow-hidden) -->
+    <div id="register"
+        class="glass-card-neon p-8 rounded-3xl border-t border-[var(--neon-blue)] shadow-[0_0_20px_rgba(31,81,186,0.2)] relative overflow-hidden">
+        
+        <!-- 2. OVERLAY MESSAGE (Using var(--neon-blue) for theme consistency) -->
+        <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 p-6 text-center">
+            <div class="border border-[var(--neon-blue)]/40 bg-black/60 p-6 rounded-2xl backdrop-blur-md shadow-[0_0_20px_rgba(31,81,186,0.15)]">
+                <h3 class="text-xl font-black italic mb-2 text-[var(--neon-blue)] uppercase">Registration Closed</h3>
+                <p class="text-xs text-gray-300 tracking-wider uppercase mb-1">Online registrations have ended.</p>
 
-                            <div class="pt-4 border-t border-[var(--glass-border)] space-y-5">
-                                <p
-                                    class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">
-                                    Compulsory Questionnaire</p>
+            </div>
+        </div>
 
-                                <div class="space-y-2">
-                                    <label for="q1" class="questionnaire-q text-[var(--text-primary)] block px-1">Q1)
-                                        Some wars burn beneath a thousand cameras; others starve in the dark. Why does
-                                        the world's compassion follow the headline rather than the hunger, and what is
-                                        the true cost of that selective gaze?</label>
-                                    <textarea id="q1" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
+        <!-- 3. BLURRED CONTENT WRAPPER -->
+        <div class="blur-[5px] pointer-events-none select-none opacity-40">
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-2 italic tracking-tighter">DELEGATE
+                REGISTRATION</h3>
+            <p class="text-[var(--text-secondary)] text-[10px] uppercase tracking-widest mb-8">Individual
+                registration only. Secure your seat in the Human Rights Council.</p>
+            
+            <form class="space-y-5" id="mun-register-form" novalidate>
+                <!-- 4. DISABLED INPUTS -->
+                <div class="space-y-2"><label
+                        class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Full
+                        Name</label><input type="text" id="full_name" placeholder="Enter Full Name" class="form-input-mun" required disabled></div>
+                <div class="space-y-2"><label
+                        class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">School</label><input
+                        type="text" id="delegate_school" placeholder="Enter School Name"
+                        class="form-input-mun" required disabled></div>
+                <div class="space-y-2"><label
+                        class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Email</label><input
+                        type="email" id="delegate_email" placeholder="Enter Official Email"
+                        class="form-input-mun" required disabled></div>
+                <div class="space-y-2"><label
+                        class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">Phone
+                        Number</label><input type="tel" id="delegate_phone"
+                        placeholder="10-Digit Phone Number" class="form-input-mun" required disabled></div>
 
-                                <div class="space-y-2">
-                                    <label for="q2" class="questionnaire-q text-[var(--text-primary)] block px-1">Q2)
-                                        Many clean-energy technologies depend on minerals that are found and processed
-                                        in only a few countries. Could the world's shift to clean energy create a new
-                                        kind of dependence between countries? How can this be avoided?</label>
-                                    <textarea id="q2" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
+                <div class="pt-4 border-t border-[var(--glass-border)] space-y-5">
+                    <p
+                        class="text-[10px] font-black text-[var(--neon-blue)] uppercase tracking-widest px-1">
+                        Compulsory Questionnaire</p>
 
-                                <div class="space-y-2">
-                                    <label for="q3" class="questionnaire-q text-[var(--text-primary)] block px-1">Q3)
-                                        Artificial intelligence can now create realistic videos, images, and voices of
-                                        political leaders. If people can no longer easily tell what is real and what is
-                                        fake, how can democracies protect fair and trustworthy elections?</label>
-                                    <textarea id="q3" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
-
-                                <div class="space-y-2">
-                                    <label for="q4" class="questionnaire-q text-[var(--text-primary)] block px-1">Q4)
-                                        The dragon has mastered the age of the electron while the eagle still trades in
-                                        the age of fire. When the poorer half of the world must choose which century to
-                                        wire its cities for, what does it truly purchase along with the cheaper
-                                        cable?</label>
-                                    <textarea id="q4" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
-
-                                <div class="space-y-2">
-                                    <label for="q5" class="questionnaire-q text-[var(--text-primary)] block px-1">Q5)
-                                        Five guardians hold permanent keys to a house built from the ashes of 1945, and
-                                        any one of them may bolt the door alone. Eighty years on, should the locks be
-                                        changed, the keys be shared, or the house be rebuilt from its
-                                        foundation?</label>
-                                    <textarea id="q5" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
-
-                                <div class="space-y-2">
-                                    <label for="q6" class="questionnaire-q text-[var(--text-primary)] block px-1">Q6)
-                                        What newborn oracle, raised on the harvested memories of all humankind, now
-                                        drafts verses, verdicts and war plans alike, while its own makers quarrel over
-                                        who holds the leash and who carries the blame?</label>
-                                    <textarea id="q6" class="form-input-mun" rows="3"
-                                        placeholder="Your answer" required></textarea>
-                                </div>
-                            </div>
-
-                            <button type="submit" id="register-submit-btn"
-                                class="w-full bg-[var(--neon-blue)] hover:bg-blue-600 py-4 text-white font-black uppercase tracking-widest text-sm transition-all shadow-lg shadow-[0_0_20px_rgba(31,81,186,0.3)] mt-4">Submit
-                                Credentials</button>
-                        </form>
-                        <div class="mt-8 flex items-center gap-4 text-[var(--text-secondary)]">
-                            <div class="flex -space-x-2">
-                                <div class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[#0A2647]">
-                                </div>
-                                <div class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[#144272]">
-                                </div>
-                                <div
-                                    class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--neon-blue)]">
-                                </div>
-                            </div><span class="text-[9px] font-bold uppercase tracking-wider italic">140+ Delegates
-                                Applied</span>
-                        </div>
+                    <div class="space-y-2">
+                        <label for="q1" class="questionnaire-q text-[var(--text-primary)] block px-1">Q1)
+                            Some wars burn beneath a thousand cameras; others starve in the dark. Why does
+                            the world's compassion follow the headline rather than the hunger, and what is
+                            the true cost of that selective gaze?</label>
+                        <textarea id="q1" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
                     </div>
-                </aside>
+
+                    <div class="space-y-2">
+                        <label for="q2" class="questionnaire-q text-[var(--text-primary)] block px-1">Q2)
+                            Many clean-energy technologies depend on minerals that are found and processed
+                            in only a few countries. Could the world's shift to clean energy create a new
+                            kind of dependence between countries? How can this be avoided?</label>
+                        <textarea id="q2" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="q3" class="questionnaire-q text-[var(--text-primary)] block px-1">Q3)
+                            Artificial intelligence can now create realistic videos, images, and voices of
+                            political leaders. If people can no longer easily tell what is real and what is
+                            fake, how can democracies protect fair and trustworthy elections?</label>
+                        <textarea id="q3" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="q4" class="questionnaire-q text-[var(--text-primary)] block px-1">Q4)
+                            The dragon has mastered the age of the electron while the eagle still trades in
+                            the age of fire. When the poorer half of the world must choose which century to
+                            wire its cities for, what does it truly purchase along with the cheaper
+                            cable?</label>
+                        <textarea id="q4" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="q5" class="questionnaire-q text-[var(--text-primary)] block px-1">Q5)
+                            Five guardians hold permanent keys to a house built from the ashes of 1945, and
+                            any one of them may bolt the door alone. Eighty years on, should the locks be
+                            changed, the keys be shared, or the house be rebuilt from its
+                            foundation?</label>
+                        <textarea id="q5" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="q6" class="questionnaire-q text-[var(--text-primary)] block px-1">Q6)
+                            What newborn oracle, raised on the harvested memories of all humankind, now
+                            drafts verses, verdicts and war plans alike, while its own makers quarrel over
+                            who holds the leash and who carries the blame?</label>
+                        <textarea id="q6" class="form-input-mun" rows="3"
+                            placeholder="Your answer" required disabled></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" id="register-submit-btn" disabled
+                    class="w-full bg-[var(--neon-blue)] hover:bg-blue-600 py-4 text-white font-black uppercase tracking-widest text-sm transition-all shadow-lg shadow-[0_0_20px_rgba(31,81,186,0.3)] mt-4 disabled:opacity-50">Submit
+                    Credentials</button>
+            </form>
+            <div class="mt-8 flex items-center gap-4 text-[var(--text-secondary)]">
+                <div class="flex -space-x-2">
+                    <div class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[#0A2647]">
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[#144272]">
+                    </div>
+                    <div
+                        class="w-6 h-6 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--neon-blue)]">
+                    </div>
+                </div><span class="text-[9px] font-bold uppercase tracking-wider italic">140+ Delegates
+                    Applied</span>
+            </div>
+        </div>
+    </div>
+</aside>
             </div>
         </main>
         <footer class="border-t border-[var(--glass-border)] pt-16 pb-8 bg-[var(--bg-primary)]">

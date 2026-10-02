@@ -540,46 +540,64 @@
                 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black italic text-purple-400 mb-6 flex items-center gap-3">
                 <iconify-icon icon="lucide:maze"></iconify-icon>REGISTER NOW
               </h2>
-              <form id="reg-form" class="flex flex-col gap-4" novalidate>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Full
-                    Name</label><input type="text" id="full_name" placeholder="ENTER NAME" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Email
-                    Address</label><input type="email" id="email" placeholder="YOUR@EMAIL.COM" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Contact
-                    Number</label><input type="tel" id="phone" placeholder="+91 XXXXXXXXXX" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Parent /
-                    Alt Number <span class="opacity-50 normal-case">(optional)</span></label><input type="tel"
-                    id="alt_phone" placeholder="+91 XXXXXXXXXX"
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Class</label><input
-                    type="text" id="student_class" placeholder="E.G. 10TH" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Institution</label><input
-                    type="text" id="school" placeholder="SCHOOL / COLLEGE" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div>
-                <div class="space-y-1"><label
-                    class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">City</label><input
-                    type="text" id="city" placeholder="CITY" required
-                    class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
-                </div><button type="submit" id="btn-register"
-                  class="w-full bg-purple-600 hover:bg-purple-700 text-black font-black uppercase tracking-widest py-3 sm:py-4 md:py-5 rounded-lg mt-4 text-sm sm:text-base md:text-lg shadow-[0_5px_20px_rgba(157,78,221,0.4)] transition-all active:scale-95">Register
-                  Now</button>
-              </form>
+              <!-- 1. ADDED RELATIVE WRAPPER -->
+<div class="relative overflow-hidden rounded-xl">
+    
+    <!-- 2. ADDED OVERLAY MESSAGE -->
+    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 p-6 text-center">
+        <div class="border border-purple-500/40 bg-black/60 p-6 rounded-2xl backdrop-blur-md shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+            <h3 class="text-xl font-black italic mb-2 text-purple-400 uppercase">Registration Closed</h3>
+            <p class="text-xs text-gray-300 tracking-wider uppercase mb-1">Online registrations have ended.</p>
+            <p class="text-sm font-bold text-purple-500 mt-3 tracking-wide">ON-SPOT REGISTRATION AVAILABLE!</p>
+        </div>
+    </div>
+
+    <!-- 3. ADDED BLUR WRAPPER -->
+    <div class="blur-[5px] pointer-events-none select-none opacity-40">
+        <form id="reg-form" class="flex flex-col gap-4" novalidate>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Full
+                Name</label><input type="text" id="full_name" placeholder="ENTER NAME" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Email
+                Address</label><input type="email" id="email" placeholder="YOUR@EMAIL.COM" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Contact
+                Number</label><input type="tel" id="phone" placeholder="+91 XXXXXXXXXX" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Parent /
+                Alt Number <span class="opacity-50 normal-case">(optional)</span></label><input type="tel"
+                id="alt_phone" placeholder="+91 XXXXXXXXXX" disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Class</label><input
+                type="text" id="student_class" placeholder="E.G. 10TH" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">Institution</label><input
+                type="text" id="school" placeholder="SCHOOL / COLLEGE" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            <div class="space-y-1"><label
+                class="text-[10px] md:text-[11px] font-black text-purple-500 tracking-[0.2em] uppercase">City</label><input
+                type="text" id="city" placeholder="CITY" required disabled
+                class="w-full bg-white/5 border border-white/10 rounded-lg py-3 md:py-4 px-4 md:px-5 text-base sm:text-lg md:text-sm font-bold tracking-widest text-white focus:border-purple-500/50 outline-none transition-all">
+            </div>
+            
+            <button type="submit" id="btn-register" disabled
+              class="w-full bg-purple-600 hover:bg-purple-700 text-black font-black uppercase tracking-widest py-3 sm:py-4 md:py-5 rounded-lg mt-4 text-sm sm:text-base md:text-lg shadow-[0_5px_20px_rgba(157,78,221,0.4)] transition-all active:scale-95 disabled:opacity-50">Register
+              Now</button>
+        </form>
+    </div>
+</div>
               <p class="text-[9px] text-center mt-6 text-gray-500 font-bold uppercase tracking-widest">Secure
                 mathematical gateway active</p>
             </div>
